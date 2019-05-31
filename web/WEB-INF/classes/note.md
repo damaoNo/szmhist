@@ -1,1 +1,1 @@
-# 服务器编译文件存放位置
+# his-hospital information system
