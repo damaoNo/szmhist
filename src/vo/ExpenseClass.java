@@ -58,7 +58,7 @@ public class ExpenseClass {
 
     @Override
     public String toString() {
-        return "ExpenseClass{" +
+        return "ExpenseClassDao{" +
                 "id=" + id +
                 ", expCode='" + expCode + '\'' +
                 ", expName='" + expName + '\'' +
