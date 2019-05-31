@@ -5,34 +5,8 @@ dao层
 数据库设计 ----------
 
 ### 数据表设计清单
-| 1        | 常数类别表               | constatnttype        |\
-| 2        | 常数项表                 | constatntitem        |\
-| 3        | 科室表                   | department           |\
-| 4        | 挂号级别表               | registlevel          |\
-| 5        | 用户表                   | user                 |\
-| 6        | 结算类别表               | settlecategory       |\
-| 7        | 疾病分类表               | disecategory         |\
-| 8        | 疾病表                   | disease              |\
-| 9        | 费用科目表               | expenseclass         |\
-| 10       | 非药品收费项目表         | fmeditem             |\
-| 11       | 药品目录表               | drugs                |\
-| 12       | 排班规则表               | rule                 |\
-| 13       | 排班表                   | scheduling           |\
-| 14       | 患者历次挂号信息表       | register             |\
-| 15       | 患者病历首页表           | medicalrecord        |\
-| 16       | 患者评估/诊断表          | medicaldisease       |\
-| 17       | 患者检查/检验/处置申请表 | checkapply           |\
-| 18       | 检查/检验/处置申请模板表 | checktemplate        |\
-| 19       | 检查/检验/处置模板明细表 | checkrelation        |\
-| 20       | 患者成药处方表           | prescription         |\
-| 21       | 患者成药处方明细表       | prescriptiondetailed |\
-| 24       | 患者草药处方表           | herbalprescription   |\
-| 25       | 草药处方明细表           | herbaldetailed       |\
-| 28       | 患者费用明细表           | patientcosts         |\
-| 29       | 发票表                   | invoice              |\
-| 30       | 操作员日结表             | registwork           |
 
-### 详细数据表设计
+[TOC]
 
 #### *constanttype（常数类别表）*
 
