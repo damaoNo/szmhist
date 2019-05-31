@@ -1,13 +1,10 @@
-[TOC]
+
 # dao层
 存放数据库数据处理类\
 数据库设计
 
 ### 数据表设计清单
-
-<a href="user">user</a>
-
-[constanttype](#2)
+[constanttype](#2)\
 [user](#user)
 
 
