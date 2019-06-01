@@ -1,12 +1,10 @@
 package test;
 
-import org.junit.Test;
 import service.IRegistService;
 import service.RegistService;
 
 import java.sql.SQLException;
 
-import static org.junit.Assert.*;
 
 public class RegistServiceTest {
 
