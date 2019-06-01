@@ -8,6 +8,7 @@
 package service;
 
 import vo.Invoice;
+import vo.PatientCosts;
 import vo.RegistLevel;
 import vo.Register;
 
@@ -70,13 +71,13 @@ public interface IRegistService {
     int findDoctorUsedId(Register reg) throws SQLException;
 
     /**
-     * @Description: 现场挂号
+     * @Description: 现场挂号,挂号时间为系统当前时间
      * @Param: [reg]
      * @return: java.lang.Boolean 是否插入成功
      * @Author: cro
      * @Date: 2019/6/1
      */
-    Boolean regist(Register reg) throws SQLException;
+    boolean regist(Register reg) throws SQLException;
 
     /**
      * @Description: 使用发票记录
@@ -85,5 +86,13 @@ public interface IRegistService {
      * @Author: cro
      * @Date: 2019/6/1
      */
-    Boolean useInvoice(Invoice iv) throws SQLException;
+    boolean useInvoice(Invoice iv) throws SQLException;
+    /**
+     * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
+     * @Param: [pc]
+     * @return: void
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    boolean insertPatientCosts(PatientCosts pc) throws SQLException;
 }

@@ -1,45 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="0.2 挂号差一个">
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRegistDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RegistDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/about.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/IRegistService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/RegistService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/about.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/RegistServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/util/JdbcUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/util/about.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/CheckApply.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/ConstantItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/ConstantType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Department.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/DiseCategory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Disease.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Drugs.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/DrugsDetailed.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/DrugsTemplate.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/ExpenseClass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Fmeditem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/HerbalDetailed.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/HerbalPrescription.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Invoice.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/MedicalDisease.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/MedicalRecord.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/PatientCosts.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Prescription.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/PrescriptionDetailed.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/RegistLevel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/RegistWork.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Register.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Rule.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Scheduling.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/SettleCategory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/about.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/about.md" afterDir="false" />
+    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="0.2 修改gitignore文件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/IRegistDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IRegistDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/RegistDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/RegistDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/IRegistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/IRegistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/RegistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/RegistService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
@@ -71,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dao/IRegistDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+            <state relative-caret-position="442">
+              <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,12 +47,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dao/RegistDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5376">
-              <caret line="278" column="16" lean-forward="true" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="16" />
+            <state relative-caret-position="596">
+              <caret line="309" column="5" selection-start-line="309" selection-start-column="5" selection-end-line="309" selection-end-column="5" />
               <folding>
+                <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="method#selectMaxInvoiceNum#0;class#RegistDao#0" />
                 <element signature="method#selectMaxCaseNum#0;class#RegistDao#0" />
@@ -98,20 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/IRegistService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
+            <state relative-caret-position="442">
+              <caret line="90" column="43" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/RegistService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="272" column="24" selection-start-line="272" selection-start-column="24" selection-end-line="272" selection-end-column="24" />
+            <state relative-caret-position="190">
+              <caret line="289" column="43" lean-forward="true" selection-start-line="289" selection-start-column="29" selection-end-line="289" selection-end-column="43" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -185,15 +144,15 @@
         <option value="$PROJECT_DIR$/src/dao/IExpenseClassDao.java" />
         <option value="$PROJECT_DIR$/src/dao/ExpenseClass.java" />
         <option value="$PROJECT_DIR$/src/vo/Register.java" />
-        <option value="$PROJECT_DIR$/src/service/IRegistService.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/service/RegistService.java" />
+        <option value="$PROJECT_DIR$/src/service/IRegistService.java" />
         <option value="$PROJECT_DIR$/src/dao/IRegistDao.java" />
         <option value="$PROJECT_DIR$/src/dao/RegistDao.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1057" />
@@ -399,6 +358,7 @@
       <workItem from="1559273397422" duration="2866000" />
       <workItem from="1559279608561" duration="7468000" />
       <workItem from="1559288439790" duration="7365000" />
+      <workItem from="1559398967213" duration="1191000" />
     </task>
     <task id="LOCAL-00001" summary="ver 0.0:&#10;add readme">
       <created>1559230289989</created>
@@ -533,17 +493,24 @@
       <option name="project" value="LOCAL" />
       <updated>1559379705553</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="0.2 修改gitignore文件">
+      <created>1559379983859</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1559379983859</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29005000" />
+    <option name="totallyTimeSpent" value="30760000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="953" y="0" width="974" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.27985075" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49835527" weight="0.27985075" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" sideWeight="0.50164473" side_tool="true" weight="0.14712153" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -630,7 +597,8 @@
     <MESSAGE value="1,本地提交测试" />
     <MESSAGE value="1,本地提交删除测试" />
     <MESSAGE value="0.2 挂号差一个" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.2 挂号差一个" />
+    <MESSAGE value="0.2 修改gitignore文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2 修改gitignore文件" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../his/.gitignore" />
@@ -762,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vo/PatientCosts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vo/Scheduling.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="666">
@@ -884,20 +845,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/IRegistService.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="140">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vo/PatientCosts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="112" column="33" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/RegistService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="272" column="24" selection-start-line="272" selection-start-column="24" selection-end-line="272" selection-end-column="24" />
+        <state relative-caret-position="190">
+          <caret line="289" column="43" lean-forward="true" selection-start-line="289" selection-start-column="29" selection-end-line="289" selection-end-column="43" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -905,10 +870,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/IRegistService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="90" column="43" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/IRegistDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+        <state relative-caret-position="442">
+          <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -917,9 +892,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/RegistDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5376">
-          <caret line="278" column="16" lean-forward="true" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="16" />
+        <state relative-caret-position="596">
+          <caret line="309" column="5" selection-start-line="309" selection-start-column="5" selection-end-line="309" selection-end-column="5" />
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="method#selectMaxInvoiceNum#0;class#RegistDao#0" />
             <element signature="method#selectMaxCaseNum#0;class#RegistDao#0" />
@@ -928,13 +904,6 @@
             <element signature="method#selectRegistLevelByID#0;class#RegistDao#0" />
             <element signature="method#selectDepartment#0;class#RegistDao#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>

@@ -208,7 +208,7 @@ public class RegistDao implements IRegistDao{
 
     /**
      * @param reg
-     * @Description: 插入挂号记录
+     * @Description: 插入挂号记录,挂号时间为系统当前时间
      * @Param: [reg]
      * @return: java.lang.Boolean 是否插入成功
      * @Author: cro
@@ -277,7 +277,7 @@ public class RegistDao implements IRegistDao{
 
     /**
      * @param pc
-     * @Description: 记录患者费用明细
+     * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
      * @Param: [pc]
      * @return: void
      * @Author: cro
@@ -290,9 +290,22 @@ public class RegistDao implements IRegistDao{
                 "Amount,DeptID,Createtime,CreateOperID,PayTime,RegisterID,FeeType,BackID) " +
                 "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement pstm = con.prepareStatement(sql);
-        /*插入语句*/
+        pstm.setInt(1,pc.getRegistID());
+        pstm.setInt(2,pc.getInvoiceID());
+        pstm.setInt(3,pc.getItemID());
+        pstm.setInt(4,pc.getItemType());
+        pstm.setString(5,pc.getName());
+        pstm.setDouble(6,pc.getPrice());
+        pstm.setDouble(7,pc.getAmount());
+        pstm.setInt(8,pc.getDeptID());
+        Date creatTime=new Date(pc.getCreateTime().getTime());
+        pstm.setDate(9,creatTime);
+        pstm.setInt(10,pc.getCreateOperID());
+        Date payTime=new Date(pc.getPayTime().getTime());
+        pstm.setDate(11,payTime);
+        pstm.setInt(12,pc.getRegisterID());
+        pstm.setInt(13,pc.getFeeType());
+        pstm.setInt(14,pc.getBackID());
         JdbcUtil.release(null,pstm,null);
     }
-
-
 }

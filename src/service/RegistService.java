@@ -11,6 +11,7 @@ import dao.IRegistDao;
 import dao.RegistDao;
 import util.JdbcUtil;
 import vo.Invoice;
+import vo.PatientCosts;
 import vo.RegistLevel;
 import vo.Register;
 
@@ -228,14 +229,14 @@ public class RegistService implements IRegistService{
 
     /**
      * @param reg
-     * @Description: 现场挂号
+     * @Description: 现场挂号,挂号时间为系统当前时间
      * @Param: [reg]
      * @return: java.lang.Boolean 是否插入成功
      * @Author: cro
      * @Date: 2019/6/1
      */
     @Override
-    public Boolean regist(Register reg) throws SQLException {
+    public boolean regist(Register reg) throws SQLException {
         Connection con=null;
         int allUsedId=0;
         try {
@@ -264,7 +265,7 @@ public class RegistService implements IRegistService{
      * @Date: 2019/6/1
      */
     @Override
-    public Boolean useInvoice(Invoice iv) throws SQLException {
+    public boolean useInvoice(Invoice iv) throws SQLException {
         Connection con=null;
         int allUsedId=0;
         try {
@@ -273,6 +274,34 @@ public class RegistService implements IRegistService{
             IRegistDao registDao=new RegistDao();
             registDao.setConnection(con);
             registDao.insertInvoice(iv);
+            con.commit();
+            return true;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return false;
+    }
+
+    /**
+     * @param pc
+     * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
+     * @Param: [pc]
+     * @return: void
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    @Override
+    public boolean insertPatientCosts(PatientCosts pc) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IRegistDao registDao=new RegistDao();
+            registDao.setConnection(con);
+            registDao.insertPatientCosts(pc);
             con.commit();
             return true;
         } catch (SQLException e) {

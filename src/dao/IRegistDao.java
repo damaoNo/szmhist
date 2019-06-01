@@ -65,7 +65,7 @@ public interface IRegistDao {
 */
     int selectDoctorUsedId(Register reg) throws SQLException;
     /**
-    * @Description: 插入挂号记录
+    * @Description: 插入挂号记录,挂号时间为系统当前时间
     * @Param: [reg]
     * @return: java.lang.Boolean 是否插入成功
     * @Author: cro
@@ -81,7 +81,7 @@ public interface IRegistDao {
     */
     void insertInvoice(Invoice iv) throws SQLException;
     /** 
-    * @Description: 记录患者费用明细
+    * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
     * @Param: [pc] 
     * @return: void 
     * @Author: cro
