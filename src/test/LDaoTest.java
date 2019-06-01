@@ -11,7 +11,7 @@ public class LDaoTest {
         ExpenseClassDao dao=new ExpenseClassDao();
         ExpenseClass us=dao.readEffectiveCostSubject("XYF","");
         System.out.println(us);
-
+        System.out.println("this is it");
     }
 
 }
