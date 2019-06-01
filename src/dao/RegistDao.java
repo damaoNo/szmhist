@@ -8,14 +8,9 @@
 package dao;
 
 import util.JdbcUtil;
-import vo.Department;
-import vo.RegistLevel;
-import vo.SettleCategory;
+import vo.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -161,29 +156,143 @@ public class RegistDao implements IRegistDao{
      * @return list-User对象-id,realname
      */
     @Override
-    public List selectDoctorInfo() throws SQLException {
+    public List selectDoctorInfo(Register reg) throws SQLException {
         String sql ="select user.id,user.realname from scheduling,user "
                 +"where scheduling.UserId = user.DeptId "
                 +"and scheduling.SchedDate = ? "
                 +"and scheduling.Noon = ? "
                 +"and scheduling.DeptID = ? "
-                +"and user.RegistLeID = ? "
-                ;
+                +"and user.RegistLeID = ? ";
         PreparedStatement pstm = con.prepareStatement(sql);
+        Date date=new Date(reg.getVisitDate().getTime());
+        pstm.setDate(1,date);
+        pstm.setString(2,reg.getNoon());
+        pstm.setInt(3,reg.getDeptID());
+        pstm.setInt(4,reg.getRegistLeID());
         ResultSet rs = pstm.executeQuery();
-        List<Department> list=new ArrayList<>();
-        Department dpmt=new Department();
+        List<User> list=new ArrayList<>();
+        User user=new User();
         while (rs.next()){
-            dpmt=null;
-            dpmt.setId(rs.getInt(1));
-            dpmt.setDeptCode(rs.getString(2));
-            dpmt.setDeptName(rs.getString(3));
-            list.add(dpmt);
+            user=null;
+            user.setId(rs.getInt(1));
+            user.setRealName(rs.getString(2));
+            list.add(user);
         }
         JdbcUtil.release(null,pstm,null);
         return list;
     }
 
+    /**
+     * @param reg
+     * @Description: 根据选中医生读取当日已用号额
+     * @Param: [userId] 医生ID
+     * @return: int 已用号额，当天共有多少人已预约
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    @Override
+    public int selectDoctorUsedId(Register reg) throws SQLException {
+        String sql ="select count(id) from register where UserID=? and VisitDate=? and VisitState in (1,2,3)";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setInt(1,reg.getUserID());
+        Date date=new Date(reg.getVisitDate().getTime());
+        pstm.setDate(2,date);
+        ResultSet rs = pstm.executeQuery();
+        int allUsedId=0;
+        while (rs.next()){
+            allUsedId=rs.getInt(1);
+        }
+        JdbcUtil.release(null,pstm,null);
+        return allUsedId;
+    }
+
+    /**
+     * @param reg
+     * @Description: 插入挂号记录
+     * @Param: [reg]
+     * @return: java.lang.Boolean 是否插入成功
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    @Override
+    public Boolean insertRegist(Register reg) throws SQLException {
+        String sql ="insert into register(CaseNumber,RealName,Gender,IDnumber,BirthDate,Age,AgeType," +
+                "HomeAddress,VisitDate,Noon,DeptID,UserID,RegistLeID,SettleID,IsBook,RegistTime,RegisterID,VisitState) "
+                +"values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1) ";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1,reg.getCaseNumber());
+        pstm.setString(2,reg.getRealName());
+        pstm.setInt(3,reg.getGender());
+        pstm.setString(4,reg.getIdNumber());
+        Date date=new Date(reg.getBirthDate().getTime());
+        pstm.setDate(5,date);
+        pstm.setInt(6,reg.getAge());
+        String ageType=String.valueOf(reg.getAgeTpye());
+        pstm.setString(7,ageType);
+        pstm.setString(8,reg.getHomeAddress());
+        Date vistiDate=new Date(reg.getVisitDate().getTime());
+        pstm.setDate(9,vistiDate);
+        pstm.setString(10,reg.getNoon());
+        pstm.setInt(11,reg.getDeptID());
+        pstm.setInt(12,reg.getUserID());
+        pstm.setInt(13,reg.getRegistLeID());
+        pstm.setInt(14,reg.getSettLeID());
+        String isbook=String.valueOf(reg.getisBook());
+        pstm.setString(15,isbook);
+        /*注册日期设置为当前系统日期*/
+        Date registTime=new Date(System.currentTimeMillis());
+        pstm.setDate(16,registTime);
+        pstm.setInt(17,reg.getRegisterID());
+        pstm.executeUpdate();
+        JdbcUtil.release(null,pstm,null);
+        return true;
+    }
+
+    /**
+     * @param iv
+     * @Description: 插入使用发票记录
+     * @Param: [iv]
+     * @return: void
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    @Override
+    public void insertInvoice(Invoice iv) throws SQLException {
+        String sql ="insert into " +
+                "invoice(InvoiceNum,Money,State,CreationTime,UserID,RegistID,FeeType,Back,DailyState) " +
+                "values(?,?,?,?,?,?,?,?,?)";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1,iv.getInvoiceNum());
+        pstm.setDouble(2,iv.getMoney());
+        pstm.setInt(3,iv.getState());
+        pstm.setDate(4,new Date(System.currentTimeMillis()));
+        pstm.setInt(5,iv.getUserID());
+        pstm.setInt(6,iv.getRegistID());
+        pstm.setInt(7,iv.getFeeType());
+        pstm.setString(8,iv.getBack());
+        pstm.setInt(9,iv.getDailyState());
+        pstm.executeUpdate();
+        JdbcUtil.release(null,pstm,null);
+    }
+
+    /**
+     * @param pc
+     * @Description: 记录患者费用明细
+     * @Param: [pc]
+     * @return: void
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    @Override
+    public void insertPatientCosts(PatientCosts pc) throws SQLException {
+        String sql ="insert into " +
+                "patientcosts(RegistID,InvoiceID,ItemID,ItemType,Name,Price," +
+                "Amount,DeptID,Createtime,CreateOperID,PayTime,RegisterID,FeeType,BackID) " +
+                "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        /*插入语句*/
+        JdbcUtil.release(null,pstm,null);
+    }
 
 
 }

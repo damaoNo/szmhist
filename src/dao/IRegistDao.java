@@ -1,6 +1,6 @@
 package dao;
 
-import vo.RegistLevel;
+import vo.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -55,5 +55,37 @@ public interface IRegistDao {
      * 根据看诊日期,午别,排班科室,挂号级别读取当天出诊医生ID,姓名
      * @return list-User对象-id,realname
      */
-    List selectDoctorInfo() throws SQLException;
+    List selectDoctorInfo(Register reg) throws SQLException;
+/** 
+* @Description:  根据选中医生读取当日已用号额
+* @Param: [userId] 医生ID
+* @return: int 已用号额，当天共有多少人已预约
+* @Author: cro
+* @Date: 2019/6/1 
+*/
+    int selectDoctorUsedId(Register reg) throws SQLException;
+    /**
+    * @Description: 插入挂号记录
+    * @Param: [reg]
+    * @return: java.lang.Boolean 是否插入成功
+    * @Author: cro
+    * @Date: 2019/6/1
+    */
+    Boolean insertRegist(Register reg) throws SQLException;
+    /**
+    * @Description: 插入使用发票记录
+    * @Param: [iv]
+    * @return: void
+    * @Author: cro
+    * @Date: 2019/6/1
+    */
+    void insertInvoice(Invoice iv) throws SQLException;
+    /** 
+    * @Description: 记录患者费用明细
+    * @Param: [pc] 
+    * @return: void 
+    * @Author: cro
+    * @Date: 2019/6/1 
+    */
+    void insertPatientCosts(PatientCosts pc) throws SQLException;
 }
