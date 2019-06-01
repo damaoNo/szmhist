@@ -13,7 +13,7 @@ public class ExpenseClassDao implements IExpenseClassDao{
 
     @Override
     public vo.ExpenseClass readEffectiveCostSubject(String expc,String expn) throws SQLException {
-        String sql="select id,expcode,expname,delmark from expenseclass where (expcode like ? or expname like ?) delmark=1";
+        String sql="select id,expcode,expname,delmark from expenseclass where (expcode like ? or expname like ?) and delmark=1";
         con= JdbcUtil.getConnection();
         PreparedStatement ps=con.prepareStatement(sql);
         ps.setString(1,expc);
