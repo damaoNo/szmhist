@@ -1,13 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/dao/IRegistDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IRegistDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/RegistDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/RegistDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/IRegistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/IRegistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/RegistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/RegistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vo/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vo/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vo/Scheduling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vo/Scheduling.java" afterDir="false" />
+    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="0.2 挂号差一个">
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRegistDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RegistDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/about.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/IRegistService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/RegistService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/about.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/RegistServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/util/JdbcUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/util/about.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/CheckApply.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/ConstantItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/ConstantType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Department.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/DiseCategory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Disease.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Drugs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/DrugsDetailed.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/DrugsTemplate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/ExpenseClass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Fmeditem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/HerbalDetailed.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/HerbalPrescription.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Invoice.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/MedicalDisease.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/MedicalRecord.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/PatientCosts.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Prescription.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/PrescriptionDetailed.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/RegistLevel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/RegistWork.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Register.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Rule.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Scheduling.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/SettleCategory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/about.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/about.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
@@ -48,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dao/RegistDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="290" column="24" selection-start-line="290" selection-start-column="24" selection-end-line="290" selection-end-column="24" />
+            <state relative-caret-position="5376">
+              <caret line="278" column="16" lean-forward="true" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#selectMaxInvoiceNum#0;class#RegistDao#0" />
@@ -62,6 +94,15 @@
                 <element signature="method#selectRegistLevelByID#0;class#RegistDao#0" />
                 <element signature="method#selectDepartment#0;class#RegistDao#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -132,7 +173,6 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/lib/note.md" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/entity/CheckApply.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/web/about.md" />
         <option value="$PROJECT_DIR$/src/vo/about.md" />
         <option value="$PROJECT_DIR$/src/util/about.md" />
@@ -149,6 +189,7 @@
         <option value="$PROJECT_DIR$/src/service/RegistService.java" />
         <option value="$PROJECT_DIR$/src/dao/IRegistDao.java" />
         <option value="$PROJECT_DIR$/src/dao/RegistDao.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -485,17 +526,24 @@
       <option name="project" value="LOCAL" />
       <updated>1559292944781</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="0.2 挂号差一个">
+      <created>1559379705553</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1559379705553</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28684000" />
+    <option name="totallyTimeSpent" value="29005000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1057" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49835527" weight="0.28008753" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.27985075" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" sideWeight="0.50164473" side_tool="true" weight="0.14712153" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -581,7 +629,8 @@
     <MESSAGE value="1,备注，测试版" />
     <MESSAGE value="1,本地提交测试" />
     <MESSAGE value="1,本地提交删除测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="1,本地提交删除测试" />
+    <MESSAGE value="0.2 挂号差一个" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2 挂号差一个" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../his/.gitignore" />
@@ -625,7 +674,6 @@
     <entry file="file://$PROJECT_DIR$/web/hello.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/src/web/about.md">
       <provider editor-type-id="text-editor">
         <state>
@@ -869,8 +917,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/RegistDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="290" column="24" selection-start-line="290" selection-start-column="24" selection-end-line="290" selection-end-column="24" />
+        <state relative-caret-position="5376">
+          <caret line="278" column="16" lean-forward="true" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#selectMaxInvoiceNum#0;class#RegistDao#0" />
@@ -880,6 +928,13 @@
             <element signature="method#selectRegistLevelByID#0;class#RegistDao#0" />
             <element signature="method#selectDepartment#0;class#RegistDao#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
