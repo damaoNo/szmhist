@@ -12,7 +12,7 @@ public class Register {
     //真实姓名
     private String realName;
     //性别
-    private int dender;
+    private int gender;
     //身份证号
     private String idNumber;
     //出生日期
@@ -36,7 +36,7 @@ public class Register {
     //挂号类别id
     private int settLeID;
     //是否需要病历本
-    private boolean isBook;
+    private char isBook;
     //挂号时间
     private Date registTime;
     //挂号员id
@@ -68,12 +68,12 @@ public class Register {
         this.realName = realName;
     }
 
-    public int getDender() {
-        return dender;
+    public int getGender() {
+        return gender;
     }
 
-    public void setDender(int dender) {
-        this.dender = dender;
+    public void setGender(int gender) {
+        this.gender = gender;
     }
 
     public String getIdNumber() {
@@ -164,11 +164,11 @@ public class Register {
         this.settLeID = settLeID;
     }
 
-    public boolean isBook() {
+    public char getisBook() {
         return isBook;
     }
 
-    public void setBook(boolean book) {
+    public void setisBook(char book) {
         isBook = book;
     }
 
@@ -205,7 +205,7 @@ public class Register {
                 "id=" + id +
                 ", caseNumber='" + caseNumber + '\'' +
                 ", realName='" + realName + '\'' +
-                ", dender=" + dender +
+                ", gender=" + gender +
                 ", idNumber='" + idNumber + '\'' +
                 ", birthDate=" + birthDate +
                 ", age=" + age +

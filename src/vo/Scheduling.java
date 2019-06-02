@@ -30,4 +30,52 @@ public class Scheduling {
                 ", ruleID=" + ruleID +
                 '}';
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getSchedDate() {
+        return schedDate;
+    }
+
+    public void setSchedDate(Date schedDate) {
+        this.schedDate = schedDate;
+    }
+
+    public int getDeptID() {
+        return deptID;
+    }
+
+    public void setDeptID(int deptID) {
+        this.deptID = deptID;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public String getNoon() {
+        return noon;
+    }
+
+    public void setNoon(String noon) {
+        this.noon = noon;
+    }
+
+    public int getRuleID() {
+        return ruleID;
+    }
+
+    public void setRuleID(int ruleID) {
+        this.ruleID = ruleID;
+    }
 }
