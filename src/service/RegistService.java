@@ -10,7 +10,10 @@ package service;
 import dao.IRegistDao;
 import dao.RegistDao;
 import util.JdbcUtil;
+import vo.Invoice;
+import vo.PatientCosts;
 import vo.RegistLevel;
+import vo.Register;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -173,10 +176,140 @@ public class RegistService implements IRegistService{
     /**
      * 根据看诊日期,午别,排班科室,挂号级别读取当天出诊医生ID,姓名
      *
+     * @param reg
      * @return list-User对象-id,realname
      */
     @Override
-    public List selectDoctorInfo() throws SQLException {
-        return null;
+    public List findDoctorInfo(Register reg) throws SQLException {
+        Connection con=null;
+        List list=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IRegistDao registDao=new RegistDao();
+            registDao.setConnection(con);
+            list=registDao.selectDoctorInfo(reg);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return list;
+    }
+
+    /**
+     * @param reg
+     * @Description: 根据选中医生读取当日已用号额
+     * @Param: [userId] 医生ID
+     * @return: int 已用号额，当天共有多少人已预约
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    @Override
+    public int findDoctorUsedId(Register reg) throws SQLException {
+        Connection con=null;
+        int allUsedId=0;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IRegistDao registDao=new RegistDao();
+            registDao.setConnection(con);
+            allUsedId=registDao.selectDoctorUsedId(reg);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return allUsedId;
+    }
+
+    /**
+     * @param reg
+     * @Description: 现场挂号,挂号时间为系统当前时间
+     * @Param: [reg]
+     * @return: java.lang.Boolean 是否插入成功
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    @Override
+    public boolean regist(Register reg) throws SQLException {
+        Connection con=null;
+        int allUsedId=0;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IRegistDao registDao=new RegistDao();
+            registDao.setConnection(con);
+            registDao.insertRegist(reg);
+            con.commit();
+            return true;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return false;
+    }
+
+    /**
+     * @param iv
+     * @Description: 使用发票记录
+     * @Param: [iv]
+     * @return: boolean 是否插入成功
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    @Override
+    public boolean useInvoice(Invoice iv) throws SQLException {
+        Connection con=null;
+        int allUsedId=0;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IRegistDao registDao=new RegistDao();
+            registDao.setConnection(con);
+            registDao.insertInvoice(iv);
+            con.commit();
+            return true;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return false;
+    }
+
+    /**
+     * @param pc
+     * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
+     * @Param: [pc]
+     * @return: void
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    @Override
+    public boolean insertPatientCosts(PatientCosts pc) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IRegistDao registDao=new RegistDao();
+            registDao.setConnection(con);
+            registDao.insertPatientCosts(pc);
+            con.commit();
+            return true;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return false;
     }
 }

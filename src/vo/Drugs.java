@@ -33,8 +33,13 @@ public class Drugs {
     private Date lastUpdateDate;
     //删除标记
     private int delMark;
+    //药品剂型
+    private String drugJiXing;
+    //药品类型
+    private String drugLeiXing;
 
-    public Drugs(String drugCode, String drugName, String drugsFormat, String drugsUnit, String maufacturer, int drugsDosageID, int drugsTpyeID, Double drugsPrice, String mnemonicCode, Date creationDate, Date lastUpdateDate, int delMark) {
+    public Drugs(int id, String drugCode, String drugName, String drugsFormat, String drugsUnit, String maufacturer, int drugsDosageID, int drugsTpyeID, Double drugsPrice, String mnemonicCode, Date creationDate, Date lastUpdateDate, int delMark, String drugJiXing, String drugLeiXing) {
+        this.id = id;
         this.drugCode = drugCode;
         this.drugName = drugName;
         this.drugsFormat = drugsFormat;
@@ -47,9 +52,27 @@ public class Drugs {
         this.creationDate = creationDate;
         this.lastUpdateDate = lastUpdateDate;
         this.delMark = delMark;
+        this.drugJiXing = drugJiXing;
+        this.drugLeiXing = drugLeiXing;
     }
 
     public Drugs() {
+    }
+
+    public String getDrugJiXing() {
+        return drugJiXing;
+    }
+
+    public void setDrugJiXing(String drugJiXing) {
+        this.drugJiXing = drugJiXing;
+    }
+
+    public String getDrugLeiXing() {
+        return drugLeiXing;
+    }
+
+    public void setDrugLeiXing(String drugLeiXing) {
+        this.drugLeiXing = drugLeiXing;
     }
 
     public int getId() {
