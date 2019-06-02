@@ -31,8 +31,8 @@ public class RegistStateDao implements IRegistStateDao {
      */
     @Override
     public RegisterRecord selectRegistByCaseNumber(String caseNum) throws SQLException {
-        String sql ="select r.ID,r.CaseNumber,r.RealName,r.Gender" +
-                ",r.IDnumber,r.BirthDate,r.Age,r.AgeType,r.HomeAddress," +
+        String sql ="select r.ID,r.CaseNumber,r.RealName,r.Gender," +
+                "r.IDnumber,r.BirthDate,r.Age,r.AgeType,r.HomeAddress," +
                 "r.VisitDate,r.Noon,r.DeptID,r.UserID,r.RegistLeID,r.SettleID," +
                 "r.IsBook,r.RegistTime,r.RegisterID,r.VisitState,d.DeptName " +
                 "from register r,department d " +

@@ -10,10 +10,7 @@ package service;
 import dao.IRegistDao;
 import dao.RegistDao;
 import util.JdbcUtil;
-import vo.Invoice;
-import vo.PatientCosts;
-import vo.RegistLevel;
-import vo.Register;
+import vo.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -111,7 +108,7 @@ public class RegistService implements IRegistService{
             con.setAutoCommit(false);
             IRegistDao registDao=new RegistDao();
             registDao.setConnection(con);
-            list=registDao.selectSettleCategories();
+            list=registDao.selectRegistLevels();
             con.commit();
         } catch (SQLException e) {
             con.rollback();
@@ -180,7 +177,7 @@ public class RegistService implements IRegistService{
      * @return list-User对象-id,realname
      */
     @Override
-    public List findDoctorInfo(Register reg) throws SQLException {
+    public List findDoctorInfo(SchedDoctor sd) throws SQLException {
         Connection con=null;
         List list=null;
         try {
@@ -188,7 +185,7 @@ public class RegistService implements IRegistService{
             con.setAutoCommit(false);
             IRegistDao registDao=new RegistDao();
             registDao.setConnection(con);
-            list=registDao.selectDoctorInfo(reg);
+            list=registDao.selectDoctorInfo(sd);
             con.commit();
         } catch (SQLException e) {
             con.rollback();
@@ -258,7 +255,7 @@ public class RegistService implements IRegistService{
 
     /**
      * @param iv
-     * @Description: 使用发票记录
+     * @Description: 使用发票记录,创建时间自动设置为当前系统时间
      * @Param: [iv]
      * @return: boolean 是否插入成功
      * @Author: cro
@@ -294,7 +291,7 @@ public class RegistService implements IRegistService{
      * @Date: 2019/6/1
      */
     @Override
-    public boolean insertPatientCosts(PatientCosts pc) throws SQLException {
+    public boolean newPatientCosts(PatientCosts pc) throws SQLException {
         Connection con=null;
         try {
             con= JdbcUtil.getConnection();

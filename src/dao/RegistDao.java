@@ -156,7 +156,7 @@ public class RegistDao implements IRegistDao{
      * @return list-User对象-id,realname
      */
     @Override
-    public List selectDoctorInfo(Register reg) throws SQLException {
+    public List selectDoctorInfo(SchedDoctor sd) throws SQLException {
         String sql ="select user.id,user.realname from scheduling,user "
                 +"where scheduling.UserId = user.DeptId "
                 +"and scheduling.SchedDate = ? "
@@ -164,11 +164,11 @@ public class RegistDao implements IRegistDao{
                 +"and scheduling.DeptID = ? "
                 +"and user.RegistLeID = ? ";
         PreparedStatement pstm = con.prepareStatement(sql);
-        Date date=new Date(reg.getVisitDate().getTime());
+        Date date=new Date(sd.getSchedDate().getTime());
         pstm.setDate(1,date);
-        pstm.setString(2,reg.getNoon());
-        pstm.setInt(3,reg.getDeptID());
-        pstm.setInt(4,reg.getRegistLeID());
+        pstm.setString(2,sd.getNoon());
+        pstm.setInt(3,sd.getDeptID());
+        pstm.setInt(4,sd.getRegistLeID());
         ResultSet rs = pstm.executeQuery();
         List<User> list=new ArrayList<>();
         User user=null;
@@ -227,8 +227,7 @@ public class RegistDao implements IRegistDao{
         Date date=new Date(reg.getBirthDate().getTime());
         pstm.setDate(5,date);
         pstm.setInt(6,reg.getAge());
-        String ageType=String.valueOf(reg.getAgeTpye());
-        pstm.setString(7,ageType);
+        pstm.setString(7,reg.getAgeTpye());
         pstm.setString(8,reg.getHomeAddress());
         Date vistiDate=new Date(reg.getVisitDate().getTime());
         pstm.setDate(9,vistiDate);
@@ -237,11 +236,10 @@ public class RegistDao implements IRegistDao{
         pstm.setInt(12,reg.getUserID());
         pstm.setInt(13,reg.getRegistLeID());
         pstm.setInt(14,reg.getSettLeID());
-        String isbook=String.valueOf(reg.getisBook());
-        pstm.setString(15,isbook);
+        pstm.setString(15,reg.getisBook());
         /*注册日期设置为当前系统日期*/
-        Date registTime=new Date(System.currentTimeMillis());
-        pstm.setDate(16,registTime);
+        Timestamp registTime=new Timestamp(System.currentTimeMillis());
+        pstm.setTimestamp(16,registTime);
         pstm.setInt(17,reg.getRegisterID());
         pstm.executeUpdate();
         JdbcUtil.release(null,pstm,null);
@@ -250,7 +248,7 @@ public class RegistDao implements IRegistDao{
 
     /**
      * @param iv
-     * @Description: 插入使用发票记录
+     * @Description: 插入使用发票记录,创建时间自动设置为当前系统时间
      * @Param: [iv]
      * @return: void
      * @Author: cro
@@ -265,7 +263,8 @@ public class RegistDao implements IRegistDao{
         pstm.setString(1,iv.getInvoiceNum());
         pstm.setDouble(2,iv.getMoney());
         pstm.setInt(3,iv.getState());
-        pstm.setDate(4,new Date(System.currentTimeMillis()));
+        Timestamp t=new Timestamp(System.currentTimeMillis());
+        pstm.setTimestamp(4,t);
         pstm.setInt(5,iv.getUserID());
         pstm.setInt(6,iv.getRegistID());
         pstm.setInt(7,iv.getFeeType());
@@ -298,14 +297,14 @@ public class RegistDao implements IRegistDao{
         pstm.setDouble(6,pc.getPrice());
         pstm.setDouble(7,pc.getAmount());
         pstm.setInt(8,pc.getDeptID());
-        Date creatTime=new Date(pc.getCreateTime().getTime());
-        pstm.setDate(9,creatTime);
+        Timestamp creatTime=new Timestamp(System.currentTimeMillis());
+        pstm.setTimestamp(9,creatTime);
         pstm.setInt(10,pc.getCreateOperID());
-        Date payTime=new Date(pc.getPayTime().getTime());
-        pstm.setDate(11,payTime);
+        pstm.setTimestamp(11,pc.getPayTime());
         pstm.setInt(12,pc.getRegisterID());
         pstm.setInt(13,pc.getFeeType());
         pstm.setInt(14,pc.getBackID());
+        pstm.executeUpdate();
         JdbcUtil.release(null,pstm,null);
     }
 }

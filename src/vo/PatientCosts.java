@@ -1,5 +1,6 @@
 package vo;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /*
@@ -17,7 +18,7 @@ public class PatientCosts {
     private int deptID;//执行科室ID
     private Date createTime;//开立时间
     private int createOperID;//开立人员ID
-    private Date payTime;//收/退费时间
+    private Timestamp payTime;//收/退费时间
     private int registerID;//收/退费人员ID
     private int feeType;//收费方式
     private int backID;//退费对应ID
@@ -25,7 +26,7 @@ public class PatientCosts {
     public PatientCosts() {
     }
 
-    public PatientCosts(int registID, int invoiceID, int itemID, int itemType, String name, double price, double amount, int deptID, Date createTime, int createOperID, Date payTime, int registerID, int feeType, int backID) {
+    public PatientCosts(int registID, int invoiceID, int itemID, int itemType, String name, double price, double amount, int deptID, Date createTime, int createOperID, Timestamp payTime, int registerID, int feeType, int backID) {
         this.registID = registID;
         this.invoiceID = invoiceID;
         this.itemID = itemID;
@@ -130,11 +131,11 @@ public class PatientCosts {
         this.createOperID = createOperID;
     }
 
-    public Date getPayTime() {
+    public Timestamp getPayTime() {
         return payTime;
     }
 
-    public void setPayTime(Date payTime) {
+    public void setPayTime(Timestamp payTime) {
         this.payTime = payTime;
     }
 

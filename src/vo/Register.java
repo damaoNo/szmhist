@@ -1,4 +1,5 @@
 package vo;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -20,7 +21,7 @@ public class Register {
     //年龄
     private int age;
     //年龄类型（年-月-日）
-    private char ageTpye;
+    private String ageTpye;
     //家庭住址
     private String homeAddress;
     //本次看诊日期
@@ -36,9 +37,9 @@ public class Register {
     //挂号类别id
     private int settLeID;
     //是否需要病历本
-    private char isBook;
+    private String  isBook;
     //挂号时间
-    private Date registTime;
+    private Timestamp registTime;
     //挂号员id
     private int registerID;
     //看诊状态（1-已经挂号；2-医生接诊；3-看诊结束；4-已退号）
@@ -100,11 +101,11 @@ public class Register {
         this.age = age;
     }
 
-    public char getAgeTpye() {
+    public String getAgeTpye() {
         return ageTpye;
     }
 
-    public void setAgeTpye(char ageTpye) {
+    public void setAgeTpye(String ageTpye) {
         this.ageTpye = ageTpye;
     }
 
@@ -164,19 +165,19 @@ public class Register {
         this.settLeID = settLeID;
     }
 
-    public char getisBook() {
+    public String getisBook() {
         return isBook;
     }
 
-    public void setisBook(char book) {
+    public void setisBook(String  book) {
         isBook = book;
     }
 
-    public Date getRegistTime() {
+    public Timestamp getRegistTime() {
         return registTime;
     }
 
-    public void setRegistTime(Date registTime) {
+    public void setRegistTime(Timestamp registTime) {
         this.registTime = registTime;
     }
 
@@ -193,6 +194,28 @@ public class Register {
     }
 
     public void setVisitState(int visitState) {
+        this.visitState = visitState;
+    }
+
+    public Register(int id, String caseNumber, String realName, int gender, String idNumber, Date birthDate, int age, String ageTpye, String homeAddress, Date visitDate, String noon, int deptID, int userID, int registLeID, int settLeID, String isBook, Timestamp registTime, int registerID, int visitState) {
+        this.id = id;
+        this.caseNumber = caseNumber;
+        this.realName = realName;
+        this.gender = gender;
+        this.idNumber = idNumber;
+        this.birthDate = birthDate;
+        this.age = age;
+        this.ageTpye = ageTpye;
+        this.homeAddress = homeAddress;
+        this.visitDate = visitDate;
+        this.noon = noon;
+        this.deptID = deptID;
+        this.userID = userID;
+        this.registLeID = registLeID;
+        this.settLeID = settLeID;
+        this.isBook = isBook;
+        this.registTime = registTime;
+        this.registerID = registerID;
         this.visitState = visitState;
     }
 

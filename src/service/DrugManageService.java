@@ -29,7 +29,7 @@ public class DrugManageService implements IDrugManageService{
      * @return 药品对象集合
      */
     @Override
-    public List showDrugList(String mnemonicCode, int page) throws SQLException {
+    public List<Drugs> showDrugList(String mnemonicCode, int page) throws SQLException {
         Connection con=null;
         List list=null;
         try {
@@ -53,18 +53,17 @@ public class DrugManageService implements IDrugManageService{
      * 药品列表总页数
      *
      * @param mnemonicCode 助记码
-     * @param page         页数
      * @return 总页数
      */
     @Override
-    public int drugListPages(String mnemonicCode, int page) throws SQLException {
+    public int drugListPages(String mnemonicCode) throws SQLException {
         Connection con=null;
         try {
             con= JdbcUtil.getConnection();
             con.setAutoCommit(false);
             IDrugManageDao dd=new DrugManageDao();
             dd.setConnection(con);
-            int pageNum=dd.drugListPages(mnemonicCode,page);
+            int pageNum=dd.drugListPages(mnemonicCode);
             con.commit();
             return pageNum;
         } catch (SQLException e) {
@@ -124,5 +123,133 @@ public class DrugManageService implements IDrugManageService{
             JdbcUtil.release(con,null,null);
         }
         return null;
+    }
+
+    /**
+     * 查看是否有重复的药品编号
+     *
+     * @param drugscode 药品编号
+     * @return 返回值若为1，则已经存在该药品编号，不能够继续
+     */
+    @Override
+    public int findDrugByID(String  drugscode) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IDrugManageDao dd=new DrugManageDao();
+            dd.setConnection(con);
+            int drugs=dd.selectDrugID(drugscode);
+            con.commit();
+            return drugs;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return 0;
+    }
+
+    /**
+     * 新增一条药品记录,最后更新时间为系统当前时间
+     *
+     * @param drugs 药品对象
+     */
+    @Override
+    public boolean newDrug(Drugs drugs) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IDrugManageDao dd=new DrugManageDao();
+            dd.setConnection(con);
+            dd.insertDrug(drugs);
+            con.commit();
+            return true;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return false;
+    }
+
+    /**
+     * 根据药品名查询特定药品信息
+     *
+     * @param drugName 药品名
+     * @return 药品对象
+     * @throws SQLException
+     */
+    @Override
+    public Drugs findDrugByName(String drugName) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IDrugManageDao dd=new DrugManageDao();
+            dd.setConnection(con);
+            Drugs drugs=dd.selectDrugByName(drugName);
+            con.commit();
+            return drugs;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
+    }
+
+    /**
+     * 修改一条药品记录
+     *
+     * @param drugs 药品对象
+     */
+    @Override
+    public boolean changeDrugInfo(Drugs drugs) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IDrugManageDao dd=new DrugManageDao();
+            dd.setConnection(con);
+            dd.updateDrug(drugs);
+            con.commit();
+            return true;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return false;
+    }
+
+    /**
+     * 批量删除药品
+     *
+     * @param drugNames 要删除的药品名称
+     */
+    @Override
+    public boolean delDrugs(String[] drugNames) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IDrugManageDao dd=new DrugManageDao();
+            dd.setConnection(con);
+            dd.delDrugs(drugNames);
+            con.commit();
+            return true;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return false;
     }
 }
