@@ -25,7 +25,7 @@ public class User {
     //删除编号
     private int delMark;
 
-    public User(String userName, String password, String realName, int useTpye, int docTileID, Boolean isScheduling, int deptid, int registLeID, int delMark) {
+    public User(String userName, String password, String realName, int useTpye, int docTileID, char isScheduling, int deptid, int registLeID, int delMark) {
         this.userName = userName;
         this.password = password;
         this.realName = realName;
@@ -88,11 +88,11 @@ public class User {
         this.docTileID = docTileID;
     }
 
-    public Boolean getScheduling() {
+    public char getScheduling() {
         return isScheduling;
     }
 
-    public void setScheduling(Boolean scheduling) {
+    public void setScheduling(char scheduling) {
         isScheduling = scheduling;
     }
 
