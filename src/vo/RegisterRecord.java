@@ -1,10 +1,17 @@
+/**
+ * * @ClassName: RegistRecord
+ * * @description: 挂号记录
+ * * @author: cro
+ * * @create: 2019-06-02 10:04
+ **/
+
 package vo;
+
 import java.util.Date;
 
-/**
- * 患者历次挂号信息表
- * */
-public class Register {
+public class RegisterRecord{
+    //科室名字
+    private  String deptName;
     //唯一标识
     private int id;
     //病例号
@@ -43,6 +50,40 @@ public class Register {
     private int registerID;
     //看诊状态（1-已经挂号；2-医生接诊；3-看诊结束；4-已退号）
     private int visitState;
+
+    public RegisterRecord( int id, String caseNumber, String realName, int gender, String idNumber, Date birthDate, int age, char ageTpye, String homeAddress, Date visitDate, String noon, int deptID, int userID, int registLeID, int settLeID, char isBook, Date registTime, int registerID, int visitState,String deptName) {
+        this.deptName = deptName;
+        this.id = id;
+        this.caseNumber = caseNumber;
+        this.realName = realName;
+        this.gender = gender;
+        this.idNumber = idNumber;
+        this.birthDate = birthDate;
+        this.age = age;
+        this.ageTpye = ageTpye;
+        this.homeAddress = homeAddress;
+        this.visitDate = visitDate;
+        this.noon = noon;
+        this.deptID = deptID;
+        this.userID = userID;
+        this.registLeID = registLeID;
+        this.settLeID = settLeID;
+        this.isBook = isBook;
+        this.registTime = registTime;
+        this.registerID = registerID;
+        this.visitState = visitState;
+    }
+
+    public RegisterRecord() {
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
 
     public int getId() {
         return id;
@@ -164,12 +205,12 @@ public class Register {
         this.settLeID = settLeID;
     }
 
-    public char getisBook() {
+    public char getIsBook() {
         return isBook;
     }
 
-    public void setisBook(char book) {
-        isBook = book;
+    public void setIsBook(char isBook) {
+        this.isBook = isBook;
     }
 
     public Date getRegistTime() {
@@ -196,13 +237,11 @@ public class Register {
         this.visitState = visitState;
     }
 
-    public Register() {
-    }
-
     @Override
     public String toString() {
-        return "Register{" +
-                "id=" + id +
+        return "RegistRecord{" +
+                "deptName='" + deptName + '\'' +
+                ", id=" + id +
                 ", caseNumber='" + caseNumber + '\'' +
                 ", realName='" + realName + '\'' +
                 ", gender=" + gender +

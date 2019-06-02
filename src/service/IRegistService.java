@@ -7,7 +7,10 @@
 
 package service;
 
+import vo.Invoice;
+import vo.PatientCosts;
 import vo.RegistLevel;
+import vo.Register;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -56,5 +59,40 @@ public interface IRegistService {
      * 根据看诊日期,午别,排班科室,挂号级别读取当天出诊医生ID,姓名
      * @return list-User对象-id,realname
      */
-    List selectDoctorInfo() throws SQLException;
+    List findDoctorInfo(Register reg) throws SQLException;
+
+    /**
+     * @Description:  根据选中医生读取当日已用号额
+     * @Param: [userId] 医生ID
+     * @return: int 已用号额，当天共有多少人已预约
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    int findDoctorUsedId(Register reg) throws SQLException;
+
+    /**
+     * @Description: 现场挂号,挂号时间为系统当前时间
+     * @Param: [reg]
+     * @return: java.lang.Boolean 是否插入成功
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    boolean regist(Register reg) throws SQLException;
+
+    /**
+     * @Description: 使用发票记录
+     * @Param: [iv]
+     * @return: boolean 是否插入成功
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    boolean useInvoice(Invoice iv) throws SQLException;
+    /**
+     * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
+     * @Param: [pc]
+     * @return: void
+     * @Author: cro
+     * @Date: 2019/6/1
+     */
+    boolean insertPatientCosts(PatientCosts pc) throws SQLException;
 }
