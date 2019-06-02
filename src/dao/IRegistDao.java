@@ -56,13 +56,13 @@ public interface IRegistDao {
      * @return list-User对象-id,realname
      */
     List selectDoctorInfo(Register reg) throws SQLException;
-/** 
-* @Description:  根据选中医生读取当日已用号额
-* @Param: [userId] 医生ID
-* @return: int 已用号额，当天共有多少人已预约
-* @Author: cro
-* @Date: 2019/6/1 
-*/
+    /**
+    * @Description:  根据选中医生读取当日已用号额
+    * @Param: [userId] 医生ID
+    * @return: int 已用号额，当天共有多少人已预约
+    * @Author: cro
+    * @Date: 2019/6/1
+    */
     int selectDoctorUsedId(Register reg) throws SQLException;
     /**
     * @Description: 插入挂号记录,挂号时间为系统当前时间

@@ -17,7 +17,7 @@ public class User {
     //医生职称
     private int docTileID;
     //是否排班
-    private Boolean isScheduling;
+    private char isScheduling;
     //部门编号
     private int deptid;
     //挂号级别id

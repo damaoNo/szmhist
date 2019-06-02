@@ -1,5 +1,6 @@
 package test;
 
+import org.junit.Test;
 import service.IRegistService;
 import service.RegistService;
 

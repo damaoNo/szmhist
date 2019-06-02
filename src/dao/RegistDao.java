@@ -70,9 +70,9 @@ public class RegistDao implements IRegistDao{
         PreparedStatement pstm = con.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         List<SettleCategory> settleCategories=new ArrayList<>();
-        SettleCategory category=new SettleCategory();
+        SettleCategory category=null;
         while (rs.next()){
-            category=null;
+            category=new SettleCategory();
             category.setId(rs.getInt(1));
             category.setSettleCode(rs.getString(2));
             category.setSettleName(rs.getString(3));
@@ -93,9 +93,9 @@ public class RegistDao implements IRegistDao{
         PreparedStatement pstm = con.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         List<RegistLevel> list=new ArrayList<>();
-        RegistLevel rl=new RegistLevel();
+        RegistLevel rl=null;
         while (rs.next()){
-            rl=null;
+            rl=new RegistLevel();
             rl.setId(rs.getInt(1));
             rl.setRegistCode(rs.getString(2));
             rl.setRegistName(rs.getString(3));
@@ -117,9 +117,9 @@ public class RegistDao implements IRegistDao{
         PreparedStatement pstm = con.prepareStatement(sql);
         pstm.setInt(1,id);
         ResultSet rs = pstm.executeQuery();
-        RegistLevel rl=new RegistLevel();
+        RegistLevel rl=null;
         while (rs.next()){
-            rl=null;
+            rl=new RegistLevel();
             rl.setRegistFree(rs.getDouble(1));
             rl.setRegistName(rs.getString(2));
         }
@@ -138,9 +138,9 @@ public class RegistDao implements IRegistDao{
         PreparedStatement pstm = con.prepareStatement(sql);
         ResultSet rs = pstm.executeQuery();
         List<Department> list=new ArrayList<>();
-        Department dpmt=new Department();
+        Department dpmt=null;
         while (rs.next()){
-            dpmt=null;
+            dpmt=new Department();
             dpmt.setId(rs.getInt(1));
             dpmt.setDeptCode(rs.getString(2));
             dpmt.setDeptName(rs.getString(3));
@@ -171,9 +171,9 @@ public class RegistDao implements IRegistDao{
         pstm.setInt(4,reg.getRegistLeID());
         ResultSet rs = pstm.executeQuery();
         List<User> list=new ArrayList<>();
-        User user=new User();
+        User user=null;
         while (rs.next()){
-            user=null;
+            user=new User();
             user.setId(rs.getInt(1));
             user.setRealName(rs.getString(2));
             list.add(user);
