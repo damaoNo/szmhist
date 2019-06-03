@@ -1,4 +1,4 @@
-package service;
+package service.systemInfor;
 
 import dao.ISchedulingDao;
 import dao.SchedulingDao;

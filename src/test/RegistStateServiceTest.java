@@ -1,14 +1,11 @@
 package test;
 
 import org.junit.Test;
-import service.IRegistStateService;
-import service.RegistStateService;
-import vo.Register;
+import service.systemInfor.IRegistStateService;
+import service.systemInfor.RegistStateService;
 import vo.RegisterRecord;
 
 import java.sql.SQLException;
-
-import static org.junit.Assert.*;
 
 public class RegistStateServiceTest {
     IRegistStateService rss=new RegistStateService();

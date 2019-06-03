@@ -32,6 +32,7 @@ public class SCMDao implements ISCMDao{
                 "where (SettleCode like \"%\"?\"%\" Or SettleName like \"%\"?\"%\" )\n" +
                 "and DelMark = 1\n" +
                 "order by SequenceNo";
+
         con =JdbcUtil.getConnection();
         PreparedStatement pstm= con.prepareStatement(sql);
         pstm.setString(1,code);
@@ -52,26 +53,29 @@ public class SCMDao implements ISCMDao{
     }
 
     @Override
-    public void addSettleCategory(int id) throws SQLException {
+    public void addSettleCategory(String Scode,String Sname,int Sno,int Smark) throws SQLException {
         String sql="SELECT count(id) \n" +
                 "FROM SettleCategory\n" +
                 "where SettleCode = ?\n" +
                 "and DelMark = 1";
-        String sql2="INSERT SettleCategory(ID,SettleCode,SettleName,SequenceNo,DelMark)\n" +
+        String sql2="INSERT SettleCategory(SettleCode,SettleName,SequenceNo,DelMark)\n" +
+                "VALUES(?,?,?,?)";
 
-                /*网页传入*/
-                "VALUES(…………….)";
-
+        con=JdbcUtil.getConnection();
         PreparedStatement pstm= con.prepareStatement(sql);
-        pstm.setInt(1,id);
+        pstm.setString(1,Scode);
         ResultSet rs= pstm.executeQuery();
         int num = 0;
         while (rs.next()){
             num = rs.getInt(1);
         }
-        if (num>9){
-            PreparedStatement pstm2 = con.prepareStatement(sql2);
-            int i=pstm2.executeUpdate();
+        if (num==0){
+            pstm = con.prepareStatement(sql2);
+            pstm.setString(1,Scode);
+            pstm.setString(2,Sname);
+            pstm.setInt(3,Sno);
+            pstm.setInt(4,Smark);
+            pstm.executeUpdate();
         }else {
             JdbcUtil.release(null,pstm,null);
         }
@@ -79,7 +83,7 @@ public class SCMDao implements ISCMDao{
     }
 
     @Override
-    public SettleCategory updateSettleCategory(int id) throws SQLException {
+    public SettleCategory SelectupdateSettleCategory(int id) throws SQLException {
         String sql="select ID,SettleCode,SettleName,SequenceNo,DelMark\n" +
                 "FROM SettleCategory \n" +
                 "where ID=?";
@@ -100,34 +104,34 @@ public class SCMDao implements ISCMDao{
     }
 
     @Override
-    public SettleCategory updateSettleCategorySave(String code) throws SQLException {
+    public void updateSettleCategorySave(String Scode,String Sname,int Sno,int Smark) throws SQLException {
         String sql="SELECT count(id) \n" +
                 "FROM SettleCategory\n" +
                 "where SettleCode = ?\n" +
                 "and DelMark = 1";
-        String sql2="update  SettleCategory\n" +
-
-                /*网页传入*/
-                "Set ….\n" +
-
+        String sql2="update  SettleCategory Set SettleCode=?,SettleName=?,SequenceNo=?,DelMark=?\n" +
                 "WHERE id = ?";
 
+        con=JdbcUtil.getConnection();
         PreparedStatement pstm= con.prepareStatement(sql);
-        pstm.setString(1,code);
+        pstm.setString(1,Scode);
         ResultSet rs = pstm.executeQuery();
         int num =0;
         while (rs.next()){
             num = rs.getInt(1);
-            if(num > 9){
-                PreparedStatement pstm2=con.prepareCall(sql2);
-                pstm2.executeUpdate();
-                JdbcUtil.release(null,pstm2,null);
+            if(num==1){
+                pstm=con.prepareCall(sql2);
+                pstm.executeUpdate();
+                pstm.setString(1,Scode);
+                pstm.setString(2,Sname);
+                pstm.setInt(3,Sno);
+                pstm.setInt(4,Smark);
+                JdbcUtil.release(null,pstm,null);
             }else{
                 JdbcUtil.release(null,pstm,null);
             }
-            JdbcUtil.release(null,pstm,null);
         }
-        return null;
+
     }
 
     @Override

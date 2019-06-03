@@ -1,4 +1,4 @@
-package service;
+package service.systemInfor;
 
 import java.sql.Date;
 import java.sql.SQLException;

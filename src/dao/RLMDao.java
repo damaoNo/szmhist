@@ -21,7 +21,7 @@ public class RLMDao implements IRLMDao {
     }
 
     @Override
-    public List<RegistLevel> selectRegistLevel(String code) throws SQLException {
+    public List<RegistLevel> SelectRegistLevel(String code) throws SQLException {
         String sql ="select ID,RegistCode,RegistName,SequenceNo,RegistFee,RegistQuota,DelMark\n" +
                 "FROM registlevel \n" +
                 "where (RegistCode like \"%\"?\"%\" Or RegistName like \"%\"?\"%\")\n" +
@@ -50,26 +50,31 @@ public class RLMDao implements IRLMDao {
     }
 
     @Override
-    public void addRegistLevel(String regisc) throws SQLException {
+    public void AddRegistLevel(String Rcode,String Rname,int Rno,double Rfee,int Rquota,int Rmark) throws SQLException {
             String sql ="SELECT count(id) \n" +
                     "FROM RegistLevel\n" +
                     "where RegistCode = ?\n" +
                     "and DelMark = 1";
-            String sql2="INSERT INTO RegistLevel(ID,RegistCode,RegistName,SequenceNo,RegistFee,RegistQuota,DelMark)\n" +
+            String sql2="INSERT INTO RegistLevel(RegistCode,RegistName,SequenceNo,RegistFee,RegistQuota,DelMark)\n" +
+                    "VALUES(?,?,?,?,?,?)";
 
-                    /*获取网页的数值*///////////////////
-                    "VALUES()";
-
+        con = JdbcUtil.getConnection();
         PreparedStatement pstm= con.prepareStatement(sql);
-        pstm.setString(1,regisc);
+        pstm.setString(1,Rcode);
         ResultSet rs = pstm.executeQuery();
         int num=0;
         while(rs.next()){
             num=rs.getInt(1);
         }
-        if(num>8){
-            PreparedStatement pstm2= con.prepareStatement(sql2);
-            int i=pstm2.executeUpdate();
+        if(num==0){
+            pstm= con.prepareStatement(sql2);
+            pstm.setString(1,Rcode);
+            pstm.setString(2,Rname);
+            pstm.setInt(3,Rno);
+            pstm.setDouble(4,Rfee);
+            pstm.setInt(5,Rquota);
+            pstm.setInt(6,Rmark);
+            pstm.executeUpdate();
         }else{
             JdbcUtil.release(null,null,null);
         }
@@ -77,13 +82,12 @@ public class RLMDao implements IRLMDao {
     }
 
     @Override
-    public RegistLevel updateRegistLevel(int id) throws SQLException {
+    public RegistLevel SelectupdateRegistLevel(int id) throws SQLException {
         String sql="select ID,RegistCode,RegistName,SequenceNo,RegistFee,RegistQuota,DelMark\n" +
                 "FROM RegistLevel \n" +
                 "where ID=?";
         PreparedStatement pstm = con.prepareStatement(sql);
         pstm.setInt(1,id);
-      //  RegistLevel user = new RegistLevel();
         ResultSet rs = pstm.executeQuery();
         RegistLevel uprl = new RegistLevel();
         while (rs.next()){
@@ -100,40 +104,40 @@ public class RLMDao implements IRLMDao {
     }
 
     @Override
-    public RegistLevel saveRegistLevel(String code) throws SQLException {
+    public void UpdatesaveRegistLevel(String Rcode,String Rname,int Rno,Double Rfee,int Rquota,int Rmark) throws SQLException {
         String sql="SELECT count(id) \n" +
                 "FROM RegistLevel\n" +
                 "where RegistCode = ?\n" +
                 "and DelMark = 1";
 
-        String sql2="update  RegistLevel\n" +
-
-                /*修改信息来自网页*//////////////////////
-                "Set ….\n" +
-
+        String sql2="update  RegistLevel Set RegistCode=?,RegistName=?,SequenceNo=?,RegistFee=?,RegistQuota=?,DelMark=?\n" +
                 "WHERE id = ?";
 
         PreparedStatement pstm= con.prepareStatement(sql);
-        pstm.setString(1,code);
+        pstm.setString(1,Rcode);
         ResultSet rs = pstm.executeQuery();
         int num = 0;
 
         while(rs.next()){
             num = rs.getInt(1);
 
-        }if (num>8){
-            PreparedStatement pstm2= con.prepareStatement(sql2);
-            pstm2.executeUpdate();
-
+        }if (num==0){
+            pstm= con.prepareStatement(sql2);
+            pstm.setString(1,Rcode);
+            pstm.setString(2,Rname);
+            pstm.setInt(3,Rno);
+            pstm.setDouble(4,Rfee);
+            pstm.setInt(5,Rquota);
+            pstm.setInt(6,Rmark);
+            pstm.executeUpdate();
         }else {
             JdbcUtil.release(null,pstm,null);
         }
         JdbcUtil.release(null,pstm,null);
-        return null;
     }
 
     @Override
-    public void deleteRegistLevel(int id) throws SQLException {
+    public void DeleteRegistLevel(int id) throws SQLException {
         String sql="update  RegistLevel\n" +
                 "set DelMark = 0 \n" +
                 "WHERE id = ?";

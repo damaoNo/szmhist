@@ -5,19 +5,16 @@
  * * @create: 2019-06-02 14:51
  **/
 
-package service;
+package service.systemInfor;
 
 import dao.DrugManageDao;
 import dao.IDrugManageDao;
-import dao.IRegistDao;
-import dao.RegistDao;
 import util.JdbcUtil;
 import vo.ConstantItem;
 import vo.Drugs;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DrugManageService implements IDrugManageService{
