@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ecce8eea-6d64-4f85-b174-7950626fd1fe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/service/systemInfor/IRLMService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/systemInfor/ISCMService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/systemInfor/RLMService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/systemInfor/SCMService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/RLMServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/SCMServiceTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/IRLMService.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/ISCMService.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/RLMService.class" afterDir="false" />
@@ -15,33 +9,6 @@
       <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/RLMServiceTest.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/SCMServiceTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/IRLMDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IRLMDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/ISCMDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ISCMDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/RLMDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/RLMDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/SCMDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/SCMDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/DepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/DrugManageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/DrugManageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/DrugManageServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/DrugManageServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/ExpenseClassService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/ExpenseClassService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/IDepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/IDepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/IDrugManageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/IDrugManageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/IExpenseClassService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/IExpenseClassService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/INonDrugsPayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/INonDrugsPayService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/IRegistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/IRegistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/IRegistStateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/IRegistStateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/ISchedulingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/ISchedulingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/NonDrugsPayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/NonDrugsPayService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/RegistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/RegistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/RegistStateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/RegistStateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SchedulingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/SchedulingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/systemInfor/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/DrugManageServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/DrugManageServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/NonDrugsPayServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/NonDrugsPayServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/RLMDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/RLMDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/RegistServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/RegistServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/RegistStateServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/RegistStateServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/SchedulingServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/SchedulingServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRLMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRLMDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/ISCMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/ISCMDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RLMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RLMDao.class" afterDir="false" />
@@ -140,12 +107,6 @@
               <item name="hist" type="b2602c69:ProjectViewProjectNode" />
               <item name="hist" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hist" type="b2602c69:ProjectViewProjectNode" />
@@ -427,7 +388,7 @@
       <workItem from="1559466547606" duration="1547000" />
       <workItem from="1559476186226" duration="1967000" />
       <workItem from="1559481536538" duration="1476000" />
-      <workItem from="1559523760000" duration="14179000" />
+      <workItem from="1559523760000" duration="14477000" />
     </task>
     <task id="LOCAL-00001" summary="ver 0.0:&#10;add readme">
       <created>1559230289989</created>
@@ -534,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559523839798</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="ver 0.2:&#10;系统信息综合">
+      <created>1559544419009</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1559544419009</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -570,7 +538,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47274000" />
+    <option name="totallyTimeSpent" value="47572000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -705,7 +673,8 @@
     <MESSAGE value="ver 0.0:&#10;add lib" />
     <MESSAGE value="ver 0.1:&#10;add entity" />
     <MESSAGE value="ver 0.2:&#10;结算、挂号等级" />
-    <option name="LAST_COMMIT_MESSAGE" value="ver 0.2:&#10;结算、挂号等级" />
+    <MESSAGE value="ver 0.2:&#10;系统信息综合" />
+    <option name="LAST_COMMIT_MESSAGE" value="ver 0.2:&#10;系统信息综合" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore" />
