@@ -1,16 +1,14 @@
 package test;
 
 import org.junit.Test;
-import service.DrugManageService;
-import service.IDrugManageService;
+import service.systemInfor.DrugManageService;
+import service.systemInfor.IDrugManageService;
 import vo.ConstantItem;
 import vo.Drugs;
 
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class DrugManageServiceTest {
     IDrugManageService service=new DrugManageService();

@@ -17,17 +17,17 @@ public interface IRLMDao {
     void setConnection(Connection con);
 
     //根据条件查询有效挂号级别列表
-    List<RegistLevel> selectRegistLevel(String code) throws SQLException;
+    List<RegistLevel> SelectRegistLevel(String code) throws SQLException;
 
     //新增挂号级别
-    void addRegistLevel(String regisc) throws SQLException;
+    void AddRegistLevel(String Rcode,String Rname,int Rno,double Rfee,int Rquota,int Rmark) throws SQLException;
 
     //编辑挂号级别
-    RegistLevel updateRegistLevel(int id) throws SQLException;
+    RegistLevel SelectupdateRegistLevel(int id) throws SQLException;
 
     //编辑挂号级别保存
-    RegistLevel saveRegistLevel(String code) throws SQLException;
+    void UpdatesaveRegistLevel(String Rcode,String Rname,int Rno,Double Rfee,int Rquota,int Rmark) throws SQLException;
 
     //删除挂号
-    void deleteRegistLevel(int id) throws SQLException;
+    void DeleteRegistLevel(int id) throws SQLException;
 }

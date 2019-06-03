@@ -1,4 +1,4 @@
-package service;
+package service.systemInfor;
 
 import dao.INonDrugsPayDao;
 import dao.NonDrugsPayDao;

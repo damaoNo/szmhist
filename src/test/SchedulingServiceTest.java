@@ -1,12 +1,10 @@
 package test;
 
 import org.junit.Test;
-import service.SchedulingService;
+import service.systemInfor.SchedulingService;
 
 import java.sql.SQLException;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class SchedulingServiceTest {
     SchedulingService sc=new SchedulingService();
