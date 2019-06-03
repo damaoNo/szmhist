@@ -14,9 +14,10 @@ import java.sql.SQLException;
 public interface IMedRecordService {
 
     /**
-     * 根据病历号查询相关病历记录
-     * @param caseNum 病历号
+     * 根据regid查询相关病历记录
+     * @param regID 挂号ID
      * @return 病历记录对象
+     * @throws SQLException
      */
-    MedicalRecord findMedRecord(String caseNum) throws SQLException;
+    MedicalRecord findMedRecord(int regID) throws SQLException;
 }
