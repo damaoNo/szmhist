@@ -17,7 +17,7 @@ public interface IRLMDao {
     void setConnection(Connection con);
 
     //根据条件查询有效挂号级别列表
-    List<RegistLevel> selectRegistLevel(RegistLevel registLevel) throws SQLException;
+    List<RegistLevel> selectRegistLevel(String code) throws SQLException;
 
     //新增挂号级别
     void addRegistLevel(String regisc) throws SQLException;

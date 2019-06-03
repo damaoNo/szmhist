@@ -18,7 +18,7 @@ import java.util.List;
  * @author Vector_Wu
  */
 
-public class SCM implements ISCMDao{
+public class SCMDao implements ISCMDao{
 
     Connection con = null;
 
@@ -26,18 +26,20 @@ public class SCM implements ISCMDao{
     public void setConnection(Connection con) {this.con = con;}
 
     @Override
-    public List<SettleCategory> selectSettleCategory(SettleCategory settleCategory) throws SQLException {
+    public List<SettleCategory> selectSettleCategory(String code) throws SQLException {
         String sql="select ID,SettleCode,SettleName,SequenceNo,DelMark\n" +
                 "FROM SettleCategory \n" +
-                "where (SettleCode like ? Or SettleName like ?)\n" +
+                "where (SettleCode like \"%\"?\"%\" Or SettleName like \"%\"?\"%\" )\n" +
                 "and DelMark = 1\n" +
                 "order by SequenceNo";
+        con =JdbcUtil.getConnection();
         PreparedStatement pstm= con.prepareStatement(sql);
+        pstm.setString(1,code);
+        pstm.setString(2,code);
         ResultSet rs = pstm.executeQuery();
         List<SettleCategory> SettleCategoryList = new ArrayList<>();
-        SettleCategory sc = new SettleCategory();
         while (rs.next()){
-            sc = null;
+            SettleCategory sc = new SettleCategory();
             sc.setId(rs.getInt(1));
             sc.setSettleCode(rs.getString(2));
             sc.setSettleName(rs.getString(3));

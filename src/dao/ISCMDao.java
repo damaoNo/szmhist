@@ -18,7 +18,7 @@ public interface ISCMDao {
     void setConnection(Connection con);
 
     //查询结算类别
-    List<SettleCategory> selectSettleCategory(SettleCategory settleCategory) throws SQLException;
+    List<SettleCategory> selectSettleCategory(String code) throws SQLException;
 
     //新增结算类别保存
     void addSettleCategory(int id) throws SQLException;

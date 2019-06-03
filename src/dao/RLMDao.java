@@ -13,7 +13,7 @@ import java.util.List;
  * @author Vector_Wu
  */
 
-public class RLM implements IRLMDao {
+public class RLMDao implements IRLMDao {
     Connection con = null;
 
     public void setConnection(Connection con){
@@ -21,18 +21,21 @@ public class RLM implements IRLMDao {
     }
 
     @Override
-    public List<RegistLevel> selectRegistLevel(RegistLevel registLevel) throws SQLException {
+    public List<RegistLevel> selectRegistLevel(String code) throws SQLException {
         String sql ="select ID,RegistCode,RegistName,SequenceNo,RegistFee,RegistQuota,DelMark\n" +
                 "FROM registlevel \n" +
-                "where (RegistCode like ? Or RegistName like ?)\n" +
+                "where (RegistCode like \"%\"?\"%\" Or RegistName like \"%\"?\"%\")\n" +
                 "and DelMark = 1\n" +
                 "order by SequenceNo";
+
+        con = JdbcUtil.getConnection();
         PreparedStatement pstm= con.prepareStatement(sql);
+        pstm.setString(1,code);
+        pstm.setString(2,code);
         ResultSet rs = pstm.executeQuery();
         List<RegistLevel> RegistLevelList = new ArrayList<>();
-        RegistLevel rl = new RegistLevel();
         while (rs.next()){
-            rl = null;
+            RegistLevel rl = new RegistLevel();
             rl.setId(rs.getInt(1));
             rl.setRegistCode(rs.getString(2));
             rl.setRegistName(rs.getString(3));

@@ -158,4 +158,9 @@ public class DrugManageDao implements IDrugManageDao {
         JdbcUtil.release(null,pstm,null);
         return items;
     }
+
+    @Override
+    public int selectDrugID(char d) {
+        return 0;
+    }
 }

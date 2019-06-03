@@ -1,45 +1,24 @@
 package test;
 
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import dao.SCMDao;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import util.JdbcUtil;
+import vo.SettleCategory;
 
-import static org.junit.Assert.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
 
-@RunWith(Arquillian.class)
 public class SCMTest {
-    @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
-                .addClass(dao.SCM.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
-    }
 
     @Test
-    public void setConnection() {
-    }
-
-    @Test
-    public void selectSettleCategory() {
-    }
-
-    @Test
-    public void addSettleCategory() {
-    }
-
-    @Test
-    public void updateSettleCategory() {
-    }
-
-    @Test
-    public void updateSettleCategorySave() {
-    }
-
-    @Test
-    public void deleteSettleCategory() {
+    public void selectSettleCategory() throws SQLException {
+        Connection con = null;
+        con = JdbcUtil.getConnection();
+        SCMDao scmDao =new SCMDao();
+        scmDao.setConnection(con);
+        String code = "js001";
+       List list= scmDao.selectSettleCategory(code);
+        System.out.println(list);
     }
 }
