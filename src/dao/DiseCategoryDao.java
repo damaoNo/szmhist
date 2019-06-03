@@ -45,8 +45,9 @@ public class DiseCategoryDao implements  IDiseCategoryDao{
                 "FROM DiseCategory\n" +
                 "where DicaCode= ?\n" +
                 "and DelMark = 1";
-        String sql2="INSERT DiseCategory(dicacode,dicaname,sequenceno,dicatype,delmark)\n" +
-                "VALUES(?,?,?,?,?)";
+        String str="嗯嗯";
+        String sql2="INSERT INTO DiseCategory(dicacode,dicaname,sequenceno,dicatype,delmark)\n" +
+                "values(?,?,?,?,?)";
 
         con= JdbcUtil.getConnection();
         PreparedStatement ps=con.prepareStatement(sql1);
@@ -189,7 +190,7 @@ public class DiseCategoryDao implements  IDiseCategoryDao{
     }
 
     @Override
-    public void addNewDisease(String dicac, String dican, int seq, int dicat, int delmark) throws SQLException {
+    public void addNewDisease(String dicac, String dican, String icd, int cateid, int delmark) throws SQLException {
         String sql1="SELECT count(id) \n" +
                 "FROM Disease\n" +
                 "where DiseaseCode= ?\n" +
@@ -210,14 +211,19 @@ public class DiseCategoryDao implements  IDiseCategoryDao{
             num1=rs.getInt(1);
         }
         ps=con.prepareStatement(sql2);
-        ps.setString(1,dicac);
+        ps.setString(1,icd);
         rs=ps.executeQuery();
         int num2=0;
         if(rs.next()){
-            num2=rs.getInt(2);
+            num2=rs.getInt(1);
         }
         if(num1==0&&num2==0){
             ps=con.prepareStatement(sql3);
+            ps.setString(1,dicac);
+            ps.setString(2,dican);
+            ps.setString(3,icd);
+            ps.setInt(4,cateid);
+            ps.setInt(5,delmark);
             int i=ps.executeUpdate();
             JdbcUtil.release(con,null,null);
         }else{
@@ -269,7 +275,7 @@ public class DiseCategoryDao implements  IDiseCategoryDao{
                 "VALUES(?,?,?,?,?)";
         String sql4="update  Disease\n" +
                 "Set diseasecode=?,diseasename=?,diseaseicd=?,disecategoryid=?,delmark=?\n" +
-                "WHERE id = ?";
+                "WHERE diseasecode= ?";
         con = JdbcUtil.getConnection();
         PreparedStatement ps = con.prepareStatement(sql1);
         ps.setString(1,diseaseC);
@@ -292,6 +298,13 @@ public class DiseCategoryDao implements  IDiseCategoryDao{
             JdbcUtil.release(con,null,null);
         }else if(num1==1&&num2==1){
             ps=con.prepareStatement(sql4);
+            ps.setString(1,diseaseC);
+            ps.setString(2,diseaseN);
+            ps.setString(3,diseaseI);
+            ps.setInt(4,diseCate);
+            ps.setInt(5,delmark);
+            ps.setString(6,diseaseC);
+
             int j=ps.executeUpdate();
             JdbcUtil.release(con,null,null);
         }else{
