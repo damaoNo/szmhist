@@ -274,37 +274,5 @@ public class RegistDao implements IRegistDao{
         JdbcUtil.release(null,pstm,null);
     }
 
-    /**
-     * @param pc
-     * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
-     * @Param: [pc]
-     * @return: void
-     * @Author: cro
-     * @Date: 2019/6/1
-     */
-    @Override
-    public void insertPatientCosts(PatientCosts pc) throws SQLException {
-        String sql ="insert into " +
-                "patientcosts(RegistID,InvoiceID,ItemID,ItemType,Name,Price," +
-                "Amount,DeptID,Createtime,CreateOperID,PayTime,RegisterID,FeeType,BackID) " +
-                "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement pstm = con.prepareStatement(sql);
-        pstm.setInt(1,pc.getRegistID());
-        pstm.setInt(2,pc.getInvoiceID());
-        pstm.setInt(3,pc.getItemID());
-        pstm.setInt(4,pc.getItemType());
-        pstm.setString(5,pc.getName());
-        pstm.setDouble(6,pc.getPrice());
-        pstm.setDouble(7,pc.getAmount());
-        pstm.setInt(8,pc.getDeptID());
-        Timestamp creatTime=new Timestamp(System.currentTimeMillis());
-        pstm.setTimestamp(9,creatTime);
-        pstm.setInt(10,pc.getCreateOperID());
-        pstm.setTimestamp(11,pc.getPayTime());
-        pstm.setInt(12,pc.getRegisterID());
-        pstm.setInt(13,pc.getFeeType());
-        pstm.setInt(14,pc.getBackID());
-        pstm.executeUpdate();
-        JdbcUtil.release(null,pstm,null);
-    }
+
 }

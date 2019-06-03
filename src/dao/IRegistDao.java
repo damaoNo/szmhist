@@ -80,12 +80,5 @@ public interface IRegistDao {
     * @Date: 2019/6/1
     */
     void insertInvoice(Invoice iv) throws SQLException;
-    /** 
-    * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
-    * @Param: [pc] 
-    * @return: void 
-    * @Author: cro
-    * @Date: 2019/6/1 
-    */
-    void insertPatientCosts(PatientCosts pc) throws SQLException;
+
 }

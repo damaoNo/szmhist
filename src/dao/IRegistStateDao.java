@@ -36,9 +36,11 @@ public interface IRegistStateDao {
 
     /**
      * 打印冲红发票，金额为负值,查出的对象传入，金额已做修改为负值处理
-     * @param rr 查出的挂号记录对象，利用挂号记录对象的发票号和金额做处理
+     * @param iv
      * @
      */
     void insertURInvoice(Invoice iv) throws SQLException;
+
+
 
 }
