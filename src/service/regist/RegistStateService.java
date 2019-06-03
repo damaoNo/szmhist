@@ -5,11 +5,9 @@
  * * @create: 2019-06-02 10:52
  **/
 
-package service;
+package service.regist;
 
-import dao.IRegistDao;
 import dao.IRegistStateDao;
-import dao.RegistDao;
 import dao.RegistStateDao;
 import util.JdbcUtil;
 import vo.Invoice;

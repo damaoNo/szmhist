@@ -9,9 +9,13 @@ package dao;
 
 import util.JdbcUtil;
 import vo.Invoice;
+import vo.PatientCosts;
+import vo.PatientCostsBack;
 import vo.RegisterRecord;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegistStateDao implements IRegistStateDao {
     Connection con=null;
@@ -87,7 +91,7 @@ public class RegistStateDao implements IRegistStateDao {
     /**
      * 打印冲红发票，金额为负值,查出的对象传入，金额已做修改为负值处理
      *
-     * @param rr 查出的挂号记录对象，利用挂号记录对象的发票号和金额做处理
+     * @param iv 发票对象
      * @
      */
     @Override

@@ -21,13 +21,13 @@ public interface ISCMDao {
     List<SettleCategory> selectSettleCategory(String code) throws SQLException;
 
     //新增结算类别保存
-    void addSettleCategory(int id) throws SQLException;
+    void addSettleCategory(String Scode,String Sname,int Sno,int Smark) throws SQLException;
 
     //编辑结算类别
-    SettleCategory  updateSettleCategory(int id) throws SQLException;
+    SettleCategory  SelectupdateSettleCategory(int id) throws SQLException;
 
-    //编辑结算类别保存
-    SettleCategory  updateSettleCategorySave(String code) throws SQLException;
+    //修改结算类别
+    void   updateSettleCategorySave(String Scode,String Sname,int Sno,int Smark) throws SQLException;
 
     //删除结算类别
     void  deleteSettleCategory(int id) throws SQLException;

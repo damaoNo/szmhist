@@ -5,7 +5,7 @@
  * * @create: 2019-05-31 16:10
  **/
 
-package service;
+package service.regist;
 
 import dao.IRegistDao;
 import dao.RegistDao;
@@ -282,31 +282,5 @@ public class RegistService implements IRegistService{
         return false;
     }
 
-    /**
-     * @param pc
-     * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
-     * @Param: [pc]
-     * @return: void
-     * @Author: cro
-     * @Date: 2019/6/1
-     */
-    @Override
-    public boolean newPatientCosts(PatientCosts pc) throws SQLException {
-        Connection con=null;
-        try {
-            con= JdbcUtil.getConnection();
-            con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            registDao.insertPatientCosts(pc);
-            con.commit();
-            return true;
-        } catch (SQLException e) {
-            con.rollback();
-            e.printStackTrace();
-        }finally {
-            JdbcUtil.release(con,null,null);
-        }
-        return false;
-    }
+
 }

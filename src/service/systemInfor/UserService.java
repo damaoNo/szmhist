@@ -1,4 +1,4 @@
-package service;
+package service.systemInfor;
 
 import dao.IUserDao;
 import dao.UserDao;

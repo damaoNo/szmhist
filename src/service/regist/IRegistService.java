@@ -5,7 +5,7 @@
  * * @create: 2019-05-31 16:08
  **/
 
-package service;
+package service.regist;
 
 import vo.*;
 
@@ -84,12 +84,5 @@ public interface IRegistService {
      * @Date: 2019/6/1
      */
     boolean useInvoice(Invoice iv) throws SQLException;
-    /**
-     * @Description: 记录患者费用明细,创建时间和付钱时间需要设置
-     * @Param: [pc]
-     * @return: void
-     * @Author: cro
-     * @Date: 2019/6/1
-     */
-    boolean newPatientCosts(PatientCosts pc) throws SQLException;
+
 }

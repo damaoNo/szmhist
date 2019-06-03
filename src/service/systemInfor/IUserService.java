@@ -1,4 +1,4 @@
-package service;
+package service.systemInfor;
 
 import vo.ConstantItem;
 import vo.Department;
