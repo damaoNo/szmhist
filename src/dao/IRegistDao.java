@@ -55,7 +55,7 @@ public interface IRegistDao {
      * 根据看诊日期,午别,排班科室,挂号级别读取当天出诊医生ID,姓名
      * @return list-User对象-id,realname
      */
-    List selectDoctorInfo(Register reg) throws SQLException;
+    List selectDoctorInfo(SchedDoctor sd) throws SQLException;
     /**
     * @Description:  根据选中医生读取当日已用号额
     * @Param: [userId] 医生ID
@@ -73,7 +73,7 @@ public interface IRegistDao {
     */
     Boolean insertRegist(Register reg) throws SQLException;
     /**
-    * @Description: 插入使用发票记录
+    * @Description: 插入使用发票记录,创建时间自动设置为当前系统时间
     * @Param: [iv]
     * @return: void
     * @Author: cro
