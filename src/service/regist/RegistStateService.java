@@ -5,7 +5,7 @@
  * * @create: 2019-06-02 10:52
  **/
 
-package service.systemInfor;
+package service.regist;
 
 import dao.IRegistStateDao;
 import dao.RegistStateDao;

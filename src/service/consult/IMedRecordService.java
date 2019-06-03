@@ -5,7 +5,7 @@
  * * @create: 2019-06-03 13:57
  **/
 
-package service;
+package service.consult;
 
 import vo.MedicalRecord;
 

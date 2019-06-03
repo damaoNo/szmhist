@@ -5,10 +5,8 @@
  * * @create: 2019-06-03 13:58
  **/
 
-package service;
+package service.consult;
 
-import dao.DrugManageDao;
-import dao.IDrugManageDao;
 import dao.IMedicalRecordDao;
 import dao.MedicalRecordDao;
 import util.JdbcUtil;

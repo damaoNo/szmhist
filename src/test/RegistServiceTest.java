@@ -1,8 +1,8 @@
 package test;
 
 import org.junit.Test;
-import service.systemInfor.IRegistService;
-import service.systemInfor.RegistService;
+import service.regist.IRegistService;
+import service.regist.RegistService;
 import vo.*;
 
 import java.sql.SQLException;

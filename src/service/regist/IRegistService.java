@@ -5,7 +5,7 @@
  * * @create: 2019-05-31 16:08
  **/
 
-package service.systemInfor;
+package service.regist;
 
 import vo.*;
 
