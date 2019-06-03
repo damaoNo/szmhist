@@ -1,5 +1,6 @@
 package vo;
 
+import java.sql.Timestamp;
 import java.util.Date;
 /*
     发票
@@ -9,7 +10,7 @@ public class Invoice {
     private  String invoiceNum;//发票号码
     private double money;//发票金额
     private int state;//发票状态
-    private Date creationTime;//收/退费时间
+    private Timestamp creationTime;//收/退费时间
     private int userID;//收/退费人员ID
     private int registID;//挂号ID
     private int feeType;//收费方式
@@ -19,7 +20,7 @@ public class Invoice {
     public Invoice() {
     }
 
-    public Invoice(String invoiceNum, double money, int state, Date creationTime, int userID, int registID, int feeType, String back, int dailyState) {
+    public Invoice(String invoiceNum, double money, int state, Timestamp creationTime, int userID, int registID, int feeType, String back, int dailyState) {
         this.invoiceNum = invoiceNum;
         this.money = money;
         this.state = state;
@@ -63,11 +64,11 @@ public class Invoice {
         this.state = state;
     }
 
-    public Date getCreationTime() {
+    public Timestamp getCreationTime() {
         return creationTime;
     }
 
-    public void setCreationTime(Date creationTime) {
+    public void setCreationTime(Timestamp creationTime) {
         this.creationTime = creationTime;
     }
 
