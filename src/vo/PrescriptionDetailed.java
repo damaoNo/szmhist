@@ -1,4 +1,7 @@
 package vo;
+
+import java.io.PrintWriter;
+
 /*
 患者成药处方明细表
  */
@@ -11,11 +14,12 @@ public class PrescriptionDetailed {
     private String frequency;//频次
     private Double amount;//数量
     private int state;//状态
+    private String drugName;//药品名称
+    private String format;//药品规格
+    private Double price;//药品价格
 
-    public PrescriptionDetailed() {
-    }
-
-    public PrescriptionDetailed(int prescriptionID, int drugsID, String drugsUsage, String dosage, String frequency, Double amount, int state) {
+    public PrescriptionDetailed(int id, int prescriptionID, int drugsID, String drugsUsage, String dosage, String frequency, Double amount, int state, String drugName, String format, Double price) {
+        this.id = id;
         this.prescriptionID = prescriptionID;
         this.drugsID = drugsID;
         this.drugsUsage = drugsUsage;
@@ -23,6 +27,20 @@ public class PrescriptionDetailed {
         this.frequency = frequency;
         this.amount = amount;
         this.state = state;
+        this.drugName = drugName;
+        this.format = format;
+        this.price = price;
+    }
+
+    public PrescriptionDetailed() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPrescriptionID() {
@@ -77,18 +95,6 @@ public class PrescriptionDetailed {
         return state;
     }
 
-    public void setState(int state) {
-        this.state = state;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     @Override
     public String toString() {
         return "PrescriptionDetailed{" +
@@ -100,6 +106,37 @@ public class PrescriptionDetailed {
                 ", frequency='" + frequency + '\'' +
                 ", amount=" + amount +
                 ", state=" + state +
+                ", drugName='" + drugName + '\'' +
+                ", format='" + format + '\'' +
+                ", price=" + price +
                 '}';
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    public String getDrugName() {
+        return drugName;
+    }
+
+    public void setDrugName(String drugName) {
+        this.drugName = drugName;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }

@@ -82,12 +82,27 @@ public interface IConsultService {
      */
     List<PatientCheckApply> findPatientCA(int registID, int recordType) throws SQLException;
 
-    /**
+    /***************************************************************************
      *  更改个人的检查/检验/处置 申请状态
      *  需要设置 id，state   -1-暂存 2-已开立 3-已交费 4-已登记 5-执行完 6-已退费 0-已作废
      * @param ids    申请表ID
      * @param state 申请表状态
      * @throws SQLException
-     */
+     ***************************************************************************/
     void changeCAState(int[] ids,int state) throws SQLException;
+
+    /*************************************************************************
+     * 确诊 - 修改病历首页内容
+     * @param mr 对象，需设置-registid（挂号id）、checkresult、diagnosis、handling
+     ************************************************************************/
+    void diagnosis(MedicalRecord mr) throws SQLException;
+
+    /*----------------------------成药处方界面----------------------------------*/
+    /**
+     * 根据userid,registID选择该医生开的处方
+     * @param userID   医生ID
+     * @param registID 挂号ID
+     * @return id，medicalid,registid,userid,prescriptionname,state
+     */
+    List<Prescription> findPreByUserID(int userID,int registID) throws SQLException;
 }
