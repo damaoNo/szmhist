@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,8 +109,7 @@ public class NonDrugsPayDao implements INonDrugsPayDao {
         JdbcUtil.release(null,pstmt,null);
         return list;
     }
-    /*判断项目编码是否重复*/
-    /*如不重复，则修改*/
+
     /*根据ID读取非药品信息*/
     @Override
     public List nonDrugsInfo(int ID) throws SQLException {
@@ -142,6 +142,64 @@ public class NonDrugsPayDao implements INonDrugsPayDao {
         }
         JdbcUtil.release(null,pstmt,null);
         return list;
+    }
+    /*查询项目编码是否重复*/
+    @Override
+    public int countId(String ItemCode) throws SQLException {
+        String sql="SELECT count(id) \n" +
+                "FROM fmeditem\n" +
+                "where ItemCode = ?\n" +
+                "and DelMark = 1\n";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,ItemCode);
+        //查询
+        /*返回一个结果集*/
+        ResultSet rs=pstmt.executeQuery();
+        int counts=0;
+        while(rs.next()){
+           counts=rs.getInt(1);
+
+        }
+        return  counts;
+    }
+    /*修改非药品收费项目信息*/
+    @Override
+    public void fixNonDrugsInfo(NonDrugsPay nonDrugsPay) throws SQLException {
+        String sql="update fmeditem set ItemCode=?,ItemName=?,Format=?,Price=?," +
+                "ExpClassID=?,DeptID=?,MnemonicCode=?,LastUpdateDate=?,RecordType=? where id=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,nonDrugsPay.getItemCode());
+        pstmt.setString(2,nonDrugsPay.getItemName());
+        pstmt.setString(3,nonDrugsPay.getFormat());
+        pstmt.setDouble(4,nonDrugsPay.getPrice());
+        pstmt.setInt(5,nonDrugsPay.getExpClassID());
+        pstmt.setInt(6,nonDrugsPay.getDeptID());
+        pstmt.setString(7,nonDrugsPay.getMnemonicCode());
+        //Util.Date转Sql.Date
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        java.sql.Date Date=new java.sql.Date(nonDrugsPay.getLastUpdateDate().getTime());
+        pstmt.setDate(8,Date);
+        pstmt.setInt(9,nonDrugsPay.getRecordType());
+        pstmt.setInt(10,nonDrugsPay.getID());
+        pstmt.executeUpdate();
+        JdbcUtil.release(null, pstmt, null);
+    }
+    /*置待删除记录状态为无效*/
+    @Override
+    public void delMark(String[] ID) throws SQLException {
+        String sql="update  fmeditem\n" +
+                "set DelMark = 0 \n" +
+                "WHERE id = ?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        for (int i=0;i<ID.length;i++){
+            pstmt.setString(1,ID[i]);
+            pstmt.addBatch();
+            if (i%10==0){
+                pstmt.executeBatch();
+            }
+        }
+        pstmt.executeBatch();
+        JdbcUtil.release(null,pstmt,null);
     }
 
 }

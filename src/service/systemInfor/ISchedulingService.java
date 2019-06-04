@@ -1,12 +1,12 @@
 package service.systemInfor;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.SQLException;
 import java.util.List;
 
 public interface ISchedulingService {
     /*读取当前排班信息*/
-    public List schedInfoNow(Date date1, Date date2) throws SQLException;
+    public List schedInfoNow(Date date1, Date date2, int page) throws SQLException;
     /*读取有效科室*/
     public List depaEffctive() throws SQLException;
     /*读取有效挂号级别*/
