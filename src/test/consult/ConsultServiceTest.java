@@ -105,4 +105,42 @@ public class ConsultServiceTest {
             System.out.println(p);
         }
     }
+
+    @Test
+    public void findDrugsinPre() throws SQLException {
+        List<PrescriptionDetailed> list=service.findDrugsinPre(1,37);
+        for (PrescriptionDetailed p:list){
+            System.out.println(p);
+        }
+    }
+
+    @Test
+    public void allDrugs() throws SQLException {
+        List list=service.allDrugs("",1);
+        System.out.println(list.toString());
+    }
+
+    @Test
+    public void newPresDetailed() throws SQLException {
+        /*
+         * 新增一条药房明细记录
+         * 处方id          药品ID   药品用法    药品计量 频次         数量 状态
+         *PrescriptionID,DrugsID,DrugsUsage,Dosage,Frequency,Amount,State 2-已开立 3-已交费 4-已发药 5-已退药 6-已退费
+         */
+        PrescriptionDetailed pd=new PrescriptionDetailed();
+        pd.setPrescriptionID(1);
+        pd.setDrugsID(10);
+        pd.setDrugsUsage("test");
+        pd.setDosage("ttes");
+        pd.setFrequency("每天100此");
+        pd.setAmount(10d);
+        pd.setState(2);
+        service.newPresDetailed(pd);
+    }
+
+    @Test
+    public void deletDrugs() throws SQLException {
+        int[] s={30};
+        service.deletDrugs(s);
+    }
 }

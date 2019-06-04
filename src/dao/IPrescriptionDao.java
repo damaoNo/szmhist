@@ -42,15 +42,17 @@ public interface IPrescriptionDao {
 
     /**
      * 新增一条药房明细记录
+     * * 处方id          药品ID   药品用法    药品计量 频次         数量 状态
+     *      *PrescriptionID,DrugsID,DrugsUsage,Dosage,Frequency,Amount,State 2-已开立 3-已交费 4-已发药 5-已退药 6-已退费
      * @param pd 药方明细对象
      */
     void  insertPresDetailed(PrescriptionDetailed pd) throws SQLException;
 
     /**
-     * 批量删除药品
+     * 批量删除药品-处方明细表id
      * @param drugids
      */
-    void deletDrugs(String[] drugids) throws SQLException;
+    void deletDrugs(int[] pdids) throws SQLException;
 
     /**
      * 修改处方状态,如果是开立，会自动更新开立时间为系统当前时间
