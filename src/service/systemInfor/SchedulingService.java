@@ -5,14 +5,14 @@ import dao.SchedulingDao;
 import util.JdbcUtil;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 public class SchedulingService implements ISchedulingService {
     /*读取当前排版信息*/
     @Override
-    public List schedInfoNow(Date date1, Date date2) {
+    public List schedInfoNow(Date date1, Date date2, int page) {
         Connection con=null;
         List list=null;
         con= JdbcUtil.getConnection();
@@ -20,7 +20,7 @@ public class SchedulingService implements ISchedulingService {
             con.setAutoCommit(false);
             ISchedulingDao service2=new SchedulingDao();
             service2.setConnection(con);
-            list=service2.schedInfoNow(date1,date2);
+            list=service2.schedInfoNow(date1,date2,page);
             con.commit();
         } catch (SQLException e) {
             e.printStackTrace();

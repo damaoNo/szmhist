@@ -1,10 +1,12 @@
 package test;
 
 import org.junit.Test;
-import service.systemInfor.NonDrugsPayService;
+import service.NonDrugsPayService;
 
 import java.sql.SQLException;
 import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class NonDrugsPayServiceTest {
     NonDrugsPayService non=new NonDrugsPayService();
