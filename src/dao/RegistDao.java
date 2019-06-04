@@ -288,4 +288,26 @@ public class RegistDao implements IRegistDao{
         JdbcUtil.release(null, pstmt, null);
     }
 
+    @Override
+    public Register getRegisterByCaseNumber(String casen) throws SQLException {
+        String sql="select casenumber,realname,age,settleid,deptid,VisitDate,userid " +
+                "from Register where casenumber=?";
+        con=JdbcUtil.getConnection();
+        PreparedStatement ps=con.prepareStatement(sql);
+        ps.setString(1,casen);
+        ResultSet rs=ps.executeQuery();
+        Register reg=new Register();
+        while(rs.next()){
+            reg.setCaseNumber(rs.getString(1));
+            reg.setRealName(rs.getString(2));
+            reg.setAge(rs.getInt(3));
+            reg.setSettLeID(rs.getInt(4));
+            reg.setDeptID(rs.getInt(5));
+            reg.setVisitDate(rs.getDate(6));
+            reg.setUserID(rs.getInt(7));
+        }
+        JdbcUtil.release(con,null,null);
+        return reg;
+    }
+
 }
