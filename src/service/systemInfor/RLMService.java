@@ -37,14 +37,14 @@ public class RLMService implements IRLMService{
     }
 
     @Override
-    public void RLMaddRegistLevel(String Rcode, String Rname, int Rno, double Rfee, int Rquota, int Rmark) throws SQLException {
+    public void RLMaddRegistLevel(String Rcode, String Rname, int Rno, double Rfee, int Rquota) throws SQLException {
         Connection con = null;
         con = JdbcUtil.getConnection();
         try {
             con.setAutoCommit(false);
             IRLMDao irlmDao = new RLMDao();
             irlmDao.setConnection(con);
-            irlmDao.AddRegistLevel(Rcode,Rname,Rno,Rfee,Rquota,Rmark);
+            irlmDao.AddRegistLevel(Rcode,Rname,Rno,Rfee,Rquota);
         } catch (SQLException e) {
             e.printStackTrace();
             con.rollback();
@@ -72,14 +72,14 @@ public class RLMService implements IRLMService{
     }
 
     @Override
-    public void RLMUpdatesaveRegistLevel(String Rcode, String Rname, int Rno, Double Rfee, int Rquota, int Rmark) throws SQLException {
+    public void RLMUpdatesaveRegistLevel(String Rcode, String Rname, int Rno, Double Rfee, int Rquota) throws SQLException {
         Connection con = null;
         con = JdbcUtil.getConnection();
         try {
             con.setAutoCommit(false);
             IRLMDao irlmDao = new RLMDao();
             irlmDao.setConnection(con);
-            irlmDao.UpdatesaveRegistLevel(Rcode,Rname,Rno,Rfee,Rquota,Rmark);
+            irlmDao.UpdatesaveRegistLevel(Rcode,Rname,Rno,Rfee,Rquota);
         } catch (SQLException e) {
             e.printStackTrace();
             con.rollback();

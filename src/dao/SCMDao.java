@@ -53,7 +53,7 @@ public class SCMDao implements ISCMDao{
     }
 
     @Override
-    public void addSettleCategory(String Scode,String Sname,int Sno,int Smark) throws SQLException {
+    public void addSettleCategory(String Scode,String Sname,int Sno) throws SQLException {
         String sql="SELECT count(id) \n" +
                 "FROM SettleCategory\n" +
                 "where SettleCode = ?\n" +
@@ -74,7 +74,6 @@ public class SCMDao implements ISCMDao{
             pstm.setString(1,Scode);
             pstm.setString(2,Sname);
             pstm.setInt(3,Sno);
-            pstm.setInt(4,Smark);
             pstm.executeUpdate();
         }else {
             JdbcUtil.release(null,pstm,null);
@@ -104,7 +103,7 @@ public class SCMDao implements ISCMDao{
     }
 
     @Override
-    public void updateSettleCategorySave(String Scode,String Sname,int Sno,int Smark) throws SQLException {
+    public void updateSettleCategorySave(String Scode,String Sname,int Sno) throws SQLException {
         String sql="SELECT count(id) \n" +
                 "FROM SettleCategory\n" +
                 "where SettleCode = ?\n" +
@@ -125,7 +124,6 @@ public class SCMDao implements ISCMDao{
                 pstm.setString(1,Scode);
                 pstm.setString(2,Sname);
                 pstm.setInt(3,Sno);
-                pstm.setInt(4,Smark);
                 JdbcUtil.release(null,pstm,null);
             }else{
                 JdbcUtil.release(null,pstm,null);

@@ -50,7 +50,7 @@ public class RLMDao implements IRLMDao {
     }
 
     @Override
-    public void AddRegistLevel(String Rcode,String Rname,int Rno,double Rfee,int Rquota,int Rmark) throws SQLException {
+    public void AddRegistLevel(String Rcode,String Rname,int Rno,double Rfee,int Rquota) throws SQLException {
             String sql ="SELECT count(id) \n" +
                     "FROM RegistLevel\n" +
                     "where RegistCode = ?\n" +
@@ -73,10 +73,9 @@ public class RLMDao implements IRLMDao {
             pstm.setInt(3,Rno);
             pstm.setDouble(4,Rfee);
             pstm.setInt(5,Rquota);
-            pstm.setInt(6,Rmark);
             pstm.executeUpdate();
         }else{
-            JdbcUtil.release(null,null,null);
+            JdbcUtil.release(null,pstm,null);
         }
         JdbcUtil.release(null,pstm,null);
     }
@@ -104,14 +103,14 @@ public class RLMDao implements IRLMDao {
     }
 
     @Override
-    public void UpdatesaveRegistLevel(String Rcode,String Rname,int Rno,Double Rfee,int Rquota,int Rmark) throws SQLException {
+    public void UpdatesaveRegistLevel(String Rcode,String Rname,int Rno,Double Rfee,int Rquota) throws SQLException {
         String sql="SELECT count(id) \n" +
                 "FROM RegistLevel\n" +
                 "where RegistCode = ?\n" +
                 "and DelMark = 1";
 
-        String sql2="update  RegistLevel Set RegistCode=?,RegistName=?,SequenceNo=?,RegistFee=?,RegistQuota=?,DelMark=?\n" +
-                "WHERE id = ?";
+        String sql2="update  RegistLevel Set RegistCode=?,RegistName=?,SequenceNo=?,RegistFee=?,RegistQuota=?\n" +
+                "WHERE RegistCode = ?";
 
         PreparedStatement pstm= con.prepareStatement(sql);
         pstm.setString(1,Rcode);
@@ -128,7 +127,6 @@ public class RLMDao implements IRLMDao {
             pstm.setInt(3,Rno);
             pstm.setDouble(4,Rfee);
             pstm.setInt(5,Rquota);
-            pstm.setInt(6,Rmark);
             pstm.executeUpdate();
         }else {
             JdbcUtil.release(null,pstm,null);

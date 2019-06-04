@@ -33,14 +33,14 @@ public class SCMService implements ISCMService{
 
     //新增结算类别保存
     @Override
-    public void ScmaddSettleCategory(String Scode, String Sname, int Sno, int Smark) throws SQLException {
+    public void ScmaddSettleCategory(String Scode, String Sname, int Sno) throws SQLException {
         Connection con= null;
         con=JdbcUtil.getConnection();
         try {
             con.setAutoCommit(false);
             ISCMDao iscmDao = new SCMDao();
             iscmDao.setConnection(con);
-            iscmDao.addSettleCategory(Scode,Sname,Sno,Smark);
+            iscmDao.addSettleCategory(Scode,Sname,Sno);
         } catch (SQLException e) {
             e.printStackTrace();
             con.rollback();
@@ -70,14 +70,14 @@ public class SCMService implements ISCMService{
 
     //修改结算类
     @Override
-    public void ScmupdateSettleCategorySave(String Scode, String Sname, int Sno, int Smark) throws SQLException {
+    public void ScmupdateSettleCategorySave(String Scode, String Sname, int Sno) throws SQLException {
         Connection con =null;
         con=JdbcUtil.getConnection();
         try {
             con.setAutoCommit(false);
             ISCMDao iscmDao = new SCMDao();
             iscmDao.setConnection(con);
-            iscmDao.updateSettleCategorySave(Scode,Sname,Sno,Smark);
+            iscmDao.updateSettleCategorySave(Scode,Sname,Sno);
         } catch (SQLException e) {
             e.printStackTrace();
             con.rollback();
