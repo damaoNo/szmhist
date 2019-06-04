@@ -11,9 +11,11 @@ import dao.IMedicalRecordDao;
 import dao.MedicalRecordDao;
 import util.JdbcUtil;
 import vo.MedicalRecord;
+import vo.NonDrugsPay;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class MedRecordService implements IMedRecordService{
 
@@ -33,6 +35,33 @@ public class MedRecordService implements IMedRecordService{
             MedicalRecord mr=mrd.selectMedRecord(regID);
             con.commit();
             return mr;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
+    }
+
+    /**
+     * 根据类型（int）查询所有项目
+     *
+     * @param ndp ndp
+     * @return list
+     * @throws SQLException
+     */
+    @Override
+    public List<NonDrugsPay> findNDrugByType(NonDrugsPay ndp) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IMedicalRecordDao mrd=new MedicalRecordDao();
+            mrd.setConnection(con);
+            List<NonDrugsPay> list=mrd.selectNDrugByType(ndp);
+            con.commit();
+            return list;
         } catch (SQLException e) {
             con.rollback();
             e.printStackTrace();

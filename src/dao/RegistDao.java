@@ -273,6 +273,19 @@ public class RegistDao implements IRegistDao{
         pstm.executeUpdate();
         JdbcUtil.release(null,pstm,null);
     }
-
+    /**
+     * 根据挂号ID 修改对应数据VisitState属性1-已挂号 2-医生接诊 3-看诊结束 4-已退号
+     *
+     * @param regID 挂号ID
+     */
+    @Override
+    public void updateVisitState(int regID,int state) throws SQLException {
+        String sql="UPDATE register set VisitState=? where ID=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setInt(1,state);
+        pstmt.setInt(2,regID);
+        pstmt.executeUpdate();
+        JdbcUtil.release(null, pstmt, null);
+    }
 
 }

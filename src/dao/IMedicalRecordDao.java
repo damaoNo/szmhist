@@ -7,9 +7,7 @@
 
 package dao;
 
-import vo.MedicalDisease;
-import vo.MedicalRecord;
-import vo.Register;
+import vo.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -20,7 +18,7 @@ public interface IMedicalRecordDao {
     void setConnection(Connection con);
 
     /**
-     * 根据病历号查询相关病历记录
+     * 根据挂号ID查询相关病历记录
      * @param regID 挂号ID
      * @return 病历记录对象
      * @throws SQLException
@@ -28,7 +26,7 @@ public interface IMedicalRecordDao {
     MedicalRecord selectMedRecord(int regID) throws SQLException;
 
     /**
-     * 将诊断结果更新到数据库中-更新病历首页内容
+     * 更新病历首页内容
      *
      * @param mr 诊断结果对象
      */
@@ -40,11 +38,7 @@ public interface IMedicalRecordDao {
      */
     void updateMR(MedicalRecord mr) throws SQLException;
 
-    /**
-     * 根据挂号ID 修改对应数据VisitState属性1-已挂号 2-医生接诊 3-看诊结束 4-已退号
-     * @param regID 挂号ID
-     */
-    void updateVisitState(String regID,int state) throws SQLException;
+
 
     /**
      * 根据挂号ID 修改对应数据CaseState属性 1-暂存 2-已提交 3-诊毕
@@ -74,5 +68,37 @@ public interface IMedicalRecordDao {
      * @return list
      */
     List<Register> selectDocVP(int userID) throws SQLException;
+
+    /**
+     * 根据类型（int）查询所有项目
+     * @param ndp ndp
+     * @return list
+     * @throws SQLException
+     */
+    List<NonDrugsPay> selectNDrugByType(NonDrugsPay ndp) throws SQLException;
+
+    /**
+     * 新增检查项目
+     * @param ca checkapply
+     */
+    void insertCheckApply(CheckApply ca) throws SQLException;
+
+    /**
+     * 查询个人的检查/检验/处置 申请
+     * @param registID   挂号ID
+     * @param recordType 类型 1-检查 2-检验 3-处置
+     * @return
+     */
+    List<PatientCheckApply> selectPatientCA(int registID,int recordType) throws SQLException;
+
+
+    /**
+     *  更改个人的检查/检验/处置 申请状态
+     *  需要设置 id，state   -1-暂存 2-已开立 3-已交费 4-已登记 5-执行完 6-已退费 0-已作废
+     * @param id    申请表ID
+     * @param state 申请表状态
+     * @throws SQLException
+     */
+    void updateCheckApplyState(int id,int state) throws SQLException;
 
 }

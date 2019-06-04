@@ -173,4 +173,25 @@ public class MedicalRecord {
     public void setCaseState(int caseState) {
         this.caseState = caseState;
     }
+
+    @Override
+    public String toString() {
+        return "MedicalRecord{" +
+                "id=" + id +
+                ", caseNumber='" + caseNumber + '\'' +
+                ", registerID=" + registerID +
+                ", readme='" + readme + '\'' +
+                ", present='" + present + '\'' +
+                ", presentTreat='" + presentTreat + '\'' +
+                ", history='" + history + '\'' +
+                ", allergy='" + allergy + '\'' +
+                ", physique='" + physique + '\'' +
+                ", proposal='" + proposal + '\'' +
+                ", careful='" + careful + '\'' +
+                ", checkResult='" + checkResult + '\'' +
+                ", diagnosis='" + diagnosis + '\'' +
+                ", handling='" + handling + '\'' +
+                ", caseState=" + caseState +
+                '}';
+    }
 }

@@ -81,4 +81,9 @@ public interface IRegistDao {
     */
     void insertInvoice(Invoice iv) throws SQLException;
 
+    /**
+     * 根据挂号ID 修改对应数据VisitState属性1-已挂号 2-医生接诊 3-看诊结束 4-已退号
+     * @param regID 挂号ID
+     */
+    void updateVisitState(int regID,int state) throws SQLException;
 }

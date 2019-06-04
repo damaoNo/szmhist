@@ -8,15 +8,9 @@
 package dao;
 
 import util.JdbcUtil;
-import vo.Department;
-import vo.MedicalDisease;
-import vo.MedicalRecord;
-import vo.Register;
+import vo.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +31,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
      */
     @Override
     public MedicalRecord selectMedRecord(int regID) throws SQLException {
-        String sql="SELECT * FROM medicalrecord WHERE CaseNumber=?";
+        String sql="SELECT * FROM medicalrecord WHERE RegistID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setInt(1,regID);
         ResultSet rs=pstmt.executeQuery();
@@ -64,22 +58,39 @@ public class MedicalRecordDao implements IMedicalRecordDao{
     }
 
     /**
-     * 将诊断结果更新到数据库中-更新病历首页内容
+     * 更新病历首页内容
      *
      * @param mr 诊断结果对象
      */
     @Override
     public void updateMedRecord(MedicalRecord mr) throws SQLException {
-        String sql="UPDATE medicalrecord SET Readme=?,Present=?,PresentTreat=?,History=?,Physique=?,Proposal=?,Careful=? where RegistID=?";
+        String sql="UPDATE medicalrecord " +
+                "SET RegistID=? ";
+        if (mr.getReadme()!=null && mr.getReadme().length()!=0){
+            sql+=",ReadMe='"+mr.getReadme()+"'";
+        }
+        if (mr.getPresent()!=null && mr.getPresent().length()!=0){
+            sql+=",Present='"+mr.getPresent()+"'";
+        }
+        if (mr.getPresentTreat()!=null && mr.getPresentTreat().length()!=0){
+            sql+=",PresentTreat='"+mr.getPresentTreat()+"'";
+        }
+        if (mr.getHistory()!=null && mr.getHistory().length()!=0){
+            sql+=",History='"+mr.getHistory()+"'";
+        }
+        if (mr.getPhysique()!=null && mr.getPhysique().length()!=0){
+            sql+=",Physique='"+mr.getPhysique()+"'";
+        }
+        if (mr.getProposal()!=null && mr.getProposal().length()!=0){
+            sql+=",Proposal='"+mr.getProposal()+"'";
+        }
+        if (mr.getCareful()!=null && mr.getCareful().length()!=0){
+            sql+=",Careful='"+mr.getCareful()+"'";
+        }
+        sql+=" where RegistID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setString(1,mr.getReadme());
-        pstmt.setString(2,mr.getPresent());
-        pstmt.setString(3,mr.getPresentTreat());
-        pstmt.setString(4,mr.getHistory());
-        pstmt.setString(5,mr.getPhysique());
-        pstmt.setString(6,mr.getProposal());
-        pstmt.setString(7,mr.getCareful());
-        pstmt.setInt(8,mr.getRegisterID());
+        pstmt.setInt(1,mr.getRegisterID());
+        pstmt.setInt(2,mr.getRegisterID());
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }
@@ -105,20 +116,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
         JdbcUtil.release(null, pstmt, null);
     }
 
-    /**
-     * 根据挂号ID 修改对应数据VisitState属性1-已挂号 2-医生接诊 3-看诊结束 4-已退号
-     *
-     * @param regID 挂号ID
-     */
-    @Override
-    public void updateVisitState(String regID,int state) throws SQLException {
-        String sql="UPDATE register set VisitState=? where RegistID=?";
-        PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,state);
-        pstmt.setString(2,regID);
-        pstmt.executeUpdate();
-        JdbcUtil.release(null, pstmt, null);
-    }
+
 
     /**
      * 根据挂号ID 修改对应数据CaseState属性 1-暂存 2-已提交 3-诊毕
@@ -167,7 +165,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
      */
     @Override
     public List<Register> selectVisitedPatient(int deptId) throws SQLException {
-        String sql="SELECT CaseNumber,RealName,Age,Gender FROM register WHERE VisitState=3 and DeptID=?";
+        String sql="SELECT CaseNumber,RealName,Age,Gender FROM register WHERE VisitState in (1,2) and DeptID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setInt(1,deptId);
         ResultSet rs=pstmt.executeQuery();
@@ -235,6 +233,132 @@ public class MedicalRecordDao implements IMedicalRecordDao{
         }
         JdbcUtil.release(null, pstmt, null);
         return list;
+    }
+
+    /**
+     * 根据类型（int）查询所有项目
+     *
+     * @param type 类型
+     * @return list
+     */
+    @Override
+    public List<NonDrugsPay> selectNDrugByType(NonDrugsPay ndp) throws SQLException {
+        String mmcode=ndp.getMnemonicCode();
+        String name=ndp.getItemName();
+        String sql="SELECT F.ID,F.ItemCode,F.ItemName,F.Format,F.Price,F.ExpClassID,F.DeptID," +
+                "F.MnemonicCode,F.CreationDate,F.LastUpdateDate,F.RecordType,F.DelMark,E.ExpName,D.DeptName\n" +
+                "FROm fmeditem F,expenseClass E,department  D\n" +
+                "where F.ExpClassID = E.ID\n" +
+                "and F.DeptID = D.ID\n" +
+                "and F.DelMark=1\n " +
+                "and RecordType = ?\n";
+
+        if (mmcode!=null && mmcode.length()!=0){
+            sql+="and F.MnemonicCode like '%"+mmcode+"%'";
+        }
+        if (name!=null && name.length()!=0){
+            sql+="and F.ItemName like '%"+name+"%'";
+        }
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setInt(1,ndp.getRecordType());
+
+        ResultSet rs=pstmt.executeQuery();
+        NonDrugsPay nonDrugs=null;
+        List list=new ArrayList();
+        while(rs.next()){
+            nonDrugs=new NonDrugsPay();
+            nonDrugs.setID(rs.getInt(1));
+            nonDrugs.setItemCode(rs.getString(2));
+            nonDrugs.setItemName(rs.getString(3));
+            nonDrugs.setFormat(rs.getString(4));
+            nonDrugs.setPrice(rs.getDouble(5));
+            nonDrugs.setExpClassID(rs.getInt(6));
+            nonDrugs.setMnemonicCode(rs.getString(8));
+            nonDrugs.setCreationDate(rs.getDate(9));
+            nonDrugs.setLastUpdateDate(rs.getDate(10));
+            nonDrugs.setRecordType(rs.getInt(11));
+            nonDrugs.setDelMark(rs.getInt(12));
+            nonDrugs.setExpName(rs.getString(13));
+            nonDrugs.setDeptName(rs.getString(14));
+            list.add(nonDrugs);
+        }
+        JdbcUtil.release(null,pstmt,null);
+        return list;
+    }
+
+    /**
+     * 新增检查项目,创建时间-系统当前时间
+     *
+     * @param ca checkapply
+     */
+    @Override
+    public void insertCheckApply(CheckApply ca) throws SQLException {
+        String sql1="INSERT INTO checkapply(MedicalID,RegistID,ItemID,Name,CreationTime,DoctorID,State,RecordType) VALUES(?,?,?,?,?,?,?,?)";
+        PreparedStatement pstmt=con.prepareStatement(sql1);
+        pstmt.setInt(1,ca.getMedicalID());
+        pstmt.setInt(2,ca.getRegistID());
+        pstmt.setInt(3,ca.getItemID());
+        pstmt.setString(4,ca.getName());
+        Timestamp createTime=new Timestamp(System.currentTimeMillis());
+        pstmt.setTimestamp(5,createTime);
+        pstmt.setInt(6,ca.getDoctorID());
+        pstmt.setInt(7,ca.getState());
+        pstmt.setInt(8,ca.getRecordType());
+        pstmt.executeUpdate();
+        JdbcUtil.release(null, pstmt, null);
+
+    }
+
+    /**
+     * 查询个人的检查/检验/处置 申请
+     *
+     * @param registID   挂号ID
+     * @param recordType 类型 1-检查 2-检验 3-处置
+     * @return
+     */
+    @Override
+    public List<PatientCheckApply> selectPatientCA(int registID, int recordType) throws SQLException {
+        String sql1="SELECT c.ID,c.Name,f.ItemName,d.DeptName,c.Isurgent,c.State,f.Price,c.Result " +
+                "FROM checkapply c,fmeditem f,department d " +
+                "WHERE c.ItemID = f.ID " +
+                "and d.ID = f.DeptID " +
+                "and c.RegistID = ? " +
+                "and c.RecordType = ?";
+        PreparedStatement pstmt=con.prepareStatement(sql1);
+        pstmt.setInt(1,registID);
+        pstmt.setInt(2,recordType);
+        ResultSet rs=pstmt.executeQuery();
+        List<PatientCheckApply> list=new ArrayList<>();
+        PatientCheckApply pca=null;
+        while (rs.next()){
+            pca=new PatientCheckApply();
+            pca.setId(rs.getInt(1));
+            pca.setName(rs.getString(2));
+            pca.setItemName(rs.getString(3));
+            pca.setDeptName(rs.getString(4));
+            pca.setIsUrgent(rs.getByte(5));
+            pca.setState(rs.getInt(6));
+            pca.setPrice(rs.getDouble(7));
+            pca.setResult(rs.getString(8));
+            list.add(pca);
+        }
+        JdbcUtil.release(null, pstmt, null);
+        return list;
+    }
+
+    /**
+     * 更改个人的检查/检验/处置 申请状态
+     * 需要设置 id，state   -1-暂存 2-已开立 3-已交费 4-已登记 5-执行完 6-已退费 0-已作废
+     *
+     */
+    @Override
+    public void updateCheckApplyState(int id,int state) throws SQLException {
+        String sql1="update checkapply set State=? where id=?";
+        PreparedStatement pstmt=con.prepareStatement(sql1);
+        pstmt.setInt(1,id);
+        pstmt.setInt(2,state);
+        pstmt.executeUpdate();
+        JdbcUtil.release(null, pstmt, null);
     }
 
 

@@ -1,6 +1,6 @@
 /**
  * * @ClassName: IMedicalRecordService
- * * @description: 病历首页
+ * * @description: 病历首页相关服务
  * * @author: cro
  * * @create: 2019-06-03 13:57
  **/
@@ -8,8 +8,10 @@
 package service.consult;
 
 import vo.MedicalRecord;
+import vo.NonDrugsPay;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface IMedRecordService {
 
@@ -20,4 +22,12 @@ public interface IMedRecordService {
      * @throws SQLException
      */
     MedicalRecord findMedRecord(int regID) throws SQLException;
+
+    /**
+     * 根据类型（int）查询所有项目
+     * @param ndp ndp
+     * @return list
+     * @throws SQLException
+     */
+    List<NonDrugsPay> findNDrugByType(NonDrugsPay ndp) throws SQLException;
 }
