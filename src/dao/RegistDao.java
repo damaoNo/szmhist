@@ -310,6 +310,31 @@ public class RegistDao implements IRegistDao{
         return reg;
     }
 
+    @Override
+    public Invoice getInfByRegistid(int registid) throws SQLException {
+        String sql="select id,invoicenum,money,state,creationtime,userid,registid,feetype,dailystate " +
+                "from invoice where registid=?";
+        con=JdbcUtil.getConnection();
+        PreparedStatement ps=con.prepareStatement(sql);
+        ps.setInt(1,registid);
+        ResultSet rs=ps.executeQuery();
+        Invoice inv=new Invoice();
+        while(rs.next()){
+            inv.setId(rs.getInt(1));
+            inv.setInvoiceNum(rs.getString(2));
+            inv.setMoney(rs.getDouble(3));
+            inv.setState(rs.getInt(4));
+            inv.setCreationTime(rs.getTimestamp(5));
+            inv.setUserID(rs.getInt(6));
+            inv.setRegistID(rs.getInt(7));
+            inv.setFeeType(rs.getInt(8));
+            inv.setDailyState(rs.getInt(9));
+        }
+        JdbcUtil.getConnection();
+        return inv;
+    }
+
+
 
 
 }

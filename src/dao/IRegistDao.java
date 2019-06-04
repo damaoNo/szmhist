@@ -88,4 +88,6 @@ public interface IRegistDao {
     void updateVisitState(int regID,int state) throws SQLException;
     //通过病历号查找对象
     public Register getRegisterByCaseNumber(String casen) throws SQLException;
+    //通过id查找注册对象
+    public Invoice getInfByRegistid(int registid) throws SQLException;
 }
