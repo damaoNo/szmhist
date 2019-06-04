@@ -2,58 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/service/consult/ConsultService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/consult/IConsultService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/MedRecordServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vo/PatientCheckApply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/DiseCategoryDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IDiseCategoryDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IMedicalRecordDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/MedicalRecordDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/IMedRecordService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/MedRecordService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/IRegistStateService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/INonDrugsPayService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/IRLMService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/ISCMService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/ISchedulingService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/RLMService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SCMService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/MedRecordServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/CheckApplyDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/ICheckApplyDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/IRegistDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IRegistDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/MedicalRecordDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/MedicalRecordDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/RegistDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/RegistDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/consult/IMedRecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/consult/IMedRecordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/consult/MedRecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/consult/MedRecordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vo/MedicalRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vo/MedicalRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/DepartmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/DepartmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/DrugManageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/DrugManageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/DrugManageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/DrugManageServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/ExpenseClassService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/ExpenseClassService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/IDepartmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/IDepartmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/IDrugManageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/IDrugManageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/IExpenseClassService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/IExpenseClassService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/INonDrugsPayService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/IRegistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/IRegistService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/IRegistStateService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/ISchedulingService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/IUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/IUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/NonDrugsPayService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/NonDrugsPayService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/RegistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/RegistStateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistStateService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/SchedulingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SchedulingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/DrugManageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/DrugManageServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/NonDrugsPayServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/NonDrugsPayServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/RLMServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/RLMServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/RegistServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/RegistServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/RegistStateServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/RegistStateServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/SCMServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/SCMServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/SchedulingServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/SchedulingServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/vo/MedicalRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/MedicalRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/consult/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/consult/ConsultService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/consult/IConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/consult/IConsultService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vo/PatientCheckApply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vo/PatientCheckApply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IMedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IMedicalRecordDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/MedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/MedicalRecordDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/IConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/IConsultService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/consult/ConsultServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/consult/ConsultServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/vo/PatientCheckApply.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/PatientCheckApply.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
@@ -85,17 +48,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dao/IMedicalRecordDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
+            <state relative-caret-position="559">
               <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/dao/MedicalRecordDao.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dao/ICheckApplyDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="212" column="26" lean-forward="true" selection-start-line="212" selection-start-column="26" selection-end-line="212" selection-end-column="26" />
+            <state relative-caret-position="591">
+              <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,10 +67,36 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dao/MedicalRecordDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="745">
+              <caret line="255" column="9" lean-forward="true" selection-start-line="255" selection-start-column="9" selection-end-line="255" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dao/CheckApplyDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="535">
+              <caret line="97" column="35" lean-forward="true" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#446#447#0" expanded="true" />
+                <element signature="e#474#475#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="227">
+              <caret line="68" column="29" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,29 +107,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/consult/ConsultService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="785">
-              <caret line="201" column="24" selection-start-line="201" selection-start-column="24" selection-end-line="201" selection-end-column="24" />
+            <state relative-caret-position="393">
+              <caret line="194" column="51" selection-start-line="194" selection-start-column="51" selection-end-line="194" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java">
+        <entry file="file://$PROJECT_DIR$/src/dao/RegistDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="69" column="57" lean-forward="true" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
+            <state relative-caret-position="3033">
+              <caret line="186" column="35" lean-forward="true" selection-start-line="186" selection-start-column="35" selection-end-line="186" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#selectMaxInvoiceNum#0;class#RegistDao#0" />
+                <element signature="method#selectMaxCaseNum#0;class#RegistDao#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vo/NonDrugsPay.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-56">
-              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            <state relative-caret-position="281">
+              <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -150,9 +144,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -173,24 +167,24 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/vo/CheckApply.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/NonDrugsPayDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/SchedulingDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/PatientCostsDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/CheckApplyDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/RegistDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/util/JdbcUtil.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/MedicalRecordDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/IRegistDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/vo/CheckApply.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/RegistStateDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/NonDrugsPayDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/DrugManageDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/PatientCostsDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/about.md" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/vo/RegistRecord.java" />
-        <option value="$PROJECT_DIR$/src/service/RegistStateService.java" />
         <option value="$PROJECT_DIR$/src/dao/IMedicineManageDao.java" />
         <option value="$PROJECT_DIR$/src/dao/MedicineManageDao.java" />
         <option value="$PROJECT_DIR$/src/vo/Drugs.java" />
@@ -225,21 +219,23 @@
         <option value="$PROJECT_DIR$/src/service/consult/MedRecordService.java" />
         <option value="$PROJECT_DIR$/src/vo/MedicalRecord.java" />
         <option value="$PROJECT_DIR$/src/test/MedRecordServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/vo/PatientCheckApply.java" />
-        <option value="$PROJECT_DIR$/src/dao/CheckApplyDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/ICheckApplyDao.java" />
         <option value="$PROJECT_DIR$/src/service/consult/IMedRecordService.java" />
         <option value="$PROJECT_DIR$/src/test/ConsultTest.java" />
         <option value="$PROJECT_DIR$/src/service/consult/IConsult.java" />
         <option value="$PROJECT_DIR$/src/service/consult/Consult.java" />
         <option value="$PROJECT_DIR$/src/test/consult/ConsultTest.java" />
-        <option value="$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" />
         <option value="$PROJECT_DIR$/src/dao/IRegistDao.java" />
         <option value="$PROJECT_DIR$/src/dao/RegistDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/MedicalRecordDao.java" />
+        <option value="$PROJECT_DIR$/src/vo/PatientCheckApply.java" />
+        <option value="$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" />
+        <option value="$PROJECT_DIR$/src/CheckApply.java" />
+        <option value="$PROJECT_DIR$/src/CheckApplyDao.java" />
         <option value="$PROJECT_DIR$/src/service/consult/IConsultService.java" />
         <option value="$PROJECT_DIR$/src/service/consult/ConsultService.java" />
+        <option value="$PROJECT_DIR$/src/dao/ICheckApplyDao.java" />
         <option value="$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/dao/CheckApplyDao.java" />
+        <option value="$PROJECT_DIR$/src/dao/MedicalRecordDao.java" />
       </list>
     </option>
   </component>
@@ -272,26 +268,19 @@
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
               <item name="szmhist" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
               <item name="szmhist" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="consult" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
               <item name="szmhist" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="consult" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -355,6 +344,22 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.ConsultServiceTest.findNDrugByType">
+    <configuration name="ConsultServiceTest.changeCaState" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="szmhis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.consult.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.consult" />
+      <option name="MAIN_CLASS_NAME" value="test.consult.ConsultServiceTest" />
+      <option name="METHOD_NAME" value="changeCaState" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ConsultServiceTest.consulting" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="szmhis" />
       <extension name="coverage">
@@ -366,38 +371,6 @@
       <option name="PACKAGE_NAME" value="test.consult" />
       <option name="MAIN_CLASS_NAME" value="test.consult.ConsultServiceTest" />
       <option name="METHOD_NAME" value="consulting" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConsultServiceTest.findDocUVP" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="szmhis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.consult.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.consult" />
-      <option name="MAIN_CLASS_NAME" value="test.consult.ConsultServiceTest" />
-      <option name="METHOD_NAME" value="findDocUVP" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConsultServiceTest.findDocVP" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="szmhis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.consult.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.consult" />
-      <option name="MAIN_CLASS_NAME" value="test.consult.ConsultServiceTest" />
-      <option name="METHOD_NAME" value="findDocVP" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -430,6 +403,22 @@
       <option name="PACKAGE_NAME" value="test.consult" />
       <option name="MAIN_CLASS_NAME" value="test.consult.ConsultServiceTest" />
       <option name="METHOD_NAME" value="findNDrugByType" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConsultServiceTest.findPatientCA" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="szmhis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.consult.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.consult" />
+      <option name="MAIN_CLASS_NAME" value="test.consult.ConsultServiceTest" />
+      <option name="METHOD_NAME" value="findPatientCA" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -545,10 +534,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ConsultServiceTest.findNDrugByType" />
+        <item itemvalue="JUnit.ConsultServiceTest.changeCaState" />
+        <item itemvalue="JUnit.ConsultServiceTest.findPatientCA" />
         <item itemvalue="JUnit.ConsultServiceTest.consulting" />
         <item itemvalue="JUnit.ConsultServiceTest.findMedicalRecord" />
-        <item itemvalue="JUnit.ConsultServiceTest.findDocVP" />
-        <item itemvalue="JUnit.ConsultServiceTest.findDocUVP" />
       </list>
     </recent_temporary>
   </component>
@@ -573,7 +562,7 @@
       <workItem from="1559476087157" duration="10626000" />
       <workItem from="1559523778610" duration="26399000" />
       <workItem from="1559571929444" duration="2330000" />
-      <workItem from="1559610031379" duration="8377000" />
+      <workItem from="1559610031379" duration="13580000" />
     </task>
     <task id="LOCAL-00001" summary="ver 0.0:&#10;add readme">
       <created>1559230289989</created>
@@ -778,43 +767,50 @@
       <option name="project" value="LOCAL" />
       <updated>1559549287518</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="0.4 门诊病历-病历首页、患者列表、查询非药品类目">
+      <created>1559619434192</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1559619434192</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ConsultServiceTest_consulting - 2019.06.04 at 11h 18m 39s.xml">
-      <configuration name="ConsultServiceTest.consulting" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConsultServiceTest_consulting - 2019.06.04 at 11h 19m 10s.xml">
-      <configuration name="ConsultServiceTest.consulting" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConsultServiceTest_consulting - 2019.06.04 at 11h 20m 30s.xml">
-      <configuration name="ConsultServiceTest.consulting" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConsultServiceTest_consulting - 2019.06.04 at 11h 21m 26s.xml">
-      <configuration name="ConsultServiceTest.consulting" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConsultServiceTest_consulting - 2019.06.04 at 11h 21m 46s.xml">
-      <configuration name="ConsultServiceTest.consulting" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConsultServiceTest_findNDrugByType - 2019.06.04 at 11h 30m 03s.xml">
-      <configuration name="ConsultServiceTest.findNDrugByType" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConsultServiceTest_findNDrugByType - 2019.06.04 at 11h 30m 43s.xml">
-      <configuration name="ConsultServiceTest.findNDrugByType" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConsultServiceTest_findNDrugByType - 2019.06.04 at 11h 31m 07s.xml">
-      <configuration name="ConsultServiceTest.findNDrugByType" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConsultServiceTest_findNDrugByType - 2019.06.04 at 11h 31m 35s.xml">
-      <configuration name="ConsultServiceTest.findNDrugByType" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ConsultServiceTest_findNDrugByType - 2019.06.04 at 11h 31m 44s.xml">
       <configuration name="ConsultServiceTest.findNDrugByType" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ConsultServiceTest_findPatientCA - 2019.06.04 at 11h 43m 38s.xml">
+      <configuration name="ConsultServiceTest.findPatientCA" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConsultServiceTest_findPatientCA - 2019.06.04 at 11h 43m 48s.xml">
+      <configuration name="ConsultServiceTest.findPatientCA" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConsultServiceTest_findPatientCA - 2019.06.04 at 11h 43m 56s.xml">
+      <configuration name="ConsultServiceTest.findPatientCA" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConsultServiceTest_findPatientCA - 2019.06.04 at 11h 48m 36s.xml">
+      <configuration name="ConsultServiceTest.findPatientCA" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConsultServiceTest_findPatientCA - 2019.06.04 at 11h 49m 32s.xml">
+      <configuration name="ConsultServiceTest.findPatientCA" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConsultServiceTest_findNDrugByType - 2019.06.04 at 11h 51m 05s.xml">
+      <configuration name="ConsultServiceTest.findNDrugByType" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConsultServiceTest_changeCaState - 2019.06.04 at 13h 40m 33s.xml">
+      <configuration name="ConsultServiceTest.changeCaState" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConsultServiceTest_changeCaState - 2019.06.04 at 13h 42m 34s.xml">
+      <configuration name="ConsultServiceTest.changeCaState" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConsultServiceTest_changeCaState - 2019.06.04 at 13h 42m 40s.xml">
+      <configuration name="ConsultServiceTest.changeCaState" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97773000" />
+    <option name="totallyTimeSpent" value="102976000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -829,7 +825,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49835527" weight="0.22814499" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.22814499" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" sideWeight="0.50164473" side_tool="true" weight="0.14712153" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -848,7 +844,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49615383" weight="0.45143488" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289183" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5026652" side_tool="true" weight="0.3289183" />
       <window_info anchor="bottom" id="Application Servers" order="12" sideWeight="0.49733475" weight="0.3289183" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
@@ -961,19 +957,12 @@
     <MESSAGE value="0.3 添加处理日期(一段时间内的周几-转换为具体日期)" />
     <MESSAGE value="0.3 门诊病历 首页Dao、修改病历" />
     <MESSAGE value="0.3 更改service目录结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.3 更改service目录结构" />
+    <MESSAGE value="0.4 门诊病历-病历首页、患者列表、查询非药品类目" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.4 门诊病历-病历首页、患者列表、查询非药品类目" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/dao/RegistDao.java</url>
-          <line>114</line>
-          <properties class="dao.RegistDao" method="selectRegistLevelByID">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/dao/DrugManageDao.java</url>
           <line>33</line>
@@ -1006,43 +995,26 @@
           </properties>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/dao/CheckApplyDao.java</url>
+          <line>93</line>
+          <properties class="dao.CheckApplyDao" method="updateCheckApplyState">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/service/consult/IConsultService.java</url>
+          <line>68</line>
+          <properties class="service.consult.IConsultService" method="findNDrugByType">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/service/IDrugManageService.java" />
-    <entry file="file://$PROJECT_DIR$/src/vo/Drugs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#1878#1879#0" expanded="true" />
-            <element signature="e#1924#1925#0" expanded="true" />
-            <element signature="e#3657#3658#0" expanded="true" />
-            <element signature="e#3705#3706#0" expanded="true" />
-            <element signature="e#3922#3923#0" expanded="true" />
-            <element signature="e#3952#3953#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/DrugManageServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vo/RegisterRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1260">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/chageDateFormatTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1152,18 +1124,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/PatientCostsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2128">
-          <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/RegistStateServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -1216,20 +1176,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/DepartmentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="32" column="20" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="32" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/IDrugManageDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1290,38 +1236,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/DrugManageDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vo/PatientCheckApply.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding>
-            <element signature="e#372#373#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-            <element signature="e#557#558#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#751#752#0" expanded="true" />
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#819#820#0" expanded="true" />
-            <element signature="e#847#848#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="e#923#924#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vo/CheckApply.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="728">
@@ -1333,13 +1247,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/ICheckApplyDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1377,29 +1284,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/RegistStateDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/RegistDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="282" column="59" selection-start-line="282" selection-start-column="59" selection-end-line="282" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#selectMaxInvoiceNum#0;class#RegistDao#0" />
-            <element signature="method#selectMaxCaseNum#0;class#RegistDao#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/consult/MedRecordService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -1417,44 +1301,167 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/src/vo/PatientCheckApply.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="69" column="57" lean-forward="true" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
+        <state relative-caret-position="479">
+          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#491#492#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#678#679#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#787#788#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#923#924#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/RegistStateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-28">
+          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/PatientCostsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/SchedulingDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2377">
+          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/DepartmentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="153" column="38" lean-forward="true" selection-start-line="153" selection-start-column="38" selection-end-line="153" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/IDepartmentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/IDrugManageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/DrugManageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="288" column="44" lean-forward="true" selection-start-line="278" selection-start-column="8" selection-end-line="288" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/systemInfor/DepartmentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="45" column="22" lean-forward="true" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/ICheckApplyDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/RegistDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3033">
+          <caret line="186" column="35" lean-forward="true" selection-start-line="186" selection-start-column="35" selection-end-line="186" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#selectMaxInvoiceNum#0;class#RegistDao#0" />
+            <element signature="method#selectMaxCaseNum#0;class#RegistDao#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/consult/ConsultService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="201" column="24" selection-start-line="201" selection-start-column="24" selection-end-line="201" selection-end-column="24" />
+        <state relative-caret-position="393">
+          <caret line="194" column="51" selection-start-line="194" selection-start-column="51" selection-end-line="194" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/IMedicalRecordDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/CheckApplyDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="97" column="35" lean-forward="true" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="227">
+          <caret line="68" column="29" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/IMedicalRecordDao.java">
+    <entry file="file://$PROJECT_DIR$/src/dao/MedicalRecordDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
+        <state relative-caret-position="745">
+          <caret line="255" column="9" lean-forward="true" selection-start-line="255" selection-start-column="9" selection-end-line="255" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/MedicalRecordDao.java">
+    <entry file="file://$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="212" column="26" lean-forward="true" selection-start-line="212" selection-start-column="26" selection-end-line="212" selection-end-column="26" />
+        <state relative-caret-position="281">
+          <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

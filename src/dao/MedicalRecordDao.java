@@ -250,9 +250,10 @@ public class MedicalRecordDao implements IMedicalRecordDao{
                 "FROm fmeditem F,expenseClass E,department  D\n" +
                 "where F.ExpClassID = E.ID\n" +
                 "and F.DeptID = D.ID\n" +
-                "and F.DelMark=1\n " +
-                "and RecordType = ?\n";
-
+                "and F.DelMark=1\n " ;
+        if (ndp.getRecordType() == 1 || ndp.getRecordType() ==2 || ndp.getRecordType()==3){
+            sql+="and RecordType = "+ndp.getRecordType()+"\n";
+        }
         if (mmcode!=null && mmcode.length()!=0){
             sql+="and F.MnemonicCode like '%"+mmcode+"%'";
         }
@@ -260,8 +261,6 @@ public class MedicalRecordDao implements IMedicalRecordDao{
             sql+="and F.ItemName like '%"+name+"%'";
         }
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,ndp.getRecordType());
-
         ResultSet rs=pstmt.executeQuery();
         NonDrugsPay nonDrugs=null;
         List list=new ArrayList();
@@ -286,80 +285,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
         return list;
     }
 
-    /**
-     * 新增检查项目,创建时间-系统当前时间
-     *
-     * @param ca checkapply
-     */
-    @Override
-    public void insertCheckApply(CheckApply ca) throws SQLException {
-        String sql1="INSERT INTO checkapply(MedicalID,RegistID,ItemID,Name,CreationTime,DoctorID,State,RecordType) VALUES(?,?,?,?,?,?,?,?)";
-        PreparedStatement pstmt=con.prepareStatement(sql1);
-        pstmt.setInt(1,ca.getMedicalID());
-        pstmt.setInt(2,ca.getRegistID());
-        pstmt.setInt(3,ca.getItemID());
-        pstmt.setString(4,ca.getName());
-        Timestamp createTime=new Timestamp(System.currentTimeMillis());
-        pstmt.setTimestamp(5,createTime);
-        pstmt.setInt(6,ca.getDoctorID());
-        pstmt.setInt(7,ca.getState());
-        pstmt.setInt(8,ca.getRecordType());
-        pstmt.executeUpdate();
-        JdbcUtil.release(null, pstmt, null);
 
-    }
-
-    /**
-     * 查询个人的检查/检验/处置 申请
-     *
-     * @param registID   挂号ID
-     * @param recordType 类型 1-检查 2-检验 3-处置
-     * @return
-     */
-    @Override
-    public List<PatientCheckApply> selectPatientCA(int registID, int recordType) throws SQLException {
-        String sql1="SELECT c.ID,c.Name,f.ItemName,d.DeptName,c.Isurgent,c.State,f.Price,c.Result " +
-                "FROM checkapply c,fmeditem f,department d " +
-                "WHERE c.ItemID = f.ID " +
-                "and d.ID = f.DeptID " +
-                "and c.RegistID = ? " +
-                "and c.RecordType = ?";
-        PreparedStatement pstmt=con.prepareStatement(sql1);
-        pstmt.setInt(1,registID);
-        pstmt.setInt(2,recordType);
-        ResultSet rs=pstmt.executeQuery();
-        List<PatientCheckApply> list=new ArrayList<>();
-        PatientCheckApply pca=null;
-        while (rs.next()){
-            pca=new PatientCheckApply();
-            pca.setId(rs.getInt(1));
-            pca.setName(rs.getString(2));
-            pca.setItemName(rs.getString(3));
-            pca.setDeptName(rs.getString(4));
-            pca.setIsUrgent(rs.getByte(5));
-            pca.setState(rs.getInt(6));
-            pca.setPrice(rs.getDouble(7));
-            pca.setResult(rs.getString(8));
-            list.add(pca);
-        }
-        JdbcUtil.release(null, pstmt, null);
-        return list;
-    }
-
-    /**
-     * 更改个人的检查/检验/处置 申请状态
-     * 需要设置 id，state   -1-暂存 2-已开立 3-已交费 4-已登记 5-执行完 6-已退费 0-已作废
-     *
-     */
-    @Override
-    public void updateCheckApplyState(int id,int state) throws SQLException {
-        String sql1="update checkapply set State=? where id=?";
-        PreparedStatement pstmt=con.prepareStatement(sql1);
-        pstmt.setInt(1,id);
-        pstmt.setInt(2,state);
-        pstmt.executeUpdate();
-        JdbcUtil.release(null, pstmt, null);
-    }
 
 
 }

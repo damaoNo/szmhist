@@ -5,6 +5,7 @@ import service.consult.ConsultService;
 import service.consult.IConsultService;
 import vo.MedicalRecord;
 import vo.NonDrugsPay;
+import vo.PatientCheckApply;
 import vo.Register;
 
 import java.sql.SQLException;
@@ -71,5 +72,19 @@ public class ConsultServiceTest {
         for (NonDrugsPay d:l){
             System.out.println(d);
         }
+    }
+
+    @Test
+    public void findPatientCA() throws SQLException {
+        List<PatientCheckApply> l=service.findPatientCA(26,1);
+        for (PatientCheckApply p:l){
+            System.out.println(p);
+        }
+    }
+
+    @Test
+    public void changeCaState() throws SQLException {
+        int[] ids={1,6,7};
+        service.changeCAState(ids,2);
     }
 }

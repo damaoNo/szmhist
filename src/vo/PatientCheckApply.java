@@ -54,8 +54,9 @@ public class PatientCheckApply extends CheckApply{
         return "PatientCheckApply{" +
                 "itemName='" + itemName + '\'' +
                 ", deptName='" + deptName + '\'' +
+                ", state='" + super.getState() + '\'' +
                 ", format='" + format + '\'' +
                 ", price=" + price +
-                '}';
+                '}' ;
     }
 }
