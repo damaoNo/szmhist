@@ -114,7 +114,18 @@ public class PrescriptionDao implements IPrescriptionDao{
         pstmt.setString(4,p.getPrescriptionName());
         Timestamp time=new Timestamp(System.currentTimeMillis());
         pstmt.setTimestamp(5,time);
-        pstmt.setInt(6,p.getPrescriptionState());
+        String state=p.getPrescriptionState();
+        int s=0;
+        if ("已作废".equals(state)){
+            s=0;
+        }
+        if ("暂存".equals(state)){
+            s=1;
+        }
+        if ("已开立".equals(state)){
+            s=2;
+        }
+        pstmt.setInt(6,s);
         JdbcUtil.release(null, pstmt, null);
     }
 
