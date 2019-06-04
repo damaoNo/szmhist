@@ -17,6 +17,7 @@ public class PatientExaminationService implements IPatientExaminationService{
         IPrescriptionDao dao3=new PrescriptionDao();
         IUserDao dao4=new UserDao();
 
+
         Register reg=dao.getRegisterByCaseNumber(casen);
         user.setCaseNumber(reg.getCaseNumber());
         user.setName(reg.getRealName());
