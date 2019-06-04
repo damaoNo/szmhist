@@ -1,12 +1,12 @@
 package test.consult;
 
+import dao.IPrescriptionDao;
+import dao.PrescriptionDao;
+import oracle.jdbc.proxy.annotation.Pre;
 import org.junit.Test;
 import service.consult.ConsultService;
 import service.consult.IConsultService;
-import vo.MedicalRecord;
-import vo.NonDrugsPay;
-import vo.PatientCheckApply;
-import vo.Register;
+import vo.*;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -86,5 +86,23 @@ public class ConsultServiceTest {
     public void changeCaState() throws SQLException {
         int[] ids={1,6,7};
         service.changeCAState(ids,2);
+    }
+
+    @Test
+    public void diagnosis() throws SQLException {
+        MedicalRecord mr=new MedicalRecord();
+        mr.setRegisterID(33);
+        mr.setCheckResult("没有救了");
+        mr.setDiagnosis("等死吧");
+        mr.setHandling("放弃吧");
+        service.diagnosis(mr);
+    }
+
+    @Test
+    public void findPreByUserID() throws SQLException {
+        List<Prescription> list=service.findPreByUserID(1,37);
+        for (Prescription p:list){
+            System.out.println(p);
+        }
     }
 }

@@ -81,6 +81,9 @@ public class MedicalRecordDao implements IMedicalRecordDao{
         if (mr.getPhysique()!=null && mr.getPhysique().length()!=0){
             sql+=",Physique='"+mr.getPhysique()+"'";
         }
+        if (mr.getAllergy()!=null && mr.getAllergy().length()!=0){
+            sql+=",Allergy='"+mr.getPhysique()+"'";
+        }
         if (mr.getProposal()!=null && mr.getProposal().length()!=0){
             sql+=",Proposal='"+mr.getProposal()+"'";
         }
@@ -102,16 +105,21 @@ public class MedicalRecordDao implements IMedicalRecordDao{
      */
     @Override
     public void updateMR(MedicalRecord mr) throws SQLException {
-        String sql="UPDATE medicalrecord SET Readme=?,Present=?,PresentTreat=?,History=?,Physique=?,Proposal=?,Careful=? where RegistID=?";
+        String sql="UPDATE medicalrecord " +
+                "set RegistID=?";
+        if (mr.getCheckResult()!=null && mr.getCheckResult().length()!=0){
+            sql+=",CheckResult='"+mr.getCheckResult()+"'";
+        }
+        if (mr.getDiagnosis()!=null && mr.getDiagnosis().length()!=0){
+            sql+=",Diagnosis='"+mr.getDiagnosis()+"'";
+        }
+        if (mr.getHandling()!=null && mr.getHandling().length()!=0){
+            sql+=",Handling='"+mr.getHandling()+"'";
+        }
+        sql+=" where RegistID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setString(1,mr.getReadme());
-        pstmt.setString(2,mr.getPresent());
-        pstmt.setString(3,mr.getPresentTreat());
-        pstmt.setString(4,mr.getHistory());
-        pstmt.setString(5,mr.getPhysique());
-        pstmt.setString(6,mr.getProposal());
-        pstmt.setString(7,mr.getCareful());
-        pstmt.setInt(8,mr.getRegisterID());
+        pstmt.setInt(1,mr.getRegisterID());
+        pstmt.setInt(2,mr.getRegisterID());
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }
@@ -124,11 +132,11 @@ public class MedicalRecordDao implements IMedicalRecordDao{
      * @param regID 挂号ID
      */
     @Override
-    public void updateCaseState(String regID,int state) throws SQLException {
+    public void updateCaseState(int regID,int state) throws SQLException {
         String sql="UPDATE medicalrecord set CaseState=? where RegistID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setInt(1,state);
-        pstmt.setString(2,regID);
+        pstmt.setInt(2,regID);
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }

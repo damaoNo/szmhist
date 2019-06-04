@@ -168,6 +168,7 @@ public class ConsultService implements IConsultService {
             mrd.setConnection(con);
             rd.updateVisitState(regID,2);
             mrd.updateMedRecord(mr);
+            mrd.updateCaseState(regID,2);
             con.commit();
         } catch (SQLException e) {
             con.rollback();
@@ -280,5 +281,54 @@ public class ConsultService implements IConsultService {
         }finally {
             JdbcUtil.release(con,null,null);
         }
+    }
+
+    /*************************************************************************
+     * 确诊 - 修改病历首页内容
+     * @param mr 对象，需设置-registid（挂号id[必要]）、checkresult、diagnosis、handling
+     ************************************************************************/
+    @Override
+    public void diagnosis(MedicalRecord mr) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IMedicalRecordDao mrd=new MedicalRecordDao();
+            mrd.setConnection(con);
+            mrd.updateMR(mr);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+    }
+
+    /**
+     * 根据userid,registID选择该医生开的处方
+     *
+     * @param userID   医生ID
+     * @param registID 挂号ID
+     * @return id，medicalid,registid,userid,prescriptionname,state
+     */
+    @Override
+    public List<Prescription> findPreByUserID(int userID, int registID) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IPrescriptionDao pd=new PrescriptionDao();
+            pd.setConnection(con);
+            List<Prescription> list=pd.selectPreByUserID(userID,registID);
+            con.commit();
+            return list;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
     }
 }
