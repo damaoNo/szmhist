@@ -66,8 +66,11 @@ public class Prescription {
         this.prescriptionTime = prescriptionTime;
     }
 
-    public int getPrescriptionState() {
-        return prescriptionState;
+    public String getPrescriptionState() {
+        if(prescriptionState==0) return "已作废";
+        else if(prescriptionState==1) return "暂存";
+        else if(prescriptionState==2) return "已开立";
+        else return "状态错误";
     }
 
     public void setPrescriptionState(int prescriptionState) {

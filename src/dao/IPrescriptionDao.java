@@ -1,12 +1,14 @@
 package dao;
 
+
 import vo.Drugs;
 import vo.Prescription;
 import vo.PrescriptionDetailed;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import vo.Prescription;
+import java.sql.SQLException;
 
 /**
  * 处方Dao
@@ -56,4 +58,10 @@ public interface IPrescriptionDao {
      * @param state     修改成为什么state
      */
     void updatePresState(int id,int state) throws SQLException;
+
+
+
+    //通过registId获取处方对象
+    Prescription getInfByRegistId(int registId)throws SQLException;
+
 }

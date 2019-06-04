@@ -76,6 +76,8 @@ public interface IMedicalRecordDao {
      * @throws SQLException
      */
     List<NonDrugsPay> selectNDrugByType(NonDrugsPay ndp) throws SQLException;
+    //通过病例后查记录对象
+    public MedicalRecord getInfByCaseNumber(String casen) throws SQLException;
 
 
 

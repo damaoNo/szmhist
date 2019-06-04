@@ -1,8 +1,8 @@
 package test;
 
 import org.junit.Test;
-import service.systemInfor.DrugManageService;
-import service.systemInfor.IDrugManageService;
+import service.medicalmanage.DrugManageService;
+import service.medicalmanage.IDrugManageService;
 import vo.ConstantItem;
 import vo.Drugs;
 

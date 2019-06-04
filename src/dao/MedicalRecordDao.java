@@ -294,6 +294,36 @@ public class MedicalRecordDao implements IMedicalRecordDao{
     }
 
 
+    @Override
+    public MedicalRecord getInfByCaseNumber(String casen) throws SQLException {
+        String sql="SELECT * FROM medicalrecord WHERE CaseNumber=?";
+        con=JdbcUtil.getConnection();
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,casen);
+        ResultSet rs=pstmt.executeQuery();
+        MedicalRecord mr=new MedicalRecord();
+        while (rs.next()){
+            mr.setId(rs.getInt(1));
+            mr.setCaseNumber(rs.getString(2));
+            mr.setRegisterID(rs.getInt(3));
+            mr.setReadme(rs.getString(4));
+            mr.setPresent(rs.getString(5));
+            mr.setPresentTreat(rs.getString(6));
+            mr.setHistory(rs.getString(7));
+            mr.setAllergy(rs.getString(8));
+            mr.setPhysique(rs.getString(9));
+            mr.setProposal(rs.getString(10));
+            mr.setCareful(rs.getString(11));
+            mr.setCheckResult(rs.getString(12));
+            mr.setDiagnosis(rs.getString(13));
+            mr.setHandling(rs.getString(14));
+            mr.setCaseState(rs.getInt(15));
+        }
+        JdbcUtil.release(null, pstmt, null);
+        return mr;
+    }
+
+
 
 
 }

@@ -288,4 +288,53 @@ public class RegistDao implements IRegistDao{
         JdbcUtil.release(null, pstmt, null);
     }
 
+    @Override
+    public Register getRegisterByCaseNumber(String casen) throws SQLException {
+        String sql="select casenumber,realname,age,settleid,deptid,VisitDate,userid " +
+                "from Register where casenumber=?";
+        con=JdbcUtil.getConnection();
+        PreparedStatement ps=con.prepareStatement(sql);
+        ps.setString(1,casen);
+        ResultSet rs=ps.executeQuery();
+        Register reg=new Register();
+        while(rs.next()){
+            reg.setCaseNumber(rs.getString(1));
+            reg.setRealName(rs.getString(2));
+            reg.setAge(rs.getInt(3));
+            reg.setSettLeID(rs.getInt(4));
+            reg.setDeptID(rs.getInt(5));
+            reg.setVisitDate(rs.getDate(6));
+            reg.setUserID(rs.getInt(7));
+        }
+        JdbcUtil.release(con,null,null);
+        return reg;
+    }
+
+    @Override
+    public Invoice getInfByRegistid(int registid) throws SQLException {
+        String sql="select id,invoicenum,money,state,creationtime,userid,registid,feetype,dailystate " +
+                "from invoice where registid=?";
+        con=JdbcUtil.getConnection();
+        PreparedStatement ps=con.prepareStatement(sql);
+        ps.setInt(1,registid);
+        ResultSet rs=ps.executeQuery();
+        Invoice inv=new Invoice();
+        while(rs.next()){
+            inv.setId(rs.getInt(1));
+            inv.setInvoiceNum(rs.getString(2));
+            inv.setMoney(rs.getDouble(3));
+            inv.setState(rs.getInt(4));
+            inv.setCreationTime(rs.getTimestamp(5));
+            inv.setUserID(rs.getInt(6));
+            inv.setRegistID(rs.getInt(7));
+            inv.setFeeType(rs.getInt(8));
+            inv.setDailyState(rs.getInt(9));
+        }
+        JdbcUtil.getConnection();
+        return inv;
+    }
+
+
+
+
 }
