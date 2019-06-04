@@ -22,7 +22,7 @@ public interface IDiseCategoryDao {
     //读取有效疾病分类
     List<DiseCategory> getAllvalideDiseCategory()throws SQLException;
     //新增疾病
-    void addNewDisease(String dicac,String dican,int seq,int dicat,int delmark)throws SQLException;
+    void addNewDisease(String dicac,String dican,String icd, int cateid, int delmark)throws SQLException;
     //根据疾病目录id找到疾病
     List<Object> findDiseaseByCategoryID(int id)throws SQLException;
     //修改疾病
