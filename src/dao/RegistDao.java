@@ -310,4 +310,6 @@ public class RegistDao implements IRegistDao{
         return reg;
     }
 
+
+
 }
