@@ -1,55 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/ITakeDrugsDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/TakeDrugsDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicalmanage/ITakeDrugsService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicalmanage/TakeDrugsService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicaltreatment/IPatientExaminationService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicaltreatment/PatientExaminationService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/TakeDrugsDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/TakeDrugsServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/PatientExamination.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/TakeDrugs.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/clinicdoctor/Testclinic.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/doctordeal/Testdoctor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/financialmanagement/TestFinancial.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/pharmacymanagement/Testpharmacy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/registrationfee/TestRegistration.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/systeminformation/TestSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/IPrescriptionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IPrescriptionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/PrescriptionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PrescriptionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/consult/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/consult/ConsultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/consult/IConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/consult/IConsultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/NonDrugsPayServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/NonDrugsPayServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TakeDrugsServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TakeDrugsServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IMedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IMedicalRecordDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/INonDrugsPayDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/INonDrugsPayDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IPrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IPrescriptionDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRegistDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRegistDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/ISchedulingDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/ISchedulingDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/MedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/MedicalRecordDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/NonDrugsPayDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/NonDrugsPayDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/PrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/PrescriptionDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RegistDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RegistDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/SchedulingDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/SchedulingDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/IConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/IConsultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/DrugManageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicalmanage/DrugManageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/DrugManageServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/IDrugManageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicalmanage/IDrugManageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/ISchedulingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/ISchedulingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SchedulingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SchedulingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/DrugManageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/DrugManageServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/LDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/LDaoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/NonDrugsPayServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/NonDrugsPayServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/SchedulingServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/SchedulingServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/consult/ConsultServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/consult/ConsultServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Prescription.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Prescription.class" afterDir="false" />
-    </list>
+    <list default="true" id="ecce8eea-6d64-4f85-b174-7950626fd1fe" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,10 +30,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/IPrescriptionDao.java">
+        <entry file="file://$PROJECT_DIR$/src/service/systemInfor/CCMService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="61" column="63" lean-forward="true" selection-start-line="56" selection-start-column="4" selection-end-line="61" selection-end-column="63" />
+            <state relative-caret-position="493">
+              <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,24 +42,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/PrescriptionDao.java">
+        <entry file="file://$PROJECT_DIR$/src/dao/CCMDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="162" column="37" lean-forward="true" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#635#636#0" expanded="true" />
-                <element signature="e#663#664#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="139" column="22" selection-start-line="139" selection-start-column="22" selection-end-line="139" selection-end-column="22" />
+            <state relative-caret-position="-926">
+              <caret line="87" column="79" lean-forward="true" selection-start-line="87" selection-start-column="79" selection-end-line="87" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,22 +54,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/service/consult/ConsultService.java">
+        <entry file="file://$PROJECT_DIR$/src/dao/SchedulingDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="448" column="56" lean-forward="true" selection-start-line="448" selection-start-column="56" selection-end-line="448" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="143" column="23" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="348">
+              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -170,22 +96,22 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/vo/CheckApply.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/NonDrugsPayDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/SchedulingDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/service/consult/ConsultService.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/PatientCostsDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/CheckApplyDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/RegistDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/util/JdbcUtil.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/MedicalRecordDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/IRegistDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/RegistDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/NonDrugsPayDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/CheckApplyDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/MedicalRecordDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/RegistStateDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/SchedulingDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/PrescriptionDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/PatientCostsDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/DrugManageDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/IPrescriptionDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/RegistStateDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/service/consult/ConsultService.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/about.md" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/PrescriptionDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/util/JdbcUtil.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -258,67 +184,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="consult" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
+              <item name="hist" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hist" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -856,7 +734,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123423000" />
+    <option name="totallyTimeSpent" value="123429000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -868,9 +746,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="128" y="14" width="1564" height="1019" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.26439232" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.16356383" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" sideWeight="0.50164473" side_tool="true" weight="0.14712153" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -1003,7 +882,8 @@
     <MESSAGE value="0.3 门诊病历 首页Dao、修改病历" />
     <MESSAGE value="0.3 更改service目录结构" />
     <MESSAGE value="0.4 门诊病历-病历首页、患者列表、查询非药品类目" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.4 门诊病历-病历首页、患者列表、查询非药品类目" />
+    <MESSAGE value="0.4 常数项上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.4 常数项上传" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1212,8 +1092,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/SchedulingDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2377">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        <state relative-caret-position="348">
+          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
         </state>
       </provider>
     </entry>
