@@ -74,14 +74,7 @@ public interface IRegistDao {
     * @Date: 2019/6/1
     */
     Boolean insertRegist(Register reg) throws SQLException;
-    /**
-    * @Description: 插入使用发票记录,创建时间自动设置为当前系统时间
-    * @Param: [iv]
-    * @return: void
-    * @Author: cro
-    * @Date: 2019/6/1
-    */
-    void insertInvoice(Invoice iv) throws SQLException;
+
 
     /**
      * 根据挂号ID 修改对应数据VisitState属性1-已挂号 2-医生接诊 3-看诊结束 4-已退号
@@ -106,4 +99,13 @@ public interface IRegistDao {
      * @param deptname 科室名称
      */
     int getDeptIDbyName(String deptname) throws SQLException;
+
+    /**
+     * 根据id获取科室名
+     * @param id
+     * @return
+     */
+    String getDeptNameByID(int id) throws SQLException;
+
+
 }

@@ -24,4 +24,11 @@ public interface INonDrugsPayDao {
     public void fixNonDrugsInfo(NonDrugsPay nonDrugsPay) throws SQLException;
     /*置待删除记录状态为无效*/
     public void delMark(String[] ID) throws SQLException;
+
+    /**
+     * 通过病历号查询已开立的非药品项目
+     * @param caseNum
+     * @return
+     */
+    List selectNDbyCaseNum(String caseNum) throws SQLException;
 }

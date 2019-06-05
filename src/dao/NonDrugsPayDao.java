@@ -1,10 +1,8 @@
 package dao;
 
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import util.JdbcUtil;
-import vo.Department;
-import vo.ExpenseClass;
-import vo.Fmeditem;
-import vo.NonDrugsPay;
+import vo.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -200,6 +198,37 @@ public class NonDrugsPayDao implements INonDrugsPayDao {
         }
         pstmt.executeBatch();
         JdbcUtil.release(null,pstmt,null);
+    }
+
+    /**
+     * 通过病历号查询已开立的非药品项目
+     *
+     * @param caseNum
+     * @return
+     */
+    @Override
+    public List selectNDbyCaseNum(String caseNum) throws SQLException {
+        String sql="SELECT f.ItemName,f.Price,c.CreationTime,c.State\n" +
+                "FROM checkapply c,medicalrecord m,fmeditem f\n" +
+                "WHERE c.MedicalID=m.ID\n" +
+                "AND c.ItemID=f.ID\n" +
+                "AND m.CaseNumber=?\n" +
+                "AND c.State=2";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,caseNum);
+        ResultSet rs=pstmt.executeQuery();
+        List list=new ArrayList();
+        CheckApplyMore cam=null;
+        while (rs.next()){
+            cam=new CheckApplyMore();
+            cam.setItemName(rs.getString(1));
+            cam.setPrice(rs.getDouble(2));
+            cam.setCreationTime(rs.getTimestamp(3));
+            cam.setState(rs.getInt(4));
+            list.add(cam);
+        }
+        JdbcUtil.release(null,pstmt,null);
+        return list;
     }
 
 }

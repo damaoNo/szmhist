@@ -1,9 +1,8 @@
 package dao;
 
 
-import vo.Drugs;
-import vo.Prescription;
-import vo.PrescriptionDetailed;
+import vo.*;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -65,5 +64,14 @@ public interface IPrescriptionDao {
 
     //通过registId获取处方对象
     Prescription getInfByRegistId(int registId)throws SQLException;
+
+    /**
+     * 通过caseNum-搜索所有开立药方
+     * @param caseNum
+     * @return
+     */
+    List<PrescriptionMore> selectPrescriptionByCaseNum(String  caseNum) throws SQLException;
+
+
 
 }

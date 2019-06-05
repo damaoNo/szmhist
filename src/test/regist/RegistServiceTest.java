@@ -78,4 +78,21 @@ public class RegistServiceTest {
         iv.setFeeType(1);
         service.regist(r,iv);
     }
+
+    @Test
+    public void findRegistByCaseNumber() throws SQLException {
+        List list=service.findRegistByCaseNumber("600601");
+        System.out.println(list.toString());
+    }
+
+    @Test
+    public void backRegist() throws SQLException {
+        service.backRegist(56);
+    }
+
+    @Test
+    public void findAllCosts() throws SQLException {
+        List list=service.findAllCosts("600606");
+        System.out.println(list);
+    }
 }
