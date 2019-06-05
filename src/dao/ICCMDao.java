@@ -37,4 +37,11 @@ public interface ICCMDao {
 
     //删除常数项
     void  DelectConstantltem(String[] ID) throws SQLException;
+
+    /**
+     * 根据挂号级别名字查id
+     * @param regLeName 挂号级别名称
+     * @return 返回挂号级别id
+     */
+    int selectRegLeIDByName(String regLeName) throws SQLException;
 }

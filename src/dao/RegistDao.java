@@ -7,10 +7,13 @@
 
 package dao;
 
+import oracle.sql.TIMESTAMP;
 import util.JdbcUtil;
 import vo.*;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -208,7 +211,7 @@ public class RegistDao implements IRegistDao{
 
     /**
      * @param reg
-     * @Description: 插入挂号记录,挂号时间为系统当前时间
+     * @Description: 插入挂号记录,挂号时间为系统当前时间(需要设置)
      * @Param: [reg]
      * @return: java.lang.Boolean 是否插入成功
      * @Author: cro
@@ -237,8 +240,7 @@ public class RegistDao implements IRegistDao{
         pstm.setInt(13,reg.getRegistLeID());
         pstm.setInt(14,reg.getSettLeID());
         pstm.setString(15,reg.getisBook());
-        /*注册日期设置为当前系统日期*/
-        Timestamp registTime=new Timestamp(System.currentTimeMillis());
+        Timestamp registTime=new Timestamp(reg.getRegistTime().getTime());
         pstm.setTimestamp(16,registTime);
         pstm.setInt(17,reg.getRegisterID());
         pstm.executeUpdate();
@@ -333,6 +335,31 @@ public class RegistDao implements IRegistDao{
         JdbcUtil.getConnection();
         return inv;
     }
+
+    /**
+     * 根据病历号和创建时间获取挂号id
+     *
+     * @param creatTime 创建时间
+     * @param caseNum   病历号
+     * @return 挂号id
+     */
+    @Override
+    public int selectRegistIDByTime(String  creatTime, String caseNum) throws SQLException {
+        String sql="SELECT id FROM register WHERE CaseNumber=? AND (RegistTime=?) AND VisitState IN (1,2,3)";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        DateFormat df=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Timestamp t=Timestamp.valueOf(creatTime);
+        pstmt.setTimestamp(2,t);
+        pstmt.setString(1,caseNum);
+        ResultSet rs=pstmt.executeQuery();
+        int n=0;
+        while (rs.next()){
+            n=rs.getInt(1);
+        }
+        JdbcUtil.release(null, pstmt, null);
+        return n;
+    }
+
     /**
      * 根据科室名获取ID
      *

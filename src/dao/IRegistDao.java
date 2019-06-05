@@ -4,6 +4,8 @@ import vo.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -65,7 +67,7 @@ public interface IRegistDao {
     */
     int selectDoctorUsedId(Register reg) throws SQLException;
     /**
-    * @Description: 插入挂号记录,挂号时间为系统当前时间
+    * @Description: 插入挂号记录,挂号时间为系统当前时间(需要设置)
     * @Param: [reg]
     * @return: java.lang.Boolean 是否插入成功
     * @Author: cro
@@ -90,6 +92,14 @@ public interface IRegistDao {
     public Register getRegisterByCaseNumber(String casen) throws SQLException;
     //通过id查找注册对象
     public Invoice getInfByRegistid(int registid) throws SQLException;
+
+    /**
+     * 根据病历号和创建时间获取挂号id
+     * @param creatTime 创建时间
+     * @param caseNum 病历号
+     * @return 挂号id
+     */
+    int selectRegistIDByTime(String  creatTime, String caseNum) throws SQLException;
 
     /**
      * 根据科室名获取id
