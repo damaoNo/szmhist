@@ -18,7 +18,7 @@ public class RLMServiceTest {
         Connection con= null;
         con =JdbcUtil.getConnection();
         RLMService rlmService = new RLMService();
-        rlmService.RLMaddRegistLevel("ii","oo",4,9.9,5,9);
+        rlmService.RLMaddRegistLevel("ii","oo",4,9.9,5);
     }
 
     @Test
