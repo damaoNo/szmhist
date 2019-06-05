@@ -168,6 +168,7 @@ public class ConsultService implements IConsultService {
             mrd.setConnection(con);
             rd.updateVisitState(regID,2);
             mrd.updateMedRecord(mr);
+            mrd.updateCaseState(regID,2);
             con.commit();
         } catch (SQLException e) {
             con.rollback();
@@ -280,5 +281,204 @@ public class ConsultService implements IConsultService {
         }finally {
             JdbcUtil.release(con,null,null);
         }
+    }
+
+    /*************************************************************************
+     * 确诊 - 修改病历首页内容
+     * @param mr 对象，需设置-registid（挂号id[必要]）、checkresult、diagnosis、handling
+     ************************************************************************/
+    @Override
+    public void diagnosis(MedicalRecord mr) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IMedicalRecordDao mrd=new MedicalRecordDao();
+            mrd.setConnection(con);
+            mrd.updateMR(mr);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+    }
+
+    /**
+     * 根据userid,registID选择该医生开的处方
+     *
+     * @param userID   医生ID
+     * @param registID 挂号ID
+     * @return id，medicalid,registid,userid,prescriptionname,state
+     */
+    @Override
+    public List<Prescription> findPreByUserID(int userID, int registID) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IPrescriptionDao pd=new PrescriptionDao();
+            pd.setConnection(con);
+            List<Prescription> list=pd.selectPreByUserID(userID,registID);
+            con.commit();
+            return list;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
+    }
+
+    /**
+     * 查询当前处方中有的药品
+     *
+     * @param userID
+     * @param registID
+     * @return pd.ID, d.DrugsName, d.DrugsFormat, d.DrugsPrice, pd.DrugsUsage, pd.Dosage, pd.Frequency
+     */
+    @Override
+    public List<PrescriptionDetailed> findDrugsinPre(int userID, int registID) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IPrescriptionDao pd=new PrescriptionDao();
+            pd.setConnection(con);
+            List<PrescriptionDetailed> list=pd.selectDrugs(userID,registID);
+            con.commit();
+            return list;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
+    }
+
+    /**
+     * 分页查询可用药品列表
+     *
+     * @param mnemonicCode 助记码
+     * @param page         页码
+     * @return 药品对象集合
+     */
+    @Override
+    public List allDrugs(String mnemonicCode, int page) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IDrugManageDao dmd=new DrugManageDao();
+            dmd.setConnection(con);
+            List list=dmd.selectDrugList(mnemonicCode,page);
+            int pages=dmd.drugListPages(mnemonicCode);
+            list.add(pages);
+            return list;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
+    }
+
+    /**
+     * 新增一条药房明细记录
+     * 处方id          药品ID   药品用法    药品计量 频次         数量 状态
+     *PrescriptionID,DrugsID,DrugsUsage,Dosage,Frequency,Amount,State 2-已开立 3-已交费 4-已发药 5-已退药 6-已退费
+     * @param pd 药方明细对象
+     */
+    @Override
+    public void newPresDetailed(PrescriptionDetailed pd) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IPrescriptionDao pdao=new PrescriptionDao();
+            pdao.setConnection(con);
+            pdao.insertPresDetailed(pd);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+
+    }
+
+    /**
+     * 批量删除药品-处方明细表id
+     * @param pdids
+     */
+    @Override
+    public void deletDrugs(int[] pdids) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IPrescriptionDao pdao=new PrescriptionDao();
+            pdao.setConnection(con);
+            pdao.deletDrugs(pdids);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+    }
+
+    /**
+     * 修改处方状态,如果是开立，会自动更新开立时间为系统当前时间
+     *
+     * @param id    处方id
+     * @param state 修改成为什么state
+     */
+    @Override
+    public void changePresState(int id, int state) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IPrescriptionDao pdao=new PrescriptionDao();
+            pdao.setConnection(con);
+            pdao.updatePresState(id,state);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+    }
+    /**
+     * 根据病历号查询病人的消费信息
+     * @param caseNum 病历号
+     * @return 返回：姓名    身份证       家庭住址        病历号         项 目名称   单价    数量       开立时间       状态
+     *          r.RealName,r.IDnumber,r.HomeAddress,r.CaseNumber,"p.`Name`,p.Price,p.Amount,p.Createtime,r.VisitState
+     */
+    @Override
+    public List<PatientCostsBack> findPatientCosts(String caseNum) throws SQLException {
+        Connection con=null;
+        con= JdbcUtil.getConnection();
+        try {
+            con.setAutoCommit(false);
+            IPatientCostsDao pcd=new PatientCostsDao();
+            pcd.setConnection(con);
+            pcd.selectPatientCosts(caseNum);
+            con.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            con.rollback();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
     }
 }

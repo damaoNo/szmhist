@@ -6,6 +6,7 @@ import service.systemInfor.NonDrugsPayService;
 import java.sql.SQLException;
 import java.util.List;
 
+
 public class NonDrugsPayServiceTest {
     NonDrugsPayService non=new NonDrugsPayService();
     @Test

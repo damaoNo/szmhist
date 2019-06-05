@@ -24,7 +24,7 @@ public class DrugManageDao implements IDrugManageDao {
     }
 
     /**
-     * 分页查询药品列表
+     * 分页查询可用药品列表
      *
      * @param mnemonicCode 助记码
      * @param page         页码

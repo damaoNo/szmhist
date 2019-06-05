@@ -5,10 +5,11 @@
  * * @create: 2019-06-02 14:51
  **/
 
-package service.systemInfor;
+package service.medicalmanage;
 
 import dao.DrugManageDao;
 import dao.IDrugManageDao;
+import service.medicalmanage.IDrugManageService;
 import util.JdbcUtil;
 import vo.ConstantItem;
 import vo.Drugs;
@@ -17,7 +18,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DrugManageService implements IDrugManageService{
+public class DrugManageService implements IDrugManageService {
     /**
      * 分页查询药品列表
      *

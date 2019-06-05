@@ -5,7 +5,7 @@
  * * @create: 2019-06-02 14:50
  **/
 
-package service.systemInfor;
+package service.medicalmanage;
 
 import vo.ConstantItem;
 import vo.Drugs;

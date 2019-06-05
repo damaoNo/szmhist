@@ -18,7 +18,7 @@ public interface IDrugManageDao {
     void setConnection(Connection con);
 
     /**
-     * 分页查询药品列表
+     * 分页查询可用药品列表
      * @param mnemonicCode 助记码
      * @param page 页码
      * @return 药品对象集合

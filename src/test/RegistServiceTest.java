@@ -1,8 +1,8 @@
 package test;
 
 import org.junit.Test;
-import service.regist.IRegistService;
-import service.regist.RegistService;
+import service.regist.IRegist1Service;
+import service.regist.Regist1Service;
 import vo.*;
 
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ import java.util.List;
 
 
 public class RegistServiceTest {
-    IRegistService service=new RegistService();
+    IRegist1Service service=new Regist1Service();
     @Test
     public void findMaxInvoiceNum() throws SQLException {
         String num=service.findMaxInvoiceNum(9);
@@ -93,6 +93,7 @@ public class RegistServiceTest {
 
         service.useInvoice(iv);
     }
+
 
 
 }

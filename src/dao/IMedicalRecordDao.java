@@ -44,7 +44,7 @@ public interface IMedicalRecordDao {
      * 根据挂号ID 修改对应数据CaseState属性 1-暂存 2-已提交 3-诊毕
      * @param regID 挂号ID
      */
-    void updateCaseState(String regID,int state) throws SQLException;
+    void updateCaseState(int regID,int state) throws SQLException;
 
     /**
      * 查询科室所有未诊断的患者挂号信息
