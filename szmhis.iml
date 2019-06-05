@@ -57,5 +57,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Mylib" level="project" />
+    <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="library" name="lib  (2)" level="project" />
   </component>
 </module>

@@ -1,7 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="szmhis:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="" />
+    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/commons-beanutils-1.7.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-collections-3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-httpclient-3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-lang-2.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-lang-2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-logging-1.0.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ezmorph-1.0.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json-lib-2.1-jdk15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json-lib-2.4-jdk15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vo/LoginMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/web/registrationfee/loginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/LMYCSS/mlogin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/jquery-3.2.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/layui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/layui.mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/modules/code.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/modules/layer/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/modules/layer/default/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/font/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/font/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/font/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/font/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/12.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/13.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/14.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/15.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/16.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/17.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/18.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/19.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/20.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/21.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/22.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/23.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/24.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/25.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/26.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/27.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/28.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/29.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/30.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/31.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/33.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/34.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/35.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/36.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/38.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/39.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/40.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/41.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/42.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/43.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/45.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/46.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/48.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/49.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/51.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/52.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/53.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/54.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/55.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/56.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/57.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/58.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/59.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/60.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/61.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/62.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/63.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/64.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/65.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/66.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/67.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/68.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/69.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/7.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/70.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/71.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/8.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/images/face/9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/code.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/colorpicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/element.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/flow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/laydate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/layedit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/laypage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/laytpl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/mobile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/rate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/tree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/upload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/lay/modules/util.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/layui.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/layui/layui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/szmhis_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/szmhis_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Drugs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Drugs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/ExpenseClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/ExpenseClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Fmeditem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Fmeditem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Invoice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/MedicalRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/MedicalRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/PatientCosts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/PatientCosts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Prescription.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Prescription.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Scheduling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/Scheduling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/hello.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/hello.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/medicaltreatment/PatientExaminationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/medicaltreatment/PatientExaminationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/szmhis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/szmhis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/DiseCategoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/DiseCategoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IDiseCategoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IDiseCategoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IMedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IMedicalRecordDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRegistDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRegistDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/MedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/MedicalRecordDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RegistDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RegistDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/PatientCostsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/PatientCostsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/MedRecordService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/MedRecordService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistStateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistStateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/DrugManageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/DrugManageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/NonDrugsPayService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/NonDrugsPayService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/RLMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/RLMService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SCMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SCMService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SchedulingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SchedulingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/LDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/LDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Prescription.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/Prescription.class" afterDir="false" />
+    </list>
+    <list id="c7ccba78-3f50-4998-909c-0e2a3b79fd83" name="Revert &quot;servlet简单引入json&quot;" comment="Revert &quot;servlet简单引入json&quot;&#10;&#10;This reverts commit 02d26bb0" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -9,6 +171,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -28,7 +193,22 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/web/registrationfee/loginServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vo/LoginMessage.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -74,9 +254,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/dao/IMedicineManageDao.java" />
-        <option value="$PROJECT_DIR$/src/dao/MedicineManageDao.java" />
-        <option value="$PROJECT_DIR$/src/vo/Drugs.java" />
         <option value="$PROJECT_DIR$/src/vo/Register.java" />
         <option value="$PROJECT_DIR$/src/vo/SchedDoctor.java" />
         <option value="$PROJECT_DIR$/src/vo/Invoice.java" />
@@ -125,8 +302,14 @@
         <option value="$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java" />
         <option value="$PROJECT_DIR$/src/dao/CheckApplyDao.java" />
         <option value="$PROJECT_DIR$/src/dao/MedicalRecordDao.java" />
+        <option value="$PROJECT_DIR$/src/dao/LoginMessage.java" />
+        <option value="$PROJECT_DIR$/src/vo/LoginMessage.java" />
+        <option value="$PROJECT_DIR$/src/web/registrationfee/loginServlet.java" />
       </list>
     </option>
+  </component>
+  <component name="JRebelWorkspace">
+    <option name="jrebelEnabledAutocompile" value="true" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -136,10 +319,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="518" />
-    <option name="y" value="41" />
-    <option name="width" value="944" />
-    <option name="height" value="869" />
+    <option name="x" value="304" />
+    <option name="y" value="20" />
+    <option name="width" value="1185" />
+    <option name="height" value="842" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -149,8 +332,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,13 +342,24 @@
             <path>
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
               <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
               <item name="szmhist" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
+              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
+              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
@@ -178,12 +370,14 @@
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
               <item name="szmhist" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -193,7 +387,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="C:/MyJavaWorkspace/PracticeWeb" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -207,17 +401,18 @@
       <recent name="service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="vo" />
       <recent name="util" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GitRepository\szmhist\lib" />
       <recent name="E:\my documents\documents\IDEAPROJECTS\szmhist\src\dao" />
       <recent name="E:\my documents\documents\IDEAPROJECTS\szmhist\src\service" />
       <recent name="E:\my documents\documents\IDEAPROJECTS\szmhist\src\util" />
       <recent name="E:\my documents\documents\IDEAPROJECTS\szmhist\src\vo" />
-      <recent name="E:\my documents\documents\IDEAPROJECTS\szmhist\web\WEB-INF\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -232,7 +427,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ConsultServiceTest.findNDrugByType">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.40">
     <configuration name="ConsultServiceTest.changeCaState" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="szmhis" />
       <extension name="coverage">
@@ -314,7 +509,7 @@
       </method>
     </configuration>
     <configuration name="Tomcat 8.5.40" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.40" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8888/his/" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8081/his/login/login.html" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
@@ -460,6 +655,7 @@
       <workItem from="1559523778610" duration="26399000" />
       <workItem from="1559571929444" duration="2330000" />
       <workItem from="1559610031379" duration="13580000" />
+      <workItem from="1559725571915" duration="185000" />
     </task>
     <task id="LOCAL-00001" summary="ver 0.0:&#10;add readme">
       <created>1559230289989</created>
@@ -671,13 +867,17 @@
       <option name="project" value="LOCAL" />
       <updated>1559619434192</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Revert &quot;servlet简单引入json&quot;&#10;&#10;This reverts commit 02d26bb0">
+      <created>1559721907288</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1559721907288</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ConsultServiceTest_findNDrugByType - 2019.06.04 at 11h 31m 44s.xml">
-      <configuration name="ConsultServiceTest.findNDrugByType" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ConsultServiceTest_findPatientCA - 2019.06.04 at 11h 43m 38s.xml">
       <configuration name="ConsultServiceTest.findPatientCA" configurationId="JUnit" />
     </history-entry>
@@ -705,9 +905,12 @@
     <history-entry file="ConsultServiceTest_changeCaState - 2019.06.04 at 13h 42m 40s.xml">
       <configuration name="ConsultServiceTest.changeCaState" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ConsultServiceTest_findNDrugByType - 2019.06.05 at 16h 18m 34s.xml">
+      <configuration name="ConsultServiceTest.findNDrugByType" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103229000" />
+    <option name="totallyTimeSpent" value="106230000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -719,9 +922,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="484" y="70" width="1104" height="856" extended-state="0" />
+    <frame x="378" y="30" width="1185" height="842" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.256705" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.27644444" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" sideWeight="0.50164473" side_tool="true" weight="0.14712153" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -732,21 +935,22 @@
       <window_info id="Image Layers" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329927" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32734805" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993573" weight="0.4602961" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.397351" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49615383" visible="true" weight="0.45089903" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49615383" weight="0.44293478" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289183" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5026652" side_tool="true" weight="0.3289183" />
       <window_info anchor="bottom" id="Application Servers" order="12" sideWeight="0.49733475" weight="0.3289183" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="JRebel Console" order="14" side_tool="true" />
-      <window_info anchor="bottom" id="JRebel Executor" order="15" />
-      <window_info anchor="bottom" id="Messages" order="16" weight="0.3289183" />
+      <window_info anchor="bottom" id="JRebel Console" order="14" sideWeight="0.437018" side_tool="true" weight="0.32974428" />
+      <window_info active="true" anchor="bottom" id="JRebel Executor" order="15" sideWeight="0.562982" visible="true" weight="0.3554302" />
+      <window_info anchor="bottom" id="Messages" order="16" weight="0.34273624" />
+      <window_info anchor="bottom" id="Problems" order="17" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -796,6 +1000,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -854,7 +1068,8 @@
     <MESSAGE value="0.3 门诊病历 首页Dao、修改病历" />
     <MESSAGE value="0.3 更改service目录结构" />
     <MESSAGE value="0.4 门诊病历-病历首页、患者列表、查询非药品类目" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.4 门诊病历-病历首页、患者列表、查询非药品类目" />
+    <MESSAGE value="Revert &quot;servlet简单引入json&quot;&#10;&#10;This reverts commit 02d26bb0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;servlet简单引入json&quot;&#10;&#10;This reverts commit 02d26bb0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -911,91 +1126,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/chageDateFormatTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/chageDateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2272#2273#0" expanded="true" />
-            <element signature="e#2302#2303#0" expanded="true" />
-            <element signature="e#2352#2353#0" expanded="true" />
-            <element signature="e#2390#2391#0" expanded="true" />
-            <element signature="e#2429#2430#0" expanded="true" />
-            <element signature="e#2460#2461#0" expanded="true" />
-            <element signature="e#2512#2513#0" expanded="true" />
-            <element signature="e#2552#2553#0" expanded="true" />
-            <element signature="e#2591#2592#0" expanded="true" />
-            <element signature="e#2622#2623#0" expanded="true" />
-            <element signature="e#2674#2675#0" expanded="true" />
-            <element signature="e#2714#2715#0" expanded="true" />
-            <element signature="e#2754#2755#0" expanded="true" />
-            <element signature="e#2786#2787#0" expanded="true" />
-            <element signature="e#2840#2841#0" expanded="true" />
-            <element signature="e#2882#2883#0" expanded="true" />
-            <element signature="e#2920#2921#0" expanded="true" />
-            <element signature="e#2950#2951#0" expanded="true" />
-            <element signature="e#3000#3001#0" expanded="true" />
-            <element signature="e#3038#3039#0" expanded="true" />
-            <element signature="e#3078#3079#0" expanded="true" />
-            <element signature="e#3110#3111#0" expanded="true" />
-            <element signature="e#3164#3165#0" expanded="true" />
-            <element signature="e#3206#3207#0" expanded="true" />
-            <element signature="e#3244#3245#0" expanded="true" />
-            <element signature="e#3274#3275#0" expanded="true" />
-            <element signature="e#3324#3325#0" expanded="true" />
-            <element signature="e#3362#3363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vo/PatientCostsBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-          <folding>
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#544#545#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#519#520#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#684#685#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#768#769#0" expanded="true" />
-            <element signature="e#802#803#0" expanded="true" />
-            <element signature="e#832#833#0" expanded="true" />
-            <element signature="e#878#879#0" expanded="true" />
-            <element signature="e#916#917#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/IRegistStateDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="34" column="55" lean-forward="true" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/IRegistStateService.java" />
     <entry file="file://$PROJECT_DIR$/src/vo/PatientCosts.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1364,6 +1494,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dao/LoginMessage.java" />
+    <entry file="file://$PROJECT_DIR$/src/web/registrationfee/loginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vo/LoginMessage.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
@@ -1419,6 +1567,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
