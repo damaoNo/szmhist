@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/CheckApplyDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/ICheckApplyDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/MedicalRecordDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/MedicalRecordDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/consult/ConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/consult/ConsultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/consult/IConsultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/consult/IConsultService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vo/PatientCheckApply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vo/PatientCheckApply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IMedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IMedicalRecordDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/MedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/MedicalRecordDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/IConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/IConsultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/consult/ConsultServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/consult/ConsultServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/vo/PatientCheckApply.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/PatientCheckApply.class" afterDir="false" />
-    </list>
+    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,102 +28,7 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/IMedicalRecordDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="559">
-              <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/ICheckApplyDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="39" column="7" lean-forward="true" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/MedicalRecordDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="745">
-              <caret line="255" column="9" lean-forward="true" selection-start-line="255" selection-start-column="9" selection-end-line="255" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/CheckApplyDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="97" column="35" lean-forward="true" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#446#447#0" expanded="true" />
-                <element signature="e#474#475#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="68" column="29" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/consult/ConsultService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="194" column="51" selection-start-line="194" selection-start-column="51" selection-end-line="194" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/RegistDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3033">
-              <caret line="186" column="35" lean-forward="true" selection-start-line="186" selection-start-column="35" selection-end-line="186" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#selectMaxInvoiceNum#0;class#RegistDao#0" />
-                <element signature="method#selectMaxCaseNum#0;class#RegistDao#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/consult/ConsultServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -167,20 +56,20 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/IRegistDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/RegistDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/vo/CheckApply.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/about.md" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/RegistStateDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/NonDrugsPayDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/SchedulingDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/PatientCostsDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/CheckApplyDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/service/consult/IConsultService.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/RegistDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/util/JdbcUtil.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/MedicalRecordDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/IRegistDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/RegistStateDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/PatientCostsDao.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/dao/DrugManageDao.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/dao/about.md" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/IMedicalRecordDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/util/JdbcUtil.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/dao/CheckApplyDao.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -239,10 +128,18 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1057" />
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="518" />
+    <option name="y" value="41" />
+    <option name="width" value="944" />
+    <option name="height" value="869" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -252,6 +149,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,33 +167,23 @@
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
               <item name="szmhist" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
               <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
               <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="consult" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="szmhist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="szmhist" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -317,11 +206,11 @@
       <recent name="test" />
       <recent name="service" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="util" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\my documents\documents\IDEAPROJECTS\szmhist\src\dao" />
@@ -531,6 +420,14 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.ConsultServiceTest.findMedicalRecord" />
+      <item itemvalue="JUnit.ConsultServiceTest.changeCaState" />
+      <item itemvalue="JUnit.ConsultServiceTest.consulting" />
+      <item itemvalue="JUnit.ConsultServiceTest.findNDrugByType" />
+      <item itemvalue="JUnit.ConsultServiceTest.findPatientCA" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.40" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ConsultServiceTest.findNDrugByType" />
@@ -810,7 +707,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102976000" />
+    <option name="totallyTimeSpent" value="103229000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -822,10 +719,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <frame x="484" y="70" width="1104" height="856" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.22814499" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49835527" visible="true" weight="0.256705" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" sideWeight="0.50164473" side_tool="true" weight="0.14712153" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -836,13 +732,13 @@
       <window_info id="Image Layers" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329927" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40838853" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32734805" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.397351" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49615383" weight="0.45143488" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49615383" visible="true" weight="0.45089903" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289183" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5026652" side_tool="true" weight="0.3289183" />
@@ -1148,16 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/PatientCostsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/PatientCostsServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1240,13 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="728">
           <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/CheckApplyDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1465,6 +1344,23 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/medicaltreatment/PatientExaminationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/PatientCostsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
         </state>
       </provider>
     </entry>
