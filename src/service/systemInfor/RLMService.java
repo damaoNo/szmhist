@@ -16,7 +16,9 @@ import java.util.List;
  */
 
 public class RLMService implements IRLMService{
-    //根据条件查询有效挂号级别列表
+    /*
+    根据条件查询有效挂号级别列表
+     */
     @Override
     public List<RegistLevel> RLMselectRegistLevel(String code) throws SQLException {
         Connection con = null;
@@ -36,6 +38,9 @@ public class RLMService implements IRLMService{
         return list;
     }
 
+    /*
+    新增挂号级别
+     */
     @Override
     public void RLMaddRegistLevel(String Rcode, String Rname, int Rno, double Rfee, int Rquota) throws SQLException {
         Connection con = null;
@@ -53,6 +58,9 @@ public class RLMService implements IRLMService{
         }
     }
 
+    /*
+    编辑挂号级别
+     */
     @Override
     public RegistLevel RLMSelectupdateRegistLevel(int id) throws SQLException {
         Connection con= null;
@@ -71,6 +79,9 @@ public class RLMService implements IRLMService{
         return null;
     }
 
+    /*
+    修改挂号级别
+     */
     @Override
     public void RLMUpdatesaveRegistLevel(String Rcode, String Rname, int Rno, Double Rfee, int Rquota) throws SQLException {
         Connection con = null;
@@ -88,6 +99,9 @@ public class RLMService implements IRLMService{
         }
     }
 
+    /*
+    删除挂号级别
+     */
     @Override
     public void RLMdeleteRegistLevel(int id) throws SQLException {
         Connection con = null;

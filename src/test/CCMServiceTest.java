@@ -16,7 +16,8 @@ public class CCMServiceTest {
     @Test
     public void CCMSelectConstantTypeAll() throws SQLException {
         CCMService ccmService = new CCMService();
-        List list =ccmService.CCMSelectConstantTypeAll();
+        int page = 3;
+        List list =ccmService.CCMSelectConstantTypeAll(page);
         System.out.println(list);
     }
 

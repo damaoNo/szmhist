@@ -10,7 +10,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class SCMService implements ISCMService{
-    //查询结算类别
+    /*
+    查询结算类别
+     */
     @Override
     public List<SettleCategory> ScmSelectSettleCategory(String code) throws SQLException {
         Connection con= null;
@@ -31,7 +33,9 @@ public class SCMService implements ISCMService{
         return list;
     }
 
-    //新增结算类别保存
+    /*
+    新增结算类别保存
+     */
     @Override
     public void ScmaddSettleCategory(String Scode, String Sname, int Sno) throws SQLException {
         Connection con= null;
@@ -49,7 +53,9 @@ public class SCMService implements ISCMService{
         }
     }
 
-    //编辑结算类别
+    /*
+    编辑结算类别
+     */
     @Override
     public SettleCategory ScmselectupdateSettleCategory(int id) throws SQLException {
         Connection con=null;
@@ -68,7 +74,9 @@ public class SCMService implements ISCMService{
         return null;
     }
 
-    //修改结算类
+    /*
+    修改结算类
+     */
     @Override
     public void ScmupdateSettleCategorySave(String Scode, String Sname, int Sno) throws SQLException {
         Connection con =null;
@@ -86,6 +94,9 @@ public class SCMService implements ISCMService{
         }
     }
 
+    /*
+    删除结算类
+     */
     @Override
     public void ScmdeleteSettleCategory(int id) throws SQLException {
         Connection con = null;

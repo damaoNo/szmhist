@@ -26,12 +26,14 @@ public class CCMDao implements ICCMDao{
 
 
     @Override
-    public List<ConstantType> SelectConstantTypeAll() throws SQLException {
+    public List<ConstantType> SelectConstantTypeAll(int page) throws SQLException {
         String sql="select ConstanttypeCode,constanttypeName,ID \n" +
                     "FROM constanttype\n" +
                     "WHERE DelMark=1\n" +
-                    "ORDER BY ID";
+                    "ORDER BY ID" +
+                    "limit ?,10";
         PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setInt(1,(page-1)*10);
         ResultSet rs = pstm.executeQuery();
         List<ConstantType> ConstantTypeList = new ArrayList<>();
         while (rs.next()){
@@ -99,7 +101,7 @@ public class CCMDao implements ICCMDao{
         sql+=" limit ?,10";
 
         PreparedStatement pstm = con.prepareStatement(sql);
-        pstm.setInt(1,page);
+        pstm.setInt(1,(page-1)*10);
         ResultSet rs = pstm.executeQuery();
         List<ConstantItem> constantItemList=new ArrayList<>();
         while (rs.next()){

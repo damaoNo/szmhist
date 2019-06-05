@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface ICCMService {
     //查询所有类别数据
-    List<ConstantType> CCMSelectConstantTypeAll() throws SQLException;
+    List<ConstantType> CCMSelectConstantTypeAll(int page) throws SQLException;
 
     //查询常数类别
     List<ConstantType> CCMSelectConstantType(String codeORname) throws SQLException;

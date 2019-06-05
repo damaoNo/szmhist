@@ -19,15 +19,20 @@ import java.util.List;
 
 public class CCMService implements ICCMService{
 
+    /*
+    查询所有类别数据
+    返回常熟类list集合
+     */
     @Override
-    public List<ConstantType> CCMSelectConstantTypeAll() throws SQLException {
+    public List<ConstantType> CCMSelectConstantTypeAll(int page) throws SQLException {
         Connection con =null;
         List list =null;
         con = JdbcUtil.getConnection();
         try {
             con.setAutoCommit(false);
             ICCMDao iccmDao = new CCMDao();
-            list = iccmDao.SelectConstantTypeAll();
+            iccmDao.setConnection(con);
+            list = iccmDao.SelectConstantTypeAll(page);
             con.commit();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,6 +43,9 @@ public class CCMService implements ICCMService{
         return list;
     }
 
+    /*
+    查询常数类别
+     */
     @Override
     public List<ConstantType> CCMSelectConstantType(String codeORname) throws SQLException {
         Connection con=null;
@@ -46,6 +54,7 @@ public class CCMService implements ICCMService{
         try {
             con.setAutoCommit(false);
             ICCMDao iccmDao = new CCMDao();
+            iccmDao.setConnection(con);
             iccmDao.SelectConstantType(codeORname);
             con.commit();
         } catch (SQLException e) {
@@ -57,14 +66,17 @@ public class CCMService implements ICCMService{
         return list;
     }
 
+    /*
+    新增常数类别
+     */
     @Override
     public void CCMAddConstantType(String Ccode, String Cname) throws SQLException {
         Connection con=null;
-        List list = null;
         con = JdbcUtil.getConnection();
         try {
             con.setAutoCommit(false);
             ICCMDao iccmDao = new CCMDao();
+            iccmDao.setConnection(con);
             iccmDao.AddConstantType(Ccode,Cname);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,6 +86,9 @@ public class CCMService implements ICCMService{
         }
     }
 
+    /*
+    查询常数项
+     */
     @Override
     public List<ConstantItem> CCMSelectConstantltem(ConstantItem constantItem, int page) throws SQLException {
         Connection con=null;
@@ -82,6 +97,7 @@ public class CCMService implements ICCMService{
         try {
             con.setAutoCommit(false);
             ICCMDao iccmDao = new CCMDao();
+            iccmDao.setConnection(con);
             iccmDao.SelectConstantltem(constantItem,page);
             con.commit();
         } catch (SQLException e) {
@@ -93,14 +109,17 @@ public class CCMService implements ICCMService{
         return list;
     }
 
+    /*
+    添加常数项
+     */
     @Override
     public void CCMAddConstantltem(String code, String name, int typeID) throws SQLException {
         Connection con=null;
-        List list = null;
         con = JdbcUtil.getConnection();
         try {
             con.setAutoCommit(false);
             ICCMDao iccmDao = new CCMDao();
+            iccmDao.setConnection(con);
             iccmDao.AddConstantltem(code,name,typeID);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -110,6 +129,9 @@ public class CCMService implements ICCMService{
         }
     }
 
+    /*
+    编辑常数项
+     */
     @Override
     public void CCMUpdateConstantltem(String code, String name, int typeID, int ID) throws SQLException {
         Connection con = null;
@@ -127,6 +149,9 @@ public class CCMService implements ICCMService{
         }
     }
 
+    /*
+    删除常数项
+     */
     @Override
     public void CCMDelectConstantltem(String[] ID) throws SQLException {
         Connection con = null;

@@ -18,7 +18,7 @@ public interface ICCMDao {
     void setConnection(Connection con);
 
     //查询所有类别数据
-    List<ConstantType> SelectConstantTypeAll() throws SQLException;
+    List<ConstantType> SelectConstantTypeAll(int page) throws SQLException;
 
     //查询常数类别
     List<ConstantType> SelectConstantType(String codeORname) throws SQLException;

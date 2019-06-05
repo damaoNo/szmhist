@@ -22,7 +22,7 @@ public class TakeDrugsServiceTest {
         List list=null;
         try {
           Date  date = format.parse("2019-03-29");
-         list=tds.takeDrugs(600607,date);
+         list=tds.takeDrugs(600607,date,5);
 
         } catch (ParseException e) {
             e.printStackTrace();

@@ -20,7 +20,8 @@ public class CCMDaoTest {
         con = JdbcUtil.getConnection();
         CCMDao ccmDao = new CCMDao();
         ccmDao.setConnection(con);
-        List list=ccmDao.SelectConstantTypeAll();
+        int page = 6;
+        List list=ccmDao.SelectConstantTypeAll(page);
         System.out.println(list);
     }
 
@@ -54,6 +55,7 @@ public class CCMDaoTest {
         ccmDao.setConnection(con);
         ConstantItem ct = new ConstantItem();
         ct.setContantCode("xlk");
+        ct.setConstantName("心理治疗科");
         int p = 9;
         List list=ccmDao.SelectConstantltem(ct,p);
         System.out.println(list);
@@ -100,7 +102,8 @@ public class CCMDaoTest {
         con = JdbcUtil.getConnection();
         CCMDao ccmDao = new CCMDao();
         ccmDao.setConnection(con);
-        List list=ccmDao.SelectConstantTypeAll();
+        int page=3;
+        List list=ccmDao.SelectConstantTypeAll(page);
         System.out.println(list.toString());
     }
 }
