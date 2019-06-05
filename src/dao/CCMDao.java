@@ -1,6 +1,7 @@
 package dao;
 
 import com.sun.javafx.binding.StringFormatter;
+import com.sun.xml.internal.bind.v2.model.core.ID;
 import util.JdbcUtil;
 import vo.ConstantItem;
 import vo.ConstantType;
@@ -159,5 +160,25 @@ public class CCMDao implements ICCMDao{
         }
         pstm.executeBatch();
         JdbcUtil.release(null,pstm,null);
+    }
+
+    /**
+     * 根据挂号级别名字查id
+     *
+     * @param regLeName 挂号级别名称
+     * @return 返回挂号级别id
+     */
+    @Override
+    public int selectRegLeIDByName(String regLeName) throws SQLException {
+        String sql="select id from registlevel where RegistName=?";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setString(1,regLeName);
+        ResultSet rs=pstm.executeQuery();
+        int id=0;
+        while (rs.next()){
+            id=rs.getInt(1);
+        }
+        JdbcUtil.release(null,pstm,null);
+        return id;
     }
 }

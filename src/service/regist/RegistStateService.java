@@ -22,8 +22,6 @@ public class RegistStateService implements IRegistStateService{
      * @Description: 按病历号读取当前状态为未看诊的挂号记录
      * @Param: [caseNum]
      * @return: vo.RegisterRecord
-     * @Author: cro
-     * @Date: 2019/6/2
      */
     @Override
     public RegisterRecord findRegistByCaseNumber(String caseNum) throws SQLException {
@@ -47,10 +45,7 @@ public class RegistStateService implements IRegistStateService{
 
     /**
      * 更新挂号状态（退号）
-     *
      * @param id 挂号id
-     * @
-     * @author : cro
      */
     @Override
     public boolean updateRegistState(int id) throws SQLException {

@@ -1,78 +1,67 @@
 package util;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 解析14位数字到具体星期上下午
+ */
 public class noonChangeFormat {
 
 
     public static void main(String[] args) {
-        String week="111111000000";
+        String week="11110001110001";
+        List list=new ArrayList();
         for (int i=0;i<week.length();i++){
             String s=String.valueOf(week.charAt(i));
             if (s.equals("1")){
                 switch (i){
                     case 0:
+                        list.add("星期一上午");
+                        break;
+                    case 1:
+                        list.add("星期一下午");
+                        break;
+                    case 2:
+                        list.add("星期二上午");
+                        break;
+                    case 3:
+                        list.add("星期二下午");
+                        break;
+                    case 4:
+                        list.add("星期三上午");
+                        break;
+                    case 5:
+                        list.add("星期三下午");
+                        break;
+                    case 6:
+                        list.add("星期四上午");
+                        break;
+                    case 7:
+                        list.add("星期四下午");
+                        break;
+                    case 8:
+                        list.add("星期五上午");
+                        break;
+                    case 9:
+                        list.add("星期五下午");
+                        break;
+                    case 10:
+                        list.add("星期六上午");
+                        break;
+                    case 11:
+                        list.add("星期六下午");
+                        break;
+                    case 12:
+                        list.add("星期天上午");
+                        break;
+                    case 13:
+                        list.add("星期天下午");
+                        break;
 
                 }
             }
         }
-
-
-
-        String mona=String.valueOf(week.charAt(0));
-        if(mona=="1"){
-            String Noon="上午";
-        }
-        String monp=String.valueOf(week.charAt(1));
-        if(monp=="1"){
-            String Noon="下午";
-        }
-        String tuea=String.valueOf(week.charAt(2));
-        if(tuea=="1"){
-            String Noon="午上";
-        }
-        String tuep=String.valueOf(week.charAt(3));
-        if(tuep=="1"){
-            String Noon="上午";
-        }
-        String thra=String.valueOf(week.charAt(4));
-        if(thra=="1"){
-            String Noon="上午";
-        }
-        String thrp=String.valueOf(week.charAt(5));
-        if(thrp=="1"){
-            String Noon="上午";
-        }
-        String fora=String.valueOf(week.charAt(6));
-        if(fora=="1"){
-            String Noon="上午";
-        }
-        String forp=String.valueOf(week.charAt(7));
-        if(forp=="1"){
-            String Noon="上午";
-        }
-        String fiva=String.valueOf(week.charAt(8));
-        if(fiva=="1"){
-            String Noon="上午";
-        }
-        String fivp=String.valueOf(week.charAt(9));
-        if(fivp=="1"){
-            String Noon="上午";
-        }
-        String sixa=String.valueOf(week.charAt(10));
-        if(sixa=="1"){
-            String Noon="上午";
-        }
-        String sixp=String.valueOf(week.charAt(11));
-        if(sixp=="1"){
-            String Noon="上午";
-        }
-        String seva=String.valueOf(week.charAt(12));
-        if(seva=="1"){
-            String Noon="上午";
-        }
-        String sevp=String.valueOf(week.charAt(13));
-        if(sevp=="1"){
-            String Noon="上午";
-        }
-       System.out.println();
+        System.out.println("list"+list.toString());
     }
 }

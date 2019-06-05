@@ -457,4 +457,28 @@ public class ConsultService implements IConsultService {
             JdbcUtil.release(con,null,null);
         }
     }
+    /**
+     * 根据病历号查询病人的消费信息
+     * @param caseNum 病历号
+     * @return 返回：姓名    身份证       家庭住址        病历号         项 目名称   单价    数量       开立时间       状态
+     *          r.RealName,r.IDnumber,r.HomeAddress,r.CaseNumber,"p.`Name`,p.Price,p.Amount,p.Createtime,r.VisitState
+     */
+    @Override
+    public List<PatientCostsBack> findPatientCosts(String caseNum) throws SQLException {
+        Connection con=null;
+        con= JdbcUtil.getConnection();
+        try {
+            con.setAutoCommit(false);
+            IPatientCostsDao pcd=new PatientCostsDao();
+            pcd.setConnection(con);
+            pcd.selectPatientCosts(caseNum);
+            con.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            con.rollback();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
+    }
 }
