@@ -149,4 +149,6 @@ public interface IConsultService {
      *          r.RealName,r.IDnumber,r.HomeAddress,r.CaseNumber,"p.`Name`,p.Price,p.Amount,p.Createtime,r.VisitState
      */
     List<PatientCostsBack> findPatientCosts(String caseNum) throws SQLException;
+
+
 }

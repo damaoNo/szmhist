@@ -32,9 +32,9 @@ public class CheckApplyMore extends CheckApply{
 
     @Override
     public String toString() {
-        return "NonDrugsPayMore{" +
+        return "CheckApplyMore{" +
                 "itemName='" + itemName + '\'' +
                 ", price=" + price +
-                '}';
+                '}'+super.toString();
     }
 }

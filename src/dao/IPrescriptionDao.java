@@ -60,7 +60,13 @@ public interface IPrescriptionDao {
      */
     void updatePresState(int id,int state) throws SQLException;
 
-
+    /**
+     * 修改处方状态，如果是开立，会自动更新开立时间为系统当前时间
+     *
+     * @param id    处方id
+     * @param state 修改成为什么state
+     */
+    public void updatePSB(int[] id, int state) throws SQLException;
 
     //通过registId获取处方对象
     Prescription getInfByRegistId(int registId)throws SQLException;
@@ -70,7 +76,7 @@ public interface IPrescriptionDao {
      * @param caseNum
      * @return
      */
-    List<PrescriptionMore> selectPrescriptionByCaseNum(String  caseNum) throws SQLException;
+    List<PrescriptionMore> selectPrescriptionByCaseNum(String  caseNum,int state) throws SQLException;
 
 
 

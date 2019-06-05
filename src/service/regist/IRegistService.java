@@ -75,10 +75,44 @@ public interface IRegistService {
      * @return 所有收费项目
      */
     List findAllCosts(String caseNum) throws SQLException;
+    /**
+     * 点击确定缴费后加载-下一个可用发票号、结算类别
+     * @param userid 当前挂号员id
+     * @return 下一个可用发票号、结算类别
+     */
+    List findInvoicePay(int userid) throws SQLException;
 
     /**
      * 交费
+     * @param flag 6-处方状态已缴费--9-处置表状态已缴费
+     * @param id 对应的批量id
+     * @param iv 发票对象\InvoiceNum-需设置,Money-需设置,State-自动设置,
+     *           CreationTime-自动设置,UserID-挂号员id 需设置,RegistID-需设置,
+     *           FeeType-需设置，结账类别,Back,DailyState
+     * @param pc RegistID-挂号id（iv获取）,InvoiceID-自动设置,ItemID-需设置？？,ItemType-自动设置 1-非2-药,
+     *           Name-需设置,Price-需设置,Amount,DeptID,Createtime-自动设置,
+     *           CreateOperID-开立人员ID,PayTime-支付时间,RegisterID-（iv.userID）,
+     *           FeeType-（iv.feetype）,BackID
+     *
+     * @param state 3--缴费    6--退费
+     * @throws SQLException
      */
-    void pay(int id) throws SQLException;
+    void pay(int flag,int[] id,Invoice iv,PatientCosts pc,int state) throws SQLException;
+//退费
+    /**
+     * 查询所有可退费项目-----处置/../..申请 药方 为已缴费状态
+     * @param caseNum
+     * @return
+     * @throws SQLException
+     */
+    List backpay(String caseNum) throws SQLException;
+
+    /**
+     * 根据病历号查询病人的消费信息
+     * @return
+     */
+    List findPatientCosts(String caseNum) throws SQLException;
+
+
 
 }

@@ -30,5 +30,5 @@ public interface INonDrugsPayDao {
      * @param caseNum
      * @return
      */
-    List selectNDbyCaseNum(String caseNum) throws SQLException;
+    List selectNDbyCaseNum(String caseNum,int state) throws SQLException;
 }

@@ -207,15 +207,16 @@ public class NonDrugsPayDao implements INonDrugsPayDao {
      * @return
      */
     @Override
-    public List selectNDbyCaseNum(String caseNum) throws SQLException {
-        String sql="SELECT f.ItemName,f.Price,c.CreationTime,c.State\n" +
+    public List selectNDbyCaseNum(String caseNum,int state) throws SQLException {
+        String sql="SELECT f.ItemName,f.Price,c.CreationTime,c.State,c.RegistID\n" +
                 "FROM checkapply c,medicalrecord m,fmeditem f\n" +
                 "WHERE c.MedicalID=m.ID\n" +
                 "AND c.ItemID=f.ID\n" +
                 "AND m.CaseNumber=?\n" +
-                "AND c.State=2";
+                "AND c.State=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setString(1,caseNum);
+        pstmt.setInt(2,state);
         ResultSet rs=pstmt.executeQuery();
         List list=new ArrayList();
         CheckApplyMore cam=null;
@@ -225,6 +226,7 @@ public class NonDrugsPayDao implements INonDrugsPayDao {
             cam.setPrice(rs.getDouble(2));
             cam.setCreationTime(rs.getTimestamp(3));
             cam.setState(rs.getInt(4));
+            cam.setRegistID(rs.getInt(5));
             list.add(cam);
         }
         JdbcUtil.release(null,pstmt,null);

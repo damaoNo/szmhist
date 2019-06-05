@@ -41,7 +41,8 @@ public class RegistService implements IRegistService {
             con.setAutoCommit(false);
             IRegistDao rd=new RegistDao();
             rd.setConnection(con);
-            String invoiceNum="invoicenum"+rd.selectMaxInvoiceNum(userid);
+            IInvoiceDao id=new InvoiceDao();
+            String invoiceNum="invoicenum"+id.selectMaxInvoiceNum(userid);
             String caseNum="casenum"+rd.selectMaxCaseNum();
             list1=rd.selectRegistLevels();
             list3=rd.selectSettleCategories();
@@ -191,7 +192,7 @@ public class RegistService implements IRegistService {
             pc.setCreateOperID(iv.getUserID());
             pc.setPayTime(now);
             pc.setRegisterID(iv.getUserID());
-            pc.setFeeType(51);
+            pc.setFeeType(iv.getFeeType());
             pcd.insertPatientCosts(pc);
             con.commit();
         } catch (SQLException e) {
@@ -272,9 +273,9 @@ public class RegistService implements IRegistService {
             pd.setConnection(con);
             INonDrugsPayDao ndpd=new NonDrugsPayDao();
             ndpd.setConnection(con);
-            List list1=pd.selectPrescriptionByCaseNum(caseNum);
+            List list1=pd.selectPrescriptionByCaseNum(caseNum,2);
 
-            List list2=ndpd.selectNDbyCaseNum(caseNum);
+            List list2=ndpd.selectNDbyCaseNum(caseNum,2);
 
             list.add(list1);
             list.add(list2);
@@ -290,9 +291,58 @@ public class RegistService implements IRegistService {
         return null;
     }
 
-
+    /**
+     * 点击确定缴费后加载-下一个可用发票号、结算类别
+     *
+     * @param userid 当前挂号员id
+     * @return 下一个可用发票号、结算类别
+     */
     @Override
-    public void pay(int id) throws SQLException {
+    public List findInvoicePay(int userid) throws SQLException {
+        Connection con=null;
+        List list=new ArrayList();
+        List list1=new ArrayList();
+        List list3=new ArrayList();
+
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IRegistDao rd=new RegistDao();
+            rd.setConnection(con);
+            IInvoiceDao id=new InvoiceDao();
+            String invoiceNum="invoicenum"+id.selectMaxInvoiceNum(userid);
+            list1=rd.selectRegistLevels();
+            list3=rd.selectSettleCategories();
+            list.add(invoiceNum);
+            list.add(list1);
+            list.add(list3);
+            con.commit();
+            return list;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
+    }
+
+    /**
+     * 交费
+     * @param flag 6-处方状态已缴费--9-处置表状态已缴费
+     * @param id 对应的批量id
+     * @param iv 发票对象\InvoiceNum-需设置,Money-需设置,State-自动设置,
+     *           CreationTime-自动设置,UserID-挂号员id 需设置,RegistID-需设置,
+     *           FeeType-需设置，结账类别,Back,DailyState
+     * @param pc RegistID-挂号id（iv获取）,InvoiceID-自动设置,ItemID-需设置？？,ItemType-自动设置 1-非2-药,
+     *           Name-需设置,Price-需设置,Amount,DeptID,Createtime-自动设置,
+     *           CreateOperID-开立人员ID,PayTime-支付时间,RegisterID-（iv.userID）,
+     *           FeeType-（iv.feetype）,BackID
+     * @param state 3--缴费    6--退费
+     * @throws SQLException
+     */
+    @Override
+    public void pay(int flag,int[] id,Invoice iv,PatientCosts pc,int state) throws SQLException {
         Connection con=null;
         List list=new ArrayList();
         try {
@@ -300,10 +350,40 @@ public class RegistService implements IRegistService {
             con.setAutoCommit(false);
             IPrescriptionDao pd=new PrescriptionDao();
             pd.setConnection(con);
-            //缴费后状态变为已缴费
-            pd.updatePresState(id,3);
+            ICheckApplyDao cad=new CheckApplyDao();
+            cad.setConnection(con);
+            IPatientCostsDao pcd=new PatientCostsDao();
+            pcd.setConnection(con);
+            IInvoiceDao iid=new InvoiceDao();
+            iid.setConnection(con);
+            //6-处方状态已缴费--9-处置表状态已缴费
+            int itemID=0;
+            if (flag==6){
+                //缴费后状态变为已缴费
+                pd.updatePSB(id,state);
+                itemID=2;
+            }
+            if (flag==9){
+                cad.updateCheckApplyState(id,state);
+                itemID=1;
+            }
+            IInvoiceDao idao=new InvoiceDao();
+            iv.setState(1);
 
-
+            idao.insertInvoice(iv);
+            Invoice iv2=iid.selectInvoiceByNum(iv.getInvoiceNum());
+            pc.setRegistID(iv.getRegistID());
+            pc.setInvoiceID(iv2.getId());
+            pc.setItemID(1);//??????????????????????????????????????????????????????????????????????????????????????
+            pc.setItemType(itemID);
+            pc.setPrice(iv.getMoney());
+            Timestamp now=new Timestamp(System.currentTimeMillis());
+            pc.setCreateTime(now);
+            pc.setCreateOperID(iv.getUserID());
+            pc.setPayTime(now);
+            pc.setRegisterID(iv.getUserID());
+            pc.setFeeType(iv.getFeeType());
+            pcd.insertPatientCosts(pc);
 
 
             con.commit();
@@ -313,6 +393,67 @@ public class RegistService implements IRegistService {
         } finally {
             JdbcUtil.release(con,null,null);
         }
+    }
+    /**
+     * 查询所有可退费项目-----处置/../..申请 药方 为已缴费状态
+     * @param caseNum
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public List backpay(String caseNum) throws SQLException {
+        Connection con=null;
+        List list=new ArrayList();
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IPrescriptionDao pd=new PrescriptionDao();
+            pd.setConnection(con);
+            INonDrugsPayDao ndpd=new NonDrugsPayDao();
+            ndpd.setConnection(con);
+            List list1=pd.selectPrescriptionByCaseNum(caseNum,3);
+
+            List list2=ndpd.selectNDbyCaseNum(caseNum,3);
+
+            list.add(list1);
+            list.add(list2);
+
+            con.commit();
+            return list;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        } finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
+    }
+
+    /**
+     * 根据病历号查询病人的消费信息
+     *
+     * @param caseNum
+     * @return
+     */
+    @Override
+    public List findPatientCosts(String caseNum) throws SQLException {
+        Connection con=null;
+        List list=new ArrayList();
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IPatientCostsDao pc=new PatientCostsDao();
+            pc.setConnection(con);
+            list=pc.selectPatientCosts(caseNum);
+            con.commit();
+            return list;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        } finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return null;
     }
 
 

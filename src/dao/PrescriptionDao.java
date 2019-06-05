@@ -191,6 +191,32 @@ public class PrescriptionDao implements IPrescriptionDao{
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }
+    /**
+     * 修改处方状态，如果是开立，会自动更新开立时间为系统当前时间
+     *
+     * @param id    处方id
+     * @param state 修改成为什么state
+     */
+    @Override
+    public void updatePSB(int[] ids, int state) throws SQLException {
+        String sql="UPDATE prescription SET PrescriptionState=?";
+        Timestamp time=new Timestamp(System.currentTimeMillis());
+        if (state == 2){
+            sql+=",PrescriptionTime="+time;
+        }
+        sql+=" WHERE ID=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        for (int i=0;i<ids.length;i++){
+            pstmt.setInt(2,ids[i]);
+            pstmt.setInt(1,state);
+            pstmt.addBatch();
+            if (i%10==0){
+                pstmt.executeBatch();
+            }
+        }
+        pstmt.executeUpdate();
+        JdbcUtil.release(null, pstmt, null);
+    }
 
     @Override
     public Prescription getInfByRegistId(int registId) throws SQLException {
@@ -220,17 +246,18 @@ public class PrescriptionDao implements IPrescriptionDao{
      * @return
      */
     @Override
-    public List<PrescriptionMore> selectPrescriptionByCaseNum(String caseNum) throws SQLException {
-        String sql="SELECT p.ID,p.PrescriptionName,p.PrescriptionTime,p.PrescriptionState,g.DrugsName,g.DrugsPrice\n" +
+    public List<PrescriptionMore> selectPrescriptionByCaseNum(String caseNum,int state) throws SQLException {
+        String sql="SELECT p.ID,p.PrescriptionName,p.PrescriptionTime,p.PrescriptionState,g.DrugsName,g.DrugsPrice,p.RegistID\n" +
                 "FROM prescription p,medicalrecord m,prescriptiondetailed d,drugs g \n" +
                 "WHERE p.MedicalID = m.ID\n" +
                 "AND d.PrescriptionID=p.ID\n" +
                 "AND d.DrugsID=g.id\n" +
                 "AND m.CaseNumber=?\n" +
-                "AND p.PrescriptionState=2";
+                "AND p.PrescriptionState=?";
         con= JdbcUtil.getConnection();
         PreparedStatement ps=con.prepareStatement(sql);
         ps.setString(1,caseNum);
+        ps.setInt(2,state);
         ResultSet rs=ps.executeQuery();
         List<PrescriptionMore> list=new ArrayList<>();
         PrescriptionMore pm=null;
@@ -241,6 +268,7 @@ public class PrescriptionDao implements IPrescriptionDao{
             pm.setPrescriptionTime(rs.getDate(3));
             pm.setPrescriptionState(rs.getInt(4));
             pm.setDrugName(rs.getString(5));
+            pm.setRegitID(rs.getInt(6));
             list.add(pm);
         }
         JdbcUtil.release(con,null,null);

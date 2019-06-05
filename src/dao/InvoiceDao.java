@@ -18,6 +18,26 @@ public class InvoiceDao implements IInvoiceDao {
     public void setConnection(Connection con) {
         this.con = con;
     }
+
+    /**
+     * 读取收费员当前最大发票号
+     * @param userid 收费员ID
+     * @return 收费员下一个可用发票号
+     */
+    @Override
+    public String selectMaxInvoiceNum(int userid) throws SQLException {
+        String sql ="select max(InvoiceNum)+1 from invoice where UserID=?";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        pstm.setInt(1,userid);
+        ResultSet rs = pstm.executeQuery();
+        String invoiceNum=null;
+        while (rs.next()){
+            invoiceNum=rs.getString(1);
+        }
+        JdbcUtil.release(null,pstm,null);
+        return invoiceNum;
+    }
+
     /**
      * @param iv
      * @Description: 插入使用发票记录,创建时间自动设置为当前系统时间

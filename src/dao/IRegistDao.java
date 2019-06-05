@@ -14,12 +14,7 @@ import java.util.List;
 public interface IRegistDao {
 
     void setConnection(Connection con);
-    /**
-     * 读取收费员当前最大发票号
-     * @param userid 收费员ID
-     * @return 收费员下一个可用发票号
-     */
-    String selectMaxInvoiceNum(int userid) throws SQLException;
+
 
     /**
      * 读取当前最大病历号
