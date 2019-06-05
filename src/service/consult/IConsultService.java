@@ -105,4 +105,40 @@ public interface IConsultService {
      * @return id，medicalid,registid,userid,prescriptionname,state
      */
     List<Prescription> findPreByUserID(int userID,int registID) throws SQLException;
+    /**
+     * 查询当前处方中有的药品
+     * @param userID
+     * @param registID
+     * @return pd.ID,d.DrugsName,d.DrugsFormat,d.DrugsPrice,pd.DrugsUsage,pd.Dosage,pd.Frequency
+     */
+    List<PrescriptionDetailed> findDrugsinPre(int userID, int registID) throws SQLException;
+
+    /**
+     * 分页查询可用药品列表，每页十条，可选用助记码查询，可直接传空串全部查询
+     * @param mnemonicCode 助记码
+     * @param page 页码
+     * @return 药品对象集合
+     */
+    List allDrugs(String mnemonicCode,int page) throws SQLException;
+
+    /**
+     * 新增一条药房明细记录
+     * 处方id          药品ID   药品用法    药品计量 频次         数量 状态
+     *PrescriptionID,DrugsID,DrugsUsage,Dosage,Frequency,Amount,State 2-已开立 3-已交费 4-已发药 5-已退药 6-已退费
+     * @param pd 药方明细对象
+     */
+    void  newPresDetailed(PrescriptionDetailed pd) throws SQLException;
+
+    /**
+     * 批量删除药品-处方明细表id
+     * @param drugids
+     */
+    void deletDrugs(int[] pdids) throws SQLException;
+
+    /**
+     * 修改处方状态,如果是开立，会自动更新开立时间为系统当前时间
+     * @param id    处方id
+     * @param state     修改成为什么state
+     */
+    void changePresState(int id,int state) throws SQLException;
 }
