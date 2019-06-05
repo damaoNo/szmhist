@@ -35,7 +35,7 @@ public class RLMDaoTest {
         double fee=1.2;
         int quota = 1;
         int mark =1;
-        rlmDao.AddRegistLevel(code,name,no,fee,quota,mark);
+        rlmDao.AddRegistLevel(code,name,no,fee,quota);
     }
 
     @Test

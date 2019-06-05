@@ -79,8 +79,8 @@ public class PrescriptionDao implements IPrescriptionDao{
                 "AND p.RegistID=? " +
                 "AND p.UserID=? ";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,userID);
-        pstmt.setInt(2,registID);
+        pstmt.setInt(1,registID);
+        pstmt.setInt(2,userID);
         ResultSet rs=pstmt.executeQuery();
         List<PrescriptionDetailed> list=new ArrayList<>();
         PrescriptionDetailed pd=null;
@@ -88,10 +88,11 @@ public class PrescriptionDao implements IPrescriptionDao{
             pd=new PrescriptionDetailed();
             pd.setId(rs.getInt(1));
             pd.setDrugName(rs.getString(2));
-            pd.setPrice(rs.getDouble(3));
-            pd.setDrugsUsage(rs.getString(4));
-            pd.setDosage(rs.getString(5));
-            pd.setFrequency(rs.getString(6));
+            pd.setFormat(rs.getString(3));
+            pd.setPrice(rs.getDouble(4));
+            pd.setDrugsUsage(rs.getString(5));
+            pd.setDosage(rs.getString(6));
+            pd.setFrequency(rs.getString(7));
             list.add(pd);
         }
         JdbcUtil.release(null, pstmt, null);
@@ -151,16 +152,15 @@ public class PrescriptionDao implements IPrescriptionDao{
     }
 
     /**
-     * 批量删除药品
-     *
+     * 批量删除药品-处方明细表id
      * @param drugids
      */
     @Override
-    public void deletDrugs(String[] drugids) throws SQLException {
+    public void deletDrugs(int[] pdids) throws SQLException {
         String sql="DELETE FROM prescriptiondetailed WHERE id=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        for (int i=0;i<drugids.length;i++){
-            pstmt.setString(1,drugids[i]);
+        for (int i=0;i<pdids.length;i++){
+            pstmt.setInt(1,pdids[i]);
             pstmt.addBatch();
             if (i%10==0){
                 pstmt.executeBatch();
