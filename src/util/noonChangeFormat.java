@@ -1,6 +1,9 @@
 package util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -62,6 +65,20 @@ public class noonChangeFormat {
                 }
             }
         }
-        System.out.println("list"+list.toString());
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        Date begin=null;
+        Date end=null;
+        try {
+             begin=sdf.parse("2019-06-10");
+             end=sdf.parse("2019-06-10");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        for (int i=0;i<7;i++){
+            SimpleDateFormat dateFm=new SimpleDateFormat("EEEE");//日期转换成星期
+            String  currSun=dateFm.format(begin);
+        }
+      System.out.println("list"+list.toString());
     }
 }
