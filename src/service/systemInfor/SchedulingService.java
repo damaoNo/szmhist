@@ -3,6 +3,8 @@ package service.systemInfor;
 import dao.ISchedulingDao;
 import dao.SchedulingDao;
 import util.JdbcUtil;
+import vo.Rule;
+import vo.Scheduling;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,13 +14,13 @@ import java.util.List;
 public class SchedulingService implements ISchedulingService {
     /**
      * 读取当前排班信息
-     * @param date1 开始日期
-     * @param date2 结束日期
-     * @param page
+     * @param begin 开始日期
+     * @param end 结束日期
+     * @param page  第几页
      * @return
      */
     @Override
-    public List schedInfoNow(Date date1, Date date2, int page) throws SQLException {
+    public List schedInfoNow(Date begin, Date end, int page) throws SQLException {
         Connection con=null;
         List list=null;
         con= JdbcUtil.getConnection();
@@ -26,7 +28,7 @@ public class SchedulingService implements ISchedulingService {
             con.setAutoCommit(false);
             ISchedulingDao service2=new SchedulingDao();
             service2.setConnection(con);
-            list=service2.schedInfoNow(date1,date2,page);
+            list=service2.schedInfoNow(begin,end,page);
             con.commit();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,8 +40,6 @@ public class SchedulingService implements ISchedulingService {
 
         return list;
     }
-
-
 
     /**
      * 批量删除排班计划
@@ -62,7 +62,6 @@ public class SchedulingService implements ISchedulingService {
         }
 
     }
-
 
 
     /**
@@ -107,6 +106,59 @@ public class SchedulingService implements ISchedulingService {
     }
 
     /**
+     * 组合查询医生名称RealName
+     * 科室名称DeptName
+     * 或者挂号级别RegistName
+     *
+     * @param DeptName
+     * @param RegistName
+     */
+    @Override
+    public List selectRN(String DeptName, String RegistName) throws SQLException {
+        Connection con=null;
+        List list=null;
+        con= JdbcUtil.getConnection();
+        try {
+            con.setAutoCommit(false);
+            ISchedulingDao ischedulingservice=new SchedulingDao();
+            ischedulingservice.setConnection(con);
+            list=ischedulingservice.selectRN(DeptName,RegistName);
+            con.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            con.rollback();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return list;
+    }
+
+    /**
+     * 新增排班规则
+     *
+     * @param rule
+     */
+    @Override
+    public void addRuler(Rule rule) throws SQLException {
+        Connection con=null;
+        con= JdbcUtil.getConnection();
+        try {
+            con.setAutoCommit(false);
+            ISchedulingDao ischedulingservice=new SchedulingDao();
+            ischedulingservice.setConnection(con);
+            ischedulingservice.addRuler(rule);
+            con.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            con.rollback();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+
+    }
+
+
+    /**
      * 按科室ID读取排班规则
      * @param DeptID
      * @return
@@ -138,23 +190,19 @@ public class SchedulingService implements ISchedulingService {
     }
 
     /**
-     * 组合查询医生名称RealName
-     * 科室名称DeptName
-     * 或者挂号级别RegistName
+     * 选取规则生成排班计划
      *
-     * @param DeptName
-     * @param RegistName
+     * @param scheduling
      */
     @Override
-    public List selectRN(String DeptName, String RegistName) throws SQLException {
+    public void addScheduling(Scheduling scheduling) throws SQLException {
         Connection con=null;
-        List list=null;
         con= JdbcUtil.getConnection();
         try {
             con.setAutoCommit(false);
             ISchedulingDao ischedulingservice=new SchedulingDao();
             ischedulingservice.setConnection(con);
-            list=ischedulingservice.selectRN(DeptName,RegistName);
+            ischedulingservice.addScheduling(scheduling);
             con.commit();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -162,7 +210,8 @@ public class SchedulingService implements ISchedulingService {
         }finally {
             JdbcUtil.release(con,null,null);
         }
-        return list;
+
     }
+
 
 }
