@@ -333,8 +333,22 @@ public class RegistDao implements IRegistDao{
         JdbcUtil.getConnection();
         return inv;
     }
-
-
-
-
+    /**
+     * 根据科室名获取ID
+     *
+     * @param deptname 科室名称
+     */
+    @Override
+    public int getDeptIDbyName(String deptname) throws SQLException {
+        String sql ="select id from department where DeptName=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,deptname);
+        ResultSet rs=pstmt.executeQuery();
+        int deptID=0;
+        while(rs.next()){
+            deptID=rs.getInt(1);
+        }
+        JdbcUtil.release(null,pstmt,null);
+        return deptID;
+    }
 }

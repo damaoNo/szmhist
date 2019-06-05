@@ -3,11 +3,14 @@ package dao;
 import util.JdbcUtil;
 import vo.ConstantItem;
 import vo.Department;
+import vo.DoctorInfo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DepartmentDao implements IDepartmentDao{
     Connection con=null;
@@ -177,4 +180,6 @@ public class DepartmentDao implements IDepartmentDao{
         }
 
     }
+
+
 }

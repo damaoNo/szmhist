@@ -90,4 +90,10 @@ public interface IRegistDao {
     public Register getRegisterByCaseNumber(String casen) throws SQLException;
     //通过id查找注册对象
     public Invoice getInfByRegistid(int registid) throws SQLException;
+
+    /**
+     * 根据科室名获取id
+     * @param deptname 科室名称
+     */
+    int getDeptIDbyName(String deptname) throws SQLException;
 }

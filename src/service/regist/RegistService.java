@@ -1,285 +1,103 @@
-/**
- * @program: szmhist
- * * @description: 现场挂号-业务
- * * @author:cro
- * * @create: 2019-05-31 16:10
- **/
+
 
 package service.regist;
 
-import dao.IRegistDao;
-import dao.RegistDao;
+import dao.*;
 import util.JdbcUtil;
-import vo.*;
+import vo.Department;
+import vo.RegistLevel;
+import vo.SchedDoctor;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
-public class RegistService implements IRegistService{
-
-
+/**
+ * * @ClassName: RegistService
+ * * @description: 现场挂号
+ * * @author: cro
+ * * @create: 2019-06-05 09:34
+ **/
+public class RegistService implements IRegistService {
     /**
-     * 读取收费员当前最大发票号
-     * @param userId 当前收费员ID
-     * @return 收费员最大发票号
-     */
-    @Override
-    public String findMaxInvoiceNum(int userId) throws SQLException {
-        Connection con=null;
-        String maxInvoiceNum=null;
-        try {
-            con= JdbcUtil.getConnection();
-            con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            maxInvoiceNum=registDao.selectMaxInvoiceNum(userId);
-            con.commit();
-        } catch (SQLException e) {
-            con.rollback();
-            e.printStackTrace();
-        }finally {
-            JdbcUtil.release(con,null,null);
-        }
-        return maxInvoiceNum;
-    }
-
-    /**
-     * 查询最大病历号
+     * 挂号界面加载-下一个可用发票号、下一个可用病历号、结算类别
      *
-     * @return 返回下一个可用的病历号
+     * @param userid 挂号员id
+     * @return 下一个可用发票号、下一个可用病历号、结算类别
      */
     @Override
-    public String findMaxCaseNum() throws SQLException {
+    public List invoiceCaseNumPay(int userid) throws SQLException {
         Connection con=null;
-        String caseNum=null;
+        List list=new ArrayList();
+        List list1=new ArrayList();
+        List list3=new ArrayList();
+        List list2=new ArrayList();
         try {
             con= JdbcUtil.getConnection();
             con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            caseNum=registDao.selectMaxCaseNum();
+            IRegistDao rd=new RegistDao();
+            rd.setConnection(con);
+            String invoiceNum="invoicenum"+rd.selectMaxInvoiceNum(userid);
+            String caseNum="casenum"+rd.selectMaxCaseNum();
+            list1=rd.selectRegistLevels();
+            list3=rd.selectSettleCategories();
+            list2=rd.selectDepartment();
+            list.add(invoiceNum);
+            list.add(caseNum);
+            list.add(list1);
+            list.add(list2);
+            list.add(list3);
             con.commit();
+            return list;
         } catch (SQLException e) {
             con.rollback();
             e.printStackTrace();
         }finally {
             JdbcUtil.release(con,null,null);
         }
-        return caseNum;
+        return null;
     }
 
     /**
-     * 读取所有可用结算类别
-     *
-     * @return list-settlecategories类 id，结算编号，结算类别名字
-     */
-    @Override
-    public List readSettleCategories() throws SQLException {
-        Connection con=null;
-        List settleCategories=null;
-        try {
-            con= JdbcUtil.getConnection();
-            con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            settleCategories=registDao.selectSettleCategories();
-            con.commit();
-        } catch (SQLException e) {
-            con.rollback();
-            e.printStackTrace();
-        }finally {
-            JdbcUtil.release(con,null,null);
-        }
-        return settleCategories;
-    }
-
-    /**
-     * 读取有效挂号级别
-     *
-     * @return list-registlevel-id,registcode,registname
-     */
-    @Override
-    public List readRegistLevels() throws SQLException {
-        Connection con=null;
-        List list=null;
-        try {
-            con= JdbcUtil.getConnection();
-            con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            list=registDao.selectRegistLevels();
-            con.commit();
-        } catch (SQLException e) {
-            con.rollback();
-            e.printStackTrace();
-        }finally {
-            JdbcUtil.release(con,null,null);
-        }
-        return list;
-    }
-
-    /**
-     * 根据ID获取挂号费和初始号额
-     *
-     * @param id registLevel-id
-     * @return 返回一个封装了挂号费和初始号额的registlevel对象
-     */
-    @Override
-    public RegistLevel findRegistLevelByID(int id) throws SQLException {
-        Connection con=null;
-        RegistLevel rl=new RegistLevel();
-        try {
-            con= JdbcUtil.getConnection();
-            con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            rl=registDao.selectRegistLevelByID(id);
-            con.commit();
-        } catch (SQLException e) {
-            con.rollback();
-            e.printStackTrace();
-        }finally {
-            JdbcUtil.release(con,null,null);
-        }
-        return rl;
-    }
-
-    /**
-     * 读取有效临床科室
-     *
-     * @return list-department对象，id,registcode,registname
-     */
-    @Override
-    public List findDepartment() throws SQLException {
-        Connection con=null;
-        List list=null;
-        try {
-            con= JdbcUtil.getConnection();
-            con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            list=registDao.selectDepartment();
-            con.commit();
-        } catch (SQLException e) {
-            con.rollback();
-            e.printStackTrace();
-        }finally {
-            JdbcUtil.release(con,null,null);
-        }
-        return list;
-    }
-
-    /**
+     * 选择日期-午别-排班科室后
      * 根据看诊日期,午别,排班科室,挂号级别读取当天出诊医生ID,姓名
-     *
-     * @param reg
+     * @param sd
      * @return list-User对象-id,realname
      */
     @Override
-    public List findDoctorInfo(SchedDoctor sd) throws SQLException {
+    public List findDoctorInfo(String date,String noon,String  deptName,String  regLeName) throws SQLException {
         Connection con=null;
-        List list=null;
+        List list=new ArrayList();
         try {
             con= JdbcUtil.getConnection();
             con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            list=registDao.selectDoctorInfo(sd);
-            con.commit();
-        } catch (SQLException e) {
-            con.rollback();
-            e.printStackTrace();
-        }finally {
-            JdbcUtil.release(con,null,null);
-        }
-        return list;
-    }
+            IRegistDao rd=new RegistDao();
+            rd.setConnection(con);
 
-    /**
-     * @param reg
-     * @Description: 根据选中医生读取当日已用号额
-     * @Param: [userId] 医生ID
-     * @return: int 已用号额，当天共有多少人已预约
-     * @Author: cro
-     * @Date: 2019/6/1
-     */
-    @Override
-    public int findDoctorUsedId(Register reg) throws SQLException {
-        Connection con=null;
-        int allUsedId=0;
-        try {
-            con= JdbcUtil.getConnection();
-            con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            allUsedId=registDao.selectDoctorUsedId(reg);
-            con.commit();
-        } catch (SQLException e) {
-            con.rollback();
-            e.printStackTrace();
-        }finally {
-            JdbcUtil.release(con,null,null);
-        }
-        return allUsedId;
-    }
+            SchedDoctor sc=new SchedDoctor();
+            DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+            sc.setSchedDate(df.parse(date));
+            sc.setNoon(noon);
+            int deptid=rd.getDeptIDbyName(deptName);
+            sc.setDeptID(deptid);
 
-    /**
-     * @param reg
-     * @Description: 现场挂号,挂号时间为系统当前时间
-     * @Param: [reg]
-     * @return: java.lang.Boolean 是否插入成功
-     * @Author: cro
-     * @Date: 2019/6/1
-     */
-    @Override
-    public boolean regist(Register reg) throws SQLException {
-        Connection con=null;
-        int allUsedId=0;
-        try {
-            con= JdbcUtil.getConnection();
-            con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            registDao.insertRegist(reg);
+            sc.setRegistLeID(1);
+            list=rd.selectDoctorInfo(sc);
             con.commit();
-            return true;
+            return list;
         } catch (SQLException e) {
             con.rollback();
             e.printStackTrace();
-        }finally {
-            JdbcUtil.release(con,null,null);
-        }
-        return false;
-    }
-
-    /**
-     * @param iv
-     * @Description: 使用发票记录,创建时间自动设置为当前系统时间
-     * @Param: [iv]
-     * @return: boolean 是否插入成功
-     * @Author: cro
-     * @Date: 2019/6/1
-     */
-    @Override
-    public boolean useInvoice(Invoice iv) throws SQLException {
-        Connection con=null;
-        int allUsedId=0;
-        try {
-            con= JdbcUtil.getConnection();
-            con.setAutoCommit(false);
-            IRegistDao registDao=new RegistDao();
-            registDao.setConnection(con);
-            registDao.insertInvoice(iv);
-            con.commit();
-            return true;
-        } catch (SQLException e) {
-            con.rollback();
+        } catch (ParseException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             JdbcUtil.release(con,null,null);
         }
-        return false;
+        return null;
     }
 
 
