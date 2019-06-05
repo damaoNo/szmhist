@@ -16,7 +16,7 @@ import java.util.List;
 public class TakeDrugsServiceTest {
     TakeDrugsService tds=new TakeDrugsService();
 
-    @Test
+  /*  @Test
     public void takeDrugs() throws SQLException {
         DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
         List list=null;
@@ -36,5 +36,5 @@ public class TakeDrugsServiceTest {
     public void freshPrescription() throws SQLException {
         tds.freshPrescription(5,55);
 
-    }
+    }*/
 }
