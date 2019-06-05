@@ -268,7 +268,7 @@ public class SchedulingDao implements ISchedulingDao {
      */
     @Override
     public void addScheduling(Scheduling scheduling) throws SQLException {
-        String sql="INSERT INTO scheduling (ScheDate,DeptID,UserID,Noon,RuleID) " +
+        String sql="INSERT INTO scheduling (SchedDate,DeptID,UserID,Noon,RuleID) " +
                 "VALUES (?,?,?,?,?)";
         PreparedStatement pstmt=con.prepareStatement(sql);
         java.sql.Date Date=new java.sql.Date(scheduling.getSchedDate().getTime());

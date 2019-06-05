@@ -21,19 +21,26 @@ public class NonDrugsPayDao implements INonDrugsPayDao {
     public void setConnection(Connection con) {
         this.con=con;
     }
-    /*查询当前有效非药品收费项目*/
+
+    /**分页查询
+     * 查询当前有效非药品收费项目
+     * @param ItemCode 非药品收费项目编码或名称
+     * @return
+     * @throws SQLException
+     */
     @Override
-    public List nonDrugsEffective(String ItemCode) throws SQLException {
+    public List nonDrugsEffective(String ItemCode,int page) throws SQLException {
         String sql="SELECT F.ID,F.ItemCode,F.ItemName,F.Format,F.Price,F.ExpClassID,F.DeptID," +
                 "F.MnemonicCode,F.CreationDate,F.LastUpdateDate,F.RecordType,F.DelMark,E.ExpName,D.DeptName\n" +
                 "FROm fmeditem F,expenseClass E,department  D\n" +
                 "where F.ExpClassID = E.ID\n" +
                 "and F.DeptID = D.ID\n" +
                 "and F.DelMark=1\n" +
-                "and (F.ItemCode like '%"+ItemCode+"%' or F.ItemName like \"%\"?\"%\")";
+                "and (F.ItemCode like '%"+ItemCode+"%' or F.ItemName like \"%\"?\"%\") " +
+                "limit ?,10";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setString(1,ItemCode);
-//        pstmt.setString(2,ItemCode);
+        pstmt.setInt(2,(page-1)*10);
         //查询
         /*返回一个结果集*/
         ResultSet rs=pstmt.executeQuery();
@@ -60,6 +67,35 @@ public class NonDrugsPayDao implements INonDrugsPayDao {
         return list;
 
     }
+
+    /**
+     * @param ItemCode
+     * @return
+     */
+    @Override
+    public int ndePagenum(String ItemCode) throws SQLException {
+        String sql="SELECT count(F.ID)\n" +
+                "FROm fmeditem F,expenseClass E,department  D\n" +
+                "where F.ExpClassID = E.ID\n" +
+                "and F.DeptID = D.ID\n" +
+                "and F.DelMark=1\n" +
+                "and (F.ItemCode like '%"+ItemCode+"%' or F.ItemName like \"%\"?\"%\") ";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,ItemCode);
+        ResultSet rs=pstmt.executeQuery();
+        int page=0;
+        int pagenum=0;
+        while (rs.next()){
+            page=rs.getInt(1);
+        }
+        if (page%10==0){
+            pagenum=page/10;
+        }else{
+            pagenum=page/10+1;
+        }
+        return pagenum;
+    }
+
     /*查询有效费用*/
     @Override
     public List payEffective() throws SQLException {
@@ -184,7 +220,7 @@ public class NonDrugsPayDao implements INonDrugsPayDao {
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }
-    /*置待删除记录状态为无效*/
+    /*批量删除记录状态为无效*/
     @Override
     public void delMark(String[] ID) throws SQLException {
         String sql="update  fmeditem\n" +
