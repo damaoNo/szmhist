@@ -25,4 +25,10 @@ public interface ISchedulingDao {
     public void addScheduling(Scheduling scheduling) throws SQLException;
     /*批量删除排班计划*/
     public void delScheduling(String[] ID) throws SQLException;
+    /**
+     * 组合查询医生名称RealName
+     * 科室名称DeptName
+     * 或者挂号级别RegistName
+     */
+    public List selectRN(String DeptName,String RegistName) throws SQLException;
 }

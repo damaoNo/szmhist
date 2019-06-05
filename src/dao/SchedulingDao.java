@@ -170,6 +170,34 @@ public class SchedulingDao implements ISchedulingDao {
         JdbcUtil.release(null,pstmt,null);
         return list;
     }
+    /**
+     * 组合查询医生名称RealName
+     * 科室名称DeptName
+     * 或者挂号级别RegistName
+     */
+    @Override
+    public List selectRN(String DeptName, String RegistName) throws SQLException {
+        String sql="SELECT U.RealName FROM user U, registlevel R, department D\n" +
+                " WHERE U. RegistLeID =R.ID AND U. DeptID=D. ID \n";
+        if (DeptName !=null && DeptName.length()!=0){
+            sql +=" AND DeptName='"+ DeptName +"'";
+        }
+        if (RegistName!=null && RegistName.length()!=0){
+            sql +=" AND RegistName='" + RegistName +"'";
+        }
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        ResultSet rs=pstmt.executeQuery();
+        User user=null;
+        List list=new ArrayList();
+        while (rs.next()){
+            user=new User();
+            user.setRealName(rs.getString(1));
+            list.add(user);
+        }
+        JdbcUtil.release(null,pstmt,null);
+        return list;
+    }
+
 
     /**
      * 新增排班规则
@@ -211,7 +239,6 @@ public class SchedulingDao implements ISchedulingDao {
         pstmt.executeUpdate();
         JdbcUtil.release(null,pstmt,null);
     }
-    /**/
 
     /**
      * 批量删除排班计划
@@ -235,4 +262,6 @@ public class SchedulingDao implements ISchedulingDao {
         pstmt.executeBatch();
         JdbcUtil.release(null, pstmt, null);
     }
+
+
 }

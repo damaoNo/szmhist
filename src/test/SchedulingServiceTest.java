@@ -14,7 +14,7 @@ import java.util.List;
 public class SchedulingServiceTest {
     SchedulingService sc=new SchedulingService();
     @Test
-    public void schedInfoNow() {
+    public void schedInfoNow() throws SQLException {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         Date begin= null;
         Date end= null;
@@ -44,6 +44,12 @@ public class SchedulingServiceTest {
     @Test
     public void ruler() {
         List list=sc.ruler(2);
+        System.out.println(list.toString());
+    }
+
+    @Test
+    public void selectRN() throws SQLException {
+        List list=sc.selectRN("心血管内科","");
         System.out.println(list.toString());
     }
 }

@@ -37,7 +37,7 @@ public class TakeDrugsService implements ITakeDrugsService {
     }
 
     /**
-     * 发药退药
+     * 发药退药（收费，退费）
      *
      * @param State
      * @param PrescriptionID
