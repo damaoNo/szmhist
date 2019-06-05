@@ -248,33 +248,7 @@ public class RegistDao implements IRegistDao{
         return true;
     }
 
-    /**
-     * @param iv
-     * @Description: 插入使用发票记录,创建时间自动设置为当前系统时间
-     * @Param: [iv]
-     * @return: void
-     * @Author: cro
-     * @Date: 2019/6/1
-     */
-    @Override
-    public void insertInvoice(Invoice iv) throws SQLException {
-        String sql ="insert into " +
-                "invoice(InvoiceNum,Money,State,CreationTime,UserID,RegistID,FeeType,Back,DailyState) " +
-                "values(?,?,?,?,?,?,?,?,?)";
-        PreparedStatement pstm = con.prepareStatement(sql);
-        pstm.setString(1,iv.getInvoiceNum());
-        pstm.setDouble(2,iv.getMoney());
-        pstm.setInt(3,iv.getState());
-        Timestamp t=new Timestamp(System.currentTimeMillis());
-        pstm.setTimestamp(4,t);
-        pstm.setInt(5,iv.getUserID());
-        pstm.setInt(6,iv.getRegistID());
-        pstm.setInt(7,iv.getFeeType());
-        pstm.setString(8,iv.getBack());
-        pstm.setInt(9,iv.getDailyState());
-        pstm.executeUpdate();
-        JdbcUtil.release(null,pstm,null);
-    }
+
     /**
      * 根据挂号ID 修改对应数据VisitState属性1-已挂号 2-医生接诊 3-看诊结束 4-已退号
      *
@@ -377,5 +351,25 @@ public class RegistDao implements IRegistDao{
         }
         JdbcUtil.release(null,pstmt,null);
         return deptID;
+    }
+
+    /**
+     * 根据id获取科室名
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public String getDeptNameByID(int id) throws SQLException {
+        String sql ="select DeptName from department where ID=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setInt(1,id);
+        ResultSet rs=pstmt.executeQuery();
+        String n=null;
+        while(rs.next()){
+            n=rs.getString(1);
+        }
+        JdbcUtil.release(null,pstmt,null);
+        return n;
     }
 }

@@ -19,6 +19,7 @@ import oracle.jdbc.proxy.annotation.Pre;
 import util.JdbcUtil;
 import vo.Prescription;
 import vo.PrescriptionDetailed;
+import vo.PrescriptionMore;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -210,6 +211,40 @@ public class PrescriptionDao implements IPrescriptionDao{
         }
         JdbcUtil.release(con,null,null);
         return pre;
+    }
+
+    /**
+     * 通过caseNum-搜索所有开立药方
+     *
+     * @param caseNum
+     * @return
+     */
+    @Override
+    public List<PrescriptionMore> selectPrescriptionByCaseNum(String caseNum) throws SQLException {
+        String sql="SELECT p.ID,p.PrescriptionName,p.PrescriptionTime,p.PrescriptionState,g.DrugsName,g.DrugsPrice\n" +
+                "FROM prescription p,medicalrecord m,prescriptiondetailed d,drugs g \n" +
+                "WHERE p.MedicalID = m.ID\n" +
+                "AND d.PrescriptionID=p.ID\n" +
+                "AND d.DrugsID=g.id\n" +
+                "AND m.CaseNumber=?\n" +
+                "AND p.PrescriptionState=2";
+        con= JdbcUtil.getConnection();
+        PreparedStatement ps=con.prepareStatement(sql);
+        ps.setString(1,caseNum);
+        ResultSet rs=ps.executeQuery();
+        List<PrescriptionMore> list=new ArrayList<>();
+        PrescriptionMore pm=null;
+        while(rs.next()){
+            pm=new PrescriptionMore();
+            pm.setId(rs.getInt(1));
+            pm.setPrescriptionName(rs.getString(2));
+            pm.setPrescriptionTime(rs.getDate(3));
+            pm.setPrescriptionState(rs.getInt(4));
+            pm.setDrugName(rs.getString(5));
+            list.add(pm);
+        }
+        JdbcUtil.release(con,null,null);
+        return list;
     }
 
 }

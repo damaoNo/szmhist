@@ -14,6 +14,7 @@ import vo.RegisterRecord;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public interface IRegistStateDao {
 
@@ -25,21 +26,16 @@ public interface IRegistStateDao {
      * @return 挂号记录对象
      * @throws SQLException sqlExp
     */
-    RegisterRecord selectRegistByCaseNumber(String caseNum) throws SQLException;
+    List<RegisterRecord> selectRegistByCaseNumber(String caseNum) throws SQLException;
     /**
      * 更新挂号状态（退号）
     * @param id 挂号id
     * @
     * @author : cro
     */
-    void updateRegistState(int id) throws SQLException;
+    void updateRegistState(int id,int state) throws SQLException;
 
-    /**
-     * 打印冲红发票，金额为负值,查出的对象传入，金额已做修改为负值处理
-     * @param iv
-     * @
-     */
-    void insertURInvoice(Invoice iv) throws SQLException;
+
 
 
 
