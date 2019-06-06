@@ -25,6 +25,12 @@ public class CCMDao implements ICCMDao{
         this.con = con;
     }
 
+    /**
+     * 查询所有常数类
+     * @param page
+     * @return 常数类list
+     * @throws SQLException
+     */
 
     @Override
     public List<ConstantType> SelectConstantTypeAll(int page) throws SQLException {
@@ -49,6 +55,38 @@ public class CCMDao implements ICCMDao{
     }
 
 
+    /**
+     * 常熟类总页数
+     * @return pagenum 总页数
+     */
+     public int ConstantTypeAllPages() throws SQLException {
+         String sql="select count(ID) \n" +
+                 "FROM constanttype \n" +
+                 "WHERE DelMark=1 \n";
+
+         PreparedStatement pstm= con.prepareStatement(sql);
+         ResultSet rs=pstm.executeQuery();
+         int num = 0;
+         int pagenum = 0;
+         while(rs.next()){
+             num = rs.getInt(1);
+         }
+         if (num%10==0){
+             pagenum=num/10;
+         }else {
+             pagenum=num/10+1;
+         }
+         return  pagenum;
+     }
+
+    /**
+     * 按编码或名称查询常数类别
+     *
+     * @param codeORname
+     * @return 常数类别的list
+     * @throws SQLException
+     */
+
     @Override
     public List<ConstantType> SelectConstantType(String codeORname) throws SQLException {
         String sql="select ConstanttypeCode,constanttypeName,ID \n" +
@@ -72,7 +110,12 @@ public class CCMDao implements ICCMDao{
         return constantTypeList;
     }
 
-
+    /**
+     * 添加常数类别
+     * @param Ccode
+     * @param Cname
+     * @throws SQLException
+     */
     @Override
     public void AddConstantType(String Ccode, String Cname) throws SQLException {
         String sql="INSERT INTO constanttype(ConstanttypeCode,ConstanttypeName)\n" +
@@ -84,7 +127,13 @@ public class CCMDao implements ICCMDao{
         JdbcUtil.release(null,pstm,null);
     }
 
-
+    /**
+     * 查询常数项
+     * @param constantItem
+     * @param page
+     * @return 常数项list
+     * @throws SQLException
+     */
     @Override
     public List<ConstantItem> SelectConstantltem(ConstantItem constantItem,int page) throws SQLException {
         String sql=" SELECT ConstantCode,ConstantName,ConstantTypeID,ID\n" +
@@ -117,7 +166,32 @@ public class CCMDao implements ICCMDao{
         return constantItemList;
     }
 
+    public int Constantltempage() throws SQLException {
+        String sql="select count(ID)\n" +
+                "FROM constantitem \n" +
+                "WHERE DelMark = 1 \n";
 
+        PreparedStatement pstm = con.prepareStatement(sql);
+        ResultSet rs = pstm.executeQuery();
+        int num = 0;
+        int numpages = 0;
+        while (rs.next()){
+            num = rs.getInt(1);
+        }if(num%10==0){
+            numpages = num/10;
+        }else {
+            numpages = num/10+1;
+        }
+        return numpages;
+    }
+
+    /**
+     * 添加常数项
+     * @param code
+     * @param name
+     * @param typeID
+     * @throws SQLException
+     */
     @Override
     public void AddConstantltem(String code, String name, int typeID) throws SQLException {
         String sql="INSERT INTO constantitem(ConstantCode,ConstantName,ConstantTypeID)\n" +
@@ -130,7 +204,14 @@ public class CCMDao implements ICCMDao{
             JdbcUtil.release(null,pstm,null);
     }
 
-
+    /**
+     * 更新常数项数据
+     * @param code
+     * @param name
+     * @param typeID
+     * @param ID
+     * @throws SQLException
+     */
     @Override
     public void UpdateConstantltem(String code, String name, int typeID,int ID) throws SQLException {
         String sql="UPDATE constantitem SET ConstantCode=?,ConstantName=?,ConstantTypeID=?\n" +
@@ -144,7 +225,11 @@ public class CCMDao implements ICCMDao{
         JdbcUtil.release(null,pstm,null);
     }
 
-
+    /**
+     * 批量删除
+     * @param ID
+     * @throws SQLException
+     */
     @Override
     public void DelectConstantltem(String[] ID) throws SQLException {
         String sql="UPDATE constantitem\n" +

@@ -25,6 +25,12 @@ public class SCMDao implements ISCMDao{
     @Override
     public void setConnection(Connection con) {this.con = con;}
 
+    /**
+     * 查询所有类别数据
+     * @param code
+     * @return 类别数据list
+     * @throws SQLException
+     */
     @Override
     public List<SettleCategory> selectSettleCategory(String code) throws SQLException {
         String sql="select ID,SettleCode,SettleName,SequenceNo,DelMark\n" +
@@ -52,6 +58,13 @@ public class SCMDao implements ISCMDao{
         return SettleCategoryList;
     }
 
+    /**
+     * 添加类别数据
+     * @param Scode
+     * @param Sname
+     * @param Sno
+     * @throws SQLException
+     */
     @Override
     public void addSettleCategory(String Scode,String Sname,int Sno) throws SQLException {
         String sql="SELECT count(id) \n" +
@@ -81,27 +94,41 @@ public class SCMDao implements ISCMDao{
         JdbcUtil.release(null,pstm,null);
     }
 
+    /**
+     * 查询结算类别
+     * @param id
+     * @return 结算类别list
+     * @throws SQLException
+     */
     @Override
-    public SettleCategory SelectupdateSettleCategory(int id) throws SQLException {
+    public List<SettleCategory> SelectupdateSettleCategory(int id) throws SQLException {
         String sql="select ID,SettleCode,SettleName,SequenceNo,DelMark\n" +
                 "FROM SettleCategory \n" +
                 "where ID=?";
         PreparedStatement pstm = con.prepareStatement(sql);
         pstm.setInt(1,id);
-        //  RegistLevel user = new RegistLevel();
         ResultSet rs = pstm.executeQuery();
-        SettleCategory sc = new SettleCategory();
+        List<SettleCategory> settleCategoryList = new ArrayList<>();
         while (rs.next()){
+            SettleCategory sc = new SettleCategory();
             sc.setId(rs.getInt(1));
             sc.setSettleCode(rs.getString(2));
             sc.setSettleName(rs.getString(3));
             sc.setSequenceNo(rs.getInt(4));
             sc.setDelMark(rs.getInt(5));
+            settleCategoryList.add(sc);
         }
         JdbcUtil.release(null,pstm,null);
-        return sc;
+        return settleCategoryList;
     }
 
+    /**
+     * 修改更新结算类别
+     * @param Scode
+     * @param Sname
+     * @param Sno
+     * @throws SQLException
+     */
     @Override
     public void updateSettleCategorySave(String Scode,String Sname,int Sno) throws SQLException {
         String sql="SELECT count(id) \n" +
@@ -129,9 +156,13 @@ public class SCMDao implements ISCMDao{
                 JdbcUtil.release(null,pstm,null);
             }
         }
-
     }
 
+    /**
+     * 删除结算类别
+     * @param id
+     * @throws SQLException
+     */
     @Override
     public void deleteSettleCategory(int id) throws SQLException {
         String sql="update  SettleCategory\n" +

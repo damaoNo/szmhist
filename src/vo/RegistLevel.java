@@ -19,7 +19,8 @@ public class RegistLevel {
     //删除标记
     private int delMark;
 
-    public RegistLevel(String registCode, String registName, int sequenceNo, Double registFree, int registquota, int delMark) {
+    public RegistLevel(int id,String registCode, String registName, int sequenceNo, Double registFree, int registquota, int delMark) {
+        this.id = id;
         this.registCode = registCode;
         this.registName = registName;
         this.sequenceNo = sequenceNo;

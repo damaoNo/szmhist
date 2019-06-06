@@ -18,6 +18,6 @@ public class NonDrugsPayDaoTest {
     public void nonDrugsEffective() throws SQLException {
         NonDrugsPayDao n=new NonDrugsPayDao();
         n.setConnection(JdbcUtil.getConnection());
-        System.out.println(n.nonDrugsEffective("大"));
+        System.out.println(n.nonDrugsEffective("大",5));
     }
 }

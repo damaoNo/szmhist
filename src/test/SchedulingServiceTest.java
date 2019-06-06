@@ -1,5 +1,6 @@
 package test;
 
+import dao.SST;
 import org.junit.Test;
 import service.systemInfor.SchedulingService;
 import util.chageDateFormat;
@@ -10,6 +11,7 @@ import vo.Scheduling;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -81,23 +83,126 @@ public class SchedulingServiceTest {
 
     @Test
     public void addScheduling() throws SQLException {
-        String str1="2019-06-05";
-        String str2="2019-07-05";
-        SimpleDateFormat spfd=new SimpleDateFormat("yyyy-MM-dd");
-        Date begin= null;
-        Date end=null;
+        String str1 = "2019-06-05";
+        String str2 = "2019-07-05";
+        SimpleDateFormat spfd = new SimpleDateFormat("yyyy-MM-dd");
+        Date begin = null;
+        Date end = null;
         try {
             begin = spfd.parse(str1);
-            end=spfd.parse(str2);
+            end = spfd.parse(str2);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        chageDateFormat cha=new chageDateFormat (begin,end);
-        System.out.println( cha.getMondays());
+        chageDateFormat cha = new chageDateFormat(begin, end);
+        System.out.println(cha.getMondays());
 
-//
-//        Scheduling scheduling=new Scheduling();
-//        sc.addScheduling(scheduling);
+        String week = "11110001110001";
+
+        Date date=new Date();
+        SimpleDateFormat dateFm=new SimpleDateFormat("EEEE");
+        String currSun=dateFm.format(date);
+        SST sst=new SST();
+        Scheduling sca = new Scheduling();
+        sca.setDeptID(2);
+        sca.setUserID(2);
+        sca.setRuleID(2);
+        List l=new ArrayList();
+        for (int i = 0; i < week.length(); i++) {
+                    String s = String.valueOf(week.charAt(i));
+                    if (s.equals("1")) {
+                        switch (i) {
+                            case 0:
+                                sca.setNoon("上午");
+                                l=cha.getMondays();
+                                sst.addScheduling(sca,l);
+
+                                break;
+                            case 1:
+                                sca.setNoon("下午");
+
+                                l=cha.getMondays();
+                                sst.addScheduling(sca,l);
+
+                                break;
+                            case 2:
+                                sca.setNoon("上午");
+
+                                l=cha.getTuesdays();
+                                sst.addScheduling(sca,l);
+
+                                break;
+                            case 3:
+                                sca.setNoon("下午");
+
+                                l=cha.getTuesdays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            case 4:
+                                sca.setNoon("上午");
+
+                                l=cha.getWensdays();
+                                sst.addScheduling(sca,l);
+
+                                break;
+                            case 5:
+                                sca.setNoon("下午");
+
+                                l=cha.getWensdays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            case 6:
+                                sca.setNoon("上午");
+
+                                l=cha.getThursdays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            case 7:
+                                sca.setNoon("下午");
+
+                                l=cha.getThursdays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            case 8:
+                                sca.setNoon("上午");
+
+                                l=cha.getSaturdays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            case 9:
+                                sca.setNoon("下午");
+
+                                l=cha.getSaturdays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            case 10:
+                                sca.setNoon("上午");
+
+                                l=cha.getFridays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            case 11:
+                                sca.setNoon("下午");
+                                l=cha.getFridays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            case 12:
+                                sca.setNoon("上午");
+
+                                l=cha.getSundays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            case 13:
+                                sca.setNoon("下午");
+
+                                l=cha.getSundays();
+                                sst.addScheduling(sca,l);
+                                break;
+                            }
+                        }
+
+        }
+
     }
 }

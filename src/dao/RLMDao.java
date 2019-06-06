@@ -20,6 +20,12 @@ public class RLMDao implements IRLMDao {
         this.con = con;
     }
 
+    /**
+     * 根据条件查询有效挂号级别列表
+     * @param code
+     * @return RegistLevelList
+     * @throws SQLException
+     */
     @Override
     public List<RegistLevel> SelectRegistLevel(String code) throws SQLException {
         String sql ="select ID,RegistCode,RegistName,SequenceNo,RegistFee,RegistQuota,DelMark\n" +
@@ -48,6 +54,16 @@ public class RLMDao implements IRLMDao {
         JdbcUtil.release(null,pstm,null);
         return RegistLevelList;
     }
+
+    /**
+     * 查询并新增挂号级别
+     * @param Rcode
+     * @param Rname
+     * @param Rno
+     * @param Rfee
+     * @param Rquota
+     * @throws SQLException
+     */
 
     @Override
     public void AddRegistLevel(String Rcode,String Rname,int Rno,double Rfee,int Rquota) throws SQLException {
@@ -80,16 +96,23 @@ public class RLMDao implements IRLMDao {
         JdbcUtil.release(null,pstm,null);
     }
 
+    /**
+     * 查询挂号级别
+     * @param id
+     * @return 查询挂号级别list
+     * @throws SQLException
+     */
     @Override
-    public RegistLevel SelectupdateRegistLevel(int id) throws SQLException {
+    public List<RegistLevel> SelectupdateRegistLevel(int id) throws SQLException {
         String sql="select ID,RegistCode,RegistName,SequenceNo,RegistFee,RegistQuota,DelMark\n" +
                 "FROM RegistLevel \n" +
                 "where ID=?";
         PreparedStatement pstm = con.prepareStatement(sql);
         pstm.setInt(1,id);
         ResultSet rs = pstm.executeQuery();
-        RegistLevel uprl = new RegistLevel();
+        List<RegistLevel> registLevelList = new ArrayList<>();
         while (rs.next()){
+            RegistLevel uprl = new RegistLevel();
             uprl.setId(rs.getInt(1));
             uprl.setRegistCode(rs.getString(2));
             uprl.setRegistName(rs.getString(3));
@@ -97,11 +120,21 @@ public class RLMDao implements IRLMDao {
             uprl.setRegistFree(rs.getDouble(5));
             uprl.setRegistquota(rs.getInt(6));
             uprl.setDelMark(rs.getInt(7));
+            registLevelList.add(uprl);
         }
         JdbcUtil.release(null,pstm,null);
-        return uprl;
+        return registLevelList;
     }
 
+    /**
+     * 更新挂号级别
+     * @param Rcode
+     * @param Rname
+     * @param Rno
+     * @param Rfee
+     * @param Rquota
+     * @throws SQLException
+     */
     @Override
     public void UpdatesaveRegistLevel(String Rcode,String Rname,int Rno,Double Rfee,int Rquota) throws SQLException {
         String sql="SELECT count(id) \n" +
@@ -134,6 +167,11 @@ public class RLMDao implements IRLMDao {
         JdbcUtil.release(null,pstm,null);
     }
 
+    /**
+     * 删除挂号级别
+     * @param id
+     * @throws SQLException
+     */
     @Override
     public void DeleteRegistLevel(int id) throws SQLException {
         String sql="update  RegistLevel\n" +
