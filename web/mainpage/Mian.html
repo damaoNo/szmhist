@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/header&left.css" />
+	</head>
+
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<!--1.头部区域-->
+			<div class="layui-header layui-bg-cyan">
+				<span id="y_headerleft">
+						东软云医院HIS系统
+				</span>
+				<!-- 头部区域   右侧-->
+				<ul class="layui-nav layui-layout-right" id="y_headerright">
+					<li class="layui-nav-item" id="y_root">
+						<a href="javascript:;">ROOT</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">隐藏菜单</a>
+							</dd>
+							<dd>
+								<a href="">退出登录</a>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			<!--2.左侧导航-->
+			<div class="layui-side layui-bg-gray">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree layui-bg-green" lay-filter="test">
+						<li class="layui-nav-item">
+							<a href="javascript:;">挂号收费</a>
+							<ul class="layui-nav-child">
+								<li>
+									<a data-url="jiaose.html" data-id="xianchangguahao" data-title="现场挂号" class="site-demo-active" href="javascript:;" data-type="tabAdd">现场挂号</a>
+								</li>
+								<li>
+									<a data-url="WithdrawNumber.html" data-id="tuihao" data-title="退号" class="site-demo-active" href="javascript:;" data-type="tabAdd">退号</a>
+								</li>
+								<li>
+									<a data-url="charge.html" data-id="shoufei" data-title="收费" class="site-demo-active" href="javascript:;" data-type="tabAdd">收费</a>
+								</li>
+								<li>
+									<a data-url="refund.html" data-id="tuifei" data-title="退费" class="site-demo-active" href="javascript:;" data-type="tabAdd">退费</a>
+								</li>
+								<li>
+									<a data-url="bill.html" data-id="fapiaobuda" data-title="发票补打" class="site-demo-active" href="javascript:;" data-type="tabAdd">发票补打</a>
+								</li>
+								<li>
+									<a data-url="bill.html" data-id="fapiaochongda" data-title="发票重打" class="site-demo-active" href="javascript:;" data-type="tabAdd">发票重打</a>
+								</li>
+								<li>
+									<a data-url="selectfund.html" data-id="huanzhefeiyongchaxun" data-title="患者费用查询" class="site-demo-active" href="javascript:;" data-type="tabAdd">患者费用查询</a>
+								</li>
+								<li>
+									<a data-url="dayend.html" data-id="rijie" data-title="日结*" class="site-demo-active" href="javascript:;" data-type="tabAdd">日结*</a>
+								</li>
+								<li>
+									<a data-url="selectday.html" data-id="rijiechaxun" data-title="日结查询*" class="site-demo-active" href="javascript:;" data-type="tabAdd">日结查询*</a>
+								</li>
+							</ul>
+						</li>
+						<!--<a href="menzhenyisheng/"></a>-->
+						<li class="layui-nav-item">
+							<a href="javascript:;">门诊医生</a>
+							<ul class="layui-nav-child">
+								<li>
+									<a data-url="menzhenyisheng/MenZhenBingLi.html" data-id="menzhenbingli" data-title="门诊病例" class="site-demo-active" href="javascript:;" data-type="tabAdd">门诊病例</a>
+								</li>
+								<li>
+									<a data-url="menzhenyisheng/YiJiMoBanGuanLi.html" data-id="yijimoban" data-title="医技模版管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">医技模版管理</a>
+								</li>
+								<li>
+									<a data-url="menzhenyisheng/XiYaoMoBan.html" data-id="xiyaochufang" data-title="西药处方模版" class="site-demo-active" href="javascript:;" data-type="tabAdd">西药处方模版</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="zhongyaochufang" data-title="中药处方模版" class="site-demo-active" href="javascript:;" data-type="tabAdd">中药处方模版</a>
+								</li>
+							</ul>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">医技处置*</a>
+							<ul class="layui-nav-child">
+								<li>
+									<a data-url="YiJiChuZhi/患者检验.html" data-id="huanzhejianyan" data-title="患者检验*" class="site-demo-active" href="javascript:;" data-type="tabAdd">患者检验*</a>
+								</li>
+								<li>
+									<a data-url="YiJiChuZhi/患者检查.html" data-id="huanzhejiancha" data-title="患者检查*" class="site-demo-active" href="javascript:;" data-type="tabAdd">患者检查*</a>
+								</li>
+								<li>
+									<a data-url="YiJiChuZhi/患者处置.html" data-id="huanzhechuzhi" data-title="患者处置*" class="site-demo-active" href="javascript:;" data-type="tabAdd">患者处置*</a>
+								</li>
+								<li>
+									<a data-url="YiJiChuZhi/YiJiGuanLi.html" data-id="yijiguanli" data-title="医技管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">医技管理</a>
+								</li>
+							</ul>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">药房管理</a>
+							<ul class="layui-nav-child">
+								<li>
+									<a data-url="/information/getooInformation" data-id="yaofangfayao" data-title="药房发药" class="site-demo-active" href="javascript:;" data-type="tabAdd">药房发药</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="yaofangtuiyao" data-title="药房退药" class="site-demo-active" href="javascript:;" data-type="tabAdd">药房退药</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="yaopinguanli" data-title="药品管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">药品管理</a>
+								</li>
+							</ul>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">财务管理</a>
+							<ul class="layui-nav-child">
+								<li>
+									<a data-url="/information/getooInformation" data-id="menzhenyisheng" data-title="门诊医生工作量统计*" class="site-demo-active" href="javascript:;" data-type="tabAdd">门诊医生工作量统计*</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="dankaikeshi" data-title="开单科室工作量统计*" class="site-demo-active" href="javascript:;" data-type="tabAdd">开单科室工作量统计*</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="zhixingkeshi" data-title="执行科室工作量统计*" class="site-demo-active" href="javascript:;" data-type="tabAdd">执行科室工作量统计*</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="feiyongkemu" data-title="费用科目管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">费用科目管理</a>
+								</li>
+							</ul>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;">系统信息</a>
+							<ul class="layui-nav-child">
+								<li>
+									<a data-url="/information/getooInformation" data-id="changshuleibie" data-title="常数类别管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">常数类别管理</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="keshiguanli" data-title="科室管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">科室管理</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="yonghuguanli" data-title="用户管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">用户管理</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="guahaojibie" data-title="挂号级别管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">挂号级别管理</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="jiesuanleibie" data-title="结算类别管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">结算类别管理</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="zhenduanmulu" data-title="诊断目录管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">诊断目录管理</a>
+								</li>
+								<li>
+									<a data-url="/information/getooInformation" data-id="feiyaopin" data-title="非药品收费项目管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">非药品收费项目管理</a>
+								</li>
+								<a data-url="jiaose.html" data-id="yishengpaiban" data-title="医生排班管理" class="site-demo-active" href="javascript:;" data-type="tabAdd">医生排班管理</a>
+						</li>
+						</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--3.右侧主体内容区-->
+			<div class="layui-body">
+				<!--tabs标签-->
+				<div class="layui-tab layui-tab-content" lay-filter="demo" lay-allowclose="true">
+					<ul class="layui-tab-title">
+						<li class="layui-this" lay-id="xianchangguahao">现场挂号</li>
+					</ul>
+					<div class="layui-tab-content" >
+						<div class="layui-tab-item layui-show">
+							<iframe src="jiaose.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../layui/layui.js"="text/javascript" charset="utf-8"></script>
+		<script>
+			
+			layui.use('element', function() {     
+				var element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块    
+				var $ = layui.jquery;
+				//触发事件						          
+				var active = {  
+					tabAdd: function(url, id, name) {
+						//新增一个Tab项 传入三个参数，分别对应其标题，tab页面的地址，还有一个规定的id，是标签中data-id的属性值
+						//新增一个Tab项
+						element.tabAdd('demo', {
+								title: name,
+								content: '<iframe data-frameid="' + id + '" scrolling="no" frameborder="0" src="' + url + '" style="width: 100%;height: 600px;""></iframe>',
+								id: id //规定好的id
+							}),
+							element.render('tab');
+					},
+					tabChange: function(id) {
+						//切换到指定Tab项
+						element.tabChange('demo', id); //根据传入的id传入到指定的tab项
+					}
+				};
+				//当点击有site-demo-active属性的标签时，即左侧菜单栏中内容 ，触发点击事件
+				$('.site-demo-active').on('click', function() {
+					var dataid = $(this);
+
+					//这时会判断右侧.layui-tab-title属性下的有lay-id属性的li的数目，即已经打开的tab项数目
+					if($(".layui-tab-title li[lay-id]").length <= 0) {
+						//如果比零小，则直接打开新的tab项
+						active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+					} else {
+						//否则判断该tab项是否以及存在
+
+						var isData = false; //初始化一个标志，为false说明未打开该tab项 为true则说明已有
+						$.each($(".layui-tab-title li[lay-id]"), function() {
+							//如果点击左侧菜单栏所传入的id 在右侧tab项中的lay-id属性可以找到，则说明该tab项已经打开
+							if($(this).attr("lay-id") == dataid.attr("data-id")) {
+								isData = true;
+							}
+						})
+						if(isData == false) {
+							//标志为false 新增一个tab项
+							active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+						}
+					}
+					//最后不管是否新增tab，最后都转到要打开的选项页面上
+					active.tabChange(dataid.attr("data-id"));
+				});
+
+			});
+		</script>

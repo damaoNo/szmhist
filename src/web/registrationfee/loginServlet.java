@@ -1,5 +1,6 @@
 package web.registrationfee;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.sf.json.JSONObject;
 import vo.LoginMessage;
 
@@ -21,14 +22,15 @@ public class loginServlet extends HttpServlet {
            LoginMessage ms=new LoginMessage();
            ms.setTime(2);
            ms.setStr("this is www ding min");
-           JSONObject json=JSONObject.fromObject(ms);
-           String str=json.toString();
+//           JSONObject json=JSONObject.fromObject(ms);
+//           String str=json.toString();
+           ObjectMapper mapper=new ObjectMapper();
+
+           String usersjson=mapper.writeValueAsString(ms);
            PrintWriter pw=response.getWriter();
-           pw.println(str);
+           pw.println(usersjson);
            pw.flush();
-
        }
-
 
     }
 

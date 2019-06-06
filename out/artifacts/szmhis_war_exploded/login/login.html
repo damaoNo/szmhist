@@ -6,7 +6,31 @@
 		<title>登陆</title>
 		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
 		<link rel="stylesheet" type="text/css" href="../LMYCSS/mlogin.css">
-		<link rel="stylesheet" type="text/css" href="../js/jquery-3.2.1.min.js" >
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js" ></script>
+		<script>
+			$(function(){
+				$('input[type=button]').click(function(){
+					$.post({
+						url:'logins',
+						type:'post',
+						data:$('#form1').serialize(),
+						success:function(response,status,xhr){
+							console.log(response);
+							alert("lao zi xin tai beng le");
+						//	$('#box').html($(response));
+						},
+						error:function(response,status){
+							alert(response);
+							alert(status);
+							alert("eqwe");
+						},
+						dateType:'html'
+					})
+				})
+			})
+		</script>
+
+
 	</head>
 
 	<body class="login-body body">
@@ -26,6 +50,9 @@
 			   </div>
 		   </form>
 	   </div>
+
+
+
 	   <script src="../layui/layui.js" type="text/javascript" charset="utf-8"></script>
 	   <script type="text/javascript">
 			layui.use(['form', 'layer'], function() {
@@ -53,25 +80,9 @@
 					return false;
 				})
 			})
-
-			function login() {
-				$.ajax({
-					type:"POST",
-					dataType:"json",
-					url:"logins",
-					data:$('#form1').serialize(),
-					success:function (response,status,xhr) {
-						alert(response);
-					},
-					error:function (data) {
-						console.log(data);
-						alert("登录失败");
-					}
-				})
-			}
-
-
 		</script>
+
+
 	</body>
 
 </html>
