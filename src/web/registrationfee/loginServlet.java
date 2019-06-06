@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 @WebServlet(urlPatterns ="/login/logins")
 public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       System.out.println("dangerous be care for dingming hui gen luo jia qibiao bai");
+       System.out.println("asd");
 
        if(request.getParameter("account").equals("root")&&request.getParameter("password").equals("root")){
            System.out.println("进入登录");

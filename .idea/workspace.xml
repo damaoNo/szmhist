@@ -7,92 +7,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/CCMDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/CCMServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/CCMServiceTest2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/TakeDrugsDaoTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/TakeDrugsServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/regist/RegistServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/CCMDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/ICCMDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/ITakeDrugsDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/TakeDrugsDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/medicalmanage/ITakeDrugsService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/medicalmanage/TakeDrugsService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/pay/IPayService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/pay/PayService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/regist/IRegist1Service.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/regist/Regist1Service.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/CCMService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/ICCMService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/util/noonChangeFormat.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/TakeDrugs.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/web/Servlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/mainpage/Mian.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/mainpage/Mian.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/DrugManageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/DrugManageServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/MedRecordServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/NonDrugsPayServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/NonDrugsPayServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/RLMDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/RLMDaoTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/RLMServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/RLMServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/RegistServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/RegistServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/SchedulingServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/SchedulingServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/consult/ConsultServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/Test/consult/ConsultServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/DepartmentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/DepartmentDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/IMedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/IMedicalRecordDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/INonDrugsPayDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/INonDrugsPayDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/IPrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/IPrescriptionDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/IRLMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/IRLMDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/IRegistDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/IRegistDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/ISCMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/ISCMDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/ISchedulingDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/ISchedulingDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/MedicalRecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/MedicalRecordDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/NonDrugsPayDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/NonDrugsPayDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/PrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/PrescriptionDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/RLMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/RLMDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/RegistDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/RegistDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/SCMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/SCMDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/SchedulingDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/SchedulingDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/IRLMService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/ISCMService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/RLMService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/SCMService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/consult/ConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/consult/ConsultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/consult/IConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/consult/IConsultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/consult/IMedRecordService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/consult/MedRecordService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/medicaltreatment/PatientExaminationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/medicaltreatment/PatientExaminationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/regist/IRegistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/regist/IRegistService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/regist/RegistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/regist/RegistService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/regist/RegistStateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/regist/RegistStateService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/DrugManageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/medicalmanage/DrugManageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/DrugManageServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/IDrugManageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/medicalmanage/IDrugManageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/IRLMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/IRLMService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/ISCMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/ISCMService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/ISchedulingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/ISchedulingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/RLMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/RLMService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/SCMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/SCMService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/SchedulingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/service/systemInfor/SchedulingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/PrescriptionDetailed.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/vo/PrescriptionDetailed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/web/registrationfee/loginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/web/registrationfee/loginServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/login/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/web/registrationfee/loginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/registrationfee/loginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/ConsultService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/consult/MedRecordService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicalmanage/DrugManageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicalmanage/DrugManageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicalmanage/TakeDrugsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/medicalmanage/TakeDrugsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/Regist1Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/Regist1Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/CCMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/CCMDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/ICCMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/ICCMDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IInvoiceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IInvoiceDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/INonDrugsPayDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/INonDrugsPayDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IPrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IPrescriptionDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRLMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRLMDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRegistDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/IRegistDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/ISCMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/ISCMDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/InvoiceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/InvoiceDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/NonDrugsPayDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/NonDrugsPayDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/PrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/PrescriptionDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RLMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RLMDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RegistDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/RegistDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/SCMDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/SCMDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/IRegistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/IRegistService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/Regist1Service.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistStateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistStateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/regist/RegistStateService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/CCMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/CCMService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/ICCMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/ICCMService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/NonDrugsPayService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/NonDrugsPayService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/RLMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/RLMService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SCMService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SCMService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SchedulingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/service/systemInfor/SchedulingService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/util/noonChangeFormat.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/util/noonChangeFormat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/web/registrationfee/loginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/registrationfee/loginServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/test/SchedulingServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/test/SchedulingServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/vo/RegistLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/vo/RegistLevel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
@@ -124,20 +65,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/web/registrationfee/loginServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
+            <state relative-caret-position="114">
+              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/login/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+            <state relative-caret-position="162">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -171,6 +112,7 @@
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -246,8 +188,8 @@
         <option value="$PROJECT_DIR$/src/service/systemInfor/SchedulingService.java" />
         <option value="$PROJECT_DIR$/src/service/systemInfor/SchedulingServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/SchedulingServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/web/registrationfee/loginServlet.java" />
         <option value="$PROJECT_DIR$/web/login/login.html" />
+        <option value="$PROJECT_DIR$/src/web/registrationfee/loginServlet.java" />
       </list>
     </option>
   </component>
@@ -579,7 +521,7 @@
       <workItem from="1559641749742" duration="5993000" />
       <workItem from="1559696210934" duration="17208000" />
       <workItem from="1559733043230" duration="2162000" />
-      <workItem from="1559783232632" duration="2481000" />
+      <workItem from="1559783232632" duration="3278000" />
     </task>
     <task id="LOCAL-00001" summary="ver 0.0:&#10;add readme">
       <created>1559230289989</created>
@@ -819,7 +761,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559703382565</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="0.5医生排班管理99">
+      <created>1559786391506</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1559786391506</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -855,7 +804,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134604000" />
+    <option name="totallyTimeSpent" value="135401000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1006,7 +955,8 @@
     <MESSAGE value="0.5排班管理、查询非药品类目、药房管理" />
     <MESSAGE value="0.5排班管理、查询非药品类目、药房管理---Util" />
     <MESSAGE value="0.5医生排班管理" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.5医生排班管理" />
+    <MESSAGE value="0.5医生排班管理99" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.5医生排班管理99" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1408,13 +1358,6 @@
     <entry file="file://$PROJECT_DIR$/src/vo/LoginMessage.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/web/registrationfee/loginServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/mainpage/Mian.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1431,8 +1374,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/login/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        <state relative-caret-position="162">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/web/registrationfee/loginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
         </state>
       </provider>
     </entry>
