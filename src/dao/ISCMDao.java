@@ -24,7 +24,7 @@ public interface ISCMDao {
     void addSettleCategory(String Scode,String Sname,int Sno) throws SQLException;
 
     //编辑结算类别
-    SettleCategory  SelectupdateSettleCategory(int id) throws SQLException;
+    List<SettleCategory>  SelectupdateSettleCategory(int id) throws SQLException;
 
     //修改结算类别
     void   updateSettleCategorySave(String Scode,String Sname,int Sno) throws SQLException;

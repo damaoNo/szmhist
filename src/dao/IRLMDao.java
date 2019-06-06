@@ -23,7 +23,7 @@ public interface IRLMDao {
     void AddRegistLevel(String Rcode,String Rname,int Rno,double Rfee,int Rquota) throws SQLException;
 
     //编辑挂号级别
-    RegistLevel SelectupdateRegistLevel(int id) throws SQLException;
+    List<RegistLevel> SelectupdateRegistLevel(int id) throws SQLException;
 
     //编辑挂号级别保存
     void UpdatesaveRegistLevel(String Rcode,String Rname,int Rno,Double Rfee,int Rquota) throws SQLException;

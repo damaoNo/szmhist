@@ -16,6 +16,9 @@ public interface ICCMService {
     //查询所有类别数据
     List<ConstantType> CCMSelectConstantTypeAll(int page) throws SQLException;
 
+    //所有类别数据页码
+    int CCMConstantTypeAllPages() throws SQLException;
+
     //查询常数类别
     List<ConstantType> CCMSelectConstantType(String codeORname) throws SQLException;
 
@@ -24,6 +27,9 @@ public interface ICCMService {
 
     //查询常数项
     List<ConstantItem> CCMSelectConstantltem(ConstantItem constantItem, int page) throws SQLException;
+
+    //常数项页码
+    int CCMConstantltempage() throws SQLException;
 
     //添加常数项
     void CCMAddConstantltem(String code,String name,int typeID) throws SQLException;

@@ -20,6 +20,9 @@ public interface ICCMDao {
     //查询所有类别数据
     List<ConstantType> SelectConstantTypeAll(int page) throws SQLException;
 
+    //所有类别数据页码
+    int ConstantTypeAllPages() throws SQLException;
+
     //查询常数类别
     List<ConstantType> SelectConstantType(String codeORname) throws SQLException;
 
@@ -28,6 +31,9 @@ public interface ICCMDao {
 
     //查询常数项
     List<ConstantItem> SelectConstantltem(ConstantItem constantItem,int page) throws SQLException;
+
+    //常数项页码
+    int Constantltempage() throws SQLException;
 
     //添加常数项
     void AddConstantltem(String code,String name,int typeID) throws SQLException;
