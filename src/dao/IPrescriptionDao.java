@@ -1,9 +1,8 @@
 package dao;
 
 
-import vo.Drugs;
-import vo.Prescription;
-import vo.PrescriptionDetailed;
+import vo.*;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -61,9 +60,24 @@ public interface IPrescriptionDao {
      */
     void updatePresState(int id,int state) throws SQLException;
 
-
+    /**
+     * 修改处方状态，如果是开立，会自动更新开立时间为系统当前时间
+     *
+     * @param id    处方id
+     * @param state 修改成为什么state
+     */
+    public void updatePSB(int[] id, int state) throws SQLException;
 
     //通过registId获取处方对象
     Prescription getInfByRegistId(int registId)throws SQLException;
+
+    /**
+     * 通过caseNum-搜索所有开立药方
+     * @param caseNum
+     * @return
+     */
+    List<PrescriptionMore> selectPrescriptionByCaseNum(String  caseNum,int state) throws SQLException;
+
+
 
 }

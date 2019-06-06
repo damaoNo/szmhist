@@ -79,6 +79,46 @@ public class SchedulingDao implements ISchedulingDao {
         JdbcUtil.release(null,pstmt,null);
         return list;
     }
+
+    /**
+     *
+     * @param date1 开始日期
+     * @param date2 结束日期
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public int scinPages(Date begin, Date end) throws SQLException {
+        java.sql.Date begin1=new java.sql.Date(begin.getTime());
+        java.sql.Date end1=new java.sql.Date(end.getTime());
+
+        String sql ="select count(S.ID)\n" +
+                "FROM scheduling S,department D,user U,registlevel R\n" +
+                "where S.DeptID = D.ID\n" +
+                "and S.UserID = U.ID\n" +
+                "and U.RegistLeID = R.ID\n" +
+                "and S.SchedDate between ? And ? ";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setDate(1,begin1);
+        pstmt.setDate(2,end1);
+        //查询
+        /*返回一个结果集*/
+        ResultSet rs=pstmt.executeQuery();
+        int pages=0;
+        while(rs.next()){
+            pages=rs.getInt(1);
+        }
+        int pagenum=0;
+        if (pages%10==0){
+            pagenum=pages/10;
+        }else {
+            pagenum=pages/10+1;
+        }
+        return pagenum;
+    }
+
+
+
     /**
      * 读取有效科室
      * 查询ID,科室编码，科室名称，科室分类，科室类型，删除标记
@@ -170,6 +210,35 @@ public class SchedulingDao implements ISchedulingDao {
         JdbcUtil.release(null,pstmt,null);
         return list;
     }
+    /**
+     * 组合查询医生名称RealName，科室ID  DeptID
+     * 科室名称DeptName
+     * 或者挂号级别RegistName
+     */
+    @Override
+    public List selectRN(String DeptName, String RegistName) throws SQLException {
+        String sql="SELECT U.RealName,D.DeptID FROM user U, registlevel R, department D\n" +
+                " WHERE U. RegistLeID =R.ID AND U. DeptID=D. ID \n";
+        if (DeptName !=null && DeptName.length()!=0){
+            sql +=" AND DeptName='"+ DeptName +"'";
+        }
+        if (RegistName!=null && RegistName.length()!=0){
+            sql +=" AND RegistName='" + RegistName +"'";
+        }
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        ResultSet rs=pstmt.executeQuery();
+        User user=null;
+        List list=new ArrayList();
+        while (rs.next()){
+            user=new User();
+            user.setRealName(rs.getString(1));
+            user.setDeptid(rs.getInt(2));
+            list.add(user);
+        }
+        JdbcUtil.release(null,pstmt,null);
+        return list;
+    }
+
 
     /**
      * 新增排班规则
@@ -199,7 +268,7 @@ public class SchedulingDao implements ISchedulingDao {
      */
     @Override
     public void addScheduling(Scheduling scheduling) throws SQLException {
-        String sql="INSERT INTO scheduling (ScheDate,DeptID,UserID,Noon,RuleID) " +
+        String sql="INSERT INTO scheduling (SchedDate,DeptID,UserID,Noon,RuleID) " +
                 "VALUES (?,?,?,?,?)";
         PreparedStatement pstmt=con.prepareStatement(sql);
         java.sql.Date Date=new java.sql.Date(scheduling.getSchedDate().getTime());
@@ -211,7 +280,6 @@ public class SchedulingDao implements ISchedulingDao {
         pstmt.executeUpdate();
         JdbcUtil.release(null,pstmt,null);
     }
-    /**/
 
     /**
      * 批量删除排班计划
@@ -235,4 +303,6 @@ public class SchedulingDao implements ISchedulingDao {
         pstmt.executeBatch();
         JdbcUtil.release(null, pstmt, null);
     }
+
+
 }

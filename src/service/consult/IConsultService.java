@@ -141,4 +141,14 @@ public interface IConsultService {
      * @param state     修改成为什么state
      */
     void changePresState(int id,int state) throws SQLException;
+
+    /**
+     * 根据病历号查询病人的消费信息
+     * @param caseNum 病历号
+     * @return 返回：姓名    身份证       家庭住址        病历号         项 目名称   单价    数量       开立时间       状态
+     *          r.RealName,r.IDnumber,r.HomeAddress,r.CaseNumber,"p.`Name`,p.Price,p.Amount,p.Createtime,r.VisitState
+     */
+    List<PatientCostsBack> findPatientCosts(String caseNum) throws SQLException;
+
+
 }

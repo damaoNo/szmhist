@@ -7,10 +7,13 @@
 
 package dao;
 
+import oracle.sql.TIMESTAMP;
 import util.JdbcUtil;
 import vo.*;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,24 +25,7 @@ public class RegistDao implements IRegistDao{
         this.con = con;
     }
 
-    /**
-     * 读取收费员当前最大发票号
-     * @param userid 收费员ID
-     * @return 收费员下一个可用发票号
-     */
-    @Override
-    public String selectMaxInvoiceNum(int userid) throws SQLException {
-        String sql ="select max(InvoiceNum)+1 from invoice where UserID=?";
-        PreparedStatement pstm = con.prepareStatement(sql);
-        pstm.setInt(1,userid);
-        ResultSet rs = pstm.executeQuery();
-        String invoiceNum=null;
-        while (rs.next()){
-            invoiceNum=rs.getString(1);
-        }
-        JdbcUtil.release(null,pstm,null);
-        return invoiceNum;
-    }
+
 
 
     /**
@@ -208,7 +194,7 @@ public class RegistDao implements IRegistDao{
 
     /**
      * @param reg
-     * @Description: 插入挂号记录,挂号时间为系统当前时间
+     * @Description: 插入挂号记录,挂号时间为系统当前时间(需要设置)
      * @Param: [reg]
      * @return: java.lang.Boolean 是否插入成功
      * @Author: cro
@@ -237,8 +223,7 @@ public class RegistDao implements IRegistDao{
         pstm.setInt(13,reg.getRegistLeID());
         pstm.setInt(14,reg.getSettLeID());
         pstm.setString(15,reg.getisBook());
-        /*注册日期设置为当前系统日期*/
-        Timestamp registTime=new Timestamp(System.currentTimeMillis());
+        Timestamp registTime=new Timestamp(reg.getRegistTime().getTime());
         pstm.setTimestamp(16,registTime);
         pstm.setInt(17,reg.getRegisterID());
         pstm.executeUpdate();
@@ -246,33 +231,7 @@ public class RegistDao implements IRegistDao{
         return true;
     }
 
-    /**
-     * @param iv
-     * @Description: 插入使用发票记录,创建时间自动设置为当前系统时间
-     * @Param: [iv]
-     * @return: void
-     * @Author: cro
-     * @Date: 2019/6/1
-     */
-    @Override
-    public void insertInvoice(Invoice iv) throws SQLException {
-        String sql ="insert into " +
-                "invoice(InvoiceNum,Money,State,CreationTime,UserID,RegistID,FeeType,Back,DailyState) " +
-                "values(?,?,?,?,?,?,?,?,?)";
-        PreparedStatement pstm = con.prepareStatement(sql);
-        pstm.setString(1,iv.getInvoiceNum());
-        pstm.setDouble(2,iv.getMoney());
-        pstm.setInt(3,iv.getState());
-        Timestamp t=new Timestamp(System.currentTimeMillis());
-        pstm.setTimestamp(4,t);
-        pstm.setInt(5,iv.getUserID());
-        pstm.setInt(6,iv.getRegistID());
-        pstm.setInt(7,iv.getFeeType());
-        pstm.setString(8,iv.getBack());
-        pstm.setInt(9,iv.getDailyState());
-        pstm.executeUpdate();
-        JdbcUtil.release(null,pstm,null);
-    }
+
     /**
      * 根据挂号ID 修改对应数据VisitState属性1-已挂号 2-医生接诊 3-看诊结束 4-已退号
      *
@@ -334,7 +293,66 @@ public class RegistDao implements IRegistDao{
         return inv;
     }
 
+    /**
+     * 根据病历号和创建时间获取挂号id
+     *
+     * @param creatTime 创建时间
+     * @param caseNum   病历号
+     * @return 挂号id
+     */
+    @Override
+    public int selectRegistIDByTime(String  creatTime, String caseNum) throws SQLException {
+        String sql="SELECT id FROM register WHERE CaseNumber=? AND (RegistTime=?) AND VisitState IN (1,2,3)";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        DateFormat df=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        Timestamp t=Timestamp.valueOf(creatTime);
+        pstmt.setTimestamp(2,t);
+        pstmt.setString(1,caseNum);
+        ResultSet rs=pstmt.executeQuery();
+        int n=0;
+        while (rs.next()){
+            n=rs.getInt(1);
+        }
+        JdbcUtil.release(null, pstmt, null);
+        return n;
+    }
 
+    /**
+     * 根据科室名获取ID
+     *
+     * @param deptname 科室名称
+     */
+    @Override
+    public int getDeptIDbyName(String deptname) throws SQLException {
+        String sql ="select id from department where DeptName=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,deptname);
+        ResultSet rs=pstmt.executeQuery();
+        int deptID=0;
+        while(rs.next()){
+            deptID=rs.getInt(1);
+        }
+        JdbcUtil.release(null,pstmt,null);
+        return deptID;
+    }
 
-
+    /**
+     * 根据id获取科室名
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public String getDeptNameByID(int id) throws SQLException {
+        String sql ="select DeptName from department where ID=?";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setInt(1,id);
+        ResultSet rs=pstmt.executeQuery();
+        String n=null;
+        while(rs.next()){
+            n=rs.getString(1);
+        }
+        JdbcUtil.release(null,pstmt,null);
+        return n;
+    }
 }

@@ -34,7 +34,7 @@ public class RegistStateDao implements IRegistStateDao {
      * @date: 2019/6/2
      */
     @Override
-    public RegisterRecord selectRegistByCaseNumber(String caseNum) throws SQLException {
+    public List<RegisterRecord> selectRegistByCaseNumber(String caseNum) throws SQLException {
         String sql ="select r.ID,r.CaseNumber,r.RealName,r.Gender," +
                 "r.IDnumber,r.BirthDate,r.Age,r.AgeType,r.HomeAddress," +
                 "r.VisitDate,r.Noon,r.DeptID,r.UserID,r.RegistLeID,r.SettleID," +
@@ -44,6 +44,7 @@ public class RegistStateDao implements IRegistStateDao {
         PreparedStatement pstm = con.prepareStatement(sql);
         pstm.setString(1,caseNum);
         ResultSet rs=pstm.executeQuery();
+        List<RegisterRecord> list=new ArrayList<>();
         RegisterRecord rr=null;
         while (rs.next()){
             rr=new RegisterRecord();
@@ -68,9 +69,10 @@ public class RegistStateDao implements IRegistStateDao {
             rr.setRegistLeID(rs.getInt(18));
             rr.setVisitState(rs.getInt(19));
             rr.setDeptName(rs.getString(20));
+            list.add(rr);
         }
         JdbcUtil.release(null,pstm,null);
-        return rr;
+        return list;
     }
 
     /**
@@ -80,38 +82,16 @@ public class RegistStateDao implements IRegistStateDao {
      * @author : cro
      */
     @Override
-    public void updateRegistState(int id) throws SQLException {
-        String sql ="update register set VisitState = 4 where ID = ?;";
+    public void updateRegistState(int id,int state) throws SQLException {
+        String sql ="update register set VisitState = ? where ID = ?;";
         PreparedStatement pstm = con.prepareStatement(sql);
-        pstm.setInt(1,id);
+        pstm.setInt(1,state);
+        pstm.setInt(2,id);
         pstm.executeUpdate();
         JdbcUtil.release(null,pstm,null);
     }
 
-    /**
-     * 打印冲红发票，金额为负值,查出的对象传入，金额已做修改为负值处理
-     *
-     * @param iv 发票对象
-     * @
-     */
-    @Override
-    public void insertURInvoice(Invoice iv) throws SQLException {
-        String sql ="insert into " +
-                "invoice(InvoiceNum,Money,State,CreationTime,UserID,RegistID,FeeType,Back,DailyState) " +
-                "values(?,?,?,?,?,?,?,?,?)";
-        PreparedStatement pstm = con.prepareStatement(sql);
-        pstm.setString(1,iv.getInvoiceNum());
-        pstm.setDouble(2,iv.getMoney());
-        pstm.setInt(3,iv.getState());
-        pstm.setDate(4,new Date(System.currentTimeMillis()));
-        pstm.setInt(5,iv.getUserID());
-        pstm.setInt(6,iv.getRegistID());
-        pstm.setInt(7,iv.getFeeType());
-        pstm.setString(8,iv.getBack());
-        pstm.setInt(9,iv.getDailyState());
-        pstm.executeUpdate();
-        JdbcUtil.release(null,pstm,null);
-    }
+
 
 
 }

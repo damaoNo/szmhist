@@ -4,6 +4,8 @@ import vo.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,12 +14,7 @@ import java.util.List;
 public interface IRegistDao {
 
     void setConnection(Connection con);
-    /**
-     * 读取收费员当前最大发票号
-     * @param userid 收费员ID
-     * @return 收费员下一个可用发票号
-     */
-    String selectMaxInvoiceNum(int userid) throws SQLException;
+
 
     /**
      * 读取当前最大病历号
@@ -65,21 +62,14 @@ public interface IRegistDao {
     */
     int selectDoctorUsedId(Register reg) throws SQLException;
     /**
-    * @Description: 插入挂号记录,挂号时间为系统当前时间
+    * @Description: 插入挂号记录,挂号时间为系统当前时间(需要设置)
     * @Param: [reg]
     * @return: java.lang.Boolean 是否插入成功
     * @Author: cro
     * @Date: 2019/6/1
     */
     Boolean insertRegist(Register reg) throws SQLException;
-    /**
-    * @Description: 插入使用发票记录,创建时间自动设置为当前系统时间
-    * @Param: [iv]
-    * @return: void
-    * @Author: cro
-    * @Date: 2019/6/1
-    */
-    void insertInvoice(Invoice iv) throws SQLException;
+
 
     /**
      * 根据挂号ID 修改对应数据VisitState属性1-已挂号 2-医生接诊 3-看诊结束 4-已退号
@@ -90,4 +80,27 @@ public interface IRegistDao {
     public Register getRegisterByCaseNumber(String casen) throws SQLException;
     //通过id查找注册对象
     public Invoice getInfByRegistid(int registid) throws SQLException;
+
+    /**
+     * 根据病历号和创建时间获取挂号id
+     * @param creatTime 创建时间
+     * @param caseNum 病历号
+     * @return 挂号id
+     */
+    int selectRegistIDByTime(String  creatTime, String caseNum) throws SQLException;
+
+    /**
+     * 根据科室名获取id
+     * @param deptname 科室名称
+     */
+    int getDeptIDbyName(String deptname) throws SQLException;
+
+    /**
+     * 根据id获取科室名
+     * @param id
+     * @return
+     */
+    String getDeptNameByID(int id) throws SQLException;
+
+
 }
