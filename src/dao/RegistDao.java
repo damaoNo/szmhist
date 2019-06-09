@@ -99,7 +99,7 @@ public class RegistDao implements IRegistDao{
      */
     @Override
     public RegistLevel selectRegistLevelByID(int id) throws SQLException {
-        String sql ="select RegistFee,RegistName from registlevel where id=?";
+        String sql ="select RegistFee,RegistQuota from registlevel where id=?";
         PreparedStatement pstm = con.prepareStatement(sql);
         pstm.setInt(1,id);
         ResultSet rs = pstm.executeQuery();
@@ -107,7 +107,7 @@ public class RegistDao implements IRegistDao{
         while (rs.next()){
             rl=new RegistLevel();
             rl.setRegistFree(rs.getDouble(1));
-            rl.setRegistName(rs.getString(2));
+            rl.setRegistquota(rs.getInt(2));
         }
         JdbcUtil.release(null,pstm,null);
         return rl;
@@ -354,5 +354,25 @@ public class RegistDao implements IRegistDao{
         }
         JdbcUtil.release(null,pstmt,null);
         return n;
+    }
+
+    @Override
+    public List selectDeptNameByDate(java.util.Date date, String noon) throws SQLException {
+        String sql ="SELECT d.DeptName,d.id FROM scheduling s,department d WHERE d.ID=s.DeptID AND SchedDate=? AND Noon=? GROUP BY d.DeptName, d.id";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        Date date1=new Date(date.getTime());
+        pstmt.setDate(1,date1);
+        pstmt.setString(2,noon);
+        ResultSet rs=pstmt.executeQuery();
+        List l=new ArrayList();
+        Department d=null;
+        while(rs.next()){
+            d=new Department();
+            d.setDeptName(rs.getString(1));
+            d.setId(rs.getInt(2));
+            l.add(d);
+        }
+        JdbcUtil.release(null,pstmt,null);
+        return l;
     }
 }

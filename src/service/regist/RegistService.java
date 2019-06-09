@@ -24,7 +24,7 @@ import java.util.List;
  **/
 public class RegistService implements IRegistService {
     /**
-     * 挂号界面加载-下一个可用发票号、下一个可用病历号、结算类别
+     * 挂号界面加载-下一个可用发票号、下一个可用病历号、结算类别、
      *
      * @param userid 挂号员id
      * @return 下一个可用发票号、下一个可用病历号、结算类别
@@ -42,15 +42,19 @@ public class RegistService implements IRegistService {
             IRegistDao rd=new RegistDao();
             rd.setConnection(con);
             IInvoiceDao id=new InvoiceDao();
-            String invoiceNum="invoicenum"+id.selectMaxInvoiceNum(userid);
-            String caseNum="casenum"+rd.selectMaxCaseNum();
-            list1=rd.selectRegistLevels();
-            list3=rd.selectSettleCategories();
-            list2=rd.selectDepartment();
+            id.setConnection(con);
+            String invoiceNum=id.selectMaxInvoiceNum(userid);
+            String caseNum=rd.selectMaxCaseNum();
+
+            list1=rd.selectSettleCategories();
+//            list2=rd.selectDepartment();
+            list3=rd.selectRegistLevels();
             list.add(invoiceNum);
             list.add(caseNum);
+
+
             list.add(list1);
-            list.add(list2);
+//            list.add(list2);
             list.add(list3);
             con.commit();
             return list;
@@ -61,6 +65,27 @@ public class RegistService implements IRegistService {
             JdbcUtil.release(con,null,null);
         }
         return null;
+    }
+
+    @Override
+    public List getDeptNames(Date date, String noon) throws SQLException {
+        Connection con=null;
+        List list=new ArrayList();
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IRegistDao rd=new RegistDao();
+            rd.setConnection(con);
+            list=rd.selectDeptNameByDate(date,noon);
+            con.commit();
+            return list;
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+        return list;
     }
 
     /**

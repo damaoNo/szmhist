@@ -18,4 +18,5 @@ public interface IDepartmentDao {
     void updateDepartment(String deptc, String deptn, int deptcat, int deptt, int delmark)throws SQLException;
     //删除科室
     void invalideDepartment(int id)throws SQLException;
+
 }

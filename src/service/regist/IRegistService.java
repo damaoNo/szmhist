@@ -3,6 +3,7 @@ package service.regist;
 import vo.*;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,6 +19,9 @@ public interface IRegistService {
      * @return 下一个可用发票号、下一个可用病历号、结算类别
      */
     List invoiceCaseNumPay(int userid) throws SQLException;
+
+//获取有班的科室名字和对应id
+    List getDeptNames(Date date,String noon) throws SQLException;
 
     /**
      * 选择日期-午别-排班科室-挂号级别后

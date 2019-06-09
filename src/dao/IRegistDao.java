@@ -48,6 +48,10 @@ public interface IRegistDao {
      */
     List selectDepartment() throws SQLException;
 
+    /*根据日期和午别选择挂号科室和挂号级别*/
+
+
+
     /**
      * 根据看诊日期,午别,排班科室,挂号级别读取当天出诊医生ID,姓名
      * @return list-User对象-id,realname
@@ -102,5 +106,6 @@ public interface IRegistDao {
      */
     String getDeptNameByID(int id) throws SQLException;
 
-
+    //根据看诊日期和午别获取排版的科室名字
+    List selectDeptNameByDate(Date date,String noon) throws SQLException;
 }
