@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>费用查询</title>
+		<link rel="stylesheet" type="text/css" href="../../../layui/css/layui.css"/>
+	</head>
+	<body>
+		<label for="" class="layui-bg-blue">患者账单明细：</label>
+		<table class="layui-hide" id="test"></table>
+		<label for="" class="layui-btn layui-btn-sm layui-bg-blue">合计金额：</label>
+		<input type="text" name="" id="money" value="" />
+	</body>
+		          
+		<script src="../../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+		 
+		<script>
+		layui.use('table', function(){
+		  var table = layui.table;
+		  var $ = layui.jquery;
+//		  增加表格
+		  table.render({
+		    elem: '#test'
+		    ,url:'/demo/table/user/'
+		    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+		    ,cols: [[
+		      {field:'id', width:80, title: '#'}
+		      ,{field:'name', width:80, title: '名称'}
+		      ,{field:'guige', width:80, title: '规格'}
+		      ,{field:'shuliang', width:80, title: '数量'}
+		      ,{field:'fushu', title: '付数'} //minWidth：局部定义当前单元格的最小宽度，layui 2.2.1 新增
+		      ,{field:'danjia', title: '单价'}
+		      ,{field:'money', title: '金额'}
+		      ,{field:'收费状态', title: '收费状态'}
+		    ]]
+		  });
+//		  合计金额
+		  $('#money').on('click',function(){
+		  	
+		  })
+		});
+		</script>
+</html>

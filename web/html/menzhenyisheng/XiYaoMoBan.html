@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>西药处方模版</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+
+		<body>
+			<div class="layui-row">
+				<!-----------------------------右侧-------------------------------------------->
+				<div class="layui-col-md6">
+					<div id="">
+						<label for="" class="layui-btn layui-btn-normal">西药处方模版</label>
+						<button><i class="layui-icon">&#xe608;</i>新建模版</button>
+						<form action="">
+							<table border="0" cellspacing="" cellpadding="" style="border-collapse:separate; border-spacing:10px 10px;">
+								<tr>
+									<td>名称：</td>
+									<td><input type="text" name="name" lay-verify="required" placeholder="输入模版名称" autocomplete="off" class=" layui-input-inline"></td>
+								</tr>
+								<tr>
+									<td>范围：</td>
+									<td>
+										<select name="">
+											<option value="">所有</option>
+											<option value="">全院</option>
+											<option value="">科室</option>
+											<option value="">个人</option>
+										</select>
+									</td>
+									<td>
+										<button class="layui-btn layui-btn-sm layui-bg-blue">查询</button>
+									</td>
+									</tabel>
+						</form>
+					</div>
+					<table class="layui-table" lay-skin="line">
+						<thead>
+							<tr>
+								<th>模版名称</th>
+								<th>创建时间</th>
+								<th>范围</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>小儿感冒</td>
+								<td>2019-03-22 16:46</td>
+								<td>个人</td>
+							</tr>
+							<tr>
+								<td>腱鞘炎</td>
+								<td>2019-03-22 16:47</td>
+								<td>个人</td>
+							</tr>
+							<tr>
+								<td>肩周炎</td>
+								<td>2019-03-22 16:48</td>
+								<td>个人</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!------------------------------------------左侧---------------------------------------------->
+				<div class="layui-col-md6">
+					<div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">
+						<label for="" class="layui-btn layui-btn-normal">操作：</label>
+						<button data-method="addyao" data-type="auto" class="layui-btn layui-btn-primary"><i class="layui-icon ">&#xe61f;</i>增加药品</button>
+						<button data-method="removeyao" data-type="auto" class="layui-btn layui-btn-primary"><i class="layui-icon ">&#x1006;</i>删除药品</button>
+						<button data-method="offset" data-type="auto" class="layui-btn layui-btn-primary"><i class="layui-icon ">&#xe605;</i>修改模版</button>
+						<button data-method="offset2" data-type="auto" class="layui-btn layui-btn-primary"><i class="layui-icon ">&#x1006;</i>删除模版</button>
+					</div>
+				</div>
+			</div>
+		</body>
+
+</html>

@@ -6,36 +6,12 @@
 		<title>登陆</title>
 		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
 		<link rel="stylesheet" type="text/css" href="../LMYCSS/mlogin.css">
-		<script type="text/javascript" src="../js/jquery-3.2.1.min.js" ></script>
-		<script>
-			$(function(){
-				$('input[type=button]').click(function(){
-					$.post({
-						url:'logins',
-						type:'post',
-						data:$('#form1').serialize(),
-						success:function(response,status,xhr){
-							console.log(response);
-							alert("lao zi xin tai beng le");
-						//	$('#box').html($(response));
-						},
-						error:function(response,status){
-							alert(response);
-							alert(status);
-							alert("eqwe");
-						},
-						dateType:'html'
-					})
-				})
-			})
-		</script>
-
 
 	</head>
 
 	<body class="login-body body">
 	   <div class="login-box" >
-		   <form id="form1" class="layui-form layui-form-pane" method="post" action="logins" >
+		   <form id="form1" class="layui-form layui-form-pane">
 			   <div class="layui-form-item">
 				   <h3>后台登录系统</h3> </div>
 			   <div class="layui-form-item"> <label class="layui-form-label">账号：</label>
@@ -45,7 +21,7 @@
 				   <div class="layui-input-inline"> <input type="password" name="password" class="layui-input" lay-verify="password" placeholder="密码" maxlength="20" /> </div>
 			   </div>
 			   <div class="layui-form-item">
-				   <input type="submit" value="立即登录" class="layui-btn btn-submit" onclick="login()" >
+				   <button class="layui-btn" lay-submit lay-filter="btn">立即提交</button>
 <!--				   <button type="button" class="layui-btn btn-submit" lay-submit="" lay-filter="sub">立即登录</button>-->
 			   </div>
 		   </form>
@@ -55,32 +31,42 @@
 
 	   <script src="../layui/layui.js" type="text/javascript" charset="utf-8"></script>
 	   <script type="text/javascript">
-			layui.use(['form', 'layer'], function() {
-				var $ = layui.jquery,
-					form = layui.form,
-					layer = layui.layer;
-				// 验证
-				form.verify({
-					account: function(value) {
-						if(value == "") {
-							return "请输入用户名";
-						}
-					},
-					password: function(value) {
-						if(value == "") {
-							return "请输入密码";
-						}
-					}
-				});
-				// 提交监听
-				form.on('submit(sub)', function(data) {
-					layer.alert(JSON.stringify(data.field), {
-						title: '最终的提交信息'
-					});
-					return false;
-				})
-			})
-		</script>
+		   layui.use(['form', 'layer','jquery'], function() {
+
+
+			   var $ = layui.jquery,
+					   form = layui.form,
+					   layer = layui.layer;
+			   form.render();
+			   console.log("1");
+			   form.on('submit(btn)', function(data) {
+				   console.log(data.elem) //被执行事件的元素DOM对象，一般为button对象
+				   console.log(data.form) //被执行提交的form对象，一般在存在form标签时才会返回
+				   console.log(data.field) //当前容器的全部表单字段，名值对形式：{name: value}
+
+				   console.log("2");
+				   // layer.alert(JSON.stringify(data.field), {
+				   // 	title: '最终的提交信息'
+				   // });
+
+				   $.ajax({
+					   url:'/his/login/logins',
+					   type:'post',
+					   data:$('#form1').serialize(),
+					   dataType:'text',
+					   success:function (res) {
+						   console.log(res);
+						   alert("11");
+					   },
+					   error:function (res) {
+						   console.log("4");
+						   alert("22");
+					   }
+				   });
+				   return false;
+			   })
+		   })
+	   </script>
 
 
 	</body>

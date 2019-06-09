@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新增疾病</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+	</head>
+
+	<body>
+		<form>
+			<br />
+			<div style="text-align:center;">
+				<h2>新增疾病</h2>
+			</div>
+			<br />
+			<div style="margin:0 auto; width: 500px;">
+				<table border="0" cellspacing="1" cellpadding="1" id=l_yihaobiao width="50%" style="border-collapse:separate; border-spacing:50px 15px;">
+					<tr>
+						<td><span>疾病编码: </span><input style="height: 30px;" class="l_input" type="text" name="" id="" value="" placeholder="疾病编码" /></td>
+						<td><span>疾病名称: </span><input style="height: 30px;" class="l_input" type="text" name="" id="" value="" placeholder="疾病名称" /></td>
+					</tr>
+					<tr>
+						<td><span>国际ICD编码:  </span><input style="height: 30px;" class="l_input" type="text" name="" id="" value="" placeholder="国际ICD编码" /></td>
+						<td><span>疾病所属分类: </span>
+						<select style="height: 35px;">
+							<option>阿米巴病</option>
+							<option> 癌症 </option>
+							<option>白斑病</option>
+							<option> 白内障 </option>
+							<option>白血病</option>
+							<option> 白血症</option>
+							<option>百日咳 </option>
+							<option>败血病 </option>
+							<option>败血症 </option>
+							<option>斑疹热</option>
+							<option> 瘢痕 </option>
+							<option>半月板疾病 </option>
+							<option>包皮疾病</option>
+							<option> 孢子</option>
+							<option>菌病</option>
+							<option> 贲门疾病</option>
+							<option> 鼻部疾病 </option>
+							<option>扁桃体疾病 </option>
+							<option>扁桃体炎 </option>
+							<option>髌骨疾病 </option>
+							<option>病毒病</option>
+							<option> 玻璃体疾病 </option>
+							<option>玻璃体炎 </option>
+							<option>不良性行为 </option>
+							<option>不育症</option>
+							<option> 产后疾病 </option>
+							<option>产科疾病</option>
+							<option> 产前检查</option>
+							<option> 产伤 </option>
+							<option>产伤引起的疾病 </option>
+							<option>肠道传染病</option>
+							<option> 肠道疾病 </option>
+							<option>肠梗阻 </option>
+							<option>肠炎 </option>
+							<option>痴呆 </option>
+							<option>齿槽疾病</option>
+							<option> 虫病 </option>
+							<option>抽动症 </option>
+							<option>出血 </option>
+							<option>出血热 </option>
+							<option>除异物 </option>
+							<option>搐动症 </option>
+							<option>搐搦症</option>
+							<option> 疮 </option>
+							<option>创伤性疾病 </option>
+							<option>垂体疾病 </option>
+							<option>唇裂 </option>
+							<option>促性腺激</option>
+							<option>素缺乏症 </option>
+							<option>痤疮 </option>
+							<option>挫伤 </option>
+							<option>大肠疾病</option>
+							<option> 呆小病</option>
+							<option> 代谢紊乱 </option>
+							<option>胆囊疾病</option>
+							<option> 蛋白尿</option>
+							<option> 倒睫 </option>
+							<option>低血糖 </option>
+							<option>癫痫</option>
+							<option> 动脉闭塞 </option>
+							<option>动脉供血不足 </option>
+							<option>动脉回流 </option>
+							<option>动脉扩张 </option>
+							<option>动脉瘤</option>
+							<option> 动脉硬化</option>
+							<option> 冻伤 </option>
+							<option>痘病 </option>
+							<option>多动症</option>
+							<option> 多糖病 </option>
+							<option>恶心 </option>
+							<option>腭裂</option>
+							<option> 耳部疾病 </option>
+							<option>耳聋 </option>
+							<option>二尖瓣疾病 </option>
+							<option>发热</option>
+							<option> 发育不良 </option>
+							<option>发育疾病 </option>
+							<option>房室传导 </option>
+							<option>肥胖 </option>
+							<option>腓骨疾病</option>
+							<option> 肺病</option>
+							<option> 肺动脉疾病 </option>
+							<option>肺炎 </option>
+							<option>分娩 </option>
+							<option></option>
+							<option> 蜂窝组织炎 </option>
+							<option>腐蚀伤 </option>
+							<option>妇科疾病 </option>
+							<option>附睾疾病 </option>
+							<option>附睾炎</option>
+							<option> 腹膜疾病 </option>
+							<option>腹膜炎 </option>
+							<option>腹泻</option>
+							<option> 肝部疾病</option>
+							<option> 肝炎</option>
+							<option> 感冒 </option>
+							<option>感染 </option>
+							<option>肛门疾病 </option>
+							<option>肛周疾病 </option>
+							<option>高血糖</option>
+							<option> 高血压</option>
+							<option> 高脂血症</option>
+							<option> 睾丸疾病</option>
+							<option> 宫颈疾病</option>
+							<option> 宫颈炎 </option>
+							<option>巩膜炎 </option>
+							<option>佝偻病 </option>
+							<option>骨刺</option>
+							<option> 骨骺炎 </option>
+							<option>骨坏死 </option>
+							<option>骨活组织检查 </option>
+							<option>骨膜炎 </option>
+							<option> 骨软化 </option>
+							<option>骨髓疾病 </option>
+							<option>骨髓炎 </option>
+							<option>骨炎</option>
+							<option> 骨折 </option>
+							<option>骨质疏松</option>
+							<option> 骨质增生</option>
+							<option> 骨纵形短缺缺陷 </option>
+							<option>鼓膜疾病 </option>
+							<option>鼓膜炎 </option>
+							<option>鼓室炎 </option>
+							<option>关节疾病 </option>
+							<option>关节炎 </option>
+							<option>冠状动脉疾病</option>
+							<option> 龟头炎 </option>
+							<option>颌窦炎 </option>
+							<option>颌骨疾病</option>
+							<option> 颌下腺疾病 </option>
+							<option>黑(色素)瘤 </option>
+							<option>黑色素瘤</option>
+							<option>虹膜疾病</option>
+							<option>喉部疾病</option>
+							<option> 滑膜炎</option>
+							<option> 滑囊炎</option>
+							<option> 踝部疾病</option>
+							<option> 黄疸</option>
+							<option> 蛔虫</option>
+							<option> 昏迷 </option>
+							<option>霍乱 </option>
+							<option>肌断裂</option>
+							<option> 肌腱疾病 </option>
+							<option>肌挛缩 </option>
+							<option>肌肉萎缩 </option>
+							<option>肌无力</option>
+							<option> 肌炎 </option>
+							<option>肌张力障碍</option>
+							<option> 畸形</option>
+							<option> 疾病疗法</option>
+							<option> 挤压伤 </option>
+							<option>脊髓灰质炎 </option>
+							<option>脊髓疾病</option>
+							<option> 脊髓炎</option>
+							<option> 脊柱疾病 </option>
+							<option>脊柱炎 </option>
+							<option>寄生虫病 </option>
+							<option>甲沟炎 </option>
+							<option>甲状旁腺疾病 </option>
+							<option>甲状腺疾病 </option>
+							<option>假肢安装 </option>
+							<option>间质病 </option>
+							<option>腱鞘囊肿 </option>
+							<option>腱鞘炎</option>
+							<option> 浆膜炎</option>
+							<option> 焦虑障碍 </option>
+							<option>角膜疾病 </option>
+							<option>角膜炎 </option>
+							<option>脚气</option>
+							<option> 疖病</option>
+							<option> 结肠疾病 </option>
+							<option>结核 </option>
+							<option>结节病 </option>
+							<option>结膜疾病 </option>
+							<option>结膜炎 </option>
+							<option>截瘫</option>
+							<option> 精囊疾病 </option>
+							<option>精神和行为障碍 </option>
+							<option>颈动脉疾病</option>
+							<option> 痉挛</option>
+							<option> 静脉梗阻</option>
+							<option> 静脉疾病 </option>
+							<option>静脉瘤</option>
+							<option> 静脉曲张 </option>
+							<option>静脉栓塞</option>
+							<option> 静脉炎 </option>
+							<option>静脉阻塞 </option>
+							<option>疽病 </option>
+							<option>菌病</option>
+							<option> 菌血病</option>
+							<option> 开放性伤口 </option>
+							<option>口部疾病 </option>
+							<option>口腔炎 </option>
+							<option>口炎 </option>
+							<option>狂犬病 </option>
+							<option> 阑尾炎 </option>
+							<option>劳损 </option>
+							<option>泪囊炎 </option>
+							<option>泪腺炎</option>
+							<option> 痢疾</option>
+							<option> 裂伤</option>
+							<option> 淋巴管疾病 </option>
+							<option>淋巴管瘤 </option>
+							<option>淋巴管炎 </option>
+							<option>淋巴疾病 </option>
+							<option>淋巴结病 </option>
+							<option>淋巴结炎</option>
+							<option> 淋巴瘤 </option>
+							<option>淋病</option>
+							<option> 流产</option>
+							<option> 流感 </option>
+							<option>瘘病</option>
+							<option> 颅内疾病 </option>
+							<option>颅内损伤 </option>
+							<option>鲁氏菌病 </option>
+							<option>螺旋体病 </option>
+							<option>麻痹 </option>
+							<option>麻风病</option>
+							<option> 麻疹</option>
+							<option> 脉管炎 </option>
+							<option>脉络膜炎</option>
+							<option> 慢性查加斯病 </option>
+							<option>盲肠疾病</option>
+							<option> 毛囊炎</option>
+							<option> 梅毒 </option>
+							<option>霉菌病 </option>
+							<option>霉菌性疾病 </option>
+							<option>免疫性疾病</option>
+							<option> 膜睫状体炎</option>
+							<option> 男科疾病 </option>
+							<option>囊肿</option>
+							<option> 脑膜炎</option>
+							<option> 脑血管病</option>
+							<option> 脑炎 </option>
+							<option>内分泌系统疾病 </option>
+							<option>念珠菌病</option>
+							<option> 尿道疾病 </option>
+							<option>尿道炎</option>
+							<option> 尿毒症 </option>
+							<option>尿失禁</option>
+							<option> 凝血疾病 </option>
+							<option>脓疱</option>
+							<option> 脓肿 </option>
+							<option>疟疾 </option>
+							<option>帕金森 </option>
+							<option>膀胱疾病</option>
+							<option> 膀胱炎</option>
+							<option> 疱疹 </option>
+							<option>盆腔炎</option>
+							<option> 皮肤病 </option>
+							<option>皮瘤 </option>
+							<option>皮炎 </option>
+							<option>脾病 </option>
+							<option>偏瘫 贫血</option>
+							<option> 品行障碍 </option>
+							<option>破伤风 </option>
+							<option>葡萄胎</option>
+							<option> 其他肠类疾病</option>
+							<option> 其他动脉疾病</option>
+							<option> 其他瘤 </option>
+							<option>其他胰腺疾病 </option>
+							<option>其他章疾病 </option>
+							<option>其它腹部疾病 </option>
+							<option>其它骨疾病</option>
+							<option> 其它呼吸疾病</option>
+							<option> 其它肌部疾病 </option>
+							<option>其它疾病 </option>
+							<option>其它泌尿系统疾病 </option>
+							<option>其它气管病 </option>
+							<option>其它热病</option>
+							<option> 其它舌部疾病 </option>
+							<option>其它疼痛 </option>
+							<option>其它胸部疾病</option>
+							<option> 其它血液疾病 </option>
+							<option>其它咽部疾病 </option>
+							<option>其它炎症 </option>
+							<option>其它暂时无法归类的 </option>
+							<option>其它支气管病 </option>
+							<option>其它足部疾病 </option>
+							<option>脐带疾病</option>
+							<option>气道疾病 </option>
+							<option>气管炎 </option>
+							<option>气胸</option>
+							<option>前列腺疾病 </option>
+							<option>前列腺炎</option>
+							<option>浅表损伤 </option>
+							<option>羟化酶缺陷 </option>
+							<option>情感障碍 </option>
+							<option>曲霉病</option>
+							<option>染色体疾病 </option>
+							<option>人格障碍</option>
+							<option> 妊娠引起的疾病 </option>
+							<option>肉瘤</option>
+							<option>肉芽肿</option>
+							<option>蠕虫病</option>
+							<option>乳突炎</option>
+							<option>乳腺疾病 </option>
+							<option>乳腺炎</option>
+							<option>软骨病</option>
+							<option>软骨瘤 </option>
+							<option>腮腺炎 </option>
+							<option>三尖瓣疾病</option>
+							<option>晒伤 </option>
+							<option>疝病</option>
+							<option> 伤寒</option>
+							<option>上肢疾病</option>
+							<option>上肢其它疾病 </option>
+							<option>烧伤 </option>
+							<option>舌炎</option>
+							<option>蛇咬伤 </option>
+							<option>身材矮小 </option>
+							<option>神经系统疾病</option>
+							<option> 肾病 </option>
+							<option>肾炎 </option>
+							<option>声带疾病 </option>
+							<option>失语 </option>
+							<option>虱病 </option>
+							<option>湿疣 湿疹</option>
+							<option>十二指肠疾病 </option>
+							<option>食道疾病</option>
+							<option>食管疾病 </option>
+							<option>食物中毒 </option>
+							<option>视力疾病 </option>
+							<option>视网膜疾病</option>
+							<option>视网膜炎</option>
+							<option>手部疾病 </option>
+							<option>手部其它疾病 </option>
+							<option>手术 </option>
+							<option>输精管疾病 </option>
+							<option>输卵管疾病 </option>
+							<option>输尿管疾病</option>
+							<option>输尿管炎 </option>
+							<option>鼠疫 </option>
+							<option>水痘 水肿</option>
+							<option>睡眠疾病</option>
+							<option>四肢其它疾病 </option>
+							<option>粟疹</option>
+							<option>酸尿证 </option>
+							<option>酸血症</option>
+							<option>损伤</option>
+							<option>锁骨疾病 </option>
+							<option>瘫痪</option>
+							<option>炭疽</option>
+							<option>唐氏综合征</option>
+							<option>糖尿病</option>
+							<option>天花</option>
+							<option>听觉丧失</option>
+							<option>听力疾病</option>
+							<option>瞳孔疾病</option>
+							<option>痛风</option>
+							<option>痛经</option>
+							<option>头部疾病 </option>
+							<option>头痛 </option>
+							<option>吞咽困难 </option>
+							<option>脱出 </option>
+							<option>脱发 </option>
+							<option>脱髓鞘 </option>
+							<option>脱位 </option>
+							<option>外翻 </option>
+							<option>外阴疾病 </option>
+							<option>外阴炎 </option>
+							<option>维生素疾病 </option>
+							<option>胃部疾病 </option>
+							<option>胃炎 </option>
+							<option>吸虫病 </option>
+							<option>吸收障碍 </option>
+							<option>息肉 </option>
+							<option>膝部疾病 </option>
+							<option>细胞疾病 </option>
+							<option>细胞瘤 </option>
+							<option>心肌病 </option>
+							<option>心绞痛 </option>
+							<option>心境障碍 </option>
+							<option>心律疾病 </option>
+							<option>心内膜炎</option>
+							<option> 心血管病 </option>
+							<option>心脏病 </option>
+							<option>心脏疾病 </option>
+							<option>新生儿疾病</option>
+							<option> 胸骨疾病 </option>
+							<option>胸膜疾病</option>
+							<option> 胸膜炎</option>
+							<option> 胸腺疾病 </option>
+							<option>休克</option>
+							<option> 徐动症</option>
+							<option> 眩晕 </option>
+							<option>血管疾病 </option>
+							<option>血管瘤</option>
+							<option> 血管炎</option>
+							<option> 血红蛋白病 </option>
+							<option>血红蛋白尿 </option>
+							<option>蛛网膜炎 </option>
+							<option>主动脉疾病</option>
+							<option> 注射</option>
+							<option> 椎管疾病</option>
+							<option> 椎管狭窄 </option>
+							<option>紫癜</option>
+							<option> 自杀</option>					
+						</select>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br />
+			<div style="text-align:center;">
+				<input class="layui-btn layui-btn-normal" style="width: 70px;height: 35px;" type="reset" name="" id="" value="清空" />
+				<input class="layui-btn layui-btn-normal" style="width: 70px;height: 35px;" type="submit" name="" id="" value="保存" />
+			</div>
+		</form>
+	</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>药房管理-药房发药</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+		<link rel="stylesheet" type="text/css" href="../../css/GuaHaoJieMian.css"/>
+	</head>
+
+	<body>
+		<from>
+			<div style="margin-top: 30px;">
+				<span class="l_star" style="margin-left: 40px;">*</span> 病历号：<input type="text" name="" value="" id="ipt1" style="width: 200px;height: 30px;margin-right: 150px;" placeholder="输入病历号" />
+				<span>时间：</span>
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						<input type="text" class="layui-input" id="test1" placeholder="选择日期">
+					</div>
+				</div>
+
+				<input type="submit" name="" id="" value="查询" class="layui-btn layui-btn-normal" style="width: 70px;height: 35px;margin-left: 90px;" onclick="checkform()" />
+			</div>
+			<div align="center">
+				<img src="../../img/tu.png" style="margin-top: 80px;width: 99%;">
+			</div>
+			<table class="layui-hide" id="test"></table>
+		</from>
+		<script src="../../layui/layui.js"></script>
+		<script>
+			layui.use('table', function() {
+				var table = layui.table;
+				table.render({
+					elem: '#test',
+					url: '/demo/table/user/',
+					cols: [
+						[{
+							type: 'checkbox'
+						}, {
+							field: 'id',
+							width: 500,
+							title: '药品名称',
+							sort: true
+						}, {
+							field: 'username',
+							width: 100,
+							title: '单价'
+						}, {
+							field: 'sex',
+							width: 100,
+							title: '数量',
+						}, {
+							field: 'city',
+							width: 100,
+							title: '药品状态'
+						}, {
+							field: 'sign',
+							title: '开立医生',
+							minWidth: 100
+						}, {
+							field: 'experience',
+							width: 100,
+							title: '处方名称',
+						}, {
+							field: 'score',
+							width: 100,
+							title: '时间',
+						}, ]
+					],
+					page: true
+				});
+			});
+
+			layui.use('laydate', function() {
+				var laydate1 = layui.laydate;
+				var laydate2 = layui.laydate;
+				//日期时间选择器
+				laydate1.render({
+					elem: '#test1',
+					type: 'datetime'
+				});
+				laydate2.render({
+					elem: '#text2',
+					type: 'datetime'
+				});
+				laydate2.render({
+					elem: '#text3',
+					type: 'datetime'
+				});
+				laydate2.render({
+					elem: '#text4',
+					type: 'datetime'
+				});
+			});
+
+			function checkform() {
+				if(document.getElementById('ipt1').value.length == 0) {
+					alert('请输入病例号！');
+					document.getElementById('ipt1').focus();
+					return false;
+				}
+				//					if(document.getElementById('ipt1').value == "") {
+				//						alert('请输入病例号！');
+				//						document.getElementById('ipt1').focus();
+				//						return false;
+				//					}
+			}
+		</script>
+	</body>
+
+</html>

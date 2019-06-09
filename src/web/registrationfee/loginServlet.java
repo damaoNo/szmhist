@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(urlPatterns ="/login/logins")
+@WebServlet(urlPatterns ="/login")
 public class loginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       System.out.println("asd");
-
+       System.out.println("接收到请求");
+        System.out.println(request.getHeaderNames());
        if(request.getParameter("account").equals("root")&&request.getParameter("password").equals("root")){
            System.out.println("进入登录");
            LoginMessage ms=new LoginMessage();
@@ -24,12 +24,21 @@ public class loginServlet extends HttpServlet {
            ms.setStr("this is www ding min");
 //           JSONObject json=JSONObject.fromObject(ms);
 //           String str=json.toString();
-           ObjectMapper mapper=new ObjectMapper();
-
-           String usersjson=mapper.writeValueAsString(ms);
+//           ObjectMapper mapper=new ObjectMapper();
+//
+//           String usersjson=mapper.writeValueAsString(ms);
            PrintWriter pw=response.getWriter();
-           pw.println(usersjson);
+
+           String url="localhost:8888/his/html/main.html";
+           pw.println(url);
            pw.flush();
+           pw.close();
+//           pw.println(usersjson);
+//           pw.flush();
+//           System.out.println(usersjson);
+//           pw.close();
+           /*response.sendRedirect(request.getContextPath()+"/html/main.html");
+           System.out.println(request.getContextPath()+"/html/main.html");*/
        }
 
     }

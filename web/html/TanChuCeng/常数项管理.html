@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta charset="UTF-8">
+			<title>常数项管理</title>
+			<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+	</head>
+	<body>
+		
+		<div style="text-align:center;">
+			<h2>常数项管理</h2>
+		</div>
+		<br />		
+		<div style="text-align:center;">
+			<input style="height: 30px;" type="text" name="" id="" value="" placeholder="输入常数项编码或名称" />
+			<select style="height: 30px;">
+				<option>所属分类</option>
+				<option>ii</option>
+				<option>ii</option>
+				<option>523</option>
+				<option>45</option>
+				<option>34</option>
+				<option>药品剂型</option>
+				<option>药品类型</option>
+				<option>医生职称</option>
+				<option>性别类型</option>
+				<option>收费方式</option>
+				<option>科室分类</option>
+			</select>
+			<input class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-left: 20px;" type="submit" name="" id="" value="查询常数项" />
+			<button id="qwqw" class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;">新增常数项</button>
+		</div>
+		<table class="layui-hide" id="test"></table>
+		<!--<div style="text-align:center;">
+		<input class="layui-btn layui-btn-normal" style="width: 70px;height: 35px;" type="reset" name="" id="" value="清空" />
+		</div>-->
+		
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>	
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../../layui/layui.js" charset="utf-8"></script>
+		<script>
+			layui.use('table', function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#test',
+					url: '/demo/table/user/',
+					cols: [
+						[{
+							type: 'checkbox'
+						}, {
+							field: '常数项编码',
+							title: '常数项编码',
+						}, {
+							field: '常数项名称',
+							title: '常数项名称'
+						}, {
+							field: '常数项类别',
+							title: '常数项类别',
+						}, {
+							field: '常数项ID',
+							title: '常数项ID'
+						}, {
+							field: '操作',
+							title: '操作',
+						}]
+					],
+					page: true
+				});
+				$('#qwqw').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '新增常数项',
+						maxmin: true,
+						area: ['800px', '350px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '新增常数项.html',
+						btn: '关闭'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

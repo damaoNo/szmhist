@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>疾病列表</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+	</head>
+
+	<body>
+			<br />
+			<div style="text-align:center;">
+				<h2>疾病列表</h2>
+			</div>
+			<br />
+			<div style="text-align:center;">
+				<input style="height: 30px;" type="text" name="" id="" value="" placeholder="请输入疾病编码或名称" />
+				<input class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-left: 20px;" type="submit" name="" id="" value="查询疾病" />
+				<button id="qwqw" class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-left: 20px;">新增疾病</button>
+			</div>
+			<br />
+			<table class="layui-hide" id="test" lay-filter="test"></table>
+			<!--<div style="text-align:center;">
+				<input class="layui-btn layui-btn-normal" style="width: 70px;height: 35px;" type="reset" id="" value="清空" />
+			</div>-->
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../../layui/layui.js" charset="utf-8"></script>
+		<script>
+			layui.use('table', function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#test',
+					url: '/test/table/demo1.json',
+					toolbar: '#toolbarDemo',
+					title: '用户数据表',
+					totalRow: true,
+					cols: [
+						[{
+							type: 'checkbox',
+							fixed: 'left'
+						}, {
+							field: '疾病编码',
+							title: '疾病编码',
+							width: 150,
+						}, {
+							field: '疾病名称',
+							title: '疾病名称',
+							width: 150,
+						}, {
+							field: '国际ICD编码',
+							title: '国际ICD编码',
+							width: 150,
+						}, {
+							field: '疾病所属分类',
+							title: '疾病所属分类',
+							width: 150
+						}, {
+							fixed: 'right',
+							title: '操作',
+							toolbar: '#barDemo',
+							width: 150
+						}]
+					],
+					page: true
+				});
+
+				//工具栏事件
+				table.on('toolbar(test)', function(obj) {
+					var checkStatus = table.checkStatus(obj.config.id);
+					switch(obj.event) {
+						case 'getCheckData':
+							var data = checkStatus.data;
+							layer.alert(JSON.stringify(data));
+							break;
+						case 'getCheckLength':
+							var data = checkStatus.data;
+							layer.msg('选中了：' + data.length + ' 个');
+							break;
+						case 'isAll':
+							layer.msg(checkStatus.isAll ? '全选' : '未全选')
+							break;
+					};
+				});
+				$('#qwqw').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '新增疾病',
+						maxmin: true,
+						area: ['600px', '420px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '新增疾病.html',
+						btn: '关闭'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

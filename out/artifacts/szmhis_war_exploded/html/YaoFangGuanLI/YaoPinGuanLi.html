@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>药房管理-药品管理</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+	</head>
+
+	<body>
+		<from>
+			<br />
+			<input style="width: 263px;height: 30px; margin-left: 40px;margin-right: 20px;" name="" value="" placeholder="请输入药品助剂码" />
+			<i class="layui-icon">&#xe615;</i><input class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-right: 150px;" type="submit" name="" value="查询药品" />
+			<i class="layui-icon">&#xe642;</i>
+			<button id="qwqw" class="layui-btn layui-btn-normal" style="margin-right: 40px;width: 120px;height: 35px;" data-method="offset" data-type="auto">新增药品</button>
+			<i class="layui-icon">&#xe654;</i><input class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;" type="submit" name="" value="导入药品" />
+
+			<table class="layui-hide" id="test" lay-filter="test"></table>
+		</from>
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../../layui/layui.js" charset="utf-8"></script>
+		<script>
+			layui.use(['table', 'layer'], function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#test',
+					url: '/test/table/demo1.json',
+					toolbar: '#toolbarDemo',
+					title: '用户数据表',
+					cols: [
+						[{
+							type: 'checkbox',
+							fixed: 'left'
+						}, {
+							field: 'id',
+							title: '药品编码',
+							width: 150,
+							fixed: 'left',
+							unresize: true,
+							sort: true
+						}, {
+							field: 'username',
+							title: '药品名称',
+							width: 150,
+							edit: 'text',
+						}, {
+							field: 'email',
+							title: '药品规格',
+							width: 150,
+							edit: 'text',
+							templet: function(res) {
+								return '<em>' + res.email + '</em>'
+							}
+						}, {
+							field: 'sex',
+							title: '药品单位',
+							width: 150,
+							edit: 'text',
+						}, {
+							field: 'city',
+							title: '药品单价',
+							width: 150
+						}, {
+							field: 'sign',
+							title: '药品剂型',
+							width: 150
+						}, {
+							field: 'experience',
+							title: '药品类型',
+							width: 150,
+						}, {
+							fixed: 'right',
+							title: '操作',
+							toolbar: '#barDemo',
+							width: 300
+						}]
+					],
+					page: true
+				});
+				//头工具栏事件
+				table.on('toolbar(test)', function(obj) {
+					var checkStatus = table.checkStatus(obj.config.id);
+					switch(obj.event) {
+						case 'getCheckData':
+							var data = checkStatus.data;
+							layer.alert(JSON.stringify(data));
+							break;
+						case 'getCheckLength':
+							var data = checkStatus.data;
+							layer.msg('选中了：' + data.length + ' 个');
+							break;
+						case 'isAll':
+							layer.msg(checkStatus.isAll ? '全选' : '未全选');
+							break;
+					};
+				});
+
+				//监听行工具事件
+				table.on('tool(test)', function(obj) {
+					var data = obj.data;
+					//console.log(obj)
+					if(obj.event === 'del') {
+						layer.confirm('真的删除行么', function(index) {
+							obj.del();
+							layer.close(index);
+						});
+					} else if(obj.event === 'edit') {
+						layer.prompt({
+							formType: 2,
+							value: data.email
+						}, function(value, index) {
+							obj.update({
+								email: value
+							});
+							layer.close(index);
+						});
+					}
+				});
+				$('#qwqw').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '新增药品',
+						maxmin: true,
+						area: ['800px', '600px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '../TanChuCeng/新增药品.html',
+						btn: '关闭'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

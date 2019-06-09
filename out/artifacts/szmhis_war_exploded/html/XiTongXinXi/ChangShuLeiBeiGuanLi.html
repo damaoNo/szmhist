@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>常数类别管理</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+	</head>
+
+	<body>
+		<from>
+			<br />
+			<input type="text" name="" id="" style="margin-left: 30px;height: 30px;" placeholder="请输入常数类别编码或名称" />
+			<input class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-left: 20px;" type="submit" name="" id="" value="查询常数类别" />
+			<button id="qwqw" class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-left: 80px;">新增常数类别</button>
+			<button id="qeqe" class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-left: 80px;">常数项管理</button>
+			<table class="layui-hide" id="test"></table>
+		</from>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use('table', function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#test',
+					url: '/demo/table/user/',
+					cols: [
+						[{
+							type: 'checkbox'
+						}, {
+							field: '类别编码',
+							title: '类别编码',
+						}, {
+							field: '类别名称',
+							title: '类别名称'
+						}, {
+							field: 'ID',
+							title: 'ID',
+						}]
+					],
+					page: true
+				});
+				$('#qwqw').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '新增常数类别',
+						maxmin: true,
+						area: ['800px', '520px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '../TanChuCeng/新增常数类别.html',
+						btn: '关闭'
+					});
+				});
+				$('#qeqe').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '常数项管理',
+						maxmin: true,
+						area: ['1000px', '650px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '../TanChuCeng/常数项管理.html',
+						btn: '关闭'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新增排班规则</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+		<link rel="stylesheet" type="text/css" href="../css/挂号界面样式表.css" />
+	</head>
+
+	<body>
+		<form>
+			<div style="text-align:center;">
+				<b style="font-size:20px;">新增排班规则</b>
+			</div>
+			<br />
+			<div style="text-align:center;">
+				<span>科室选择：</span>
+				<select style="width: 100px;height: 35px;">
+					<option>未选择</option>
+					<option>心血管内科</option>
+					<option>神经内科</option>
+					<option>普通内科</option>
+					<option>消化内科</option>
+					<option>呼吸内科</option>
+					<option>内分泌科</option>
+					<option>肾病内科</option>
+					<option>血液内科</option>
+					<option>感染内科</option>
+					<option>老年病内科</option>
+				</select>
+				<span>挂号级别：</span>
+				<select style="width: 70px;height: 35px;">
+					<option>无</option>
+					<option>专家号</option>
+					<option>普通号</option>
+				</select>
+				<input class="layui-btn layui-btn-normal" style="width: 80px;height: 35px;" type="submit" name="" id="" value="查询" />
+				<input class="layui-btn layui-btn-normal" style="width: 80px;height: 35px;" type="reset" name="" id="" value="清空" />
+			</div>
+			<table class="layui-hide" id="test"></table>
+			<div style="text-align:center;"><span>规则名称：</span>
+				<input style="height: 30px;" type="text" name="" id="" value="" placeholder="规则名称" /><span class="l_star">*</span><br />
+			</div>
+			<br />
+			<!--<div style="text-align:center;">
+				<input class="layui-btn layui-btn-normal" type="submit" name="" id="" value="取消" style="height: 35px;"/>
+			</div>-->
+		</form>
+		<script src="../../layui/layui.js" charset="utf-8"></script>
+		<script>
+			layui.use('table', function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#test',
+					url: '/demo/table/user/',
+					cols: [
+						[{
+								type: 'checkbox',
+							}, {
+								field: '医生名称',
+								title: '医生名称'
+							}, {
+								field: '星期一 上午',
+								title: '星期一 上午',
+							}, {
+								field: '星期一 下午',
+								title: '星期一 下午'
+							}, {
+								field: '星期二 上午',
+								title: '星期二 上午',
+							}, {
+								field: '星期二 下午',
+								title: '星期二 下午',
+							}, {
+								field: '星期三 上午',
+								title: '星期三 上午',
+							}, {
+								field: '星期三 下午',
+								title: '星期三 下午'
+							}, {
+								field: '星期四 上午',
+								title: '星期四 上午',
+							},
+							{
+								field: '星期四 下午',
+								title: '星期四 下午'
+							}, {
+								field: '星期五 上午',
+								title: '星期五 上午'
+							},
+							{
+								field: '星期五 下午',
+								title: '星期五 下午'
+							},
+							{
+								field: '星期六 上午',
+								title: '星期六 上午'
+							},
+							{
+								field: '星期六 下午',
+								title: '星期六 下午'
+							}
+						]
+					],
+					page: true
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

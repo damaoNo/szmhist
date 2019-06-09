@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>门诊病例</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+	</head>
+
+	<body>
+		<!--左侧-->
+		<div class="layui-inline ">
+			<div id="">
+				<label>患者选择：</label>
+				<button class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe669;</i></button>
+				<div id="">
+					<span id="">患者名：</span>
+					<input type="text" style="height: 35px;" name="" id="" value="" placeholder="请输入患者名" />
+					<label for=""><i class="layui-icon">&#xe615;</i></label>
+				</div>
+				<!--左侧tab选项卡-->
+				<div class="layui-tab layui-inline">
+					<ul class="layui-tab-title">
+						<li class="layui-this">本人</li>
+						<li>科室*</li>
+					</ul>
+					<div class="layui-tab-content">
+						<!--本人-->
+						<div class="layui-tab-item layui-show">
+							<!--未诊患者-->
+							<table class="layui-table" lay-skin="line">
+								<thead>
+									<td colspan="3">未诊患者：</td>
+								</thead>
+								<tbody>
+									<tr>
+										<td>600601</td>
+										<td>杜甫</td>
+										<td>17</td>
+									</tr>
+									<tr>
+										<td>张爱玲</td>
+										<td>汉族</td>
+										<td>1920-09-30</td>
+									</tr>
+								</tbody>
+							</table>
+							<!--已诊患者-->
+							<table class="layui-table" lay-skin="line">
+								<thead>
+									<td colspan="3">已诊患者：</td>
+								</thead>
+								<tbody>
+									<tr>
+										<td>600601</td>
+										<td>杜甫</td>
+										<td>17</td>
+									</tr>
+									<tr>
+										<td>张爱玲</td>
+										<td>汉族</td>
+										<td>1920-09-30</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!--科室-->
+						<div class="layui-tab-item">
+							<!--未诊患者-->
+							<table class="layui-table" lay-skin="line">
+								<thead>
+									<td colspan="3">未诊患者：</td>
+								</thead>
+								<tbody>
+									<tr>
+										<td>600601</td>
+										<td>杜甫</td>
+										<td>17</td>
+									</tr>
+									<tr>
+										<td>01212124547</td>
+										<td>汉族</td>
+										<td>1920-09-30</td>
+									</tr>
+								</tbody>
+							</table>
+							<!--已诊患者-->
+							<table class="layui-table" lay-skin="line">
+								<thead>
+									<td colspan="3">已诊患者：</td>
+								</thead>
+								<tbody>
+									<tr>
+										<td>600601</td>
+										<td>易慧丹</td>
+										<td>32</td>
+									</tr>
+									<tr>
+										<td>01212124546</td>
+										<td>桂龙成</td>
+										<td>1920-09-30</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--右侧-->
+		<div class="layui-tab layui-tab-card layui-inline" style="width: 80%;">
+			<!--隐藏患者&请选择患者-->
+			<div id="">
+				<label for="" class="layui-btn layui-btn-normal">隐藏患者栏</label>
+				<span>请选择患者</span>
+			</div>
+			<!--tab选项内容-->
+			<ul class="layui-tab-title">
+				<li class="layui-this">病例首页</li>
+				<li>检查申请</li>
+				<li>检验申请*</li>
+				<li>门诊确诊*</li>
+				<li>处置申请*</li>
+				<li>成药处方</li>
+				<li>草药处方*</li>
+				<li>费用查询*</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<ul class="layui-inline">
+						<li class="layui-inline"><label for=""><i class="layui-icon">&#xe60a;</i>暂存</label></li>
+						<li class="layui-inline"><label for=""><i class="layui-icon">&#x1005;</i>提交</label></li>
+						<li class="layui-inline"><label for=""><i class="layui-icon">&#xe640;</i>清空所有</label></li>
+						<li><label for=""><i class="layui-icon">&#xe61f;</i>刷新</label></li>
+						<li><label for="" class="layui-btn layui-btn-normal">病史内容</label></li>
+					</ul>
+					<!-----------------------------------------------表单病史内容------------------------------------------------------>
+					<form action="" method="post" style="height: 95%;width: 95%;">
+						<table border="0" cellspacing="1" cellpadding="1">
+							<tr>
+								<td>主诉</td>
+								<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+							</tr>
+							<tr>
+								<td>现病史</td>
+								<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+							</tr>
+							<tr>
+								<td>现病治疗情况</td>
+								<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+							</tr>
+							<tr>
+								<td>既往史</td>
+								<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+							</tr>
+							<tr>
+								<td>过敏史</td>
+								<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+							</tr>
+							<tr>
+								<td>体格检查</td>
+								<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+							</tr>
+							</tabel>
+							<!-------------------------------------------------评估诊断--------------------------------------------------------->
+							<tabel>
+								<table border="0" cellspacing="" cellpadding="">
+									<tr>
+										<th>
+											<h1>西医诊断</h1></th>
+									</tr>
+									<tr>
+										<table class="layui-hide" id="xiyizhengduan" lay-filter="xiyizhengduan"></table>
+									</tr>
+								</table>
+							</tabel>
+					</form>
+				</div>
+				<div class="layui-tab-item">
+					<div style="text-align:center;">
+						<button id="qwqw" class="layui-btn layui-btn-normal">新增项目</button>
+						<button class="layui-btn layui-btn-normal">删除项目</button>
+						<button class="layui-btn layui-btn-normal">开立项目</button>
+						<button class="layui-btn layui-btn-normal">作废项目</button>
+						<button class="layui-btn layui-btn-normal">存为组套</button>
+						<button class="layui-btn layui-btn-normal">刷新</button>
+					</div>
+					<br />
+					<table class="layui-hide" id="test"></table>
+				</div>
+				<div class="layui-tab-item">检验申请*</div>
+				<div class="layui-tab-item">门诊确诊*</div>
+				<div class="layui-tab-item">处置申请*</div>
+				<div class="layui-tab-item">成药处方</div>
+			</div>
+		</div>
+			<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use(['element', 'table'], function() {
+				var element = layui.element,
+					table = layui.table;
+				//一些事件监听
+				//						element.on('tab(demo)', function(data) {
+				//							console.log(data);
+				//						});
+				//						//						执行一个table实列
+				//						table.render({
+				//							elem: '#xiyizhengduan',
+				//							url: '/test/table/demo1.json',
+				//							toolbar: '#toolbarDemo',
+				//							title: '用户数据表',
+				//							cols: [
+				//								[{
+				//										type: 'checkbox',
+				//										fixed: 'left'
+				//									}, {
+				//										field: 'id',
+				//										title: 'ICD编码',
+				//										width: 80,
+				//										fixed: 'left',
+				//										unresize: true,
+				//									}, {
+				//										field: 'username',
+				//										title: '名称',
+				//										width: 120,
+				//										edit: 'text'
+				//									},
+				//									{
+				//										field: 'date',
+				//										title: '发病时间',
+				//										width: 100
+				//									}
+				//								]
+				//							]
+				//						page: true
+			})
+		</script>
+		<script>
+			layui.use('table', function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#test',
+					url: '/demo/table/user/',
+					cols: [
+						[{
+							type: 'checkbox'
+						}, {
+							field: '申请名称',
+							title: '申请名称'
+						}, {
+							field: '项目名称',
+							title: '项目名称'
+						}, {
+							field: '执行科室',
+							title: '执行科室'
+						}, {
+							field: '执行状态',
+							title: '城市'
+						}, {
+							field: '单价',
+							title: '单价'
+						}, {
+							field: '检查结果',
+							title: '检查结果'
+						}]
+					],
+					page: true
+				});
+				$('#qwqw').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '新增医技',
+						maxmin: true,
+						area: ['800px', '520px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '../TanChuCeng/-XinZenXiangmu.html',
+						btn: '关闭'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

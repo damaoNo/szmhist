@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>财务管理-门诊医生工作量统计</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+	</head>
+
+	<body>
+		<from>
+			<div style="margin-top: 30px;">
+				<span style="margin-left: 30px;">统计时间从：</span>
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						<input type="text" class="layui-input" id="test1" placeholder="选择日期">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						<input type="text" class="layui-input" id="text2" placeholder="任意时间点">
+					</div>
+				</div>
+				<span>到：</span>
+
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						<input type="text" class="layui-input" id="text3" placeholder="选择日期">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<div class="layui-input-inline">
+						<input type="text" class="layui-input" id="text4" placeholder="任意时间点">
+					</div>
+				</div>
+				<input class="layui-btn layui-btn-normal" type="submit" name="" id="" value="查询" style="width: 70px;height: 35px;margin-left: 85px;" />
+			</div>
+			<br />
+			<span style="font-size: 17px;">门诊医生工作量统计</span>
+			<table class="layui-table">
+				<colgroup>
+					<col width="150">
+					<col width="200">
+					<col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>医生姓名</th>
+						<th>看诊人数</th>
+						<th>发票数量</th>
+						<th>西药费</th>
+						<th>中成药</th>
+						<th>中草药</th>
+						<th>挂号费</th>
+						<th>诊查费</th>
+						<th>检查费</th>
+						<th>检验费</th>
+						<th>治疗费</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>赵四</td>
+						<td>20</td>
+						<td>20</td>
+						<td>100</td>
+						<td>200</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+					</tr>
+					<tr>
+						<td>谢广坤</td>
+						<td>20</td>
+						<td>20</td>
+						<td>100</td>
+						<td>200</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+					</tr>
+					<tr>
+						<td>刘能</td>
+						<td>20</td>
+						<td>20</td>
+						<td>100</td>
+						<td>200</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+						<td>300</td>
+					</tr>
+				</tbody>
+			</table>
+		</from>
+		<script src="../../layui/layui.js"></script>
+		<script>
+			layui.use('laydate', function() {
+				var laydate1 = layui.laydate;
+				var laydate2 = layui.laydate;
+				var laydate3 = layui.laydate;
+				var laydate4 = layui.laydate;
+				//日期时间选择器
+				laydate1.render({
+					elem: '#test1',
+					type: 'datetime'
+				});
+				laydate2.render({
+					elem: '#text2',
+					type: 'datetime'
+				});
+				laydate2.render({
+					elem: '#text3',
+					type: 'datetime'
+				});
+				laydate2.render({
+					elem: '#text4',
+					type: 'datetime'
+				});
+			});
+		</script>
+	</body>
+
+</html>

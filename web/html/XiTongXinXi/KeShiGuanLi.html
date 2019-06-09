@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>科室管理</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+	</head>
+	<from>
+
+		<body>
+			<br />
+			<input style="margin-left: 30px;height: 30px;" type="text" name="" id="" value="" placeholder="请输入科室编号或名称" />
+			<input class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-left: 40px;" type="submit" name="" id="" value="查询科室" />
+			<button id="qwqw" class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-left: 40px;">新增科室</button>
+			<br />
+			<table class="layui-hide" id="test" lay-filter="test"></table>
+	</from>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/html" id="barDemo">
+		<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	</script>
+	<script>
+		layui.use('table', function() {
+			var table = layui.table;
+
+			table.render({
+				elem: '#test',
+				url: '/test/table/demo1.json',
+				toolbar: '#toolbarDemo',
+				title: '用户数据表',
+				totalRow: true,
+				cols: [
+					[{
+						type: 'checkbox',
+						fixed: 'left'
+					}, {
+						field: '科室编号',
+						title: '科室编号',
+					}, {
+						field: '科室名称',
+						title: '科室名称',
+					}, {
+						field: '科室分类',
+						title: '科室分类',
+					}, {
+						field: '科室类型',
+						title: '科室类型',
+					}, {
+						fixed: 'right',
+						title: '操作',
+						toolbar: '#barDemo',
+					}]
+				],
+				page: true
+			});
+
+			//工具栏事件
+			table.on('toolbar(test)', function(obj) {
+				var checkStatus = table.checkStatus(obj.config.id);
+				switch(obj.event) {
+					case 'getCheckData':
+						var data = checkStatus.data;
+						layer.alert(JSON.stringify(data));
+						break;
+					case 'getCheckLength':
+						var data = checkStatus.data;
+						layer.msg('选中了：' + data.length + ' 个');
+						break;
+					case 'isAll':
+						layer.msg(checkStatus.isAll ? '全选' : '未全选')
+						break;
+				};
+			});
+			$('#qwqw').on('click', function() {
+				layer.open({
+					type: 2,
+					title: '新增科室',
+					maxmin: true,
+					area: ['800px', '520px'],
+					shadeClose: true, //点击遮罩关闭层
+					content: '../TanChuCeng/新增科室.html',
+					btn: '关闭'
+				});
+			});
+		});
+	</script>
+	</body>
+
+</html>

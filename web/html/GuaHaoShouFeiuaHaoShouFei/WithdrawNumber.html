@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>退号</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/WithdrawNumber.css"/>
+	</head>
+
+	<body>
+
+		<form action="" method="post">
+			<!--患者信息查询-->
+			<h2>患者信息查询</h2>
+			<h3><span class="y_start">*</span> 病例号:</h3>
+			<input type="text" name="title" placeholder="病例号" autocomplete="off" class="y_input">
+			<button class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe615;</i>搜索</button>
+		</form><br />
+		<!--患者信息确认-->
+		<h2>患者信息确认</h2>
+		<table border="0" cellspacing="1" cellpadding="1" width="65%">
+			<tr>
+				<td>姓 名：<input type="text" name="title" placeholder="姓名" autocomplete="off" class="y_input"> </td>
+				<td>身份证号：<input type="text" name="title" placeholder="身份信息" autocomplete="off" class="y_input"> </td>
+				<td>家庭地址：<input type="text" name="title" placeholder="家庭住址" autocomplete="off" class="y_input"> </td>
+			</tr>
+		</table><br/>
+		<!--患者挂号信息-->
+		<h2>患者挂号确认</h2>
+		<table class="layui-table" lay-skin="line">
+			<colgroup>
+				<col width="150">
+				<col width="200">
+				<col>
+			</colgroup>
+			<table class="layui-table">
+				<thead>
+					<tr>
+						<th>病例号</th>
+						<th>姓名</th>
+						<th>身份证号</th>
+						<th>挂号日期</th>
+						<th>挂号午别</th>
+						<th>看诊科室</th>
+						<th>看诊状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="8">暂无数据</td>
+					</tr>
+				</tbody>
+			</table>
+
+	</body>
+
+</html>

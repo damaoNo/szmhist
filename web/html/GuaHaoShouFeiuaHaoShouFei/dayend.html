@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>日结</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+		<link rel="stylesheet" type="text/css" href="../../css/WithdrawNumber.css"/>
+	</head>
+
+	<body>
+		<form action="" method="post">
+			<!--收款员-->
+			<div class="layui-inline">
+				<label class="layui-form-label">收款员</label>
+				<div class="layui-input-inline">
+					<select name="modules" lay-verify="required" lay-search="" class="y_input">
+						<option value="">收款员</option>
+						<option value="1">layer</option>
+						<option value="2">form</option>
+					</select>
+					<span class="y_start">*</span>
+				</div>
+			</div>
+			<!--统计日期-->
+			<div class="layui-inline">
+				<label class="layui-form-label">统计日期（上次结束时间）</label>
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input laydate" id="dayup" placeholder="yyyy-MM-dd HH:mm:ss">
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input laydate" id="daydown" placeholder="yyyy-MM-dd HH:mm:ss">
+				</div>
+				<button type="submit" class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe615;</i>日结</button>
+				<button type="submit" class="layui-btn layui-btn-normal"><i class="layui-icon">&#x1005;</i>保存</button>
+			</div>
+			<!--门诊收费日结单-->
+			<div id="">
+				<p>门诊收费日结单</p>
+				<table border="1" width="600" cellpadding="0" style="border-color: red;" >
+					<tr>
+						<td >日结时间范围</td>
+						<td colspan="7">2018-12-12 18:00:00----2018-12-13 18:00:00</td>
+					</tr>
+					<tr>
+						<td>制表人</td>
+						<td>张三</td>
+						<td>收款员</td>
+						<td>张三</td>
+						<td>制表时间</td>
+						<td td colspan="2">2018-12-30</td>
+					</tr>
+					<tr>
+						<td>起止发票号</td>
+						<td colspan="7">10001----83455</td>
+					</tr>
+					<tr>
+						<td>作废发票号</td>
+						<td colspan="7">10003 70048 81890</td>
+					</tr>
+					<tr>
+						<td>重打发票号</td>
+						<td colspan="7">12997</td>
+					</tr>
+					<tr>
+						<td>收费金额</td>
+						<td>挂号费</td>
+						<td>500.00</td>
+						<td>药费</td>
+						<td>1000.00</td>
+						<td>其他费用</td>
+						<td>30.00</td>
+					</tr>
+					<tr>
+						<td>共计</td>
+						<td>（大写）</td>
+						<td colspan="3">壹仟伍佰叁拾</td>
+						<td>（小写）</td>
+						<td>1530.00</td>
+					</tr>
+				</table>
+			</div>
+
+		</form>
+
+		<script src="../../layui/layui.js"></script>
+		<script>
+			layui.use('laydate', function() {
+				var laydateup = layui.laydate;
+				var laydatedown = layui.laydate;
+				//日期时间选择器
+				laydateup.render({
+					elem: '#dayup',
+					type: 'datetime'
+				});
+				laydatedown.render({
+					elem: '#daydown',
+					type: 'datetime'
+				});
+			});
+		</script>
+	</body>
+
+</html>

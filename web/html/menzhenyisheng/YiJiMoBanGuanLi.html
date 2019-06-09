@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>医技模版管理</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+	</head>
+
+	<body>
+		<!--------------------------------右侧------------------------------------->
+		<div class="layui-inline">
+			<!--医技模版上部分表单-->
+			<div id="">
+				<label for="" class="layui-btn layui-btn-normal">医技模版</label>
+				<button><i class="layui-icon">&#xe608;</i>新建模版</button>
+				<form action="">
+					<table border="0" cellspacing="" cellpadding="" style="border-collapse:separate; border-spacing:10px 10px;">
+						<tr>
+							<td>名称：</td>
+							<td><input type="text" name="name" lay-verify="required" placeholder="输入模版名称" autocomplete="off" class=" layui-input-inline"></td>
+						</tr>
+						<tr>
+							<td>范围：</td>
+							<td>
+								<select name="">
+									<option value="">所有</option>
+									<option value="">全院</option>
+									<option value="">科室</option>
+									<option value="">个人</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>记录类型：</td>
+							<td>
+								<select name="">
+									<option value="">所有</option>
+									<option value="">全院</option>
+									<option value="">科室</option>
+									<option value="">个人</option>
+								</select>
+							</td>
+							<td>
+								<button class="layui-btn layui-btn-sm layui-bg-blue">查询</button>
+							</td>
+						</tr>
+						</tabel>
+				</form>
+			</div>
+			<!--医技模版表单-->
+			<!--<div style="overflow-x: scroll;height: 100px; width:200px;">-->
+			<table class="layui-table" lay-skin="line">
+				<colgroup>
+					<col width="150">
+					<col width="150">
+					<col width="200">
+					<col width="200">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>模版名称</th>
+						<th>创建时间</th>
+						<th>范围</th>
+						<th>类型</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>小儿感冒</td>
+						<td>2019-03-22 16:46</td>
+						<td>个人</td>
+						<td>检查</td>
+					</tr>
+					<tr>
+						<td>腱鞘炎</td>
+						<td>2019-03-22 16:47</td>
+						<td>个人</td>
+						<td>检查</td>
+					</tr>
+					<tr>
+						<td>肩周炎</td>
+						<td>2019-03-22 16:48</td>
+						<td>个人</td>
+						<td>检查</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!------------------------------左侧模版操作---------------------------------------->
+		<!--头部-->
+		<div class="layui-inline">
+			<div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">
+				<label for="" class="layui-btn layui-btn-normal">操作：</label>
+				<button data-method="offset" data-type="auto" class="layui-btn layui-btn-primary"><i class="layui-icon ">&#xe605;</i>修改模版</button>
+				<button data-method="offset2" data-type="auto" class="layui-btn layui-btn-primary"><i class="layui-icon ">&#x1006;</i>删除模版</button>
+			</div>
+			<!--模版明细-->
+			<label for="">模版明细：</label>
+			<table border="0" cellspacing="" cellpadding="" style="border-collapse:separate; border-spacing:10px 10px;">
+				<tr>
+					<td>模版名称</td>
+					<td><input type="text" name="name" lay-verify="required" placeholder="" autocomplete="off" class=" layui-input-inline"></td>
+				</tr>
+				<tr>
+					<td>创建时间</td>
+					<td><input type="text" class="layui-input laydate" id="creattime" placeholder="yyyy-MM-dd HH:mm:ss"></td>
+				</tr>
+				<tr>
+					<td>模版范围</td>
+					<td>
+						<select name="">
+							<option value="">全院</option>
+							<option value="">科室</option>
+							<option value="">个人</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>记录类型</td>
+					<td>
+						<select name="">
+							<option value="">处置</option>
+							<option value="">检验</option>
+							<option value="">检查</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<!--增加检验项目-->
+			<button id="addjian" style="margin-right: 40px;" data-method="offset" data-type="auto">增加检验项目</button>
+			<table class="layui-table" lay-skin="line">
+				<colgroup>
+					<col width="150">
+					<col width="200">
+					<col>
+				</colgroup>
+				<table class="layui-table">
+					<thead>
+						<tr>
+							<th>项目编码</th>
+							<th>项目名称</th>
+							<th>项目规格</th>
+							<th>检查部位</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="8">暂无数据</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+
+		</div>
+
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		layui.use(['layer', 'laydate'], function() {
+			var $ = layui.jquery,
+				layer1 = layui.layer;
+			laydate = layui.laydate;
+			laydate.render({
+				elem: '#creattime',
+				type: 'datetime',
+				value: '2017-09-10 00:00:00',
+				trigger: 'click'
+			});
+			var active = {
+				offset: function(othis) {
+					var type = othis.data('type'),
+						text = othis.text();
+					layer.open({
+						type: 1,
+						title: '提示',
+						offset: type,
+						id: 'layerDemo' + type, //防止重复弹出
+						content: '<i class="layui-icon layui-bg-orange">&#xe60b;</i>此操作将修改模版信息，是否继续？',
+						btn: ['确认', '取消'],
+						shade: 0, //不显示遮罩
+						yes: function() {
+							$(that).click();
+						},
+						btn2: function() {
+							layer.closeAll();
+							layer.click(
+								layer.open({
+									type: 0,
+									title: false,
+									offset: '10px',
+									content: '已取消'
+								})
+							);
+						}
+					});
+				},
+				offset2: function(othis) {
+					var type = othis.data('type'),
+						text = othis.text();
+					layer.open({
+						type: 1,
+						title: '提示',
+						offset: type,
+						id: 'layerDemo' + type, //防止重复弹出
+						content: '<i class="layui-icon layui-bg-orange">&#xe60b;</i>此操作将删除模版信息，是否继续？',
+						btn: ['确认', '取消'],
+						shade: 0, //不显示遮罩
+						yes: function() {
+							layer.closeAll();
+							layer.click(layer.open({
+								type: 0,
+								title: false,
+								offset: '10px',
+								content: '已删除'
+							}));
+						},
+						btn2: function() {
+							layer.closeAll();
+						}
+					});
+				}
+			};
+			$('#layerDemo .layui-btn').on('click', function() {
+				var othis = $(this),
+					method = othis.data('method');
+				active[method] ? active[method].call(this, othis) : '';
+			});
+		});
+		$('#addjian').on('click', function() {
+			layer.open({
+				type: 2,
+				title: '<h1>新增医技</h1>',
+				maxmin: true,
+				area: ['800px', '520px'],
+				shadeClose: true,
+				btn: '关闭', //点击遮罩关闭层
+				content: 'AddYJi.html'
+			});
+		});
+	</script>
+
+</html>

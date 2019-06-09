@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>系统信息-医生排班管理</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/GuaHaoJieMian.css"/>
+	</head>
+
+	<body>
+		<from>
+			<div style="margin-top: 30px;">
+				<span class="l_star" style="margin-left: 60px;">*</span>
+				<span>开始时间：</span>
+				<div class="layui-inline">
+					<!--<label class="layui-form-label">统计时间从：</label>-->
+					<div class="layui-input-inline">
+						<input type="text" class="layui-input" id="test1" placeholder="选择日期">
+					</div>
+				</div>
+				<span style="margin-left: 20px;">结束时间：</span>
+				<div class="layui-inline" style="margin-right: 20px;">
+					<div class="layui-input-inline">
+						<input type="text" class="layui-input" id="text2" placeholder="选择日期">
+					</div>
+				</div>
+				<i class="layui-icon">&#xe615;</i><input class="layui-btn layui-btn-normal" type="submit" name="" id="" value="查询医生排班" style="width: 120px;height: 35px;margin-right: 20px;" />
+				<i class="layui-icon">&#xe642;</i><button id="qwqw" class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-right: 20px;" />新增排班规则</button>
+				<i class="layui-icon">&#xe615;</i><button id="qeqe" class="layui-btn layui-btn-normal" style="width: 230px;height: 35px;" />查询排班规则（生成排班计划）</button>
+			</div>
+			<br />
+			<table class="layui-hide" id="test"></table>
+		</from>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			layui.use('laydate', function() {
+				var laydate1 = layui.laydate;
+				var laydate2 = layui.laydate;
+				//日期时间选择器
+				laydate1.render({
+					elem: '#test1',
+					type: 'datetime'
+				});
+				laydate2.render({
+					elem: '#text2',
+					type: 'datetime'
+				});
+			});
+
+			layui.use(['table', 'layer'], function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#test',
+					url: '/demo/table/user/',
+					cols: [
+						[{
+							type: 'checkbox',
+							width: 120
+						}, {
+							field: 'id',
+							width: 120,
+							title: '日期'
+						}, {
+							field: 'username',
+							width: 120,
+							title: '科室'
+						}, {
+							field: 'sex',
+							width: 120,
+							title: '医生'
+						}, {
+							field: 'city',
+							width: 120,
+							title: '午别'
+						}, {
+							field: 'sign',
+							width: 120,
+							title: '挂号级别'
+						}, {
+							field: 'experience',
+							width: 120,
+							title: '挂号限额'
+						}]
+					],
+					page: true
+				});
+				$('#qwqw').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '新增排班规则',
+						maxmin: true,
+						area: ['95%', '520px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '../TanChuCeng/新增排班规则.html',
+						btn: '关闭'
+					});
+				});
+				$('#qeqe').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '排班规则列表',
+						maxmin: true,
+						area: ['95%', '520px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '../TanChuCeng/排班规则列表.html',
+						btn: '关闭'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

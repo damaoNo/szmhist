@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新增药品</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="../css/挂号界面样式表.css" media="all">
+	</head>
+
+	<body>
+		<form>
+			<div style="text-align:center;">
+				<h2 style="margin-top: 40px;">新增药品</h2>
+			</div>
+			<br />
+			<div style="margin:0 auto;width: 500px;">
+				<table border="0" cellspacing="1" cellpadding="1" id=l_yihaobiao width="80%" style="border-collapse:separate; border-spacing:50px 15px;">
+					<tr>
+						<td><span class="l_star">*</span>药品编码 <input style="height: 35px;" class="l_input" type="text" name="" id="" value="" placeholder="药品编码--14位" /></td>
+						<td><span class="l_star">*</span>药品名称 <input style="height: 35px;" class="l_input" type="text" name="" id="" value="" placeholder="药品名称" /></td>
+					</tr>
+					<tr>
+						<td>药品助剂码 <input class="l_input" style="height: 35px;" type="text" name="" id="" value="" placeholder="药品助剂码" /></td>
+						<td>药品规格 <input class="l_input" style="height: 35px;" type="text" name="" id="" value="" placeholder="药品规格" /></td>
+					</tr>
+					<tr>
+						<td>药品单位 <input class="l_input" style="height: 35px;" type="text" name="" id="" value="" placeholder="药品单位" /></td>
+						<td>药品单价 <input class="l_input" style="height: 35px;" type="text" name="" id="" value="" placeholder="药品单位" /></td>
+					</tr>
+					<tr>
+						<td><span>药品剂型</span>
+							<select style="height: 35px;">
+								<option>针剂ZJ</option>
+								<option>片剂PJ</option>
+								<option>中药饮片ZYYP</option>
+								<option>散剂SJ</option>
+							</select>
+						</td>
+						<td><span>药品类型</span>
+							<select style="height: 35px;">
+								<option>西药</option>
+								<option>中成药</option>
+								<option>中草药</option>
+							</select>
+					</tr>
+				</table>
+				<div style="text-align:center;">
+					<input type="reset" class="layui-btn layui-btn-normal" style="width: 70px;height: 35px;margin-right: 20px;" name="" id="" value="清空" />
+					<input class="layui-btn layui-btn-normal" style="width: 70px;height: 35px;" type="submit" name="" id="" value="保存" />
+				</div>
+			</div>
+		</form>
+	</body>
+
+</html>

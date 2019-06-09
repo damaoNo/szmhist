@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>系统信息-非药品收费管理</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/GuaHaoJieMian.css"/>
+	</head>
+
+	<body>
+		<from>
+			<div style="margin-top: 30px;">
+				<input type="text" name="" id="" value="" placeholder="请输入非药品项目编码或名称" style="margin-left: 60px;width: 200px;height: 30px;margin-right: 40px;" />
+				<i class="layui-icon">&#xe615;</i><input class="layui-btn layui-btn-normal" type="submit" name="" id="" value="查询非药品收费项目" style="width: 160px;height: 35px;margin-right: 20px;margin-right: 40px;" />
+				<i class="layui-icon">&#xe642;</i><button id="qwqw" class="layui-btn layui-btn-normal" style="width: 160px;height: 35px;">新增非药品收费项目</button>
+			</div>
+			<br />
+			<table class="layui-hide" id="test" lay-filter="test"></table>
+		</from>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script type="text/html" id="toolbarDemo">
+			<div class="layui-btn-container">
+				<button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+				<button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+				<button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+			</div>
+		</script>
+
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+		</script>-->
+		<script>
+			layui.use(['table', 'layer'], function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#test',
+					url: '/test/table/demo1.json',
+					toolbar: '#toolbarDemo',
+					title: '用户数据表',
+					cols: [
+						[{
+							type: 'checkbox',
+							width: 120,
+							fixed: 'left'
+						}, {
+							field: 'id',
+							title: '项目编码',
+							width: 120,
+							fixed: 'left',
+							unresize: true
+						}, {
+							field: 'username',
+							title: '项目名称',
+							width: 120,
+							edit: 'text'
+						}, {
+							field: 'email',
+							title: '项目类型',
+							width: 120,
+							edit: 'text'
+						}, {
+							field: 'sex',
+							title: '规格',
+							width: 120,
+							edit: 'text'
+						}, {
+							field: 'city',
+							title: '单价',
+							width: 120,
+							edit: 'text'
+						}, {
+							field: 'sign',
+							title: '费用科目',
+							width: 120,
+							edit: 'text'
+						}, {
+							field: 'experience',
+							title: '执行科室',
+							width: 120,
+							edit: 'text'
+						}, {
+							fixed: 'right',
+							title: '操作',
+							toolbar: '#barDemo',
+							width: 150
+						}]
+					],
+					page: true
+				});
+				//头工具栏事件
+				table.on('toolbar(test)', function(obj) {
+					var checkStatus = table.checkStatus(obj.config.id);
+					switch(obj.event) {
+						case 'getCheckData':
+							var data = checkStatus.data;
+							layer.alert(JSON.stringify(data));
+							break;
+						case 'getCheckLength':
+							var data = checkStatus.data;
+							layer.msg('选中了：' + data.length + ' 个');
+							break;
+						case 'isAll':
+							layer.msg(checkStatus.isAll ? '全选' : '未全选');
+							break;
+					};
+				});
+
+				//监听行工具事件
+				table.on('tool(test)', function(obj) {
+					var data = obj.data;
+					//console.log(obj)
+					if(obj.event === 'del') {
+						layer.confirm('真的删除行么', function(index) {
+							obj.del();
+							layer.close(index);
+						});
+					} else if(obj.event === 'edit') {
+						layer.prompt({
+							formType: 2,
+							value: data.email
+						}, function(value, index) {
+							obj.update({
+								email: value
+							});
+							layer.close(index);
+						});
+					}
+				});
+				$('#qwqw').on('click', function() {
+					layer.open({
+						type: 2,
+						title: 'TanChuCeng/新增非药品收费项目',
+						maxmin: true,
+						area: ['800px', '520px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '../TanChuCeng/新增非药品收费项目.html',
+						btn: '关闭'
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>日结查询</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+	</head>
+
+	<body>
+		<div>
+			<!--统计日期-->
+			<span>统计时间从：</span>
+			<div class="layui-inline">
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input laydate" id="dayup" placeholder="yyyy-MM-dd HH:mm:ss">
+				</div> 到：
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input laydate" id="daydown" placeholder="yyyy-MM-dd HH:mm:ss">
+				</div>
+				<button type="submit" class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe615;</i>查询</button>
+			</div>
+			<!--表单-->
+			<table border="1" cellspacing="0" cellpadding="0">
+				<tr>
+					<!--人员信息-->
+					<td>
+						<table class="layui-table">
+							<thead>
+								<tr>
+									<th>收款员</th>
+									<th>日结日期</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>张三</td>
+									<td>2018-12-12</td>
+								</tr>
+								<tr>
+									<td>李四</td>
+									<td>2018-12-13</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td>
+						<!--右侧详细信息-->
+						<div class="layui-tab">
+							<ul class="layui-tab-title">
+								<li class="layui-this">日结单</li>
+								<li>发票信息</li>
+							</ul>
+							<div class="layui-tab-content">
+								<div class="layui-tab-item layui-show">
+									<!--门诊收费日结单-->
+									<div id="">
+										<p>门诊收费日结单</p>
+										<table border="1" width="600" cellpadding="0" style="border-color: red;" >
+											<tr>
+												<td>日结时间范围</td>
+												<td colspan="7">2018-12-12 18:00:00----2018-12-13 18:00:00</td>
+											</tr>
+											<tr>
+												<td>制表人</td>
+												<td>张三</td>
+												<td>收款员</td>
+												<td>张三</td>
+												<td>制表时间</td>
+												<td td colspan="2">2018-12-30</td>
+											</tr>
+											<tr>
+												<td>起止发票号</td>
+												<td colspan="7">10001----83455</td>
+											</tr>
+											<tr>
+												<td>作废发票号</td>
+												<td colspan="7">10003 70048 81890</td>
+											</tr>
+											<tr>
+												<td>重打发票号</td>
+												<td colspan="7">12997</td>
+											</tr>
+											<tr>
+												<td>收费金额</td>
+												<td>挂号费</td>
+												<td>500.00</td>
+												<td>药费</td>
+												<td>1000.00</td>
+												<td>其他费用</td>
+												<td>30.00</td>
+											</tr>
+											<tr>
+												<td>共计</td>
+												<td>（大写）</td>
+												<td colspan="3">壹仟伍佰叁拾</td>
+												<td>（小写）</td>
+												<td>1530.00</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="layui-tab-item">
+									<!--发票信息-->
+									<table class="layui-table" lay-skin="line">
+										<colgroup>
+											<col width="150">
+											<col width="200">
+											<col>
+										</colgroup>
+										<table class="layui-table">
+											<thead>
+												<tr>
+													<th>单据号</th>
+													<th>病例号</th>
+													<th>姓名</th>
+													<th>发票总额</th>
+													<th>结算类别</th>
+													<th>状态</th>
+													<th>自费支付</th>
+													<th>账户</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>单据号</td>
+													<td>病例号</td>
+													<td>姓名</td>
+													<td>发票总额</td>
+													<td>结算类别</td>
+													<td>状态</td>
+													<td>自费支付</td>
+													<td>账户</td>
+												</tr>
+											</tbody>
+										</table>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				</table>
+		</div>
+	</body>
+	<script src="../../layui/layui.all.js"></script>
+	<script>
+		layui.use('laydate', function() {
+			var laydateup = layui.laydate;
+			var laydatedown = layui.laydate;
+			//日期时间选择器
+			laydateup.render({
+				elem: '#dayup',
+				type: 'datetime'
+			});
+			laydatedown.render({
+				elem: '#daydown',
+				type: 'datetime'
+			});
+		});
+	</script>
+
+</html>

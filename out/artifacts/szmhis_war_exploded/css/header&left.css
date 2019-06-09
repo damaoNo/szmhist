@@ -1,0 +1,19 @@
+.y_nav{
+
+	
+}
+#y_headerleft{
+	display: inline-block;
+	font-size: 28px;
+	color: white;
+	line-height: 100px;
+	margin-left: 30px;
+}
+#y_headerright{
+	margin-right: 22px;
+	top: 20%;
+}
+#y_root{
+	margin-left: 1200px;
+	
+}

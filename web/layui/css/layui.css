@@ -219,7 +219,7 @@ a cite {
 }
 
 .layui-show {
-	display: block!important
+	display: block!important;
 }
 
 .layui-hide {
@@ -2109,7 +2109,6 @@ hr {
 	display: block;
 	height: 0
 }
-
 
 .layui-form-label {
 	float: left;

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>草药处方*</title>
+		<link rel="stylesheet" type="text/css" href="../../../layui/css/layui.css" />
+	</head>
+
+	<body>
+		<div id="">
+			<label for="" class="layui-btn layui-btn-normal">门诊诊断：</label>
+			<label for="" class="layui-btn layui-btn-primary">【中医诊断】风湿化热症</label>
+			<ul>
+				<li class="layui-inline"><label for="" class="layui-btn layui-btn-normal">门诊诊断：</label></li>
+				<li class="layui-inline"><i class="layui-icon">&#xe61f;</i>增方</li>
+				<li class="layui-inline"><i class="layui-icon">&#x1007;</i>删方</li>
+				<li class="layui-inline"><i class="layui-icon">&#xe60a;</i>保存</li>
+				<li class="layui-inline"><i class="layui-icon">&#xe605;</i>发送</li>
+				<li class="layui-inline"><i class="layui-icon">&#xe640;</i>作废</li>
+				<li class="layui-inline"><i class="layui-icon">&#xe608;</i>增药</li>
+				<li class="layui-inline"><i class="layui-icon">&#x1006;</i>删药</li>
+			</ul>
+			<table class="layui-hide" id="test" lay-filter="test"></table>
+
+			<script type="text/html" id="toolbarDemo">
+				<div class="layui-btn-container">
+					<button class="layui-btn layui-btn-sm" lay-event="getCheckData">存为模版</button>
+				</div>
+			</script>
+
+			<script src="../../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+			<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+			<script>
+				layui.use('table', function() {
+					var table = layui.table;
+
+					table.render({
+						elem: '#test',
+						url: '/demo/table/user/',
+						toolbar: '#toolbarDemo',
+						cols: [
+							[{
+								type: 'radio'
+							}, {
+								field: 'id',
+								width: 80,
+								title: 'ID',
+							}, {
+								field: '状态',
+								width: 135,
+								title: '状态',
+							}]
+						],
+						page: true
+					});
+
+					//头工具栏事件
+					table.on('toolbar(test)', function(obj) {
+						var checkStatus = table.checkStatus(obj.config.id); //获取选中行状态
+						switch(obj.event) {
+							case 'getCheckData':
+								var data = checkStatus.data; //获取选中行数据
+								layer.alert(JSON.stringify(data));
+								break;
+						};
+					});
+				});
+			</script>
+		</div>
+	</body>
+
+</html>
