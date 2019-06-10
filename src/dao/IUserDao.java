@@ -25,4 +25,6 @@ public interface IUserDao {
     void updateUserByName(String usern, String pass, String realn, int usert, int dectitleid, char issche, int deptid, int regisLeid, int delmark)throws SQLException;
     //删除用户
     void deleteUserByID(int id)throws SQLException;
+    //根据username和password查找对应用户
+    User findUserByNamePass(String username,String pass) throws SQLException;
 }

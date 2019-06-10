@@ -232,4 +232,33 @@ public class UserDao implements IUserDao {
         JdbcUtil.release(con,null,null);
 
     }
+
+    @Override
+    public User findUserByNamePass(String username, String pass) throws SQLException {
+        String sql="select ID,UserName,Password,RealName,UseType,DocTitleID,IsScheduling,DeptID,RegistLeID,DelMark\n" +
+                "FROM User \n" +
+                "where UserName = ? " +
+                "and Password = ?" +
+                "and DelMark = 1";
+        con= JdbcUtil.getConnection();
+        PreparedStatement ps=con.prepareStatement(sql);
+        ps.setString(1,username);
+        ps.setString(2,pass);
+        ResultSet rs=ps.executeQuery();
+        User user=new User();
+        while (rs.next()){
+            user.setId(rs.getInt(1));
+            user.setUserName(rs.getString(2));
+            user.setPassword(rs.getString(3));
+            user.setRealName(rs.getString(4));
+            user.setUseTpye(rs.getInt(5));
+            user.setDocTileID(rs.getInt(6));
+            user.setScheduling(rs.getString(7));
+            user.setDeptid(rs.getInt(8));
+            user.setRegistLeID(rs.getInt(9));
+            user.setDelMark(rs.getInt(10));
+        }
+        JdbcUtil.release(con,ps,rs);
+        return user;
+    }
 }

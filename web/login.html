@@ -6,11 +6,25 @@
 		<title>登陆</title>
 		<link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
 		<link rel="stylesheet" type="text/css" href="css/loginstyle.css"/>
-		<link rel="icon" href="img/favicon.png"> 
+		<link rel="icon" href="img/favicon.png">
+		<style>
+			body{
+				text-align: center;
+
+			}
+			#div1{
+				position: absolute;
+				text-align: center;
+				top: 45%; left: 45%;
+				margin-left: -100px; /* (width + padding)/2 */
+				margin-top: -75px; /* (height + padding)/2 */
+
+			}
+		</style>
 	</head>
 
 	<body class="login-body body">
-		<div class="login-box">
+		<div class="login-box" id="div1">
 			<form class="layui-form layui-form-pane" method="post" action="1.html" id="form1">
 				<div class="layui-form-item">
 					<h3>后台登录系统</h3> </div>
@@ -21,7 +35,7 @@
 					<div class="layui-input-inline"> <input type="password" name="password" class="layui-input" lay-verify="password" placeholder="密码" maxlength="20" /> </div>
 				</div>
 				<div class="layui-form-item"> 
-					<button type="button" class="layui-btn btn-submit" lay-submit="" lay-filter="sub">立即登录</button> 
+					<button type="button" class="layui-btn btn-submit" lay-submit="" lay-filter="login">立即登录</button>
 				</div>
 			</form>
 		</div>
@@ -45,23 +59,16 @@
 					}
 				});
 //				 提交监听
-				form.on('submit(sub)', function(data) {
-					$.ajax({
-						url:'/his/login',
-						type:'post',
-						data:$('#form1').serialize(),
-						dataType:'text',
-						success:function (res) {
-							console.log(res);
-							window.location.href = '/his/html/main.html';
-						},
-						error:function (res) {
-							layer.alert('登录失败', {
-								title: '发生错误'
-							});
-						}
-					});
-					return false;
+				form.on('submit(login)', function(data) {
+					$.post(
+							'/his/login',
+							{username:$("input[name='account']").val(),pass:$("input[name='password']").val()},
+							function (res,status,xhr) {
+								console.log(res);
+								location.href=res[1];
+							},
+							'json'
+					)
 
 				})
 			})
