@@ -3,6 +3,8 @@ package web.doctordeal;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import service.regist.IRegistService;
 import service.regist.RegistService;
+import vo.Invoice;
+import vo.Register;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -133,54 +135,94 @@ public class GuaHaoServlet extends HttpServlet {
              *
              * @throws SQLException
              */
-            /*try {*/
+            try {
+                DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+                Register reg=new Register();
                 String casuNum=request.getParameter("caseNum");
-            System.out.println(casuNum);
+                reg.setCaseNumber(casuNum);
+
                 String realName=request.getParameter("name");
-            System.out.println(realName);
-                String gender=request.getParameter("gender");
-            System.out.println(gender);
-                String idNum=request.getParameter("ID");
-            System.out.println(idNum);
+                reg.setRealName(realName);
+                String genderStr=request.getParameter("gender");
+                int gender=Integer.parseInt(genderStr);
+                reg.setGender(gender);
+                String idNumStr=request.getParameter("ID");
+                reg.setIdNumber(idNumStr);
                 String birthDate=request.getParameter("birth");
-            System.out.println(birthDate);
-                String age=request.getParameter("age");
-            System.out.println(age);
+                reg.setBirthDate(df.parse(birthDate));
+                String ageStr=request.getParameter("age");
+                int age=Integer.parseInt(ageStr);
+                reg.setAge(age);
                 String agetypeStr=request.getParameter("agetype");
-            System.out.println(agetypeStr);
+                reg.setAgeTpye(agetypeStr);
                 String homeAdd=request.getParameter("homeAddr");
-            System.out.println(homeAdd);
+                if (homeAdd!=null && homeAdd.length()!=0){
+                    reg.setHomeAddress(homeAdd);
+                }
                 String visitDateStr=request.getParameter("date");
-            System.out.println(visitDateStr);
+                reg.setVisitDate(df.parse(visitDateStr));
                 String noon=request.getParameter("noon");
-            System.out.println(noon);
-                String deptID=request.getParameter("deptID");
-            System.out.println(deptID);
+                reg.setNoon(noon);
+                String deptID=request.getParameter("deptId");
+                int deptId=Integer.parseInt(deptID);
+                reg.setDeptID(deptId);
                 String userID=request.getParameter("doc");
-            System.out.println(userID);
+                int userId=Integer.parseInt(userID);
+                reg.setUserID(userId);
                 String registLeID=request.getParameter("registLe");
-            System.out.println(registLeID);
+                int regLeID=Integer.parseInt(registLeID);
+                reg.setRegistLeID(regLeID);
                 String settleID=request.getParameter("settleCat");
-            System.out.println(settleID);
+                int settleId=Integer.parseInt(settleID);
+                reg.setDeptID(settleId);
                 String isBook=request.getParameter("bingli");
-            System.out.println(isBook);
-
-
-
-                /*int docID=Integer.parseInt(docIDStr);
-                int regLeID=Integer.parseInt(regLeIDStr);
+                if (isBook!=null && isBook.length()!=0){
+                    reg.setisBook(isBook);
+                }
+                /*挂号员id 需更改*/
+                reg.setRegisterID(1);
+                Invoice iv=new Invoice();
+                 /*InvoiceNum-发票号,Money-金额,State-1,CreationTime-系统当前时间,UserID-操作人id,RegistID-挂号id,FeeType-收费方式,Back-空,DailyState-空日结*/
+                String invoiceNumStr=request.getParameter("invoiceNum");
+                System.out.println(invoiceNumStr);
+                iv.setInvoiceNum(invoiceNumStr);
+                String moneyStr=request.getParameter("money");
+                System.out.println(moneyStr);
+                Double money=Double.valueOf(moneyStr);
+                iv.setMoney(money);
+                /*挂号元id 需更改*/
+                iv.setUserID(1);
+                String feeType=request.getParameter("feeType");
+                System.out.println(feeType);
+                if (feeType!=null && feeType.length()!=0){
+                    int feeT=Integer.parseInt(feeType);
+                    iv.setFeeType(feeT);
+                }else {
+                    iv.setFeeType(1);
+                }
+                iv.setState(1);
                 IRegistService rs=new RegistService();
-                List list=rs.findMoneyTicket(docID,regLeID,date);
+                rs.regist(reg,iv);
+
+            } catch (Exception e) {
                 ObjectMapper mapper=new ObjectMapper();
-                String json=mapper.writeValueAsString(list);
+                String info="挂号失败";
+                String json=mapper.writeValueAsString(info);
                 PrintWriter pw=response.getWriter();
                 System.out.println(json);
                 pw.println(json);
                 pw.flush();
-                pw.close();*/
-            /*} catch (SQLException e) {
+                pw.close();
                 e.printStackTrace();
-            }*/
+            }
+            ObjectMapper mapper=new ObjectMapper();
+            String info="挂号成功";
+            String json=mapper.writeValueAsString(info);
+            PrintWriter pw=response.getWriter();
+            System.out.println(json);
+            pw.println(json);
+            pw.flush();
+            pw.close();
         }
 
     }

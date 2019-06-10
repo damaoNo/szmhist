@@ -47,14 +47,14 @@
 								<span class="l_star">*</span>年 龄：<input class="l_input" name="age" value="" placeholder="输入年龄" />
 								<span class="l_star">*</span>
 								<select style="width: 80px;height: 30px" name="agetype">
-									<option value="1">岁</option>
-									<option value="2">月</option>
-									<option value="3">天</option>
+									<option value="岁">岁</option>
+									<option value="月">月</option>
+									<option value="天">天</option>
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<td>出生日期：<input class="l_input" name="birth" value="" placeholder="出生日期" type="text" /></td>
+							<td>出生日期：<input class="l_input" name="birth" value="" placeholder="出生日期" type="date" /></td>
 							<td>身份证号：<input class="l_input" name="ID" value="" placeholder="输入身份证号" type="text" /></td>
 							<td>家庭住址：<input class="l_input" name="homeAddr" value="" placeholder="输入家庭住址" type="text" /></td>
 						</tr>
@@ -112,7 +112,7 @@
 							</td>
 							<td>
 								<span class="l_star">*</span>收费方式：
-								<select style="width: 80px; height: 30px">
+								<select style="width: 80px; height: 30px" name="feeType" id="feeType">
 									<option value="1">现金</option>
 									<option value="2">医保卡</option>
 									<option value="3">银行卡</option>
@@ -166,12 +166,13 @@
 							{date:$("input[name='date']").val(),noon:$("#noon option:selected").val()},
 							function (res,status,xhr) {
 								console.log(res);
-								var htmlContent;
+								var htmlContent='<option value=0 selected>选择一个部门</option>';
 								$("select[name='deptId']").html("");
 								for (var i=0;i<res.length;i++){
-									htmlContent='<option value='+res[i].id+'>'+res[i].deptName+'</option>';
-									$("select[name='deptId']").append(htmlContent);
+									htmlContent+='<option value='+res[i].id+'>'+res[i].deptName+'</option>';
+
 								};
+								$("select[name='deptId']").append(htmlContent);
 							},
 							'json'
 					)
@@ -229,18 +230,16 @@
 
 				form.on('submit(sub)', function(data) {
 					console.log("sub");
+					console.log($("select[name='feeType'] option:selected").val())
 					$.post(
 							'/his/html/regist/sub',
 							$("#form1").serialize(),
 							function (res,status,xhr) {
 								console.log(res);
-								var htmlContent;
-
+								alert(res);
 							},
 							'json'
 					)
-					return false;
-
 				});
 			});
 
