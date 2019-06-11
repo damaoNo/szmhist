@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>检验申请</title>
+		<link rel="stylesheet" type="text/css" href="../../../layui/css/layui.css" />
+	</head>
+
+	<body>
+		<div class="">
+			<button class="layui-btn layui-icon layui-btn-normal" lay-submit lay-filter="formDemo">新增项目</button>
+			<p>本项目金额合计:0元</p>
+			<table class="layui-hide" id="jianchashenqing1"></table>
+		</div>
+	</body>
+	<script src="../../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		layui.use(['element', 'form', 'laydate', 'table'], function() {
+					var element = layui.element;
+					var form = layui.form;
+					var table = layui.table;
+					table.render({
+						elem: '#jianchashenqing1',
+						cols: [
+							[{
+								type: 'checkbox'
+							}, {
+								field: 'shenqingmingcheng',
+								title: '申请名称'
+							}, {
+								field: 'xiangmumingcheng',
+								title: '项目名称'
+							}, {
+								field: 'zhixingzhuangtai',
+								title: '执行科室'
+							}, {
+								field: 'zhixingkeshi',
+								title: '执行状态',
+							}, {
+								field: 'danjia',
+								title: '单价'
+							}, {
+								field: 'jiachajieguo',
+								title: '检查结果'
+							}]
+						],
+						data: [{
+							"checkbox": "1",
+							"shenqingmingcheng": "123",
+							"xiangmumingcheng": "123",
+							"zhixingzhuangtai": "123",
+							"zhixingkeshi": "11",
+							"danjia": "11",
+							"jianchajieguo": "123"
+						}]
+					});
+					})
+	</script>
+
+</html>
