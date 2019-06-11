@@ -60,4 +60,28 @@ public class TakeDrugsService implements ITakeDrugsService {
         }
 
     }
+
+    /**
+     * 改变药方状态
+     *
+     * @param State
+     * @param ID
+     */
+    @Override
+    public void changeState(int State, String[] ID) throws SQLException {
+        Connection con=null;
+        con= JdbcUtil.getConnection();
+        try {
+            con.setAutoCommit(false);
+            ITakeDrugsDao itd=new TakeDrugsDao();
+            itd.setConnection(con);
+            itd.changeState(State,ID);
+            con.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            con.rollback();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+    }
 }

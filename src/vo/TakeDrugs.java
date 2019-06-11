@@ -30,6 +30,16 @@ public class TakeDrugs {
 
     //成药处方ID
     private int PrescriptionID;
+    //成药处方的ID
+    private int ID;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     @Override
     public String toString() {
@@ -43,6 +53,7 @@ public class TakeDrugs {
                 ", PrescriptionTime=" + PrescriptionTime +
                 ", State=" + State +
                 ", PrescriptionID=" + PrescriptionID +
+                ", ID=" + ID +
                 '}';
     }
 

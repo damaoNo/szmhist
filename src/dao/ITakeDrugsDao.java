@@ -22,4 +22,11 @@ public interface ITakeDrugsDao {
      */
     public void freshPrescription(int State, int PrescriptionID) throws SQLException;
 
+    /**
+     * 改变成药处方状态
+     * @param State
+     * @param ID
+     */
+    public void changeState(int State,String[] ID) throws SQLException;
+
 }

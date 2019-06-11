@@ -104,6 +104,13 @@
 			</ul>
 			<div class="layui-tab-content">
 				<div class="layui-tab-item layui-show">
+					<ul class="layui-inline">
+						<li class="layui-inline"><label for=""><i class="layui-icon">&#xe60a;</i>暂存</label></li>
+						<li class="layui-inline"><label for=""><i class="layui-icon">&#x1005;</i>提交</label></li>
+						<li class="layui-inline"><label for=""><i class="layui-icon">&#xe640;</i>清空所有</label></li>
+						<li><label for=""><i class="layui-icon">&#xe61f;</i>刷新</label></li>
+						<li><label for="" class="layui-btn layui-btn-normal">病史内容</label></li>
+					</ul>
 					<!-----------------------------------------------表单病史内容------------------------------------------------------>
 					<form action="" method="post" style="height: 95%;width: 95%;">
 						<table border="0" cellspacing="1" cellpadding="1">
@@ -195,7 +202,6 @@
 				var element = layui.element;
 				var form = layui.form;
 				var table = layui.table;
-				var $ = layui.jquery;
 
 				table.render({
 					elem: "#xiyizhengduan",
@@ -305,6 +311,51 @@
 
 			})
 		</script>
+		<!--<script>
+			layui.use('table', function() {
+				var table = layui.table;
+
+				table.render({
+					elem: '#test',
+					url: '/demo/table/user/',
+					cols: [
+						[{
+							type: 'checkbox'
+						}, {
+							field: '申请名称',
+							title: '申请名称'
+						}, {
+							field: '项目名称',
+							title: '项目名称'
+						}, {
+							field: '执行科室',
+							title: '执行科室'
+						}, {
+							field: '执行状态',
+							title: '城市'
+						}, {
+							field: '单价',
+							title: '单价'
+						}, {
+							field: '检查结果',
+							title: '检查结果'
+						}]
+					],
+					page: true
+				});
+				$('#qwqw').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '新增医技',
+						maxmin: true,
+						area: ['800px', '520px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '../TanChuCeng/-XinZenXiangmu.html',
+						btn: '关闭'
+					});
+				});
+			});
+		</script>-->
 	</body>
 
 </html>

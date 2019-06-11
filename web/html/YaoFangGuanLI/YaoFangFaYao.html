@@ -22,7 +22,7 @@
 				<input type="button" name="" id="chaxun" value="查询" class="layui-btn layui-btn-normal" style="width: 70px;height: 35px;margin-left: 90px;"  />
 			</div>
 			<div align="center">
-				<img src="../../img/tu.png" style="margin-top: 80px;width: 99%;">
+				<img id="fayao" src="../../img/tu.png" style="margin-top: 80px;width: 99%;">
 			</div>
 			<table class="layui-table" lay-skin="line">
 				<thead>
@@ -116,6 +116,7 @@
 
 
 				form.render();
+				//查询药方
 				$("#chaxun").click(function () {
 					if(document.getElementById('ipt1').value.length == 0) {
 						alert('请输入病例号！');
@@ -135,7 +136,7 @@
 						var htmlContent='';
 
 						for (var i=0;i<res.length;i++){
-							htmlContent+='<tr><td><input type="checkbox" id="'+res[i].prescriptionID+'" name="med"></td>' +
+							htmlContent+='<tr><td><input type="checkbox" value="'+res[i].id+'" name="med"></td>' +
 									'<td>'+res[i].drugsName+'</td><td>'+res[i].drugsPrice+'</td><td>'+res[i].amount+'</td><td>有效</td><td>' +
 									res[i].realName+'</td><td>'+res[i].prescriptionName+'</td><td>'+
 									res[i].prescriptionTime+'</td></tr>>'
@@ -146,6 +147,19 @@
 					'json'
 					)
 
+				})
+				//发药
+				$('#fayao').click(function(){
+					var chk_value =new Array();
+					$.each($('input:checkbox:checked'),function () {
+						chk_value.push(this.value)
+					})
+					$.post(
+							'/his/TakeMedicineServlet',
+							{
+								ID:chk_value.join(",")
+							}
+					)
 				})
 			})
 		</script>
