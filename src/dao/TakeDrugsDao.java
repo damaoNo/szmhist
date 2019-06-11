@@ -38,7 +38,7 @@ public class TakeDrugsDao implements ITakeDrugsDao {
     public List takeDrugs(int CaseNumber, Date PrescriptionTime,int State) throws SQLException {
         java.sql.Date Date=new java.sql.Date(PrescriptionTime.getTime());
         String sql = "Select  D.DrugsName,D.DrugsPrice, D.DelMark, Pre.Amount,  U.RealName, " +
-                "P.PrescriptionName,P.PrescriptionTime, Pre.State, Pre.PrescriptionID\n" +
+                "P.PrescriptionName,P.PrescriptionTime, Pre.State, Pre.PrescriptionID, Pre.ID\n" +
                 "From drugs D, prescriptiondetailed Pre,user U,prescription P, medicalrecord M\n" +
                 " Where M.ID=P.MedicalID AND p.ID=Pre. PrescriptionID and Pre.DrugsID=D.ID and P.UserID=U.ID\n" +
                 "      And M.CaseNumber=? and P.PrescriptionTime LIKE \"%\"?\"%\" and Pre.State=?";
@@ -60,6 +60,7 @@ public class TakeDrugsDao implements ITakeDrugsDao {
             td.setPrescriptionTime(rs.getDate(7));
             td.setState(rs.getInt(8));
             td.setPrescriptionID(rs.getInt(9));
+            td.setID(rs.getInt(10));
             list.add(td);
         }
         JdbcUtil.release(null, pstmt, null);
@@ -80,5 +81,29 @@ public class TakeDrugsDao implements ITakeDrugsDao {
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }
+
+    /**
+     * 改变成药处方状态
+     *批量
+     * @param State
+     * @param ID
+     */
+    @Override
+    public void changeState(int State, String[] ID) throws SQLException {
+        String sql = "UPDATE prescriptiondetailed SET State=? where ID=? ";
+        PreparedStatement pstmt = null;
+        for (int i=0;i<ID.length;i++){
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, State);
+            pstmt.setInt(2, Integer.parseInt(ID[i]));
+            pstmt.addBatch();
+            if (i%10==0){
+                pstmt.executeBatch();
+            }
+        }
+       pstmt.executeBatch();
+        JdbcUtil.release(null, pstmt, null);
+    }
+
 
 }

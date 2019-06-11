@@ -13,4 +13,11 @@ public interface ITakeDrugsService {
      * 发药退药
      */
     public void freshPrescription(int State, int PrescriptionID) throws SQLException;
+
+    /**
+     * 改变药方状态
+     * @param State
+     * @param ID
+     */
+    public void changeState(int State,String[] ID) throws SQLException;
 }

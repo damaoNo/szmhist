@@ -19,16 +19,18 @@ import java.util.Date;
 import java.util.List;
 
 @WebServlet("/TakeMedicineServlet")
-public class TakeMedicine extends HttpServlet {
+public class TakeMedicineServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取请求的类型
         String uri=request.getRequestURI();
         System.out.println(uri);
         String  idStr=request.getParameter("binglihao");
         String  date=request.getParameter("date");
+        String ID=request.getParameter("ID");
         System.out.println(idStr);
         System.out.println(date);
-
+        System.out.println(ID);
+        //查询成药处方
         int CaseNumber=Integer.parseInt(idStr);
         Date PrescriptionTime=null;
         SimpleDateFormat spdf=new SimpleDateFormat("yyyy-MM-dd");
@@ -54,6 +56,14 @@ public class TakeMedicine extends HttpServlet {
         pw.println(json);
         pw.flush();
         pw.close();
+
+        //改变药方状态
+        String[] id=ID.split(",");
+        try {
+            TD.changeState(4,id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
