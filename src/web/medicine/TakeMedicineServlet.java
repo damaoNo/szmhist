@@ -68,6 +68,9 @@ public class TakeMedicineServlet extends HttpServlet {
         if ("2".equals(kind)){
             String[] id=null;
             id= ID.split(",");
+            /*for(int i=0;i<id.length;i++){
+                System.out.println(id[i]);
+            }*/
             ITakeDrugsService TD=new TakeDrugsService();
             try {
                 TD.changeState(4,id);

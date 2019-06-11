@@ -11,9 +11,8 @@ public class TakeDrugsServiceTest {
     @Test
     public void changeState() throws SQLException {
         ITakeDrugsService TD=new TakeDrugsService();
-        String a="15,16";
+        String a="14,15,16";
         String[] id=a.split(",");
-        System.out.println(id[1]);
         TD.changeState(4,id);
     }
 }
