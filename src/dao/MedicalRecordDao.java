@@ -199,7 +199,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
      */
     @Override
     public List<Register> selectDocUVP(int userID) throws SQLException {
-        String sql="SELECT CaseNumber,RealName,Age,Gender FROM register WHERE VisitState=3 and UserID=?";
+        String sql="SELECT CaseNumber,RealName,Age,Gender FROM register WHERE VisitState=1 and UserID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setInt(1,userID);
         ResultSet rs=pstmt.executeQuery();

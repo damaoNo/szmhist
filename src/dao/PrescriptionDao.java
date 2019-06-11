@@ -8,7 +8,7 @@
 
 package dao;
 import util.JdbcUtil;
-import vo.Prescription;
+import vo.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,8 +18,6 @@ import java.sql.SQLException;
 import oracle.jdbc.proxy.annotation.Pre;
 import util.JdbcUtil;
 import vo.Prescription;
-import vo.PrescriptionDetailed;
-import vo.PrescriptionMore;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -247,7 +245,7 @@ public class PrescriptionDao implements IPrescriptionDao{
      */
     @Override
     public List<PrescriptionMore> selectPrescriptionByCaseNum(String caseNum,int state) throws SQLException {
-        String sql="SELECT p.ID,p.PrescriptionName,p.PrescriptionTime,p.PrescriptionState,g.DrugsName,g.DrugsPrice,p.RegistID\n" +
+        String sql="SELECT p.ID,p.PrescriptionName,p.PrescriptionTime,p.PrescriptionState,g.DrugsName,g.DrugsPrice,p.RegistID,d.Amount\n" +
                 "FROM prescription p,medicalrecord m,prescriptiondetailed d,drugs g \n" +
                 "WHERE p.MedicalID = m.ID\n" +
                 "AND d.PrescriptionID=p.ID\n" +
@@ -268,11 +266,33 @@ public class PrescriptionDao implements IPrescriptionDao{
             pm.setPrescriptionTime(rs.getDate(3));
             pm.setPrescriptionState(rs.getInt(4));
             pm.setDrugName(rs.getString(5));
-            pm.setRegitID(rs.getInt(6));
+            pm.setPrice(rs.getDouble(6));
+            pm.setRegitID(rs.getInt(7));
+            pm.setAmout(rs.getDouble(8));
+
+
             list.add(pm);
         }
         JdbcUtil.release(con,null,null);
         return list;
+    }
+
+    @Override
+    public Register selectUserByCaseNum(String caseNum) throws SQLException {
+        String sql="SELECT RealName,IDnumber,HomeAddress FROM register WHERE CaseNumber=?";
+        con= JdbcUtil.getConnection();
+        PreparedStatement ps=con.prepareStatement(sql);
+        ps.setString(1,caseNum);
+        ResultSet rs=ps.executeQuery();
+       Register r=null;
+        while(rs.next()){
+            r=new Register();
+            r.setRealName(rs.getString(1));
+            r.setIdNumber(rs.getString(2));
+            r.setHomeAddress(rs.getString(3));
+        }
+        JdbcUtil.release(con,null,null);
+        return r;
     }
 
 }

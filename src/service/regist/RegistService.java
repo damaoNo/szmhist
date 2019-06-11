@@ -301,9 +301,11 @@ public class RegistService implements IRegistService {
             List list1=pd.selectPrescriptionByCaseNum(caseNum,2);
 
             List list2=ndpd.selectNDbyCaseNum(caseNum,2);
+            Register r=pd.selectUserByCaseNum(caseNum);
 
             list.add(list1);
             list.add(list2);
+            list.add(r);
 
             con.commit();
             return list;
