@@ -225,6 +225,26 @@ public class GuaHaoServlet extends HttpServlet {
             pw.close();
         }
 
+        if ("charge".equals(kind)){
+            try {
+                DateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+                String casenumc=request.getParameter("casenum");
+                System.out.println(casenumc);
+                IRegistService rs=new RegistService();
+                List list=rs.findAllCosts(casenumc);
+                ObjectMapper mapper=new ObjectMapper();
+                mapper.setDateFormat(df);
+                String json=mapper.writeValueAsString(list);
+                PrintWriter pw=response.getWriter();
+                System.out.println(json);
+                pw.println(json);
+                pw.flush();
+                pw.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

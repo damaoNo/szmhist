@@ -78,6 +78,6 @@ public interface IPrescriptionDao {
      */
     List<PrescriptionMore> selectPrescriptionByCaseNum(String  caseNum,int state) throws SQLException;
 
-
+    Register selectUserByCaseNum(String caseNum) throws SQLException;
 
 }

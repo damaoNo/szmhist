@@ -66,6 +66,6 @@ public class PatientCostsBack extends PatientCosts {
                 ", idNum=" + idNum +
                 ", homeAdd='" + homeAdd + '\'' +
                 ", caseNum='" + caseNum + '\'' +
-                '}';
+                '}'+toString();
     }
 }

@@ -20,16 +20,16 @@
 				<!-- 头部区域   右侧-->
 				<ul class="layui-nav layui-layout-right" id="y_headerright">
 					<li class="layui-nav-item" id="y_root">
-						<a href="javascript:;" id="root">ROOT</a>
+						<a href="javascript:;" id="username"></a>
 						<dl class="layui-nav-child">
 							<dd>
-								<button>button</button>
+								<button style="display: none" id="disbut" name="userid"></button>
 							</dd>
 							<dd>
 								<a href="">隐藏菜单</a>
 							</dd>
 							<dd>
-								<a href="">退出登录</a>
+								<a href="../login.html">退出登录</a>
 							</dd>
 						</dl>
 					</li>
@@ -197,25 +197,26 @@
 					location.hash = 'demo=' + $(this).attr('lay-id');
 				});
 
-				function UrlSearch() {
-					var name,value;
-					var str=location.href; //取得整个地址栏
-					var num=str.indexOf("?")
-					str=str.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
-
-					var arr=str.split("&"); //各个参数放到数组里
-					console.log(arr)
-					for(var i=0;i < arr.length;i++){
-						num=arr[i].indexOf("=");
-						if(num>0){
-							name=arr[i].substring(0,num);
-							value=arr[i].substr(num+1);
-							this[name]=value;
-						}
+				function getQueryString(name) {
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+					var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+					var r = window.location.search.substr(1).match(reg);
+					var q = window.location.pathname.substr(1).match(reg_rewrite);
+					if(r != null){
+						return decodeURI(r[2]);
+					}else if(q != null){
+						return decodeURI(q[2]);
+					}else{
+						return null;
 					}
 				}
+				console.log(getQueryString("userid"));
+				console.log(getQueryString("username"));
+				$("#disbut").val(getQueryString("userid"));
+				$("#disbut").text(getQueryString("username"));
+				$("#username").text(getQueryString("username"));
 
-				UrlSearch();
+
 
 				//触发事件						          
 				var active = {  
@@ -224,7 +225,7 @@
 						//新增一个Tab项
 						element.tabAdd('demo', {
 								title: name,
-								content: '<iframe data-frameid="' + id + '" scrolling="no" frameborder="0" src="' + url + '" style="width: 100%;height: 600px;""></iframe>',
+							content: '<iframe data-frameid="' + id + '" overflow-y:"auto" frameborder="0" src="' + url + '" style="width: 100%;height: 1800px;""></iframe>',
 								id: id //规定好的id
 							}),
 							element.render('tab');

@@ -9,21 +9,6 @@
 	</head>
 
 	<body>
-		<!--患者信息查询-->
-		<h2>患者信息查询</h2>
-		<h3><span class="y_start">*</span> 病例号:</h3>
-		<input type="text" name="title" placeholder="病例号" autocomplete="off" class="y_input">
-		<button class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe615;</i>搜索</button>
-		</form><br />
-		<!--患者信息确认-->
-		<h2>患者信息确认</h2>
-		<table border="0" cellspacing="1" cellpadding="1" width="65%">
-			<tr>
-				<td>姓 名：<input type="text" name="title" placeholder="姓名" autocomplete="off" class="y_input"> </td>
-				<td>身份证号：<input type="text" name="title" placeholder="身份信息" autocomplete="off" class="y_input"> </td>
-				<td>家庭地址：<input type="text" name="title" placeholder="家庭住址" autocomplete="off" class="y_input"> </td>
-			</tr>
-		</table><br/>
 		<!--患者挂号信息-->
 		<table class="layui-table" lay-skin="line">
 			<colgroup>
@@ -31,9 +16,21 @@
 				<col width="200">
 				<col>
 			</colgroup>
+			<form id="formcharge">
+				<table class="layui-table">
+					<tr><td colspan="3">患者信息查询：</td></tr>
+					<tr><td>输入病历号：<input type="text" name="casenum"></td><td colspan="2"><button type="button" class="layui-btn btn-submit" lay-submit="" lay-filter="search">查询</button></td></tr>
+					<tr><td>患者信息确认：</td></tr>
+					<tr><td style="width: 300px">姓名：<input type="text" name="username" readonly></td><td width="500px">身份证：<input type="text" name="idnum"></td><td width="500px">家庭住址：<input
+							type="text" name="homeaddr"></td></tr>
+
+				</table>
+			</form>
+		</table>
 			<table class="layui-table">
 				<thead>
 					<tr>
+						<th><input type="checkbox"></th>
 						<th>病例号</th>
 						<th>姓名</th>
 						<th>项目名称</th>
@@ -43,12 +40,49 @@
 						<th>状态</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td colspan="8">暂无数据</td>
-					</tr>
+
+				<tbody id="tbody23">
+
 				</tbody>
 			</table>
+			<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+			<script>
+				layui.use(['form','layer'],function () {
+					var $ = layui.jquery,
+							form = layui.form,
+							layer = layui.layer;
+					form.on('submit(search)', function(data) {
+						console.log("search");
+
+						$.post(
+								'/his/html/regist/charge',
+								{casenum:$("input[name='casenum']").val()},
+								function (res,status,xhr) {
+									console.log(res);
+									var htmlcon='';
+									if (res[0].length>0){
+										for (var i=0;i<res[0].length;i++){
+											htmlcon+='<tr><td><input type="checkbox" id="'+res[0][i].id+'"></td><td>'+$("input[name='casenum']").val() +
+													'</td><td>'+res[2].realName+'</td><td>'+res[0][i].drugName+'</td><td>' +
+													res[0][i].price+'</td><td>'+res[0][i].amout+'</td><td>'+res[0][i].prescriptionTime+'</td><td>已开立</td></tr>';
+										}
+										$("#tbody23").html(htmlcon);
+									}
+
+										$("input[name='username']").val(res[2].realName);
+										$("input[name='idnum']").val(res[2].idNumber);
+										$("input[name='homeaddr']").val(res[2].homeAddress);
+
+
+								},
+								'json'
+						)
+					});
+
+
+				})
+			</script>
+
 
 	</body>
 

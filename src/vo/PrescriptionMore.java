@@ -12,6 +12,7 @@ import java.util.Date;
 public class PrescriptionMore extends Prescription{
     private String drugName;
     private double price;
+    private double amout;
 
     public double getPrice() {
         return price;
@@ -23,6 +24,18 @@ public class PrescriptionMore extends Prescription{
 
     public void setDrugName(String drugName) {
         this.drugName = drugName;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getAmout() {
+        return amout;
+    }
+
+    public void setAmout(double amout) {
+        this.amout = amout;
     }
 
     @Override
