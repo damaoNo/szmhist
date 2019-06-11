@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<title>门诊病例</title>
 	<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css"/>
+	<link rel="stylesheet" href="text/css" href="../../css/menzhen.css">
 </head>
 
 <body>
@@ -12,11 +13,11 @@
 <div class="layui-inline " id="">
 	<div id="">
 		<label>患者选择：</label>
-		<button class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe669;</i></button>
+		<!--<button class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe669;</i></button>-->
 		<div id="">
-			<span id="">患者名：</span>
+			<!--<span id="">患者名：</span>
 			<input type="text" style="height: 35px;" name="" id="" value="" placeholder="请输入患者名" />
-			<label for=""><i class="layui-icon">&#xe615;</i></label>
+			<label for=""><i class="layui-icon">&#xe615;</i></label>-->
 		</div>
 		<!--左侧tab选项卡-->
 		<div class="layui-tab layui-inline">
@@ -32,17 +33,8 @@
 						<thead>
 						<td colspan="3">未诊患者：</td>
 						</thead>
-						<tbody>
-						<tr>
-							<td>600601</td>
-							<td>杜甫</td>
-							<td>17</td>
-						</tr>
-						<tr>
-							<td>张爱玲</td>
-							<td>汉族</td>
-							<td>1920-09-30</td>
-						</tr>
+						<tbody id="tbody1">
+
 						</tbody>
 					</table>
 					<!--已诊患者-->
@@ -50,17 +42,8 @@
 						<thead>
 						<td colspan="3">已诊患者：</td>
 						</thead>
-						<tbody>
-						<tr>
-							<td>600601</td>
-							<td>杜甫</td>
-							<td>17</td>
-						</tr>
-						<tr>
-							<td>张爱玲</td>
-							<td>汉族</td>
-							<td>1920-09-30</td>
-						</tr>
+						<tbody id="tbody2">
+
 						</tbody>
 					</table>
 				</div>
@@ -112,7 +95,7 @@
 	<!--隐藏患者&请选择患者-->
 	<div id="">
 		<label for="" class="layui-btn layui-btn-normal">隐藏患者栏</label>
-		<span>请选择患者</span>
+		<span id="xuanze">请选择患者</span>
 	</div>
 	<!--tab选项内容-->
 	<ul class="layui-tab-title">
@@ -131,67 +114,43 @@
 			<form action="" method="post" style="height: 95%;width: 95%;">
 				<table border="0" cellspacing="1" cellpadding="1">
 					<tr>
+
 						<td>主诉</td>
-						<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+						<td><textarea name="readme" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
+
 					<tr>
 						<td>现病史</td>
-						<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+						<td><textarea name="present" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr>
 						<td>现病治疗情况</td>
-						<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+						<td><textarea name="presentTreat" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr>
 						<td>既往史</td>
-						<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+						<td><textarea name="history" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr>
 						<td>过敏史</td>
-						<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+						<td><textarea name="allergy" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr>
 						<td>体格检查</td>
-						<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
+						<td><textarea name="physique" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
-					</tabel>
-					<!-------------------------------------------------评估诊断--------------------------------------------------------->
-					<p>评估/诊断</p>
-					<tabel>
-						<table border="0" cellspacing="" cellpadding="">
-							<tr>
-								<th>
-									<h1>西医诊断</h1></th>
-							</tr>
-							<tr>
-								<table class="layui-hide" id="xiyizhengduan" lay-filter="xiyizhengduan"></table>
-							</tr>
-						</table>
-					</tabel>
-					<tabel>
-						<table border="0" cellspacing="" cellpadding="">
-							<tr>
-								<th>
-									<h1>中医诊断</h1></th>
-							</tr>
-							<tr>
-								<table class="layui-hide" id="zhongyizhengduan" lay-filter="xiyizhengduan"></table>
-							</tr>
-						</table>
-					</tabel>
-					<label class="layui-form-label">检察建议</label>
-					<div class="layui-input-block">
-						<input type="text" name="" required lay-verify="required" autocomplete="off"
-							   class="layui-input">
-					</div>
-					<br>
-					<label class="layui-form-label">注意事项</label>
-					<div class="layui-input-block">
-						<input type="text" name="" required lay-verify="required" autocomplete="off"
-							   class="layui-input">
-					</div>
-					<br>
-					<button class="layui-btn layui-icon layui-btn-normal" lay-submit lay-filter="formDemo">提交</button>
+
+					<tr>
+						<td>检察建议</td>
+						<td><textarea name="proposal" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
+					<tr>
+						<td>注意事项</td>
+						<td><textarea name="careful" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
+					<tr><td><button class="layui-btn layui-icon layui-btn-normal" lay-submit lay-filter="formDemo">提交</button></td></tr>
+
+				</table>
 			</form>
 		</div>
 		<div class="layui-tab-item">
@@ -214,7 +173,7 @@
 			<iframe src="MenZhenBingLI/menzhenquezhen.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
 		</div>
 		<div class="layui-tab-item">
-			处置申请*
+			<iframe src="MenZhenBingLI/chuzhishenqing.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
 		</div>
 		<div class="layui-tab-item">
 			<iframe src="MenZhenBingLI/ChengYaoChuFang.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
@@ -234,6 +193,124 @@
 		var element = layui.element;
 		var form = layui.form;
 		var table = layui.table;
+		var $ = layui.jquery;
+
+		function selectPat(){
+			console.log($(this).children("#idinput").val())
+			$.post(
+					'/his/html/pinfo/selectp',
+					{regid:$(this).children("#idinput").val()},
+					function (res,status,xhr) {
+						console.log(res);
+					},
+					'json'
+			)
+		}
+		var regidv='';
+		$.post(
+				'/his/html/pinfo/doc',
+				{userid:1},
+				function (res,status,xhr) {
+					console.log(res);
+					console.log(res[0]);
+					console.log(res[1]);
+					var html1='';
+					for (var i=0;i<res[0].length;i++){
+						html1+='<tr class="trt"><td id="cs"><input id="idinput" type="text" style="display: none" value="'+res[0][i].id+'">'+res[0][i].caseNumber+'</td><td id="rn">'+res[0][i].realName+'</td><td id="ag">'+res[0][i].age+'</td></tr>';
+					}
+					$("#tbody1").html(html1);
+					var html2='';
+					for (var i=0;i<res[1].length;i++){
+						html2+='<tr><td>'+res[1][i].caseNumber+'</td><td>'+res[1][i].realName+'</td><td>'+res[1][i].age+'</td></tr>';
+					}
+					$("#tbody2").html(html2);
+					$(".layui-tab-content").on("click",".trt",function () {
+						/*alert($(this).find("#rn").html());*/
+
+						console.log($(this).find("#idinput").val());
+						regidv=$(this).find("#idinput").val();
+						var cs=$(this).find("#cs").text();
+						var rn=$(this).find("#rn").text();
+						var ag=$(this).find("#ag").text();
+						$.post(
+								'/his/html/pinfo/selectp',
+								{regid:regidv},
+								function (resp,status,xhr) {
+									console.log(resp);
+									var info='患者名：'+rn+'    病历号：'+cs+'     年龄：'+ag;
+									$("#xuanze").text(info);
+									if (resp.readme!==null){
+										$("textarea[name='readme']").text(resp.readme);
+									}else {
+										$("textarea[name='readme']").text("");
+									}
+									if (resp.presentTreat!==null){
+										$("textarea[name='presentTreat']").text(resp.presentTreat);
+									}else {
+										$("textarea[name='presentTreat']").text("");
+									}
+									if (resp.allergy!==null){
+										$("textarea[name='allergy']").text(resp.allergy);
+									}else {
+										$("textarea[name='allergy']").text("");
+									}
+									if (resp.physique!==null){
+										$("textarea[name='physique']").text(resp.physique);
+									}else {
+										$("textarea[name='physique']").text("");
+									}
+									if (resp.proposal!==null){
+										$("textarea[name='proposal']").text(resp.proposal);
+									}else {
+										$("textarea[name='proposal']").text("");
+									}
+									if (resp.careful!==null){
+										$("textarea[name='careful']").text(resp.careful);
+									}else {
+										$("textarea[name='careful']").text("");
+									}
+									if (resp.checkResult!==null){
+										$("textarea[name='checkResult']").text(resp.checkResult);
+									}else {
+										$("textarea[name='checkResult']").text("");
+									}
+									if (resp.diagnosis!==null){
+										$("textarea[name='diagnosis']").text(resp.diagnosis);
+									}else {
+										$("textarea[name='diagnosis']").text("");
+									}
+								},
+								'json'
+						)
+					});
+				},
+				'json'
+		)
+
+		form.on('submit(formDemo)',function () {
+			console.log("formdemo");
+			console.log(regidv);
+			$.post(
+					'/his/html/pinfo/sub',
+					{
+						regid:regidv,
+						readme:$("textarea[name='readme']").text(),
+						presentTreat:$("textarea[name='presentTreat']").text(),
+						allergy:$("textarea[name='allergy']").text(),
+						physique:$("textarea[name='physique']").text(),
+						proposal:$("textarea[name='proposal']").text(),
+						careful:$("textarea[name='careful']").text(),
+						checkResult:$("textarea[name='checkResult']").text(),
+						diagnosis:$("textarea[name='diagnosis']").text()},
+					function (res,status,xhr) {
+						console.log(res);
+						alert(res);
+					},
+					'json'
+			);
+			return false;
+		})
+
 
 		table.render({
 			elem: "#xiyizhengduan",

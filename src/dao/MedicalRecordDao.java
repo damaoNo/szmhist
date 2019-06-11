@@ -23,6 +23,17 @@ public class MedicalRecordDao implements IMedicalRecordDao{
         this.con=con;
     }
 
+    @Override
+    public void insertMedicalRecord(int registID, String caseNum) throws SQLException {
+        String sql="insert into medicalrecord(CaseNumber,RegistID) values(?,?)";
+        PreparedStatement pstmt=con.prepareStatement(sql);
+        pstmt.setString(1,caseNum);
+        pstmt.setInt(2,registID);
+        pstmt.executeUpdate();
+        JdbcUtil.release(null, pstmt, null);
+
+    }
+
     /**
      * 根据病历号查询相关病历记录
      *
@@ -199,7 +210,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
      */
     @Override
     public List<Register> selectDocUVP(int userID) throws SQLException {
-        String sql="SELECT CaseNumber,RealName,Age,Gender FROM register WHERE VisitState=1 and UserID=?";
+        String sql="SELECT CaseNumber,RealName,Age,Gender,id FROM register WHERE VisitState=1 and UserID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setInt(1,userID);
         ResultSet rs=pstmt.executeQuery();
@@ -211,6 +222,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
             r.setRealName(rs.getString(2));
             r.setAge(rs.getInt(3));
             r.setGender(rs.getInt(4));
+            r.setId(rs.getInt(5));
             list.add(r);
         }
         JdbcUtil.release(null, pstmt, null);
@@ -225,7 +237,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
      */
     @Override
     public List<Register> selectDocVP(int userID) throws SQLException {
-        String sql="SELECT CaseNumber,RealName,Age,Gender FROM register WHERE VisitState=3 and UserID=?";
+        String sql="SELECT CaseNumber,RealName,Age,Gender,id FROM register WHERE VisitState=3 and UserID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
         pstmt.setInt(1,userID);
         ResultSet rs=pstmt.executeQuery();
@@ -237,6 +249,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
             r.setRealName(rs.getString(2));
             r.setAge(rs.getInt(3));
             r.setGender(rs.getInt(4));
+            r.setId(rs.getInt(5));
             list.add(r);
         }
         JdbcUtil.release(null, pstmt, null);

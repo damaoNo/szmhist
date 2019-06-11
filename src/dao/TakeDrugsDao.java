@@ -91,9 +91,8 @@ public class TakeDrugsDao implements ITakeDrugsDao {
     @Override
     public void changeState(int State, String[] ID) throws SQLException {
         String sql = "UPDATE prescriptiondetailed SET State=? where ID=? ";
-        PreparedStatement pstmt = null;
+        PreparedStatement pstmt = con.prepareStatement(sql);
         for (int i=0;i<ID.length;i++){
-            pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, State);
             pstmt.setInt(2, Integer.parseInt(ID[i]));
             pstmt.addBatch();

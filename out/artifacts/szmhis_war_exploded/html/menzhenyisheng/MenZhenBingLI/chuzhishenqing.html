@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>处置申请</title>
+		<link rel="stylesheet" type="text/css" href="../../../css/chuzhishengqing.css" />
+		<link rel="stylesheet" type="text/css" href="../../../layui/css/layui.css" />
+	</head>
+
+	<body>
+		<!--按钮组-->
+		<div id="buttongroup">
+			<ul>
+				<li>
+					<label for="">本项目金额合计:</label>
+					<input type="text" name="" id="" value="680.00元" />
+				</li>
+				<li>
+					<button id="xinzeng">新增项目</button>
+				</li>
+				<li>
+					<button>删除项目</button>
+				</li>
+				<li>
+					<button>暂存</button>
+				</li>
+				<li>
+					<button>开立</button>
+				</li>
+				<li>
+					<button>作废</button>
+				</li>
+				<li>
+					<button>存为常用</button>
+				</li>
+			</ul>
+		</div>
+		<!--表格-->
+		<tabel>
+			<table border="0" cellspacing="" cellpadding="">
+				<tr>
+					<table class="layui-hide" id="chuzhibiao" lay-filter="chuzhishenqing"></table>
+				</tr>
+			</table>
+		</tabel>
+		<!--目的要求-->
+		<table border="0" cellspacing="1" cellpadding="1">
+			<tr>
+				<td id="item">目的要求:</td>
+				<td><textarea name="" rows="10" cols="40" style="resize:vertical;"></textarea></td>
+			</tr>
+		</table>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		layui.use(['element', 'table','table'], function() {
+			var table = layui.table;
+			var element = layui.element;
+			var table = layui.table;
+			table.render({
+				elem: "#chuzhibiao",
+				cols: [
+					[{
+						type: 'checkbox'
+					}, {
+						field: 'fenli',
+						title: '分类'
+					}, {
+						field: 'xiangmu',
+						title: '项目'
+					}, {
+						field: 'zhixingkeshi',
+						title: '执行科室'
+					}, {
+						field: 'jiaji',
+						title: '加急'
+					}, {
+						field: 'zhuangtai',
+						title: '状态'
+					}, {
+						field: 'danjia',
+						title: '单价'
+					}, {
+						field: 'jianyanjieguo',
+						title: '检验结果'
+					}]
+				],
+				data: [{
+					"fenli": "A01.001",
+					"xiangmu": "伤寒",
+					"zhixingkeshi": "2019-03-26 9:28"
+				}]
+			})
+
+			$('#xinzeng').on('click', function() {
+				layer.open({
+					type: 2,
+					title: '新增医技',
+					maxmin: true,
+					area: ['800px', '520px'],
+					shadeClose: true, //点击遮罩关闭层
+					content: '../../../html/TanChuCeng/-XinZenXiangmu.html',
+					btn: '关闭'
+				});
+			});
+
+		})
+	</script>
+
+</html>

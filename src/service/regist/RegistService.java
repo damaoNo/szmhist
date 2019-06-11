@@ -188,11 +188,14 @@ public class RegistService implements IRegistService {
             pcd.setConnection(con);
             IInvoiceDao id=new InvoiceDao();
             id.setConnection(con);
+            IMedicalRecordDao mr=new MedicalRecordDao();
+            mr.setConnection(con);
             //设置注册时间为当前时间
             DateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Timestamp now=new Timestamp(System.currentTimeMillis());
             String nowStr=df.format(now);
             Timestamp now2=Timestamp.valueOf(nowStr);
+
             reg.setRegistTime(now2);
             rd.insertRegist(reg);
             con.commit();
@@ -200,6 +203,7 @@ public class RegistService implements IRegistService {
             int registid=rd.selectRegistIDByTime(nowStr,reg.getCaseNumber());
             //设置iv的挂号id
             iv.setRegistID(registid);
+            mr.insertMedicalRecord(registid,reg.getCaseNumber());
             id.insertInvoice(iv);
 
             //插入患者消费

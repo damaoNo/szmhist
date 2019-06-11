@@ -205,7 +205,7 @@
 				})
 
 
-				$("select[name='doc']").change(function () {
+				$("select[name='doc']").blur(function () {
 					$.post(
 							'/his/html/regist/4',
 							{
@@ -230,7 +230,7 @@
 
 				form.on('submit(sub)', function(data) {
 					console.log("sub");
-					console.log($("select[name='feeType'] option:selected").val())
+					console.log($("select[name='feeType'] option:selected").val());
 					$.post(
 							'/his/html/regist/sub',
 							$("#form1").serialize(),

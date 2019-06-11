@@ -1,0 +1,20 @@
+ul{
+	overflow: hidden;
+	background:#CCCCCC;
+}
+ul li{
+	list-style: none;
+	color: deepskyblue;
+	float: left;
+	margin-left: 10px;
+	font-size: 20px;
+}
+ul li button{
+	background:none;
+	border: none;
+	color: deepskyblue;
+	font-size: 20px;
+}
+#item{
+	font-size: 20px;	
+}
