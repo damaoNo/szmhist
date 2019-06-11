@@ -13,7 +13,7 @@ public class JdbcUtil {
     public static final String ORACLEDRIVER="com.mysql.jdbc.Driver";
     public static final String USERNAME="root";
     public static final String PASSWORD="123456";
-    public static final String URL="jdbc:mysql://127.0.0.1:3306/his?useUnicode=true&amp;characterEncoding=UTF-8";
+    public static final String URL="jdbc:mysql://10.25.193.252:3306/his?useUnicode=true&amp;characterEncoding=UTF-8";
     /*加载驱动*/
     static {
         try {

@@ -95,7 +95,10 @@
 				<li>检验申请*</li>
 				<li>门诊确诊*</li>
 				<li>处置申请*</li>
-				<li>成药处方</li>
+				<li>
+					<iframe src="MenZhenBingLI/ChengYaoChuFang.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;">
+
+					</iframe></li>
 				<li>草药处方*</li>
 				<li>费用查询*</li>
 			</ul>
@@ -137,17 +140,42 @@
 							</tr>
 						</table>
 							<!-------------------------------------------------评估诊断--------------------------------------------------------->
-							<tabel>
-								<table border="0" cellspacing="" cellpadding="">
-									<tr>
-										<th>
-											<h1>西医诊断</h1></th>
-									</tr>
-									<tr>
-										<table class="layui-hide" id="xiyizhengduan" lay-filter="xiyizhengduan"></table>
-									</tr>
-								</table>
-							</tabel>
+						<p>评估/诊断</p>
+						<tabel>
+							<table border="0" cellspacing="" cellpadding="">
+								<tr>
+									<th>
+										<h1>西医诊断</h1></th>
+								</tr>
+								<tr>
+									<table class="layui-hide" id="xiyizhengduan" lay-filter="xiyizhengduan"></table>
+								</tr>
+							</table>
+						</tabel>
+						<tabel>
+							<table border="0" cellspacing="" cellpadding="">
+								<tr>
+									<th>
+										<h1>中医诊断</h1></th>
+								</tr>
+								<tr>
+									<table class="layui-hide" id="zhongyizhengduan" lay-filter="xiyizhengduan"></table>
+								</tr>
+							</table>
+						</tabel>
+						<label class="layui-form-label">检察建议</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" autocomplete="off"
+								   class="layui-input">
+						</div>
+						<br>
+						<label class="layui-form-label">注意事项</label>
+						<div class="layui-input-block">
+							<input type="text" name="" required lay-verify="required" autocomplete="off"
+								   class="layui-input">
+						</div>
+						<br>
+						<button class="layui-btn layui-icon layui-btn-normal" lay-submit lay-filter="formDemo">提交</button>
 					</form>
 				</div>
 				<div class="layui-tab-item">
@@ -170,10 +198,57 @@
 		</div>
 		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			layui.use(['element', 'table'], function() {
-				var $ = layui.jquery,
-					element = layui.element,
-					table = layui.table;
+			layui.use(['element', 'form', 'laydate', 'table'], function() {
+				var element = layui.element;
+				var form = layui.form;
+				var table = layui.table;
+
+				table.render({
+					elem: "#xiyizhengduan",
+					cols: [
+						[{
+							type: 'checkbox'
+						}, {
+							field: 'icd',
+							title: 'ICD编码'
+						}, {
+							field: 'mingcheng',
+							title: '名称'
+						}, {
+							field: 'fabingshijian',
+							title: '发病时间'
+						}]
+					],
+					data: [{
+						"icd": "A01.001",
+						"mingcheng": "伤寒",
+						"fabingshijian": "2019-03-26 9:28"
+					}]
+				})
+
+				table.render({
+					elem: "#zhongyizhengduan",
+					cols: [
+						[{
+							type: 'checkbox'
+						}, {
+							field: 'icd',
+							title: 'ICD编码'
+						}, {
+							field: 'mingcheng',
+							title: '名称'
+						}, {
+							field: 'fabingshijian',
+							title: '发病时间'
+						}]
+					],
+					data: [{
+						"icd": "A01.001",
+						"mingcheng": "伤寒",
+						"fabingshijian": "2019-03-26 9:28"
+					}]
+				})
+
 				$.post(
 						'/his/html/pinfo/doc',
 						{userid:1},
