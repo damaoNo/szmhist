@@ -16,13 +16,13 @@ import java.util.List;
 public class TakeDrugsServiceTest {
     TakeDrugsService tds=new TakeDrugsService();
 
-  /*  @Test
+  @Test
     public void takeDrugs() throws SQLException {
         DateFormat format=new SimpleDateFormat("yyyy-MM-dd");
         List list=null;
         try {
           Date  date = format.parse("2019-03-29");
-//         list=tds.takeDrugs(600607,date);
+         list=tds.takeDrugs(600607,date,3);
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -31,7 +31,7 @@ public class TakeDrugsServiceTest {
 
 
     }
-
+/*
     @Test
     public void freshPrescription() throws SQLException {
         tds.freshPrescription(5,55);
