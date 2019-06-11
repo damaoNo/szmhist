@@ -20,8 +20,11 @@
 				<!-- 头部区域   右侧-->
 				<ul class="layui-nav layui-layout-right" id="y_headerright">
 					<li class="layui-nav-item" id="y_root">
-						<a href="javascript:;">ROOT</a>
+						<a href="javascript:;" id="root">ROOT</a>
 						<dl class="layui-nav-child">
+							<dd>
+								<button style="display: none" id="disbut" name="userid"></button>
+							</dd>
 							<dd>
 								<a href="">隐藏菜单</a>
 							</dd>
@@ -182,7 +185,7 @@
 			</div>
 		</div>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		<script src="../layui/layui.js"="text/javascript" charset="utf-8"></script>
+		<script src="../layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			layui.use('element', function() {     
 				var element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块    
@@ -193,6 +196,27 @@
 				element.on('tab(demo)', function(elem) {
 					location.hash = 'demo=' + $(this).attr('lay-id');
 				});
+
+				function UrlSearch() {
+					var name,value;
+					var str=location.href; //取得整个地址栏
+					var num=str.indexOf("?")
+					str=str.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+
+					var arr=str.split("&"); //各个参数放到数组里
+					console.log(arr)
+					for(var i=0;i < arr.length;i++){
+						num=arr[i].indexOf("=");
+						if(num>0){
+							name=arr[i].substring(0,num);
+							value=arr[i].substr(num+1);
+							this[name]=value;
+						}
+					}
+				}
+
+				UrlSearch();
+
 				//触发事件						          
 				var active = {  
 					tabAdd: function(url, id, name) {

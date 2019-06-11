@@ -42,9 +42,9 @@ public class loginServlet1 extends HttpServlet {
         List info=new ArrayList();
         info.add(user);
         if (user.getRealName()!=null){
-
-            if (user.getUseTpye()==1){
-                uri="/his/html/main.html";
+            uri="/his/html/main.html?username="+user.getRealName()+"&userid="+user.getId();
+            /*if (user.getUseTpye()==1){
+                uri="/his/html/main.html？username="+user.getRealName()+"&userid="+user.getId();
             }
             if (user.getUseTpye()==0){
                 uri="/his/html/main.html";
@@ -54,7 +54,7 @@ public class loginServlet1 extends HttpServlet {
             }
             if (user.getUseTpye()==2){
                 uri="/his/html/main.html";
-            }
+            }*/
 
         }
         info.add(uri);
