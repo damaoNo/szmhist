@@ -125,7 +125,7 @@
 					}
 
 					$.post(
-							'/his/TakeMedicineServlet',
+							'/his/html/TakeMedicine/1',
 							{
 								binglihao: $("input[name='binglihao']").val(),
 								date: $("input[name='date']").val()
@@ -155,11 +155,12 @@
 						chk_value.push(this.value)
 					})
 					$.post(
-							'/his/TakeMedicineServlet',
+							'/his/html/TakeMedicine/2',
 							{
 								ID:chk_value.join(",")
 							}
 					)
+					$("#test").html("")
 				})
 			})
 		</script>
