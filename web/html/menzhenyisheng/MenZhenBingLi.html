@@ -9,7 +9,7 @@
 
 	<body>
 		<!--左侧-->
-		<div class="layui-inline ">
+		<div class="layui-inline " id="">
 			<div id="">
 				<label>患者选择：</label>
 				<button class="layui-btn layui-btn-normal"><i class="layui-icon">&#xe669;</i></button>
@@ -32,9 +32,17 @@
 								<thead>
 									<td colspan="3">未诊患者：</td>
 								</thead>
-								<tbody id="tbody1">
-
-
+								<tbody>
+									<tr>
+										<td>600601</td>
+										<td>杜甫</td>
+										<td>17</td>
+									</tr>
+									<tr>
+										<td>张爱玲</td>
+										<td>汉族</td>
+										<td>1920-09-30</td>
+									</tr>
 								</tbody>
 							</table>
 							<!--已诊患者-->
@@ -42,8 +50,17 @@
 								<thead>
 									<td colspan="3">已诊患者：</td>
 								</thead>
-								<tbody id="tbody2">
-
+								<tbody>
+									<tr>
+										<td>600601</td>
+										<td>杜甫</td>
+										<td>17</td>
+									</tr>
+									<tr>
+										<td>张爱玲</td>
+										<td>汉族</td>
+										<td>1920-09-30</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -72,8 +89,17 @@
 								<thead>
 									<td colspan="3">已诊患者：</td>
 								</thead>
-								<tbody id="tbody4">
-
+								<tbody>
+									<tr>
+										<td>600601</td>
+										<td>易慧丹</td>
+										<td>32</td>
+									</tr>
+									<tr>
+										<td>01212124546</td>
+										<td>桂龙成</td>
+										<td>1920-09-30</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -82,7 +108,7 @@
 			</div>
 		</div>
 		<!--右侧-->
-		<div class="layui-tab layui-tab-card layui-inline" style="width: 80%;">
+		<div class="layui-tab layui-tab-card layui-inline" style="width: 80%;" id="">
 			<!--隐藏患者&请选择患者-->
 			<div id="">
 				<label for="" class="layui-btn layui-btn-normal">隐藏患者栏</label>
@@ -95,10 +121,7 @@
 				<li>检验申请*</li>
 				<li>门诊确诊*</li>
 				<li>处置申请*</li>
-				<li>
-					<iframe src="MenZhenBingLI/ChengYaoChuFang.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;">
-
-					</iframe></li>
+				<li>成药处方</li>
 				<li>草药处方*</li>
 				<li>费用查询*</li>
 			</ul>
@@ -131,44 +154,44 @@
 								<td>体格检查</td>
 								<td><textarea name="" rows="1" cols="20" style="resize:vertical;"></textarea></td>
 							</tr>
-						</table>
+							</tabel>
 							<!-------------------------------------------------评估诊断--------------------------------------------------------->
-						<p>评估/诊断</p>
-						<tabel>
-							<table border="0" cellspacing="" cellpadding="">
-								<tr>
-									<th>
-										<h1>西医诊断</h1></th>
-								</tr>
-								<tr>
-									<table class="layui-hide" id="xiyizhengduan" lay-filter="xiyizhengduan"></table>
-								</tr>
-							</table>
-						</tabel>
-						<tabel>
-							<table border="0" cellspacing="" cellpadding="">
-								<tr>
-									<th>
-										<h1>中医诊断</h1></th>
-								</tr>
-								<tr>
-									<table class="layui-hide" id="zhongyizhengduan" lay-filter="xiyizhengduan"></table>
-								</tr>
-							</table>
-						</tabel>
-						<label class="layui-form-label">检察建议</label>
-						<div class="layui-input-block">
-							<input type="text" name="" required lay-verify="required" autocomplete="off"
-								   class="layui-input">
-						</div>
-						<br>
-						<label class="layui-form-label">注意事项</label>
-						<div class="layui-input-block">
-							<input type="text" name="" required lay-verify="required" autocomplete="off"
-								   class="layui-input">
-						</div>
-						<br>
-						<button class="layui-btn layui-icon layui-btn-normal" lay-submit lay-filter="formDemo">提交</button>
+							<p>评估/诊断</p>
+							<tabel>
+								<table border="0" cellspacing="" cellpadding="">
+									<tr>
+										<th>
+											<h1>西医诊断</h1></th>
+									</tr>
+									<tr>
+										<table class="layui-hide" id="xiyizhengduan" lay-filter="xiyizhengduan"></table>
+									</tr>
+								</table>
+							</tabel>
+							<tabel>
+								<table border="0" cellspacing="" cellpadding="">
+									<tr>
+										<th>
+											<h1>中医诊断</h1></th>
+									</tr>
+									<tr>
+										<table class="layui-hide" id="zhongyizhengduan" lay-filter="xiyizhengduan"></table>
+									</tr>
+								</table>
+							</tabel>
+							<label class="layui-form-label">检察建议</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                    class="layui-input">
+                            </div>
+                            <br>
+                            <label class="layui-form-label">注意事项</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="" required lay-verify="required" autocomplete="off"
+                                    class="layui-input">
+                            </div>
+                            <br>
+                            <button class="layui-btn layui-icon layui-btn-normal" lay-submit lay-filter="formDemo">提交</button>
 					</form>
 				</div>
 				<div class="layui-tab-item">
@@ -183,132 +206,82 @@
 					<br />
 					<table class="layui-hide" id="test"></table>
 				</div>
-				<div class="layui-tab-item">检验申请*</div>
-				<div class="layui-tab-item">门诊确诊*</div>
-				<div class="layui-tab-item">处置申请*</div>
-				<div class="layui-tab-item">成药处方</div>
+				<div class="layui-tab-item">
+					<a href="MenZhenBingLI/jianyanshengqing.html"></a>
+					<iframe src="MenZhenBingLI/jianyanshengqing.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
+				</div>
+				<div class="layui-tab-item">
+				<iframe src="MenZhenBingLI/menzhenquezhen.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
+				</div>
+				<div class="layui-tab-item">
+					处置申请*
+				</div>
+				<div class="layui-tab-item">
+					<iframe src="MenZhenBingLI/ChengYaoChuFang.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
+				</div>
+				<div class="layui-tab-item">
+					<iframe src="MenZhenBingLI/CaoYaoChuFang.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
+				</div>
+				<div class="layui-tab-item">
+					<iframe src="MenZhenBingLI/FeiYongChaXun.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
+				</div>
 			</div>
 		</div>
+			<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			layui.use(['element', 'form', 'laydate', 'table'], function() {
 				var element = layui.element;
-				var form = layui.form;
-				var table = layui.table;
+	            var form = layui.form;
+	            var table = layui.table;
 
-				table.render({
-					elem: "#xiyizhengduan",
-					cols: [
-						[{
-							type: 'checkbox'
-						}, {
-							field: 'icd',
-							title: 'ICD编码'
-						}, {
-							field: 'mingcheng',
-							title: '名称'
-						}, {
-							field: 'fabingshijian',
-							title: '发病时间'
-						}]
-					],
-					data: [{
-						"icd": "A01.001",
-						"mingcheng": "伤寒",
-						"fabingshijian": "2019-03-26 9:28"
-					}]
-				})
+            table.render({
+                elem: "#xiyizhengduan",
+                cols: [
+                    [{
+                        type: 'checkbox'
+                    }, {
+                        field: 'icd',
+                        title: 'ICD编码'
+                    }, {
+                        field: 'mingcheng',
+                        title: '名称'
+                    }, {
+                        field: 'fabingshijian',
+                        title: '发病时间'
+                    }]
+                ],
+                data: [{
+                    "icd": "A01.001",
+                    "mingcheng": "伤寒",
+                    "fabingshijian": "2019-03-26 9:28"
+                }]
+            })
 
-				table.render({
-					elem: "#zhongyizhengduan",
-					cols: [
-						[{
-							type: 'checkbox'
-						}, {
-							field: 'icd',
-							title: 'ICD编码'
-						}, {
-							field: 'mingcheng',
-							title: '名称'
-						}, {
-							field: 'fabingshijian',
-							title: '发病时间'
-						}]
-					],
-					data: [{
-						"icd": "A01.001",
-						"mingcheng": "伤寒",
-						"fabingshijian": "2019-03-26 9:28"
-					}]
-				})
+            table.render({
+                elem: "#zhongyizhengduan",
+                cols: [
+                    [{
+                        type: 'checkbox'
+                    }, {
+                        field: 'icd',
+                        title: 'ICD编码'
+                    }, {
+                        field: 'mingcheng',
+                        title: '名称'
+                    }, {
+                        field: 'fabingshijian',
+                        title: '发病时间'
+                    }]
+                ],
+                data: [{
+                    "icd": "A01.001",
+                    "mingcheng": "伤寒",
+                    "fabingshijian": "2019-03-26 9:28"
+                }]
+            })
 
-				$.post(
-						'/his/html/pinfo/doc',
-						{userid:1},
-						function (res,status,xhr) {
-							console.log(res);
-							console.log(res[0]);
-							console.log(res[1]);
-							var html1='';
-							for (var i=0;i<res[0].length;i++){
-								html1+='<tr><td>'+res[0][i].caseNumber+'</td><td>'+res[0][i].realName+'</td><td>'+res[0][i].age+'</td></tr>';
-							}
-							$("#tbody1").html(html1);
-							var html2='';
-							for (var i=0;i<res[1].length;i++){
-								html2+='<tr><td>'+res[1][i].caseNumber+'</td><td>'+res[1][i].realName+'</td><td>'+res[1][i].age+'</td></tr>';
-							}
-							$("#tbody2").html(html2);
-						},
-						'json'
-				)
-				table.render({
-					elem: '#test',
-					url: '/demo/table/user/',
-					cols: [
-						[{
-							type: 'checkbox'
-						}, {
-							field: '申请名称',
-							title: '申请名称'
-						}, {
-							field: '项目名称',
-							title: '项目名称'
-						}, {
-							field: '执行科室',
-							title: '执行科室'
-						}, {
-							field: '执行状态',
-							title: '城市'
-						}, {
-							field: '单价',
-							title: '单价'
-						}, {
-							field: '检查结果',
-							title: '检查结果'
-						}]
-					],
-					page: true
-				});
-				$('#qwqw').on('click', function() {
-					layer.open({
-						type: 2,
-						title: '新增医技',
-						maxmin: true,
-						area: ['800px', '520px'],
-						shadeClose: true, //点击遮罩关闭层
-						content: '../TanChuCeng/-XinZenXiangmu.html',
-						btn: '关闭'
-					});
-				});
-
-			})
-		</script>
-		<!--<script>
-			layui.use('table', function() {
-				var table = layui.table;
-
-				table.render({
+			table.render({
 					elem: '#test',
 					url: '/demo/table/user/',
 					cols: [
@@ -348,7 +321,7 @@
 					});
 				});
 			});
-		</script>-->
+		</script>
 	</body>
 
 </html>
