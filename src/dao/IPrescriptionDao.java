@@ -30,7 +30,7 @@ public interface IPrescriptionDao {
      * @param registID
      * @return pd.ID,d.DrugsName,d.DrugsFormat,d.DrugsPrice,pd.DrugsUsage,pd.Dosage,pd.Frequency
      */
-    List<PrescriptionDetailed> selectDrugs(int userID, int registID) throws SQLException;
+    List<PrescriptionDetailed> selectDrugs(int id) throws SQLException;
 
     /**
      * 新增一条Prescriton记录 处方

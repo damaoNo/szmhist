@@ -108,7 +108,7 @@ public class ConsultServiceTest {
 
     @Test
     public void findDrugsinPre() throws SQLException {
-        List<PrescriptionDetailed> list=service.findDrugsinPre(1,37);
+        List<PrescriptionDetailed> list=service.findDrugsinPre(1);
         for (PrescriptionDetailed p:list){
             System.out.println(p);
         }

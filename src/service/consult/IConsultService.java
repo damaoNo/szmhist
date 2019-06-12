@@ -107,13 +107,17 @@ public interface IConsultService {
      * @return id，medicalid,registid,userid,prescriptionname,state
      */
     List<Prescription> findPreByUserID(int userID,int registID) throws SQLException;
+
+
+    void newpres(Prescription p) throws SQLException;
+
     /**
      * 查询当前处方中有的药品
      * @param userID
      * @param registID
      * @return pd.ID,d.DrugsName,d.DrugsFormat,d.DrugsPrice,pd.DrugsUsage,pd.Dosage,pd.Frequency
      */
-    List<PrescriptionDetailed> findDrugsinPre(int userID, int registID) throws SQLException;
+    List<PrescriptionDetailed> findDrugsinPre(int id) throws SQLException;
 
     /**
      * 分页查询可用药品列表，每页十条，可选用助记码查询，可直接传空串全部查询

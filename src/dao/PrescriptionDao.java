@@ -70,16 +70,14 @@ public class PrescriptionDao implements IPrescriptionDao{
      * @return pd.ID, d.DrugsName, d.DrugsFormat, d.DrugsPrice, pd.DrugsUsage, pd.Dosage, pd.Frequency
      */
     @Override
-    public List<PrescriptionDetailed> selectDrugs(int userID, int registID) throws SQLException {
+    public List<PrescriptionDetailed> selectDrugs(int id) throws SQLException {
         String sql="SELECT pd.ID,d.DrugsName,d.DrugsFormat,d.DrugsPrice,pd.DrugsUsage,pd.Dosage,pd.Frequency " +
                 "FROM prescription p,prescriptiondetailed pd,drugs d " +
                 "WHERE p.ID=pd.PrescriptionID " +
                 "AND pd.DrugsID=d.ID " +
-                "AND p.RegistID=? " +
-                "AND p.UserID=? ";
+                "AND p.id= ? ";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,registID);
-        pstmt.setInt(2,userID);
+        pstmt.setInt(1,id);
         ResultSet rs=pstmt.executeQuery();
         List<PrescriptionDetailed> list=new ArrayList<>();
         PrescriptionDetailed pd=null;
@@ -126,6 +124,7 @@ public class PrescriptionDao implements IPrescriptionDao{
             s=2;
         }
         pstmt.setInt(6,s);
+        pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }
 

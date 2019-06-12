@@ -276,18 +276,19 @@
 					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe605;</i>发送</button></li>
 					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe640;</i>作废</button></li>
 				</ul>
-				<table class="layui-table" lay-even lay-skin="nob">
+				<table class="layui-table" lay-even lay-skin="nob" id="ctb">
 					<thead>
 					<tr>
-						<td>处方名称</td>
-						<td>状态</td>
+						<td><input type="checkbox" name="cfxz"></td>
+						<td >处方名称</td>
+						<td >状态</td>
 					</tr>
 					</thead>
-					<tbody>
+					<tbody id="cf">
 					</tbody>
 				</table>
 				<p>本处方金额合计:0.00元</p><ul>
-				<li class="layui-inline"><button  class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe61f;</i>增药</button></li>
+				<li class="layui-inline"><button id="zy"  class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe61f;</i>增药</button></li>
 				<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#x1006;</i>删药</button></li>
 			</ul>
 				<table class="layui-table" lay-even lay-skin="nob">
@@ -302,8 +303,9 @@
 						<td>数量</td>
 					</tr>
 					</thead>
-					<tbody>
+					<tbody id="yyyy">
 					</tbody>
+
 				</table>
 			</div>
 		</div>
@@ -313,26 +315,55 @@
 		<div class="layui-tab-item">
 			<iframe src="MenZhenBingLI/FeiYongChaXun.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
 		</div>
-		<div class="site-text" style="margin:5%;display:none" id="box1" target="test123">
-			<form class="layui-form layui-form-pane">
-
-
-				<div class="layui-form-item">
-					<label class="layui-form-label">jiebaword</label>
-					<div class="layui-input-inline">
-						<input type="text" class="layui-input" value="" id="jiebaword">
-					</div>
-				</div>
-
-				<div class="layui-form-item">
-					<div class="layui-input-block">
-						<button class="layui-btn" id="xzxz" >新增</button>
-						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-					</div>
-				</div>
-			</form>
-		</div>
 	</div>
+</div>
+<div class="site-text" style="margin:5%;display:none" id="box1" target="test123">
+	<form class="layui-form layui-form-pane">
+
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">处方名称</label>
+			<div class="layui-input-inline">
+				<input type="text" class="layui-input" value="" id="pname">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" id="xzxz" type="button" >新增</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="site-text" style="margin:5%;display:none" id="box2" target="test123">
+	<form class="layui-form layui-form-pane">
+
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">搜索药品：</label>
+			<div class="layui-input-inline">
+				<input type="text" class="layui-input" id="ssyp" name="ssyp" value=""/>
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<table class="layui-table" lay-even lay-skin="nob">
+				<thead>
+				<tr>
+					<td>药品名称</td>
+					<td>规格</td>
+					<td>单价</td>
+					<td>添加</td>
+				</tr>
+				</thead>
+				<tbody id="yy">
+				</tbody>
+				<span id="pages"></span>
+			</table>
+		</div>
+	</form>
 </div>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
@@ -369,18 +400,10 @@
 		var regidv='';
 		var flag=0;
 		var index;
-		$("#zf").click(function () {
-			index =
-					layer.open({
-				title: '新增药方',
-				type: 1,
-				area: ['50%', '20%'],
-				shadeClose: true,
-				content: $('#box1'),btnAlign: 'c',
+		var cs='';
+		var rn='';
+		var ag='';
 
-			})
-
-		});
 
 		$.post(
 
@@ -405,9 +428,9 @@
 						flag=1;
 						console.log($(this).find("#idinput").val());
 						regidv=$(this).find("#idinput").val();
-						var cs=$(this).find("#cs").text();
-						var rn=$(this).find("#rn").text();
-						var ag=$(this).find("#ag").text();
+						cs=$(this).find("#cs").text();
+						rn=$(this).find("#rn").text();
+						ag=$(this).find("#ag").text();
 						$.post(
 								'/his/html/pinfo/selectp',
 								{regid:regidv},
@@ -465,9 +488,7 @@
 				},
 				'json'
 		)
-		$("#xzxz").click(function () {
-			layer.close();
-		})
+
 		form.on('submit(formDemo)',function () {
 			flag=2;
 			console.log("formdemo");
@@ -517,6 +538,9 @@
 			}
 
 		})
+
+		var preidv=0;
+
 		$("#sli2").click(function () {
 			if (flag==0){
 				alert("选择一个患者");
@@ -533,10 +557,231 @@
 						},
 						function (res,status,xhr) {
 							console.log(res);
+							$("#cf").html(" ");
+							var cfhtml='';
+							for (var i=0;i<res.length;i++){
+
+								cfhtml+='<tr class="cftr"><td><input type="radio" name="cfxz" value="'+res[i].id+'"></td><td>'+res[i].prescriptionName+'</td><td>'+res[i].prescriptionState+'</td></tr>';
+							}
+							$("#cf").html(cfhtml);
+
+							$("#cf").on('click','.cftr',function () {
+								preidv=$(this).find("input[name='cfxz']").val();
+								console.log(preidv)
+								$.post(
+										'/his/html/pinfo/dip',
+										{
+											preid:preidv
+										},
+										function (res,status,xhr) {
+											var hhh='';
+											for(var i=0;i<res.length;i++){
+												hhh+='<tr><td>'+res[i].drugName+'</td><td>'+
+														res[i].format+'</td><td>'+
+														res[i].price+'</td><td>'+
+														res[i].drugsUsage+'</td><td>'+
+														res[i].dosage+'</td><td>'+
+														res[i].frequency+'</td><td>'+
+														res[i].amount+'</td></tr>';
+											}
+											$("#yyyy").html(hhh);
+
+										},
+										'json'
+								)
+							})
 						},
 						'json'
 				)
 			}
+		})
+
+		$("#zf").click(function () {
+			index =
+					layer.open({
+						title: '新增药方',
+						type: 1,
+						area: ['50%', '20%'],
+						shadeClose: true,
+						content: $('#box1'),btnAlign: 'c', offset: '50px'
+					})
+
+		});
+		$("#zy").click(function () {
+			index =
+					layer.open({
+						title: '新增药品',
+						type: 1,
+						area: ['80%', '60%'],
+						shadeClose: true,
+						content: $('#box2'),btnAlign: 'c', offset: '50px',
+					})
+			$.post(
+					'/his/html/pinfo/ypss',
+					{
+						codes:"null",
+						page:"1",
+					},
+					function (res,status,xhr) {
+						console.log(res);
+						$("#yy").html("");
+						var yyh='';
+						var yyp='';
+						for (var i=0;i<res.length;i++){
+							if (i!=res.length-1){
+								yyh+='<tr><td>'+res[i].drugName+'</td><td>'+
+										res[i].drugsFormat+'</td><td>'+
+										res[i].drugsPrice+'</td><td>' +
+										'<button class="layui-btn drug" type="button" value="'+res[i].id+'">选择</button></td></tr>';
+
+
+							}else {
+								/*console.log(res[i]);
+								for (var j=0;j<res[i];j++){
+									if (j<3){
+										yyp+='<a href="localhost:8888/his/html/pinfo/ypss?codes=null&page='+
+												(j+1)+'>'+(j+1)+'</a>';
+									} else if (j=(res[i]-1)){
+										yyp+='<a href="localhost:8888/his/html/pinfo/ypss?codes=null&page='+
+												(j+1)+'>'+(j+1)+'</a>';
+									}
+								}*/
+							}
+						}
+						$("#yy").html(yyh);
+						$("#pages").html(yyp);
+					},
+					'json'
+			)
+
+
+		});
+
+		$("#ssyp").blur(function () {
+			console.log($("input[name='ssyp']").val())
+			$.post(
+					'/his/html/pinfo/ypss',
+					{
+						codes:$("input[name='ssyp']").val(),
+						page:"1",
+					},
+					function (res,status,xhr) {
+						console.log(res);
+						$("#yy").html("");
+						var yyh='';
+						var yyp='';
+						for (var i=0;i<res.length;i++){
+							if (i!=res.length-1){
+								yyh+='<tr><td>'+res[i].drugName+'</td><td>'+
+										res[i].drugsFormat+'</td><td>'+
+										res[i].drugsPrice+'</td><td>' +
+										'<button class="layui-btn drug" type="button" value="'+res[i].id+'">选择</button></td></tr>';
+
+
+							}else {
+								/*console.log(res[i]);
+								for (var j=0;j<res[i];j++){
+									if (j<3){
+										yyp+='<a href="localhost:8888/his/html/pinfo/ypss?codes=null&page='+
+												(j+1)+'>'+(j+1)+'</a>';
+									} else if (j=(res[i]-1)){
+										yyp+='<a href="localhost:8888/his/html/pinfo/ypss?codes=null&page='+
+												(j+1)+'>'+(j+1)+'</a>';
+									}
+								}*/
+							}
+						}
+						$("#yy").html(yyh);
+						$("#pages").html(yyp);
+
+					},
+					'json'
+			)
+		})
+		$("#box2").on('click','.drug',function () {
+			// alert("durg")
+			$.post(
+
+							'/his/html/pinfo/nd',
+							{
+								presid:preidv,
+								drugid:$(this).val(),
+							},
+							function (res,status,xhr) {
+								console.log(res);},
+							'json'
+			)
+			$.post(
+					'/his/html/pinfo/dip',
+					{
+						preid:preidv
+					},
+					function (res,status,xhr) {
+						var hhh='';
+						for(var i=0;i<res.length;i++){
+							hhh+='<tr><td>'+res[i].drugName+'</td><td>'+
+									res[i].format+'</td><td>'+
+									res[i].price+'</td><td>'+
+									res[i].drugsUsage+'</td><td>'+
+									res[i].dosage+'</td><td>'+
+									res[i].frequency+'</td><td>'+
+									res[i].amount+'</td></tr>';
+						}
+						$("#yyyy").html(hhh);
+
+					},
+					'json'
+			)
+		})
+
+
+
+		$("#xzxz").click(function () {
+			alert("添加处方成功")
+			$.post(
+					'/his/html/pinfo/newpres',
+					{
+						regid:regidv,
+						pname:$("#pname").val(),
+						medicalid:cs
+					},
+					function (res,status,xhr) {
+						console.log(res);
+						$("#cf").html(" ");
+						var cfhtml='';
+						for (var i=0;i<res.length;i++){
+
+							cfhtml+='<tr><td><input type="radio" name="cfxz" value="'+res[i].id+'"></td><td>'+res[i].prescriptionName+'</td><td>'+res[i].prescriptionState+'</td></tr>';
+						}
+						$("#cf").html(cfhtml);
+						$("#cf").on('click','.cftr',function () {
+							preidv=$(this).find("input[name='cfxz']").val();
+							console.log(preidv)
+							$.post(
+									'/his/html/pinfo/dip',
+									{
+										preid:preidv
+									},
+									function (res,status,xhr) {
+										console.log(res);
+										var hhh='';
+										for(var i=0;i<res.length;i++){
+											hhh+='<tr><td>'+res[i].drugName+'</td><td>'+
+													res[i].format+'</td><td>'+
+													res[i].price+'</td><td>'+
+													res[i].drugsUsage+'</td><td>'+
+													res[i].dosage+'</td><td>'+
+													res[i].frequency+'</td><td>'+
+													res[i].amount+'</td></tr>';
+										}
+										$("#yyyy").html(hhh);
+									},
+									'json'
+							)
+						})
+					},
+					'json'
+			)
 		})
 
 		$("#zhenduanover").click(function () {

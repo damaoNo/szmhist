@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import service.consult.ConsultService;
 import service.consult.IConsultService;
 import vo.MedicalRecord;
+import vo.Prescription;
+import vo.PrescriptionDetailed;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,7 +44,6 @@ public class PatientServlet extends HttpServlet {
                 List list=new ArrayList();
                 list.add(list1);
                 list.add(list2);
-                mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString(list);
                 pw=response.getWriter();
                 System.out.println(json);
@@ -61,7 +62,6 @@ public class PatientServlet extends HttpServlet {
                 int id=Integer.parseInt(regidS);
                 IConsultService cs=new ConsultService();
                 MedicalRecord mr=cs.findMedRecord(id);
-                mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString(mr);
                  pw=response.getWriter();
                 System.out.println(json);
@@ -116,7 +116,6 @@ public class PatientServlet extends HttpServlet {
                 System.out.println(mr);
                 IConsultService cs=new ConsultService();
                 cs.consulting(regid,2,mr);
-                mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString(mr);
                 System.out.println(json);
                 pw.println(json);
@@ -133,7 +132,6 @@ public class PatientServlet extends HttpServlet {
                 int regid=Integer.parseInt(regidS);
                 IConsultService cs=new ConsultService();
                 cs.consulted(regid,3);
-                 mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString("已提交");
                  pw=response.getWriter();
                 System.out.println(json);
@@ -175,7 +173,7 @@ public class PatientServlet extends HttpServlet {
                 System.out.println(mr);
                 IConsultService cs=new ConsultService();
                 cs.diagnosis(mr);
-                 mapper=new ObjectMapper();
+
                 String json=mapper.writeValueAsString(mr);
                  pw=response.getWriter();
                 System.out.println(json);
@@ -206,7 +204,121 @@ public class PatientServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+
+
+        if (kind.equals("newpres")){
+            try {
+                String pname=request.getParameter("pname");
+                String medicalid=request.getParameter("medicalid");
+                String registid=request.getParameter("regid");
+                int userid=(Integer) session.getAttribute("docid");
+                int medid=Integer.parseInt(medicalid);
+                int regid=Integer.parseInt(registid);
+                Prescription p=new Prescription();
+                p.setPrescriptionName(pname);
+                p.setRegitID(regid);
+                p.setMedicalID(medid);
+                p.setUserID(userid);
+                p.setPrescriptionState(1);
+                IConsultService cs=new ConsultService();
+                cs.newpres(p);
+
+                List l=cs.findPreByUserID(userid,regid);
+                String json=mapper.writeValueAsString(l);
+                pw=response.getWriter();
+                System.out.println(json);
+                pw.println(json);
+                pw.flush();
+                pw.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (kind.equals("dip")){
+            try {
+                String preidS=request.getParameter("preid");
+                int preid=Integer.parseInt(preidS);
+                IConsultService cs=new ConsultService();
+                List l=cs.findDrugsinPre(preid);
+                String json=mapper.writeValueAsString(l);
+                pw=response.getWriter();
+                System.out.println("predrug"+json);
+                pw.println(json);
+                pw.flush();
+                pw.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        if (kind.equals("ypss")){
+            try {
+                String codes=request.getParameter("codes");
+                String pages=request.getParameter("page");
+                System.out.println("ysss"+codes+pages);
+                if (codes.equals("null")){
+                    codes="";
+                }
+                int page=Integer.parseInt(pages);
+                System.out.println(codes+page);
+                IConsultService cs=new ConsultService();
+
+                List l=cs.allDrugs(codes,page);
+
+
+
+                String json=mapper.writeValueAsString(l);
+
+                pw=response.getWriter();
+                System.out.println("predrug"+json);
+                pw.println(json);
+                pw.flush();
+                pw.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        if (kind.equals("nd")){
+            try {
+                String presidS=request.getParameter("presid");
+                String drugidS=request.getParameter("drugid");
+
+
+
+                IConsultService cs=new ConsultService();
+                PrescriptionDetailed p=new PrescriptionDetailed();
+                int presid=Integer.parseInt(presidS);
+                int drugid=Integer.parseInt(drugidS);
+                p.setPrescriptionID(presid);
+                p.setDrugsID(drugid);
+                p.setDrugsUsage("null");
+                p.setDosage("null");
+                p.setFrequency("null");
+                p.setFrequency("null");
+                p.setAmount(1d);
+                p.setState(2);
+                cs.newPresDetailed(p);
+
+
+
+                String json=mapper.writeValueAsString("添加药品");
+
+                pw=response.getWriter();
+                System.out.println("predrug"+p);
+                pw.println(json);
+                pw.flush();
+                pw.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);

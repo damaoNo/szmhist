@@ -356,6 +356,26 @@ public class ConsultService implements IConsultService {
         return null;
     }
 
+    @Override
+    public void newpres(Prescription p) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IPrescriptionDao pd=new PrescriptionDao();
+            pd.setConnection(con);
+            pd.insertPrescription(p);
+            con.commit();
+
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+
+    }
+
     /**
      * 查询当前处方中有的药品
      *
@@ -364,14 +384,14 @@ public class ConsultService implements IConsultService {
      * @return pd.ID, d.DrugsName, d.DrugsFormat, d.DrugsPrice, pd.DrugsUsage, pd.Dosage, pd.Frequency
      */
     @Override
-    public List<PrescriptionDetailed> findDrugsinPre(int userID, int registID) throws SQLException {
+    public List<PrescriptionDetailed> findDrugsinPre(int id) throws SQLException {
         Connection con=null;
         try {
             con= JdbcUtil.getConnection();
             con.setAutoCommit(false);
             IPrescriptionDao pd=new PrescriptionDao();
             pd.setConnection(con);
-            List<PrescriptionDetailed> list=pd.selectDrugs(userID,registID);
+            List<PrescriptionDetailed> list=pd.selectDrugs(id);
             con.commit();
             return list;
         } catch (SQLException e) {
