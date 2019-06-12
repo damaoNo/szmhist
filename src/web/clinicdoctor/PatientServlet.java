@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -24,20 +25,26 @@ public class PatientServlet extends HttpServlet {
         String kindM=uri.substring(uri.indexOf("pinfo"));
         String kind=kindM.substring(kindM.indexOf("/")+1);
         System.out.println(kind);
+        HttpSession session=request.getSession();
+        ObjectMapper mapper=new ObjectMapper();
+        PrintWriter pw=response.getWriter();
         if (kind.equals("doc")){
             try {
+
+                int docid=(Integer) session.getAttribute("docid");
+                System.out.println(docid);
                 String  idStr=request.getParameter("userid");
                 System.out.println(idStr);
                 int id=Integer.parseInt(idStr);
                 IConsultService cs=new ConsultService();
-                List list1=cs.findDocUVP(id);
-                List list2=cs.findDocVP(id);
+                List list1=cs.findDocUVP(docid);
+                List list2=cs.findDocVP(docid);
                 List list=new ArrayList();
                 list.add(list1);
                 list.add(list2);
-                ObjectMapper mapper=new ObjectMapper();
+                mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString(list);
-                PrintWriter pw=response.getWriter();
+                pw=response.getWriter();
                 System.out.println(json);
                 pw.println(json);
                 pw.flush();
@@ -54,9 +61,9 @@ public class PatientServlet extends HttpServlet {
                 int id=Integer.parseInt(regidS);
                 IConsultService cs=new ConsultService();
                 MedicalRecord mr=cs.findMedRecord(id);
-                ObjectMapper mapper=new ObjectMapper();
+                mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString(mr);
-                PrintWriter pw=response.getWriter();
+                 pw=response.getWriter();
                 System.out.println(json);
                 pw.println(json);
                 pw.flush();
@@ -109,9 +116,8 @@ public class PatientServlet extends HttpServlet {
                 System.out.println(mr);
                 IConsultService cs=new ConsultService();
                 cs.consulting(regid,2,mr);
-                ObjectMapper mapper=new ObjectMapper();
+                mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString(mr);
-                PrintWriter pw=response.getWriter();
                 System.out.println(json);
                 pw.println(json);
                 pw.flush();
@@ -127,9 +133,9 @@ public class PatientServlet extends HttpServlet {
                 int regid=Integer.parseInt(regidS);
                 IConsultService cs=new ConsultService();
                 cs.consulted(regid,3);
-                ObjectMapper mapper=new ObjectMapper();
+                 mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString("已提交");
-                PrintWriter pw=response.getWriter();
+                 pw=response.getWriter();
                 System.out.println(json);
                 pw.println(json);
                 pw.flush();
@@ -145,6 +151,7 @@ public class PatientServlet extends HttpServlet {
 
         if (kind.equals("quezen")){
             try {
+
 
 
                 String  cr=request.getParameter("cr");
@@ -168,9 +175,29 @@ public class PatientServlet extends HttpServlet {
                 System.out.println(mr);
                 IConsultService cs=new ConsultService();
                 cs.diagnosis(mr);
-                ObjectMapper mapper=new ObjectMapper();
+                 mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString(mr);
-                PrintWriter pw=response.getWriter();
+                 pw=response.getWriter();
+                System.out.println(json);
+                pw.println(json);
+                pw.flush();
+                pw.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (kind.equals("chufang")){
+            try {
+                String regidS=request.getParameter("regid");
+                int regid=Integer.parseInt(regidS);
+                int userid=(Integer) session.getAttribute("docid");
+                System.out.println(userid+" "+regid);
+                IConsultService cs=new ConsultService();
+                List l=cs.findPreByUserID(userid,regid);
+
+                String json=mapper.writeValueAsString(l);
+                 pw=response.getWriter();
                 System.out.println(json);
                 pw.println(json);
                 pw.flush();

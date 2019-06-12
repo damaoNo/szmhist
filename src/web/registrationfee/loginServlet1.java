@@ -7,12 +7,14 @@ import net.sf.json.JSONObject;
 import vo.LoginMessage;
 import vo.User;
 
+import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -43,6 +45,8 @@ public class loginServlet1 extends HttpServlet {
         info.add(user);
         if (user.getRealName()!=null){
             uri="/his/html/main.html?username="+user.getRealName()+"&userid="+user.getId();
+            HttpSession session=request.getSession();
+            session.setAttribute("docid",user.getId());
             /*if (user.getUseTpye()==1){
                 uri="/his/html/main.html？username="+user.getRealName()+"&userid="+user.getId();
             }
