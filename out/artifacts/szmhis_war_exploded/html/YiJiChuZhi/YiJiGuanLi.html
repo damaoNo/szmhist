@@ -12,12 +12,16 @@
 	</head>
 
 	<body>
-		<div class="demoTable">
-			医技编号:
+		<div class="demoTable" >
+			项目编号:
 			<div class="layui-inline">
 				<input class="layui-input" name="id" id="demoReload" autocomplete="off">
 			</div>
-			<button class="layui-btn layui-btn-normal" data-type="reload">搜索</button>
+			<button class="layui-btn layui-btn-normal" id="research" data-type="reload">搜索</button>
+			<table  id="top"  border="1" width="1000" style="margin-top: 5px">
+				<tr><th>项目编号</th><th>项目名称</th><th>项目规格</th><th>项目单价</th><th>拼音借助码</th></tr>
+				<tr><td align='center'>120200001</td><td align='center'>大抢救</td><td align='center'>日</td><td align='center'>200</td><td align='center'>DQJ</td></tr>
+			</table>
 		</div>
 
 		<div >
@@ -27,13 +31,10 @@
 		</div>
 
 
-
 		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			layui.use(['table'], function () {
-				var laypage = layui.laypage;
-				//执行一个laypage实例
-				var html;
+				var $=layui.jquery;
 
 				var table = layui.table;
 					//第一个实例
@@ -52,8 +53,27 @@
 						page: true //开启分页
 					});
 
+				$('#research').click(function () {
+					var itemc=$('#demoReload').val();
+					var html1;
+					$.post(
+							'../yjgl',
+							{cmd:1,val:itemc},
+							function (res,status,xhr) {
+								console.log(res);
+								html1='<tr><th>项目编号</th><th>项目名称</th><th>项目规格</th><th>项目单价</th><th>拼音借助码</th></tr>';
+								html1+='<tr><td align=\'center\'>'+res.itemCode+'</td><td align=\'center\'>'+res.itemName+'</td><td align=\'center\'>'+res.format+'</td><td align=\'center\'>'+res.price+'</td><td align=\'center\'>'+res.mnemonicCode+'</td></tr>';
+								$('#top').html(html1);
+							},'json'
+					)
+
+				});
+
 
 			})
+
+
+
 
 		</script>
 	</body>
