@@ -13,147 +13,48 @@
 
 	<body>
 		<div class="demoTable">
-			搜索ID：
+			医技编号:
 			<div class="layui-inline">
 				<input class="layui-input" name="id" id="demoReload" autocomplete="off">
 			</div>
 			<button class="layui-btn layui-btn-normal" data-type="reload">搜索</button>
-			<script type="text/html" id="toolbarDemo">
-			<div class="layui-btn-container">
-				<input style="width: 263px;height: 30px; margin-left: 40px;margin-right: 20px;" name="" value="" placeholder="请输入药品助剂码" />
-			<i class="layui-icon">&#xe615;</i><input class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;margin-right: 150px;" type="submit" name="" value="查询药品" />
-			<i class="layui-icon">&#xe642;</i>
-			<button id="qwqw" class="layui-btn layui-btn-normal" style="margin-right: 40px;width: 120px;height: 35px;" data-method="offset" data-type="auto">新增药品</button>
-			<i class="layui-icon">&#xe654;</i><input class="layui-btn layui-btn-normal" style="width: 120px;height: 35px;" type="submit" name="" value="导入药品" />
-
-			</div>
-		</script>
 		</div>
-		<table class="layui-hide" id="test" lay-filter="test"></table>
-		<script type="text/html" id="barDemo">
-			<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-			<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-		</script>
+
+		<div >
+			<!--分页显示所有的医技信息-->
+			<table  id="fansTable">
+			</table>
+		</div>
+
+
 
 		<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
-		<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-
 		<script>
-			layui.use('table', function() {
+			layui.use(['table'], function () {
+				var laypage = layui.laypage;
+				//执行一个laypage实例
+				var html;
+
 				var table = layui.table;
+					//第一个实例
+					table.render({
+						elem: '#fansTable',//实例化需要的table的id
+						height: 900,//容器高度
+						url: '../yjgl',
+						cols: [[ //表头
+							 {field: 'itemCode', title: '项目编码', width:200,sort: true}
+							,{field: 'itemName', title: '项目名称', width:200}
+							,{field: 'format', title: '项目规格',width:200}
+							,{field: 'price', title: '项目单价', width:200}
+							,{field: 'mnemonicCode', title: '拼音助记码', width:200}
+						]],
+						limit:20,
+						page: true //开启分页
+					});
 
-				table.render({
-					elem: '#test',
-					url: '/test/table/demo1.json',
-					toolbar: '#toolbarDemo',
-					title: '用户数据表',
-					cols: [
-						[{
-							type: 'checkbox',
-							fixed: 'left'
-						}, {
-							field: 'id',
-							title: 'ID',
-							width: 80,
-							fixed: 'left',
-							unresize: true,
-							sort: true
-						}, {
-							field: 'username',
-							title: '用户名',
-							width: 120,
-							edit: 'text'
-						}, {
-							field: 'email',
-							title: '邮箱',
-							width: 150,
-							edit: 'text',
-							templet: function(res) {
-								return '<em>' + res.email + '</em>'
-							}
-						}, {
-							field: 'sex',
-							title: '性别',
-							width: 80,
-							edit: 'text',
-							sort: true
-						}, {
-							field: 'city',
-							title: '城市',
-							width: 100
-						}, {
-							field: 'sign',
-							title: '签名'
-						}, {
-							field: 'experience',
-							title: '积分',
-							width: 80,
-							sort: true
-						}, {
-							field: 'ip',
-							title: 'IP',
-							width: 120
-						}, {
-							field: 'logins',
-							title: '登入次数',
-							width: 100,
-							sort: true
-						}, {
-							field: 'joinTime',
-							title: '加入时间',
-							width: 120
-						}, {
-							fixed: 'right',
-							title: '操作',
-							toolbar: '#barDemo',
-							width: 150
-						}]
-					],
-					page: false
-				});
 
-				//头工具栏事件
-				table.on('toolbar(test)', function(obj) {
-					var checkStatus = table.checkStatus(obj.config.id);
-					switch(obj.event) {
-						case 'getCheckData':
-							var data = checkStatus.data;
-							layer.alert(JSON.stringify(data));
-							break;
-						case 'getCheckLength':
-							var data = checkStatus.data;
-							layer.msg('选中了：' + data.length + ' 个');
-							break;
-						case 'isAll':
-							layer.msg(checkStatus.isAll ? '全选' : '未全选');
-							break;
-					};
-				});
+			})
 
-				//监听行工具事件
-				table.on('tool(test)', function(obj) {
-					var data = obj.data;
-					//console.log(obj)
-					if(obj.event === 'del') {
-						layer.confirm('真的删除行么', function(index) {
-							obj.del();
-							layer.close(index);
-						});
-					} else if(obj.event === 'edit') {
-						layer.prompt({
-							formType: 2,
-							value: data.email
-						}, function(value, index) {
-							obj.update({
-								email: value
-							});
-							layer.close(index);
-						});
-					}
-				});
-			});
 		</script>
-
 	</body>
-
 </html>

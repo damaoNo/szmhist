@@ -74,4 +74,25 @@ public class FmeditemDao implements IFmeditemDao{
 
 
     }
+
+    @Override
+    public List<Fmeditem> getPageFemditem(int page, int limit)throws SQLException{
+        int start=(page-1)*limit;
+        String sql="select * from fmeditem limit "+start+","+limit;
+        con= JdbcUtil.getConnection();
+        PreparedStatement ps=con.prepareStatement(sql);
+        ResultSet rs=ps.executeQuery();
+        List<Fmeditem> list=new ArrayList<Fmeditem>();
+        while(rs.next()){
+            Fmeditem fme=new Fmeditem();
+            fme.setItemCode(rs.getString(2));
+            fme.setItemName(rs.getString(3));
+            fme.setFormat(rs.getString(4));
+            fme.setPrice(rs.getDouble(5));
+            fme.setMnemonicCode(rs.getString(8));
+            list.add(fme);
+        }
+        JdbcUtil.release(con,null,null);
+        return list;
+    }
 }
