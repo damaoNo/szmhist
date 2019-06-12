@@ -37,14 +37,14 @@ public class MedicalRecordDao implements IMedicalRecordDao{
     /**
      * 根据病历号查询相关病历记录
      *
-     * @param caseNum 病历号
+     * @param casn 病历号
      * @return 病历记录对象
      */
     @Override
-    public MedicalRecord selectMedRecord(int regID) throws SQLException {
-        String sql="SELECT * FROM medicalrecord WHERE RegistID=?";
+    public MedicalRecord selectMedRecord(String casn) throws SQLException {
+        String sql="SELECT * FROM medicalrecord WHERE casenumber=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,regID);
+        pstmt.setString(1,casn);
         ResultSet rs=pstmt.executeQuery();
         MedicalRecord mr=new MedicalRecord();
         while (rs.next()){
@@ -259,7 +259,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
     /**
      * 根据类型（int）查询所有项目
      *
-     * @param type 类型
+     *
      * @return list
      */
     @Override

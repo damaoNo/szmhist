@@ -20,12 +20,12 @@ public interface IMedicalRecordDao {
     void insertMedicalRecord(int registID,String caseNum ) throws SQLException;
 
     /**
-     * 根据挂号ID查询相关病历记录
-     * @param regID 挂号ID
+     * 根据病历号查询相关病历记录
+     * @param  casn
      * @return 病历记录对象
      * @throws SQLException
      */
-    MedicalRecord selectMedRecord(int regID) throws SQLException;
+    MedicalRecord selectMedRecord(String casn) throws SQLException;
 
     /**
      * 更新病历首页内容
