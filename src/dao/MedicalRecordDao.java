@@ -41,10 +41,10 @@ public class MedicalRecordDao implements IMedicalRecordDao{
      * @return 病历记录对象
      */
     @Override
-    public MedicalRecord selectMedRecord(String casn) throws SQLException {
-        String sql="SELECT * FROM medicalrecord WHERE casenumber=?";
+    public MedicalRecord selectMedRecord(int regID) throws SQLException {
+        String sql="SELECT * FROM medicalrecord WHERE RegistID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setString(1,casn);
+        pstmt.setInt(1,regID);
         ResultSet rs=pstmt.executeQuery();
         MedicalRecord mr=new MedicalRecord();
         while (rs.next()){
