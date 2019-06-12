@@ -91,10 +91,10 @@
 	</div>
 </div>
 <!--右侧-->
-<div class="layui-tab layui-tab-card layui-inline" style="width: 80%;" id="">
+<div class="layui-tab layui-tab-card layui-inline" style="width: 80%;height: 700px" id="">
 	<!--隐藏患者&请选择患者-->
 	<div id="">
-		<label for="" class="layui-btn layui-btn-normal">隐藏患者栏</label>
+		<label id="over" class="layui-btn layui-btn-normal">诊断完毕</label>
 		<span id="xuanze">请选择患者</span>
 	</div>
 	<!--tab选项内容-->
@@ -102,7 +102,7 @@
 		<li class="layui-this">病例首页</li>
 		<li>检查申请</li>
 		<li>检验申请*</li>
-		<li>门诊确诊*</li>
+		<li id="sli1">门诊确诊*</li>
 		<li>处置申请*</li>
 		<li>成药处方</li>
 		<li>草药处方*</li>
@@ -111,72 +111,200 @@
 	<div class="layui-tab-content">
 		<div class="layui-tab-item layui-show">
 			<!-----------------------------------------------表单病史内容------------------------------------------------------>
-			<form action="" method="post" style="height: 95%;width: 95%;">
+			<form name="form1" style="height: 95%;width: 95%;">
 				<table border="0" cellspacing="1" cellpadding="1">
 					<tr>
 
 						<td>主诉</td>
-						<td><textarea name="readme" rows="1" cols="80" style="resize:vertical;"></textarea></td>
-					</tr>
 
+					</tr>
+					<tr>
+						<td><textarea id="readme" name="readme" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
 					<tr>
 						<td>现病史</td>
-						<td><textarea name="present" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
+					<tr>
+						<td><textarea id="present" name="present" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr>
 						<td>现病治疗情况</td>
-						<td><textarea name="presentTreat" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
+					<tr>
+						<td><textarea id="presentTreat" name="presentTreat" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr>
 						<td>既往史</td>
-						<td><textarea name="history" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
+					<tr>
+						<td><textarea id="history" name="history" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr>
 						<td>过敏史</td>
-						<td><textarea name="allergy" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
+					<tr>
+						<td><textarea id="allergy" name="allergy" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr>
 						<td>体格检查</td>
-						<td><textarea name="physique" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
+					<tr>
+						<td><textarea id="physique" name="physique" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 
 					<tr>
 						<td>检察建议</td>
-						<td><textarea name="proposal" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
+					<tr>
+						<td><textarea id="proposal" name="proposal" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr>
 						<td>注意事项</td>
-						<td><textarea name="careful" rows="1" cols="80" style="resize:vertical;"></textarea></td>
+					</tr>
+					<tr>
+						<td><textarea id="careful" name="careful" rows="1" cols="80" style="resize:vertical;"></textarea></td>
 					</tr>
 					<tr><td><button class="layui-btn layui-icon layui-btn-normal" lay-submit lay-filter="formDemo">提交</button></td></tr>
 
 				</table>
 			</form>
 		</div>
+
+
+
 		<div class="layui-tab-item">
-			<div style="text-align:center;">
-				<button id="qwqw" class="layui-btn layui-btn-normal">新增项目</button>
-				<button class="layui-btn layui-btn-normal">删除项目</button>
-				<button class="layui-btn layui-btn-normal">开立项目</button>
-				<button class="layui-btn layui-btn-normal">作废项目</button>
-				<button class="layui-btn layui-btn-normal">存为组套</button>
-				<button class="layui-btn layui-btn-normal">刷新</button>
+			<div class="">
+				<div style="text-align:center;">
+					<button id="qwqw" class="layui-btn layui-btn-xs layui-btn-normal">新增项目</button>
+					<button class="layui-btn layui-btn-xs layui-btn-normal">删除项目</button>
+					<button class="layui-btn layui-btn-xs layui-btn-normal">开立项目</button>
+					<button class="layui-btn layui-btn-xs layui-btn-normal">作废项目</button>
+					<button class="layui-btn layui-btn-xs layui-btn-normal">存为组套</button>
+					<button class="layui-btn layui-btn-xs layui-btn-normal">刷新</button>
+				</div>
+				<br />
+				<table class="layui-table" lay-skin="line">
+					<thead>
+					<th>
+						<input type="checkbox" name="id">
+					</th>
+					<th style="width: 500px">
+						申请名称
+					</th>
+					<th style="width: 100px">
+						项目名称
+					</th>
+					<th style="width: 100px">
+						执行科室
+					</th>
+					<th style="width: 100px">
+						执行状态
+					</th>
+					<th style="width: 100px">
+						单价
+					</th>
+					<th style="width: 100px">
+						检查结果
+					</th>
+					</thead>
+					<tbody id="xinzengjiancha"></tbody>
+				</table>
 			</div>
-			<br />
-			<table class="layui-hide" id="test"></table>
 		</div>
+
 		<div class="layui-tab-item">
 			<a href="MenZhenBingLI/jianyanshengqing.html"></a>
 			<iframe src="MenZhenBingLI/jianyanshengqing.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
 		</div>
-		<div class="layui-tab-item">
-			<iframe src="MenZhenBingLI/menzhenquezhen.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
+		<div class="layui-tab-item" id="sdiv1">
+			<div class="">
+				<form action="">
+					<label class="layui-form-label">病历号</label>
+					<div class="layui-input-block">
+						<input id="zdcasenum" type="text" name="casenum" required lay-verify="required" autocomplete="off"
+							   class="layui-input" readonly>
+					</div>
+					<br>
+					<label class="layui-form-label">患者姓名</label>
+					<div class="layui-input-block">
+						<input id="zdrealname" type="text" name="realname" required lay-verify="required" autocomplete="off"
+							   class="layui-input" readonly>
+					</div>
+					<br>
+
+					<label class="layui-form-label">年龄</label>
+					<div class="layui-input-block">
+						<input id="zdage" type="text" name="age" required lay-verify="required" autocomplete="off"
+							   class="layui-input" readonly>
+					</div>
+					<br>
+					<div class="layui-form-item layui-form-text">
+						<label class="layui-form-label">检查结果</label>
+						<div class="layui-input-block">
+							<textarea name="cr" placeholder="请输入检查结果" class="layui-textarea"></textarea>
+						</div>
+					</div>
+					<br>
+					<div class="layui-form-item layui-form-text">
+						<label class="layui-form-label">诊断</label>
+						<div class="layui-input-block">
+							<textarea name="diag" placeholder="请输入诊断结果" class="layui-textarea"></textarea>
+						</div>
+					</div>
+					<br>
+					<div class="layui-form-item layui-form-text">
+						<label class="layui-form-label">处理意见</label>
+						<div class="layui-input-block">
+							<textarea name="handling" placeholder="请输入处理意见" class="layui-textarea"></textarea>
+						</div>
+					</div>
+					<br>
+					<label id="zhenduanover" class="layui-btn layui-btn-normal">诊断完毕</label>
+				</form>
+			</div>
 		</div>
 		<div class="layui-tab-item">
 			<iframe src="MenZhenBingLI/chuzhishenqing.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
 		</div>
 		<div class="layui-tab-item">
-			<iframe src="MenZhenBingLI/ChengYaoChuFang.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
+			<div id="">
+				<ul>
+					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe61f;</i>增方</button></li>
+					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#x1007;</i>删方</button></li>
+					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe60a;</i>开立</button></li>
+					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe605;</i>发送</button></li>
+					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe640;</i>作废</button></li>
+				</ul>
+				<table class="layui-table" lay-even lay-skin="nob">
+					<thead>
+					<tr>
+						<td>处方名称</td>
+						<td>状态</td>
+					</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<p>本处方金额合计:0.00元</p><ul>
+				<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe61f;</i>增药</button></li>
+				<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#x1006;</i>删药</button></li>
+			</ul>
+				<table class="layui-table" lay-even lay-skin="nob">
+					<thead>
+					<tr>
+						<td>药品名称</td>
+						<td>规格</td>
+						<td>单价</td>
+						<td>用法</td>
+						<td>用量</td>
+						<td>频次</td>
+						<td>数量</td>
+					</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
 		</div>
 		<div class="layui-tab-item">
 			<iframe src="MenZhenBingLI/CaoYaoChuFang.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
@@ -184,6 +312,7 @@
 		<div class="layui-tab-item">
 			<iframe src="MenZhenBingLI/FeiYongChaXun.html" scrolling="no" frameborder="0" style="width: 100%;height: 700px;"></iframe>
 		</div>
+
 	</div>
 </div>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -194,6 +323,18 @@
 		var form = layui.form;
 		var table = layui.table;
 		var $ = layui.jquery;
+
+		$('#qwqw').on('click', function() {
+			layer.open({
+				type: 2,
+				title: '新增医技',
+				maxmin: true,
+				area: ['800px', '520px'],
+				shadeClose: true, //点击遮罩关闭层
+				content: '../TanChuCeng/-XinZenXiangMu.html',
+				btn: '关闭'
+			});
+		});
 
 		function selectPat(){
 			console.log($(this).children("#idinput").val())
@@ -207,6 +348,7 @@
 			)
 		}
 		var regidv='';
+		var flag=0;
 		$.post(
 				'/his/html/pinfo/doc',
 				{userid:1},
@@ -226,7 +368,7 @@
 					$("#tbody2").html(html2);
 					$(".layui-tab-content").on("click",".trt",function () {
 						/*alert($(this).find("#rn").html());*/
-
+						flag=1;
 						console.log($(this).find("#idinput").val());
 						regidv=$(this).find("#idinput").val();
 						var cs=$(this).find("#cs").text();
@@ -237,8 +379,11 @@
 								{regid:regidv},
 								function (resp,status,xhr) {
 									console.log(resp);
-									var info='患者名：'+rn+'    病历号：'+cs+'     年龄：'+ag;
+									var info='患者：'+rn+'  病历号：'+cs;
 									$("#xuanze").text(info);
+									$("#zdrealname").val(rn);
+									$("#zdage").val(ag);
+									$("#zdcasenum").val(cs);
 									if (resp.readme!==null){
 										$("textarea[name='readme']").text(resp.readme);
 									}else {
@@ -269,15 +414,15 @@
 									}else {
 										$("textarea[name='careful']").text("");
 									}
-									if (resp.checkResult!==null){
-										$("textarea[name='checkResult']").text(resp.checkResult);
+									if (resp.history!==null){
+										$("textarea[name='history']").text(resp.history);
 									}else {
-										$("textarea[name='checkResult']").text("");
+										$("textarea[name='history']").text("");
 									}
-									if (resp.diagnosis!==null){
-										$("textarea[name='diagnosis']").text(resp.diagnosis);
+									if (resp.present!==null){
+										$("textarea[name='present']").text(resp.present);
 									}else {
-										$("textarea[name='diagnosis']").text("");
+										$("textarea[name='present']").text("");
 									}
 								},
 								'json'
@@ -290,73 +435,64 @@
 		form.on('submit(formDemo)',function () {
 			console.log("formdemo");
 			console.log(regidv);
+			console.log("readme"+$("textarea[name='presentTreat']").val());
 			$.post(
 					'/his/html/pinfo/sub',
 					{
 						regid:regidv,
-						readme:$("textarea[name='readme']").text(),
-						presentTreat:$("textarea[name='presentTreat']").text(),
-						allergy:$("textarea[name='allergy']").text(),
-						physique:$("textarea[name='physique']").text(),
-						proposal:$("textarea[name='proposal']").text(),
-						careful:$("textarea[name='careful']").text(),
-						checkResult:$("textarea[name='checkResult']").text(),
-						diagnosis:$("textarea[name='diagnosis']").text()},
+						readme:$("#readme").val(),
+						presentTreat:$("#presentTreat").val(),
+						allergy:$("#allergy").val(),
+						physique:$("#physique").val(),
+						proposal:$("#proposal").val(),
+						careful:$("#careful").val(),
+						history:$("#history").val(),
+						present:$("#present").val()},
 					function (res,status,xhr) {
 						console.log(res);
-						alert(res);
+						alert("已提交");
 					},
 					'json'
 			);
 			return false;
 		})
-
-
-		table.render({
-			elem: "#xiyizhengduan",
-			cols: [
-				[{
-					type: 'checkbox'
-				}, {
-					field: 'icd',
-					title: 'ICD编码'
-				}, {
-					field: 'mingcheng',
-					title: '名称'
-				}, {
-					field: 'fabingshijian',
-					title: '发病时间'
-				}]
-			],
-			data: [{
-				"icd": "A01.001",
-				"mingcheng": "伤寒",
-				"fabingshijian": "2019-03-26 9:28"
-			}]
+		$("#over").click(function () {
+			$.post(
+					'/his/html/pinfo/over',
+					{
+						regid:regidv,
+					},
+					function (res,status,xhr) {
+						console.log(res);
+						alert("已提交");
+					},
+					'json'
+			)
+		})
+		$("#sli1").click(function () {
+			if (flag==0){
+				alert("选择一个患者");
+				return false;
+			}
 		})
 
-		table.render({
-			elem: "#zhongyizhengduan",
-			cols: [
-				[{
-					type: 'checkbox'
-				}, {
-					field: 'icd',
-					title: 'ICD编码'
-				}, {
-					field: 'mingcheng',
-					title: '名称'
-				}, {
-					field: 'fabingshijian',
-					title: '发病时间'
-				}]
-			],
-			data: [{
-				"icd": "A01.001",
-				"mingcheng": "伤寒",
-				"fabingshijian": "2019-03-26 9:28"
-			}]
+		$("#zhenduanover").click(function () {
+			$.post(
+					'/his/html/pinfo/quezen',
+					{
+						regid:regidv,cr:$("textarea[name='cr']").val(),
+						diag:$("textarea[name='diag']").val(),
+						handling:$("textarea[name='handling']").val()
+					},
+					function (res,status,xhr) {
+						console.log(res);
+					},
+					'json'
+			)
 		})
+
+
+
 
 		table.render({
 			elem: '#test',
@@ -386,17 +522,7 @@
 			],
 			page: true
 		});
-		$('#qwqw').on('click', function() {
-			layer.open({
-				type: 2,
-				title: '新增医技',
-				maxmin: true,
-				area: ['800px', '520px'],
-				shadeClose: true, //点击遮罩关闭层
-				content: '../TanChuCeng/-XinZenXiangmu.html',
-				btn: '关闭'
-			});
-		});
+
 	});
 </script>
 </body>

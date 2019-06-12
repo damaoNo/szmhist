@@ -59,6 +59,8 @@ public interface IConsultService {
 
     void consulting(int regID,int state,MedicalRecord mr) throws SQLException;
 
+    void consulted(int regID,int state) throws SQLException;
+
 
     /**
      * 根据类型（int）查询所有项目(此方法也可提供模糊查询)- 只设置ndp的type为查询该类型所有项目，可设置助记码和药品名

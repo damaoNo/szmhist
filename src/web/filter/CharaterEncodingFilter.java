@@ -18,7 +18,7 @@ public class CharaterEncodingFilter implements Filter {
         resp.setCharacterEncoding("utf8");
         //过滤链
         chain.doFilter(req,resp);
-        System.out.println("执行filter");
+
     }
 
     @Override
