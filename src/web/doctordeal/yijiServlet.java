@@ -17,7 +17,7 @@ import java.sql.SQLException;
 @WebServlet(name = "yijiServlet",urlPatterns ="/html/yiji")
 public class yijiServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("进入医技检测了哦");
+        System.out.println("进入医技检测了");
         String casn=request.getParameter("casn");
         PatientExamination user=null;
   //      System.out.println(casn);
