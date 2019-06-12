@@ -17,7 +17,7 @@ public interface IMedicalRecordDao {
 
     void setConnection(Connection con);
 
-    void insertMedicalRecord(int registID,String caseNum ) throws SQLException;
+    void insertMedicalRecord(int registID) throws SQLException;
 
     /**
      * 根据病历号查询相关病历记录
