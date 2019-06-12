@@ -60,7 +60,7 @@ public class yjglServlet extends HttpServlet {
            pw.println(json);
            pw.flush();
            pw.close();
-           System.out.println("回信息完毕");
+           System.out.println("信息完毕");
 
        }
 
