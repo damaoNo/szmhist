@@ -13,19 +13,44 @@
 	<body>
 		<h2>新增医技</h2>
 		<br />
-		<input style="width: 500px;height: 35px;margin-left: 40px;" type="text" name="" id="" value="" placeholder="请输入医技助记码" />
-		<input class="layui-btn layui-btn-normal" style="margin-left: 20px;" type="submit" name="" id="" value="查询" />
-		<br />
-		<table class="layui-hide" id="test"></table>
-		<script src="../layui/layui.js" charset="utf-8"></script>
+		<form>
+			<input style="width: 500px;height: 35px;margin-left: 40px;" type="text" name="zhujima" id="" value="" placeholder="请输入医技助记码" />
+			<input class="layui-btn layui-btn-normal" style="margin-left: 20px;" type="button" name="" id="chaxun" value="查询" />
+			<br />
+			<table class="layui-table" id="test">
+				<thead>
+				<th style="width: 200px">
+					项目编码
+				</th>
+				<th style="width: 100px">
+					项目名称
+				</th>
+				<th style="width: 100px">
+					项目规格
+				</th>
+				<th style="width: 100px">
+					项目单价
+				</th>
+				<th style="width: 100px">
+					拼音助记码
+				</th>
+				<th style="width: 100px">
+					操作
+				</th>
+				<tbody id="test1"></tbody>
+				</thead>
+			</table>
+		</form>
+		<script src="../../layui/layui.js" charset="utf-8"></script>
 		<script>
-			layui.use('table', function() {
-				var table = layui.table;
-				var $=layui.jquery;
+			layui.use(['form','table'], function() {
+				var table = layui.table,
+						form=layui.form;
 
-				table.render({
+
+				/*table.render({
 					elem: '#test',
-					url: '/demo/table/user/',
+					//url: '/demo/table/user/',
 					cols: [
 						[{
 							field: '项目编码',
@@ -48,9 +73,36 @@
 						}]
 					],
 					page: true
-				});
+				});*/
+				var $ = layui.jquery,
+						table = layui.table;
+
+				$("#chaxun").click(function () {
+					$.post(
+							'/his/html/AddXiangMu/1',
+							{
+								zhujima: $("input[name='zhujima']").val()
+							},
+					function (res,status,xhr) {
+						console.log(res);
+						console.log(res[0])
+						var htmlContent='';
+
+						for (var i=0;i<res.length;i++){
+							htmlContent+='<tr><td>'+res[i].itemCode+'</td><td>'+res[i].itemName+'' +
+									'</td><td>'+res[i].format+'</td><td>'+res[i].price+'</td><td>' +
+									res[i].mnemonicCode+'</td><td><input class="layui-btn layui-btn-normal" type="button" name="" value="选择"/></td></tr>'
+
+
+						};
+						$("#test1").html(htmlContent);
+					},
+					'json'
+					)
+				})
 			});
 		</script>
+
 	</body>
 
 </html>
