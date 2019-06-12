@@ -22,12 +22,12 @@
 
         <div class="layui-tab-content">
             <div class="layui-form-item layui-inline">
-                <label class="layui-form-label">患者名：</label>
+                <label class="layui-form-label">病历号：</label>
                 <div class="layui-input-inline">
                     <input type="text" name="" required lay-verify="required" placeholder="请输入内容" autocomplete="off"
-                        class="layui-input">
+                        class="layui-input" id="hzblh">
                 </div>
-                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo">&#xe615; 搜索</button>
+                <button class="layui-btn layui-icon" lay-submit lay-filter="formDemo" id="sou">&#xe615; 搜索</button>
             </div>
             <br>
 
@@ -55,17 +55,17 @@
                     <label class="layui-form-label">病历号：</label>
                     <div class="layui-input-inline">
                         <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
+                            class="layui-input" id="blh">
                     </div>
                     <label class="layui-form-label">患者姓名：</label>
                     <div class="layui-input-inline">
                         <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
+                            class="layui-input" id="hzname">
                     </div>
                     <label class="layui-form-label">年龄：</label>
                     <div class="layui-input-inline">
                         <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
+                            class="layui-input" id="age">
                     </div>
                 </div>
                 <br>
@@ -74,36 +74,36 @@
                     <label class="layui-form-label">结算类别：</label>
                     <div class="layui-input-inline">
                         <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
+                            class="layui-input" id="jiesuan">
                     </div>
                     <label class="layui-form-label">就诊科室：</label>
                     <div class="layui-input-inline">
                         <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
+                            class="layui-input" id="jiuzhen">
                     </div>
                     <label class="layui-form-label">处方状态：</label>
                     <div class="layui-input-inline">
                         <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
+                            class="layui-input" id="chufang">
                     </div>
                 </div>
                 <br>
 
                 <div class="layui-form-item layui-inline">
                     <label class="layui-form-label">收费日期：</label>
-                    <div class="layui-input-inline">
+                    <div class="layui-input-inline" >
                         <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
+                            class="layui-input" id="sfrq">
                     </div>
                     <label class="layui-form-label">开单医生：</label>
                     <div class="layui-input-inline">
                         <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
+                            class="layui-input" id="cdys">
                     </div>
                     <label class="layui-form-label">发票号：</label>
                     <div class="layui-input-inline">
                         <input type="text" name="" required lay-verify="required" autocomplete="off"
-                            class="layui-input">
+                            class="layui-input" id="fph">
                     </div>
                 </div>
             </form>
@@ -118,6 +118,30 @@
         layui.use(['element', 'table'], function () {
             var element = layui.element;
             var table = layui.table;
+            var $=layui.jquery;
+
+            $('#sou').click(function () {
+                var bl=$('#hzblh').val();
+                $.post(
+                    '../yiji',
+                    {casn:bl},
+                    function (res,status,xhr) {
+                        $('#blh').val(res.caseNumber);
+                        $('#cdys').val(res.userName);
+                        $('#hzname').val(res.name);
+                        $('#age').val(res.settileId);
+                        $('#jiuzhen').val(res.departmentName);
+                        $('#jiesuan').val(res.settileId);
+                        $('#chufang').val(res.prescriptionState);
+                        $('#sfrq').val(res.visitDate);
+                        $('#fph').val(res.invoiceNum);
+                    },
+                    'json'
+                )
+
+            })
+
+
 
             table.render({
                 elem: '#yijijianyan1',
