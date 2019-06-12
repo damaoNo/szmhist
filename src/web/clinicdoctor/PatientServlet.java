@@ -77,8 +77,8 @@ public class PatientServlet extends HttpServlet {
                 String  physique=request.getParameter("physique");
                 String  proposal=request.getParameter("proposal");
                 String  careful=request.getParameter("careful");
-                String  checkResult=request.getParameter("checkResult");
-                String  diagnosis=request.getParameter("diagnosis");
+                String  history=request.getParameter("history");
+                String  present=request.getParameter("present");
                 String regidS=request.getParameter("regid");
                 int regid=Integer.parseInt(regidS);
                 MedicalRecord mr=new MedicalRecord();
@@ -100,15 +100,74 @@ public class PatientServlet extends HttpServlet {
                 if (careful!=null && careful.length()!=0){
                     mr.setCareful(careful);
                 }
-                if (checkResult!=null && checkResult.length()!=0){
-                    mr.setCheckResult(checkResult);
+                if (history!=null && history.length()!=0){
+                    mr.setHistory(history);
+                }
+                if (present!=null && present.length()!=0){
+                    mr.setPresent(present);
+                }
+                System.out.println(mr);
+                IConsultService cs=new ConsultService();
+                cs.consulting(regid,2,mr);
+                ObjectMapper mapper=new ObjectMapper();
+                String json=mapper.writeValueAsString(mr);
+                PrintWriter pw=response.getWriter();
+                System.out.println(json);
+                pw.println(json);
+                pw.flush();
+                pw.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (kind.equals("over")){
+            try {
+                String regidS=request.getParameter("regid");
+                int regid=Integer.parseInt(regidS);
+                IConsultService cs=new ConsultService();
+                cs.consulted(regid,3);
+                ObjectMapper mapper=new ObjectMapper();
+                String json=mapper.writeValueAsString("已提交");
+                PrintWriter pw=response.getWriter();
+                System.out.println(json);
+                pw.println(json);
+                pw.flush();
+                pw.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+
+
+        if (kind.equals("quezen")){
+            try {
+
+
+                String  cr=request.getParameter("cr");
+
+                String  diagnosis=request.getParameter("diag");
+                String  handling=request.getParameter("handling");
+                String regidS=request.getParameter("regid");
+                int regid=Integer.parseInt(regidS);
+                System.out.println(regid);
+                MedicalRecord mr=new MedicalRecord();
+                if (cr!=null && cr.length()!=0){
+                    mr.setCheckResult(cr);
                 }
                 if (diagnosis!=null && diagnosis.length()!=0){
                     mr.setDiagnosis(diagnosis);
                 }
+                if (handling!=null && handling.length()!=0){
+                    mr.setHandling(handling);
+                }
+                mr.setRegisterID(regid);
                 System.out.println(mr);
                 IConsultService cs=new ConsultService();
-                cs.consulting(regid,1,mr);
+                cs.diagnosis(mr);
                 ObjectMapper mapper=new ObjectMapper();
                 String json=mapper.writeValueAsString(mr);
                 PrintWriter pw=response.getWriter();

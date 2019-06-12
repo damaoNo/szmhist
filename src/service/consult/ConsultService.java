@@ -164,11 +164,35 @@ public class ConsultService implements IConsultService {
             con.setAutoCommit(false);
             IMedicalRecordDao mrd=new MedicalRecordDao();
             IRegistDao rd=new RegistDao();
+            mr.setRegisterID(regID);
             rd.setConnection(con);
             mrd.setConnection(con);
-            rd.updateVisitState(regID,2);
+            rd.updateVisitState(regID,state);
             mrd.updateMedRecord(mr);
-            mrd.updateCaseState(regID,2);
+            mrd.updateCaseState(regID,state);
+            con.commit();
+        } catch (SQLException e) {
+            con.rollback();
+            e.printStackTrace();
+        }finally {
+            JdbcUtil.release(con,null,null);
+        }
+    }
+
+    @Override
+    public void consulted(int regID, int state) throws SQLException {
+        Connection con=null;
+        try {
+            con= JdbcUtil.getConnection();
+            con.setAutoCommit(false);
+            IMedicalRecordDao mrd=new MedicalRecordDao();
+            IRegistDao rd=new RegistDao();
+
+            rd.setConnection(con);
+            mrd.setConnection(con);
+            rd.updateVisitState(regID,3);
+
+            mrd.updateCaseState(regID,3);
             con.commit();
         } catch (SQLException e) {
             con.rollback();

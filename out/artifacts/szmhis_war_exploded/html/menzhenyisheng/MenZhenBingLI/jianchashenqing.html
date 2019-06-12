@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>检查申请</title>
+		<link rel="stylesheet" type="text/css" href="../../../layui/css/layui.css"/>
+	</head>
+	<body>
+		<div class="">
+					<div style="text-align:center;">
+						<button id="qwqw" class="layui-btn layui-btn-normal">新增项目</button>
+						<button class="layui-btn layui-btn-normal">删除项目</button>
+						<button class="layui-btn layui-btn-normal">开立项目</button>
+						<button class="layui-btn layui-btn-normal">作废项目</button>
+						<button class="layui-btn layui-btn-normal">存为组套</button>
+						<button class="layui-btn layui-btn-normal">刷新</button>
+					</div>
+					<br />
+					<table class="layui-hide" id="test"></table>
+				</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="../../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+			layui.use(['element', 'form', 'table'], function() {
+				var element = layui.element;
+	            var form = layui.form;
+	            var table = layui.table;
+	            	table.render({
+					elem: '#test',
+					url: '/demo/table/user/',
+					cols: [
+						[{
+							type: 'checkbox'
+						}, {
+							field: '申请名称',
+							title: '申请名称'
+						}, {
+							field: '项目名称',
+							title: '项目名称'
+						}, {
+							field: '执行科室',
+							title: '执行科室'
+						}, {
+							field: '执行状态',
+							title: '城市'
+						}, {
+							field: '单价',
+							title: '单价'
+						}, {
+							field: '检查结果',
+							title: '检查结果'
+						}]
+					],
+					page: true
+				});
+
+				$('#qwqw').on('click', function() {
+					layer.open({
+						type: 2,
+						title: '新增医技',
+						maxmin: true,
+						area: ['800px', '520px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '../../TanChuCeng/-XinZenXiangMu.html',
+						btn: '关闭'
+					});
+				});
+				})
+				</script>
+</html>
