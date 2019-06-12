@@ -37,7 +37,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
     /**
      * 根据病历号查询相关病历记录
      *
-     * @param caseNum 病历号
+     * @param casn 病历号
      * @return 病历记录对象
      */
     @Override
@@ -259,7 +259,7 @@ public class MedicalRecordDao implements IMedicalRecordDao{
     /**
      * 根据类型（int）查询所有项目
      *
-     * @param type 类型
+     *
      * @return list
      */
     @Override
