@@ -179,12 +179,12 @@ public class PrescriptionDao implements IPrescriptionDao{
         String sql="UPDATE prescription SET PrescriptionState=?";
         Timestamp time=new Timestamp(System.currentTimeMillis());
         if (state == 2){
-            sql+=",PrescriptionTime="+time;
+            sql+=",PrescriptionTime='"+time+"'";
         }
         sql+=" WHERE ID=?";
         PreparedStatement pstmt=con.prepareStatement(sql);
-        pstmt.setInt(1,id);
-        pstmt.setInt(2,state);
+        pstmt.setInt(1,state);
+        pstmt.setInt(2,id);
         pstmt.executeUpdate();
         JdbcUtil.release(null, pstmt, null);
     }

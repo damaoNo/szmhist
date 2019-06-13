@@ -272,7 +272,7 @@
 				<ul>
 					<li class="layui-inline"><button id="zf" class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe61f;</i>增方</button></li>
 					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#x1007;</i>删方</button></li>
-					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe60a;</i>开立</button></li>
+					<li class="layui-inline"><button id="klyf" class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe60a;</i>开立</button></li>
 					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe605;</i>发送</button></li>
 					<li class="layui-inline"><button class="layui-btn layui-btn-xs layui-btn-normal"><i class="layui-icon">&#xe640;</i>作废</button></li>
 				</ul>
@@ -403,7 +403,7 @@
 		var cs='';
 		var rn='';
 		var ag='';
-
+		var csid='';
 
 		$.post(
 
@@ -426,7 +426,8 @@
 					$(".layui-tab-content").on("click",".trt",function () {
 						/*alert($(this).find("#rn").html());*/
 						flag=1;
-						console.log($(this).find("#idinput").val());
+						csid=$(this).find("#idinput").val();
+						console.log(csid);
 						regidv=$(this).find("#idinput").val();
 						cs=$(this).find("#cs").text();
 						rn=$(this).find("#rn").text();
@@ -636,16 +637,13 @@
 
 
 							}else {
-								/*console.log(res[i]);
 								for (var j=0;j<res[i];j++){
 									if (j<3){
-										yyp+='<a href="localhost:8888/his/html/pinfo/ypss?codes=null&page='+
-												(j+1)+'>'+(j+1)+'</a>';
+										yyp+='<button class="layui-btn pages" type="button" value="'+(j+1)+'">'+(j+1)+'</button> ';
 									} else if (j=(res[i]-1)){
-										yyp+='<a href="localhost:8888/his/html/pinfo/ypss?codes=null&page='+
-												(j+1)+'>'+(j+1)+'</a>';
+										yyp+='.... <button class="layui-btn pages" type="button" value="'+(j+1)+'">'+(j+1)+'</button>';
 									}
-								}*/
+								}
 							}
 						}
 						$("#yy").html(yyh);
@@ -679,16 +677,13 @@
 
 
 							}else {
-								/*console.log(res[i]);
 								for (var j=0;j<res[i];j++){
 									if (j<3){
-										yyp+='<a href="localhost:8888/his/html/pinfo/ypss?codes=null&page='+
-												(j+1)+'>'+(j+1)+'</a>';
+										yyp+='<button class="layui-btn pages" type="button" value="'+(j+1)+'">'+(j+1)+'</button> ';
 									} else if (j=(res[i]-1)){
-										yyp+='<a href="localhost:8888/his/html/pinfo/ypss?codes=null&page='+
-												(j+1)+'>'+(j+1)+'</a>';
+										yyp+='.... <button class="layui-btn pages" type="button" value="'+(j+1)+'">'+(j+1)+'</button>';
 									}
-								}*/
+								}
 							}
 						}
 						$("#yy").html(yyh);
@@ -697,6 +692,44 @@
 					},
 					'json'
 			)
+		})
+		$("#box2").on('click','.pages',function () {
+			console.log($(this).val());
+			$.post(
+					'/his/html/pinfo/ypss',
+					{
+						codes:$("input[name='ssyp']").val(),
+						page:$(this).val(),
+					},
+					function (res,status,xhr) {
+						console.log(res);
+						$("#yy").html("");
+						var yyh='';
+						var yyp='';
+						for (var i=0;i<res.length;i++){
+							if (i!=res.length-1){
+								yyh+='<tr><td>'+res[i].drugName+'</td><td>'+
+										res[i].drugsFormat+'</td><td>'+
+										res[i].drugsPrice+'</td><td>' +
+										'<button class="layui-btn drug" type="button" value="'+res[i].id+'">选择</button></td></tr>';
+
+
+							}else {
+								for (var j=0;j<res[i];j++){
+									if (j<3){
+										yyp+='<button class="layui-btn pages" type="button" value="'+(j+1)+'">'+(j+1)+'</button> ';
+									} else if (j=(res[i]-1)){
+										yyp+='.... <button class="layui-btn pages" type="button" value="'+(j+1)+'">'+(j+1)+'</button>';
+									}
+								}
+							}
+						}
+						$("#yy").html(yyh);
+						$("#pages").html(yyp);
+					},
+					'json'
+			)
+
 		})
 		$("#box2").on('click','.drug',function () {
 			// alert("durg")
@@ -708,7 +741,8 @@
 								drugid:$(this).val(),
 							},
 							function (res,status,xhr) {
-								console.log(res);},
+								console.log(res);
+								},
 							'json'
 			)
 			$.post(
@@ -743,7 +777,7 @@
 					{
 						regid:regidv,
 						pname:$("#pname").val(),
-						medicalid:cs
+						medicalid:csid
 					},
 					function (res,status,xhr) {
 						console.log(res);
@@ -799,7 +833,20 @@
 			)
 		})
 
+		$("#klyf").click(function () {
+			$.post(
+					'/his/html/pinfo/klyf',
+					{
+						presid:preidv,
 
+
+					},
+					function (res,status,xhr) {
+						console.log(res);
+					},
+					'json'
+			)
+		})
 
 
 		table.render({

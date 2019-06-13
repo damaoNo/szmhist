@@ -316,6 +316,37 @@ public class PatientServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+
+
+        if (kind.equals("klyf")){
+            try {
+                String presidS=request.getParameter("presid");
+
+
+
+
+                IConsultService cs=new ConsultService();
+
+                int presid=Integer.parseInt(presidS);
+
+
+
+                cs.changePresState(presid,2);
+
+                List l=cs.findDrugsinPre(presid);
+
+                String json=mapper.writeValueAsString(l);
+
+                pw=response.getWriter();
+                System.out.println(json);
+                pw.println(json);
+                pw.flush();
+                pw.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 
