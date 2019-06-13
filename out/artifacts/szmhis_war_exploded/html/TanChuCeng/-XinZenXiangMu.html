@@ -41,12 +41,12 @@
 				</thead>
 			</table>
 		</form>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script src="../../layui/layui.js" charset="utf-8"></script>
 		<script>
-			layui.use(['form','table'], function() {
+			layui.use(['form','table','layer'], function() {
 				var table = layui.table,
 						form=layui.form;
-
 
 				/*table.render({
 					elem: '#test',
@@ -91,7 +91,7 @@
 						for (var i=0;i<res.length;i++){
 							htmlContent+='<tr><td>'+res[i].itemCode+'</td><td>'+res[i].itemName+'' +
 									'</td><td>'+res[i].format+'</td><td>'+res[i].price+'</td><td>' +
-									res[i].mnemonicCode+'</td><td><input class="layui-btn layui-btn-normal" type="button" name="" value="选择"/></td></tr>'
+									res[i].mnemonicCode+'</td><td><input class="layui-btn layui-btn-normal xuanze" id="" type="button"  name="" value="选择"/></td></tr>'
 
 
 						};
@@ -99,7 +99,21 @@
 					},
 					'json'
 					)
-				})
+
+				});
+				$('#test1').on('click','.xuanze', function() {
+					console.log("dsa");
+					layer.open({
+						type: 2,
+						title: '添加医技',
+						maxmin: true,
+						area: ['800px', '520px'],
+						shadeClose: true, //点击遮罩关闭层
+						content: '添加详情.html',
+						btn: '关闭'
+					})
+				});
+
 			});
 		</script>
 

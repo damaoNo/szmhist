@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>添加详情</title>
+		<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css" />
+	</head>
+	<style type="text/css">
+		.layui-input-block{
+			margin-top: 5px;
+		}
+	</style>
+
+	<body>
+		<form class="layui-form" action="">
+			<div class="layui-input-block">
+				<label class="layui-form-label">申请名称</label>
+				<input type="text" name="title" required lay-verify="required" placeholder="申请名称" autocomplete="off" class="layui-input" style="width: 200px;">
+			</div>
+			<div class="layui-input-block">
+				<label class="layui-form-label">项目名称</label>
+				<input type="text" name="title" id="xmmc" required lay-verify="required" placeholder="项目名称" autocomplete="off" class="layui-input" style="width: 200px;"disabled>
+			</div>
+			<div class=" layui-input-block ">
+				<label class="layui-form-label ">目的要求</label>
+				<input type="text " name="title " required lay-verify="required " placeholder="目的要求 " autocomplete="off " class="layui-input " style="width: 200px; ">
+			</div>
+			<div class="layui-input-block ">
+				<label class="layui-form-label ">检查部位</label>
+				<input type="text " name="title " required lay-verify="required " placeholder="检查部位 " autocomplete="off " class="layui-input " style="width: 200px; ">
+			</div>
+			<div class="layui-form-item" style="margin-left: 110px;">
+				<label class="layui-form-label">是否加急</label>
+				<div class="layui-input-block">
+					否 <input type="checkbox" checked="" name="open" lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF"> 是
+				</div>
+			</div>
+		</form>
+		<button class="layui-btn layui-btn-normal " style="margin-left: 150px;">添加</button>
+	</body>
+	<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript ">
+		var form = layui.form,
+			layedit = layui.layedit;
+		layui.use(['form', 'layedit'], function() {
+			form.on('switch(switchTest)', function(data) {
+				layer.msg('开关checked：' + (this.checked ? 'true' : 'false'), {
+					offset: '6px'
+				});
+			});
+		})
+	</script>
+
+</html>
