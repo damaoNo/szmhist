@@ -33,6 +33,7 @@ public class AddXiangMuServlet extends HttpServlet {
             List<NonDrugsPay> list=null;
             IConsultService IC=new ConsultService();
             NonDrugsPay nd=new NonDrugsPay();
+            nd.setRecordType(1);
              nd.setMnemonicCode(Str);
             try {
                  list= IC.findNDrugByType(nd);
