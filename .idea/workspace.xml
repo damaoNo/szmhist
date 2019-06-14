@@ -6,23 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/img/index.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/img/index.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/PrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/dao/PrescriptionDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/web/clinicdoctor/PatientServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/classes/web/clinicdoctor/PatientServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/html/menzhenyisheng/MenZhenBingLi.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/html/menzhenyisheng/MenZhenBingLi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/szmhis_war_exploded/img/log.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/PrescriptionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PrescriptionDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/clinicdoctor/PatientServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/clinicdoctor/PatientServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/dao/PrescriptionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/dao/PrescriptionDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/web/clinicdoctor/PatientServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/web/clinicdoctor/PatientServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/html/menzhenyisheng/MenZhenBingLi.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/html/menzhenyisheng/MenZhenBingLi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/img/log.jpg" beforeDir="false" />
-    </list>
+    <list default="true" id="de0e16d9-f7f8-456a-8aa2-b3b12b189eea" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/web/WEB-INF/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -664,7 +648,7 @@
       <workItem from="1560311755604" duration="18733000" />
       <workItem from="1560347131446" duration="10131000" />
       <workItem from="1560388097189" duration="5959000" />
-      <workItem from="1560409844786" duration="640000" />
+      <workItem from="1560409844786" duration="741000" />
     </task>
     <task id="LOCAL-00001" summary="ver 0.0:&#10;add readme">
       <created>1559230289989</created>
@@ -1002,7 +986,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560357139528</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="0.7">
+      <created>1560410504675</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1560410504675</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1038,7 +1029,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295768000" />
+    <option name="totallyTimeSpent" value="295869000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1051,9 +1042,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.17377399" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49666667" visible="true" weight="0.17377399" />
       <window_info id="Structure" order="1" sideWeight="0.50333333" side_tool="true" weight="0.17217484" />
       <window_info id="Web" order="2" sideWeight="0.50441504" side_tool="true" weight="0.19936034" />
       <window_info id="JRebel" order="3" side_tool="true" />
@@ -1070,7 +1060,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289183" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.7356077" weight="0.44922736" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.7356077" visible="true" weight="0.44922736" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3289183" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50373137" side_tool="true" weight="0.50883" />
@@ -1203,7 +1193,8 @@
     <MESSAGE value="0.5 门诊病历+挂号 业务" />
     <MESSAGE value="0.5 添加静态页面" />
     <MESSAGE value="0.6 挂号" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.6 挂号" />
+    <MESSAGE value="0.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
