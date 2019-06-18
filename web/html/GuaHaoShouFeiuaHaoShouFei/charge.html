@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:background-color="http://www.w3.org/1999/xhtml">
 
 	<head>
 		<meta charset="UTF-8">
@@ -19,18 +19,17 @@
 			<form id="formcharge">
 				<table class="layui-table">
 					<tr><td colspan="3">患者信息查询：</td></tr>
-					<tr><td>输入病历号：<input type="text" name="casenum"></td><td colspan="2"><button type="button" class="layui-btn btn-submit" lay-submit="" lay-filter="search">查询</button></td></tr>
+					<tr><td>输入病历号：<input type="text" id="blh" name="casenum"></td><td colspan="2"><button type="button" class="layui-btn btn-submit" lay-submit="" lay-filter="search" id="research">查询</button></td></tr>
 					<tr><td>患者信息确认：</td></tr>
-					<tr><td style="width: 300px">姓名：<input type="text" name="username" readonly></td><td width="500px">身份证：<input type="text" name="idnum"></td><td width="500px">家庭住址：<input
+					<tr><td style="width: 300px">姓名：<input id="name" type="text" name="username" readonly></td><td width="500px">身份证：<input type="text" name="idnum"></td><td width="500px">家庭住址：<input
 							type="text" name="homeaddr"></td></tr>
-
 				</table>
 			</form>
 		</table>
-			<table class="layui-table">
+			<table class="layui-table" id="wota">
 				<thead>
 					<tr>
-						<th><input type="checkbox"></th>
+						<th><input type="checkbox" name="box"></th>
 						<th>病例号</th>
 						<th>姓名</th>
 						<th>项目名称</th>
@@ -40,50 +39,85 @@
 						<th>状态</th>
 					</tr>
 				</thead>
-
 				<tbody id="tbody23">
 
 				</tbody>
 			</table>
+		    <button type="button" id="jf"  class="layui-btn btn-submit" style="display:none;" >缴费按钮</button>
+            <div id=win style="display:none;  left:10%; top:10%; width:600px; height:220px; border:1px solid #888; background-color:#fff9ec; text-align:left">
+		   <br/><p>发票号(可修改)<input type="text" value="" id="fp"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 病历号:<input type="text" value="" id="bl"></p><br/>
+				<p>患者姓名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="" id="hz">&nbsp;&nbsp;&nbsp;  支付方式:<select><option>现金</option><option>医保</option></select> </p><br/>
+				<p>应收金额:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="" id="ys">&nbsp;&nbsp;&nbsp;  实收金额:<input type="text" value="" id="ss"> </p><br/>
+				<p>找零金额:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" value="" id="zl"><br/><br/>
+				<p align="center">
+				   <button type="button">取消</button>&nbsp;
+			       <button type="button" id="qd">确定</button>
+			    </p>
+			</div>
+
 			<script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
 			<script>
-				layui.use(['form','layer'],function () {
-					var $ = layui.jquery,
-							form = layui.form,
-							layer = layui.layer;
-					form.on('submit(search)', function(data) {
-						console.log("search");
+				layui.use(['table'],function (){
+					var $=layui.jquery;
+					var zj=Number(0);
 
+					$('#research').click(function () {
 						$.post(
-								'/his/html/regist/charge',
-								{casenum:$("input[name='casenum']").val()},
-								function (res,status,xhr) {
-									console.log(res);
-									var htmlcon='';
-									if (res[0].length>0){
-										for (var i=0;i<res[0].length;i++){
-											htmlcon+='<tr><td><input type="checkbox" id="'+res[0][i].id+'"></td><td>'+$("input[name='casenum']").val() +
-													'</td><td>'+res[2].realName+'</td><td>'+res[0][i].drugName+'</td><td>' +
-													res[0][i].price+'</td><td>'+res[0][i].amout+'</td><td>'+res[0][i].prescriptionTime+'</td><td>已开立</td></tr>';
-										}
-										$("#tbody23").html(htmlcon);
-									}
-
-										$("input[name='username']").val(res[2].realName);
-										$("input[name='idnum']").val(res[2].idNumber);
-										$("input[name='homeaddr']").val(res[2].homeAddress);
-
-
-								},
-								'json'
-						)
+						'/his/html/regist/charge',
+						{casenum:$("input[name='casenum']").val()},
+						function (res,status,xhr) {
+							var htmls='',body='';
+							if(res[0].length>0){
+								for(var i=0;i<res[0].length;i++){
+									htmls+='<tr><td><input type="checkbox" name="box" id="ckid"></td><td>'+$("input[name='casenum']").val()+
+											'</td><td>'+res[2].realName+'</td><td>'+res[0][i].drugName+'</td><td>' +
+									res[0][i].price+'</td><td>'+res[0][i].amout+'</td><td>'+res[0][i].prescriptionTime+'</td><td>已开立</td></tr>';
+                                    zj+=parseFloat(res[0][i].price);
+								}
+								$('#tbody23').html(body);
+								$('#tbody23').html(htmls);
+								$('#jf').show();
+							}
+							$("input[name='username']").val(res[2].realName);
+							$("input[name='idnum']").val(res[2].idNumber);
+							$("input[name='homeaddr']").val(res[2].homeAddress);
+						},'json')
 					});
 
 
-				})
+					var cks=document.getElementsByName("box");
+					$('#tbody23').click(function () {
+						for(var i=0;i<cks.length;i++){
+						  if(cks[i].checked){
+							  cks[0].checked=true;
+							}
+						}
+					});
+
+					$('#ss').blur(function () {
+						$('#zl').val((Number($('#ss').val())-zj).toFixed(2));
+					});
+
+					$('#jf').click(function () {
+					//	alert("缴费按钮已经按下了");
+						document.getElementById("win").style.display="";
+						document.getElementById("jf").style.display="none";
+						$('#fp').val("65");
+						$('#bl').val($('#blh').val());
+						$('#hz').val($('#name').val());
+						$('#ys').val(zj);
+					});
+
+					$('#qd').click(function () {
+						alert("缴费成功！");
+					//	window.opener.location.href = window.opener.location.href;
+						window.close();
+					})
+
+
+				});
 			</script>
 
 
 	</body>
-
 </html>
