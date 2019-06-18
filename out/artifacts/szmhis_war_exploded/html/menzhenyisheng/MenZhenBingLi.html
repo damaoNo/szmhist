@@ -365,6 +365,48 @@
 		</div>
 	</form>
 </div>
+<div class="site-text" style="margin:5%;display:none" id="box3" target="test123">
+	<form class="layui-form layui-form-pane">
+
+
+		<div class="layui-form-item">
+			<h2>添加处方中的药品详情：</h2>
+		</div>
+
+		<div class="layui-form-item">
+			<form>
+				<table class="layui-table" lay-even lay-skin="nob">
+					<tr>
+						<td>药品编码</td><td><input type="text" name="ypbm" style="width: 400px"></td>
+					</tr>
+					<tr>
+						<td>药品名称</td><td><input type="text" name="ypmc" style="width: 400px"></td>
+					</tr>
+					<tr>
+						<td>药品规格</td><td><input type="text" name="ypgg" style="width: 400px"></td>
+					</tr>
+					<tr>
+						<td>药品单位</td><td><input type="text" name="ypdw" style="width: 400px"></td>
+					</tr>
+					<tr>
+						<td>药品用法</td><td><input type="text" name="ypyf" style="width: 400px"></td>
+					</tr>
+					<tr>
+						<td>药品用量</td><td><input type="text" name="ypyl" style="width: 400px"></td>
+					</tr>
+					<tr>
+						<td>使用频次</td><td><input type="text" name="sypc" style="width: 400px"></td>
+					</tr>
+					<tr>
+						<td>药品数量</td><td><input type="text" name="sl" style="width: 400px"></td>
+					</tr>
+					<tr><td></td><td><button class="layui-btn" id="xzcfyp" type="button" >新增</button></td></tr>
+				</table>
+			</form>
+
+		</div>
+	</form>
+</div>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script src="../../layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script>
@@ -628,12 +670,14 @@
 						$("#yy").html("");
 						var yyh='';
 						var yyp='';
+						var butinfo=' ';
 						for (var i=0;i<res.length;i++){
 							if (i!=res.length-1){
+								butinfo=res[i].id+','+res[i].drugCode+','+res[i].drugsUnit+','+res[i].drugName+','+res[i].drugsFormat;
 								yyh+='<tr><td>'+res[i].drugName+'</td><td>'+
 										res[i].drugsFormat+'</td><td>'+
 										res[i].drugsPrice+'</td><td>' +
-										'<button class="layui-btn drug" type="button" value="'+res[i].id+'">选择</button></td></tr>';
+										'<button class="layui-btn drug" type="button" value="'+butinfo+'">选择</button></td></tr>';
 
 
 							}else {
@@ -731,41 +775,63 @@
 			)
 
 		})
-		$("#box2").on('click','.drug',function () {
-			// alert("durg")
+		$("#xzcfyp").click(function () {
+			alert("123");
 			$.post(
 
 							'/his/html/pinfo/nd',
 							{
 								presid:preidv,
 								drugid:$(this).val(),
+								drugusage:$("input[name='ypyf']").val(),
+								dosage:$("input[name='ypyl']").val(),
+								frequency:$("input[name='sypc']").val(),
+								amout:$("input[name='sl']").val()
+
 							},
 							function (res,status,xhr) {
 								console.log(res);
 								},
 							'json'
 			)
-			$.post(
-					'/his/html/pinfo/dip',
-					{
-						preid:preidv
-					},
-					function (res,status,xhr) {
-						var hhh='';
-						for(var i=0;i<res.length;i++){
-							hhh+='<tr><td>'+res[i].drugName+'</td><td>'+
-									res[i].format+'</td><td>'+
-									res[i].price+'</td><td>'+
-									res[i].drugsUsage+'</td><td>'+
-									res[i].dosage+'</td><td>'+
-									res[i].frequency+'</td><td>'+
-									res[i].amount+'</td></tr>';
-						}
-						$("#yyyy").html(hhh);
-
-					},
-					'json'
-			)
+		})
+		$("#box2").on('click','.drug',function () {
+			// alert("durg")
+			layer.open({
+				title: '新增药品',
+				type: 1,
+				area: ['40%', '60%'],
+				shadeClose: true,
+				content: $('#box3'),btnAlign: 'c', offset: '50px',
+			})
+			var butinfo=$(this).val();
+			var butinfoA=butinfo.split(',');
+			$("input[name='ypbm']").val(butinfoA[1]);
+			$("input[name='ypdw']").val(butinfoA[2]);
+			$("input[name='ypmc']").val(butinfoA[3]);
+			$("input[name='ypgg']").val(butinfoA[4]);
+			$("#xzcfyp").val(butinfoA[0]);
+			// $.post(
+			// 		'/his/html/pinfo/dip',
+			// 		{
+			// 			preid:preidv
+			// 		},
+			// 		function (res,status,xhr) {
+			// 			var hhh='';
+			// 			for(var i=0;i<res.length;i++){
+			// 				hhh+='<tr><td>'+res[i].drugName+'</td><td>'+
+			// 						res[i].format+'</td><td>'+
+			// 						res[i].price+'</td><td>'+
+			// 						res[i].drugsUsage+'</td><td>'+
+			// 						res[i].dosage+'</td><td>'+
+			// 						res[i].frequency+'</td><td>'+
+			// 						res[i].amount+'</td></tr>';
+			// 			}
+			// 			$("#yyyy").html(hhh);
+			//
+			// 		},
+			// 		'json'
+			// )
 		})
 
 

@@ -286,6 +286,10 @@ public class PatientServlet extends HttpServlet {
             try {
                 String presidS=request.getParameter("presid");
                 String drugidS=request.getParameter("drugid");
+                String drugusageS=request.getParameter("drugusage");
+                String dosageS=request.getParameter("dosage");
+                String frequencyS=request.getParameter("frequency");
+                String amoutS=request.getParameter("amout");
 
 
 
@@ -295,12 +299,13 @@ public class PatientServlet extends HttpServlet {
                 int drugid=Integer.parseInt(drugidS);
                 p.setPrescriptionID(presid);
                 p.setDrugsID(drugid);
-                p.setDrugsUsage("null");
-                p.setDosage("null");
-                p.setFrequency("null");
-                p.setFrequency("null");
-                p.setAmount(1d);
+                p.setDrugsUsage(drugusageS);
+                p.setDosage(dosageS);
+                p.setFrequency(frequencyS);
+                Double amount = Double.valueOf(amoutS);
+                p.setAmount(amount);
                 p.setState(2);
+                System.out.println(p);
                 cs.newPresDetailed(p);
 
 
